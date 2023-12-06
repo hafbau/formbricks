@@ -21,7 +21,7 @@ import { TMembershipRole } from "@fastform/types/memberships";
 
 interface SummaryPageProps {
   environment: TEnvironment;
-  survey: TSurvey;
+  form: TSurvey;
   surveyId: string;
   responses: TResponse[];
   webAppUrl: string;
@@ -35,7 +35,7 @@ interface SummaryPageProps {
 
 const SummaryPage = ({
   environment,
-  survey,
+  form,
   surveyId,
   responses,
   webAppUrl,
@@ -58,14 +58,14 @@ const SummaryPage = ({
 
   // get the filtered array when the selected filter value changes
   const filterResponses: TResponse[] = useMemo(() => {
-    return getFilterResponses(responses, selectedFilter, survey, dateRange);
-  }, [selectedFilter, responses, survey, dateRange]);
+    return getFilterResponses(responses, selectedFilter, form, dateRange);
+  }, [selectedFilter, responses, form, dateRange]);
 
   return (
     <ContentWrapper>
       <SummaryHeader
         environment={environment}
-        survey={survey}
+        form={form}
         surveyId={surveyId}
         webAppUrl={webAppUrl}
         product={product}
@@ -75,21 +75,21 @@ const SummaryPage = ({
       <CustomFilter
         environmentTags={environmentTags}
         responses={filterResponses}
-        survey={survey}
+        form={form}
         totalResponses={responses}
       />
       <SurveyResultsTabs activeId="summary" environmentId={environment.id} surveyId={surveyId} />
       <SummaryMetadata
         responses={filterResponses}
-        survey={survey}
+        form={form}
         displayCount={displayCount}
         showDropOffs={showDropOffs}
         setShowDropOffs={setShowDropOffs}
       />
-      {showDropOffs && <SummaryDropOffs survey={survey} responses={responses} displayCount={displayCount} />}
+      {showDropOffs && <SummaryDropOffs form={form} responses={responses} displayCount={displayCount} />}
       <SummaryList
         responses={filterResponses}
-        survey={survey}
+        form={form}
         environment={environment}
         responsesPerPage={responsesPerPage}
       />

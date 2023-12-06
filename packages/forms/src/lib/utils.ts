@@ -48,18 +48,18 @@ export const shuffleQuestions = (array: any[], shuffleOption: string) => {
   return arrayCopy;
 };
 
-export const calculateElementIdx = (survey: TSurvey, currentQustionIdx: number): number => {
-  const currentQuestion = survey.questions[currentQustionIdx];
-  const surveyLength = survey.questions.length;
+export const calculateElementIdx = (form: TSurvey, currentQustionIdx: number): number => {
+  const currentQuestion = form.questions[currentQustionIdx];
+  const surveyLength = form.questions.length;
   const middleIdx = Math.floor(surveyLength / 2);
   const possibleNextQuestions = currentQuestion?.logic?.map((l) => l.destination) || [];
 
   const getLastQuestionIndex = () => {
-    const lastQuestion = survey.questions
+    const lastQuestion = form.questions
       .filter((q) => possibleNextQuestions.includes(q.id))
-      .sort((a, b) => survey.questions.indexOf(a) - survey.questions.indexOf(b))
+      .sort((a, b) => form.questions.indexOf(a) - form.questions.indexOf(b))
       .pop();
-    return survey.questions.findIndex((e) => e.id === lastQuestion?.id);
+    return form.questions.findIndex((e) => e.id === lastQuestion?.id);
   };
 
   let elementIdx = currentQustionIdx || 0.5;

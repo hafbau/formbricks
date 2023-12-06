@@ -19,8 +19,8 @@ export default function WebpageTab({ surveyUrl }) {
         <div className=""></div>
         <Button
           variant="darkCTA"
-          title="Embed survey in your website"
-          aria-label="Embed survey in your website"
+          title="Embed form in your website"
+          aria-label="Embed form in your website"
           onClick={() => {
             navigator.clipboard.writeText(iframeCode);
             toast.success("Embed code copied to clipboard!");

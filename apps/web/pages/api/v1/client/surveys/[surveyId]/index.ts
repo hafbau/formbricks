@@ -14,8 +14,8 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
   }
   // GET
   else if (req.method === "GET") {
-    // get survey
-    const survey = await prisma.survey.findFirst({
+    // get form
+    const form = await prisma.form.findFirst({
       where: {
         id: surveyId,
         type: "link",
@@ -32,9 +32,9 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       },
     });
 
-    // if survey does not exist, return 404
-    if (!survey) {
-      return res.status(404).json({ message: "Survey not found" });
+    // if form does not exist, return 404
+    if (!form) {
+      return res.status(404).json({ message: "Form not found" });
     }
 
     // get brandColor from product using environmentId
@@ -42,7 +42,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       where: {
         environments: {
           some: {
-            id: survey.environmentId,
+            id: form.environmentId,
           },
         },
       },
@@ -52,19 +52,19 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       },
     });
 
-    if (survey.status !== "inProgress") {
+    if (form.status !== "inProgress") {
       return res.status(403).json({
-        message: "Survey not running",
-        reason: survey.status,
+        message: "Form not running",
+        reason: form.status,
         brandColor: product?.brandColor,
         formbricksSignature: product?.linkSurveyBranding,
-        surveyClosedMessage: survey?.surveyClosedMessage,
+        surveyClosedMessage: form?.surveyClosedMessage,
       });
     }
 
-    // if survey exists, return survey
+    // if form exists, return form
     return res.status(200).json({
-      ...survey,
+      ...form,
       brandColor: product?.brandColor,
       formbricksSignature: product?.linkSurveyBranding,
     });

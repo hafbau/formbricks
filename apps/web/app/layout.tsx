@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     template: "%s | Fastform",
     default: "Fastform",
   },
-  description: "Open-Source Survey Suite",
+  description: "Open-Source Form Suite",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

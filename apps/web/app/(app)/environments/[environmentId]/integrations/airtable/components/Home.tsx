@@ -23,7 +23,7 @@ interface handleModalProps {
   airtableArray: TIntegrationItem[];
 }
 
-const tableHeaders = ["Survey", "Table Name", "Questions", "Updated At"];
+const tableHeaders = ["Form", "Table Name", "Questions", "Updated At"];
 
 export default function Home(props: handleModalProps) {
   const { airtableIntegration, environment, environmentId, setIsConnected, surveys, airtableArray } = props;
@@ -98,7 +98,7 @@ export default function Home(props: handleModalProps) {
                 setDefaultValues({
                   base: data.baseId,
                   questions: data.questionIds,
-                  survey: data.surveyId,
+                  form: data.surveyId,
                   table: data.tableId,
                   index,
                 });

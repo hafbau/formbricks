@@ -8,7 +8,7 @@ import type { TProduct } from "@fastform/types/product";
 import { TUploadFileConfig } from "@fastform/types/storage";
 import { TSurvey } from "@fastform/types/surveys";
 import { Button } from "@fastform/ui/Button";
-import { SurveyInline } from "@fastform/ui/Survey";
+import { SurveyInline } from "@fastform/ui/Form";
 import { ArrowPathRoundedSquareIcon } from "@heroicons/react/24/outline";
 import {
   ArrowsPointingInIcon,
@@ -22,7 +22,7 @@ import { useEffect, useRef, useState } from "react";
 type TPreviewType = "modal" | "fullwidth" | "email";
 
 interface PreviewSurveyProps {
-  survey: TSurvey;
+  form: TSurvey;
   setActiveQuestionId: (id: string | null) => void;
   activeQuestionId?: string | null;
   previewType?: TPreviewType;
@@ -62,7 +62,7 @@ const previewParentContainerVariant: Variants = {
 export default function PreviewSurvey({
   setActiveQuestionId,
   activeQuestionId,
-  survey,
+  form,
   previewType,
   product,
   environment,
@@ -76,7 +76,7 @@ export default function PreviewSurvey({
   const ContentRef = useRef<HTMLDivElement | null>(null);
   const [shrink, setshrink] = useState(false);
 
-  const { productOverwrites } = survey || {};
+  const { productOverwrites } = form || {};
 
   const previewScreenVariants: Variants = {
     expanded: {
@@ -125,25 +125,25 @@ export default function PreviewSurvey({
 
   useEffect(() => {
     // close modal if there are no questions left
-    if (survey.type === "web" && !survey.thankYouCard.enabled) {
+    if (form.type === "web" && !form.thankYouCard.enabled) {
       if (activeQuestionId === "end") {
         setIsModalOpen(false);
         setTimeout(() => {
-          setActiveQuestionId(survey.questions[0].id);
+          setActiveQuestionId(form.questions[0].id);
           setIsModalOpen(true);
         }, 500);
       }
     }
-  }, [activeQuestionId, survey.type, survey, setActiveQuestionId]);
+  }, [activeQuestionId, form.type, form, setActiveQuestionId]);
 
-  // this useEffect is fo refreshing the survey preview only if user is switching between templates on survey templates page and hence we are checking for survey.id === "someUniqeId1" which is a common Id for all templates
+  // this useEffect is fo refreshing the form preview only if user is switching between templates on form templates page and hence we are checking for form.id === "someUniqeId1" which is a common Id for all templates
   useEffect(() => {
-    if (survey.name !== surveyNameTemp && survey.id === "someUniqueId1") {
+    if (form.name !== surveyNameTemp && form.id === "someUniqueId1") {
       resetQuestionProgress();
-      surveyNameTemp = survey.name;
+      surveyNameTemp = form.name;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [survey]);
+  }, [form]);
 
   function resetQuestionProgress() {
     let storePreviewMode = previewMode;
@@ -152,7 +152,7 @@ export default function PreviewSurvey({
       setPreviewMode(storePreviewMode);
     }, 10);
 
-    setActiveQuestionId(survey.welcomeCard.enabled ? "start" : survey?.questions[0]?.id);
+    setActiveQuestionId(form.welcomeCard.enabled ? "start" : form?.questions[0]?.id);
   }
 
   function animationTrigger() {
@@ -164,10 +164,10 @@ export default function PreviewSurvey({
   }
 
   useEffect(() => {
-    if (survey.styling?.background?.bgType === "animation") {
+    if (form.styling?.background?.bgType === "animation") {
       animationTrigger();
     }
-  }, [survey.styling?.background?.bg]);
+  }, [form.styling?.background?.bg]);
 
   useEffect(() => {
     if (environment && environment.widgetSetupCompleted) {
@@ -208,7 +208,7 @@ export default function PreviewSurvey({
             <div className="absolute right-0 top-0 m-2">
               <ResetProgressButton resetQuestionProgress={resetQuestionProgress} />
             </div>
-            <MediaBackground survey={survey} ContentRef={ContentRef} isMobilePreview>
+            <MediaBackground form={form} ContentRef={ContentRef} isMobilePreview>
               {/* below element is use to create notch for the mobile device mockup   */}
               <div className="absolute left-1/2 right-1/2 top-0 z-20 h-4 w-1/2 -translate-x-1/2 transform rounded-b-md bg-slate-500"></div>
               {previewType === "modal" ? (
@@ -218,7 +218,7 @@ export default function PreviewSurvey({
                   highlightBorderColor={highlightBorderColor}
                   previewMode="mobile">
                   <SurveyInline
-                    survey={survey}
+                    form={form}
                     brandColor={brandColor}
                     activeQuestionId={activeQuestionId || undefined}
                     isBrandingEnabled={product.linkSurveyBranding}
@@ -230,7 +230,7 @@ export default function PreviewSurvey({
               ) : (
                 <div className="relative z-10 w-full max-w-md  px-4">
                   <SurveyInline
-                    survey={survey}
+                    form={form}
                     brandColor={brandColor}
                     activeQuestionId={activeQuestionId || undefined}
                     isBrandingEnabled={product.linkSurveyBranding}
@@ -285,7 +285,7 @@ export default function PreviewSurvey({
                 highlightBorderColor={highlightBorderColor}
                 previewMode="desktop">
                 <SurveyInline
-                  survey={survey}
+                  form={form}
                   brandColor={brandColor}
                   activeQuestionId={activeQuestionId || undefined}
                   isBrandingEnabled={product.linkSurveyBranding}
@@ -295,10 +295,10 @@ export default function PreviewSurvey({
                 />
               </Modal>
             ) : (
-              <MediaBackground survey={survey} ContentRef={ContentRef} isEditorView>
+              <MediaBackground form={form} ContentRef={ContentRef} isEditorView>
                 <div className="z-0 w-full  max-w-md rounded-lg p-4">
                   <SurveyInline
-                    survey={survey}
+                    form={form}
                     brandColor={brandColor}
                     activeQuestionId={activeQuestionId || undefined}
                     isBrandingEnabled={product.linkSurveyBranding}

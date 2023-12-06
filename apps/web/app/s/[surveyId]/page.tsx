@@ -11,7 +11,7 @@ import { REVALIDATION_INTERVAL, WEBAPP_URL } from "@fastform/lib/constants";
 import { createPerson, getPersonByUserId } from "@fastform/lib/person/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
 import { getResponseBySingleUseId } from "@fastform/lib/response/service";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { TResponse } from "@fastform/types/responses";
 import type { Metadata } from "next";
 
@@ -37,13 +37,13 @@ export async function generateMetadata({ params }: LinkSurveyPageProps): Promise
     notFound();
   }
 
-  const survey = await getSurvey(params.surveyId);
+  const form = await getSurvey(params.surveyId);
 
-  if (!survey || survey.type !== "link" || survey.status === "draft") {
+  if (!form || form.type !== "link" || form.status === "draft") {
     notFound();
   }
 
-  const product = await getProductByEnvironmentId(survey.environmentId);
+  const product = await getProductByEnvironmentId(form.environmentId);
 
   if (!product) {
     throw new Error("Product not found");
@@ -58,17 +58,17 @@ export async function generateMetadata({ params }: LinkSurveyPageProps): Promise
   }
 
   const brandColor = getBrandColorForURL(product.brandColor);
-  const surveyName = getNameForURL(survey.name);
+  const surveyName = getNameForURL(form.name);
 
   const ogImgURL = `/api/v1/og?brandColor=${brandColor}&name=${surveyName}`;
 
   return {
-    title: survey.name,
+    title: form.name,
     metadataBase: new URL(WEBAPP_URL),
     openGraph: {
-      title: survey.name,
-      description: "Create your own survey like this with Fastform' open source survey suite.",
-      url: `/s/${survey.id}`,
+      title: form.name,
+      description: "Create your own form like this with Fastform' open source form suite.",
+      url: `/s/${form.id}`,
       siteName: "",
       images: [ogImgURL],
       locale: "en_US",
@@ -76,8 +76,8 @@ export async function generateMetadata({ params }: LinkSurveyPageProps): Promise
     },
     twitter: {
       card: "summary_large_image",
-      title: survey.name,
-      description: "Create your own survey like this with Fastform' open source survey suite.",
+      title: form.name,
+      description: "Create your own form like this with Fastform' open source form suite.",
       images: [ogImgURL],
     },
   };
@@ -88,25 +88,25 @@ export default async function LinkSurveyPage({ params, searchParams }: LinkSurve
   if (!validId.success) {
     notFound();
   }
-  const survey = await getSurvey(params.surveyId);
+  const form = await getSurvey(params.surveyId);
 
   const suId = searchParams.suId;
-  const isSingleUseSurvey = survey?.singleUse?.enabled;
-  const isSingleUseSurveyEncrypted = survey?.singleUse?.isEncrypted;
+  const isSingleUseSurvey = form?.singleUse?.enabled;
+  const isSingleUseSurveyEncrypted = form?.singleUse?.isEncrypted;
 
-  if (!survey || survey.type !== "link" || survey.status === "draft") {
+  if (!form || form.type !== "link" || form.status === "draft") {
     notFound();
   }
 
   // question pre filling: Check if the first question is prefilled and if it is valid
-  const prefillAnswer = searchParams[survey.questions[0].id];
-  const isPrefilledAnswerValid = prefillAnswer ? checkValidity(survey!.questions[0], prefillAnswer) : false;
+  const prefillAnswer = searchParams[form.questions[0].id];
+  const isPrefilledAnswerValid = prefillAnswer ? checkValidity(form!.questions[0], prefillAnswer) : false;
 
-  if (survey && survey.status !== "inProgress") {
+  if (form && form.status !== "inProgress") {
     return (
       <SurveyInactive
-        status={survey.status}
-        surveyClosedMessage={survey.surveyClosedMessage ? survey.surveyClosedMessage : undefined}
+        status={form.status}
+        surveyClosedMessage={form.surveyClosedMessage ? form.surveyClosedMessage : undefined}
       />
     );
   }
@@ -134,28 +134,28 @@ export default async function LinkSurveyPage({ params, searchParams }: LinkSurve
   if (isSingleUseSurvey) {
     try {
       singleUseResponse = singleUseId
-        ? (await getResponseBySingleUseId(survey.id, singleUseId)) ?? undefined
+        ? (await getResponseBySingleUseId(form.id, singleUseId)) ?? undefined
         : undefined;
     } catch (error) {
       singleUseResponse = undefined;
     }
   }
 
-  // verify email: Check if the survey requires email verification
+  // verify email: Check if the form requires email verification
   let emailVerificationStatus: string | undefined = undefined;
-  if (survey.verifyEmail) {
+  if (form.verifyEmail) {
     const token =
       searchParams && Object.keys(searchParams).length !== 0 && searchParams.hasOwnProperty("verify")
         ? searchParams.verify
         : undefined;
 
     if (token) {
-      emailVerificationStatus = await getEmailVerificationStatus(survey.id, token);
+      emailVerificationStatus = await getEmailVerificationStatus(form.id, token);
     }
   }
 
   // get product and person
-  const product = await getProductByEnvironmentId(survey.environmentId);
+  const product = await getProductByEnvironmentId(form.environmentId);
   if (!product) {
     throw new Error("Product not found");
   }
@@ -163,18 +163,18 @@ export default async function LinkSurveyPage({ params, searchParams }: LinkSurve
   const userId = searchParams.userId;
   if (userId) {
     // make sure the person exists or get's created
-    const person = await getPersonByUserId(survey.environmentId, userId);
+    const person = await getPersonByUserId(form.environmentId, userId);
     if (!person) {
-      await createPerson(survey.environmentId, userId);
+      await createPerson(form.environmentId, userId);
     }
   }
 
-  const isSurveyPinProtected = Boolean(!!survey && survey.pin);
-  const responseCount = await getResponseCountBySurveyId(survey.id);
+  const isSurveyPinProtected = Boolean(!!form && form.pin);
+  const responseCount = await getResponseCountBySurveyId(form.id);
   if (isSurveyPinProtected) {
     return (
       <PinScreen
-        surveyId={survey.id}
+        surveyId={form.id}
         product={product}
         userId={userId}
         emailVerificationStatus={emailVerificationStatus}
@@ -186,11 +186,11 @@ export default async function LinkSurveyPage({ params, searchParams }: LinkSurve
     );
   }
 
-  return survey ? (
+  return form ? (
     <div>
-      <MediaBackground survey={survey}>
+      <MediaBackground form={form}>
         <LinkSurvey
-          survey={survey}
+          form={form}
           product={product}
           userId={userId}
           emailVerificationStatus={emailVerificationStatus}
@@ -198,10 +198,10 @@ export default async function LinkSurveyPage({ params, searchParams }: LinkSurve
           singleUseId={isSingleUseSurvey ? singleUseId : undefined}
           singleUseResponse={singleUseResponse ? singleUseResponse : undefined}
           webAppUrl={WEBAPP_URL}
-          responseCount={survey.welcomeCard.showResponseCount ? responseCount : undefined}
+          responseCount={form.welcomeCard.showResponseCount ? responseCount : undefined}
         />
       </MediaBackground>
-      <LegalFooter bgColor={survey.styling?.background?.bg || "#ffff"} />
+      <LegalFooter bgColor={form.styling?.background?.bg || "#ffff"} />
     </div>
   ) : null;
 }

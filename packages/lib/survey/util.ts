@@ -2,16 +2,16 @@ import "server-only";
 
 import { TSurveyDates } from "@fastform/types/surveys";
 
-export const formatSurveyDateFields = (survey: TSurveyDates): TSurveyDates => {
-  if (typeof survey.createdAt === "string") {
-    survey.createdAt = new Date(survey.createdAt);
+export const formatSurveyDateFields = (form: TSurveyDates): TSurveyDates => {
+  if (typeof form.createdAt === "string") {
+    form.createdAt = new Date(form.createdAt);
   }
-  if (typeof survey.updatedAt === "string") {
-    survey.updatedAt = new Date(survey.updatedAt);
+  if (typeof form.updatedAt === "string") {
+    form.updatedAt = new Date(form.updatedAt);
   }
-  if (typeof survey.closeOnDate === "string") {
-    survey.closeOnDate = new Date(survey.closeOnDate);
+  if (typeof form.closeOnDate === "string") {
+    form.closeOnDate = new Date(form.closeOnDate);
   }
 
-  return survey;
+  return form;
 };

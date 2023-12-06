@@ -11,7 +11,7 @@ interface WelcomeCardProps {
   fileUrl?: string;
   buttonLabel?: string;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;
-  survey: TSurvey;
+  form: TSurvey;
   responseCount?: number;
 }
 
@@ -58,15 +58,15 @@ export default function WelcomeCard({
   fileUrl,
   buttonLabel,
   onSubmit,
-  survey,
+  form,
   responseCount,
 }: WelcomeCardProps) {
   const calculateTimeToComplete = () => {
-    let idx = calculateElementIdx(survey, 0);
+    let idx = calculateElementIdx(form, 0);
     if (idx === 0.5) {
       idx = 1;
     }
-    const timeInSeconds = (survey.questions.length / idx) * 15; //15 seconds per question.
+    const timeInSeconds = (form.questions.length / idx) * 15; //15 seconds per question.
     if (timeInSeconds > 360) {
       // If it's more than 6 minutes
       return "6+ minutes";
@@ -89,8 +89,8 @@ export default function WelcomeCard({
     return `${minutes} minutes`;
   };
 
-  const timeToFinish = survey.welcomeCard.timeToFinish;
-  const showResponseCount = survey.welcomeCard.showResponseCount;
+  const timeToFinish = form.welcomeCard.timeToFinish;
+  const showResponseCount = form.welcomeCard.showResponseCount;
 
   return (
     <div>

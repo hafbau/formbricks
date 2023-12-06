@@ -9,7 +9,7 @@ type SurveyLinkUsedProps = {
 };
 
 const SurveyLinkUsed = ({ singleUseMessage }: SurveyLinkUsedProps) => {
-  const defaultHeading = "The survey has already been answered.";
+  const defaultHeading = "The form has already been answered.";
   const defaultSubheading = "You can only use this link once.";
   return (
     <div className="flex min-h-screen flex-col items-center justify-between bg-gradient-to-tr from-slate-200 to-slate-50 py-8 text-center">

@@ -73,8 +73,8 @@ export default function TemplateList({
       type: surveyType,
       autoComplete,
     } as TSurveyInput;
-    const survey = await createSurveyAction(environmentId, augmentedTemplate);
-    router.push(`/environments/${environmentId}/surveys/${survey.id}/edit`);
+    const form = await createSurveyAction(environmentId, augmentedTemplate);
+    router.push(`/environments/${environmentId}/surveys/${form.id}/edit`);
   };
 
   const filteredTemplates = templates.filter((template) => {
@@ -142,7 +142,7 @@ export default function TemplateList({
                 disabled={activeTemplate === null}
                 loading={loading}
                 onClick={() => addSurvey(activeTemplate)}>
-                Create survey
+                Create form
               </Button>
             </div>
           )}
@@ -187,7 +187,7 @@ export default function TemplateList({
                         <SplitIcon className="ml-1.5 h-5 w-5  rounded border border-slate-300 bg-slate-50 p-0.5 text-slate-400" />
                       </div>
                     </TooltipTrigger>
-                    <TooltipContent>This survey uses branching logic.</TooltipContent>
+                    <TooltipContent>This form uses branching logic.</TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
               )}

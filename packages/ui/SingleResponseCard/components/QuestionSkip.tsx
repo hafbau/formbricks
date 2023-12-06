@@ -82,7 +82,7 @@ export default function QuestionSkip({
                 </div>
               </div>
               <div className="mb-2 ml-4 flex flex-col">
-                <p className="mb-2 w-fit rounded-lg bg-slate-100 px-2 text-slate-700">Survey Closed</p>
+                <p className="mb-2 w-fit rounded-lg bg-slate-100 px-2 text-slate-700">Form Closed</p>
                 {skippedQuestions &&
                   skippedQuestions.map((questionId) => {
                     return (

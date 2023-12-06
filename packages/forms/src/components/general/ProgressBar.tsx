@@ -4,23 +4,23 @@ import { calculateElementIdx } from "@/lib/utils";
 import { useCallback, useMemo } from "preact/hooks";
 
 interface ProgressBarProps {
-  survey: TSurvey;
+  form: TSurvey;
   questionId: string;
 }
 
-export default function ProgressBar({ survey, questionId }: ProgressBarProps) {
+export default function ProgressBar({ form, questionId }: ProgressBarProps) {
   const currentQuestionIdx = useMemo(
-    () => survey.questions.findIndex((e) => e.id === questionId),
-    [survey, questionId]
+    () => form.questions.findIndex((e) => e.id === questionId),
+    [form, questionId]
   );
 
-  const calculateProgress = useCallback((questionId: string, survey: TSurvey, progress: number) => {
-    if (survey.questions.length === 0) return 0;
-    let currentQustionIdx = survey.questions.findIndex((e) => e.id === questionId);
+  const calculateProgress = useCallback((questionId: string, form: TSurvey, progress: number) => {
+    if (form.questions.length === 0) return 0;
+    let currentQustionIdx = form.questions.findIndex((e) => e.id === questionId);
     if (currentQustionIdx === -1) currentQustionIdx = 0;
-    const elementIdx = calculateElementIdx(survey, currentQustionIdx);
+    const elementIdx = calculateElementIdx(form, currentQustionIdx);
 
-    const newProgress = elementIdx / survey.questions.length;
+    const newProgress = elementIdx / form.questions.length;
     let updatedProgress = progress;
     if (newProgress > progress) {
       updatedProgress = newProgress;
@@ -33,12 +33,12 @@ export default function ProgressBar({ survey, questionId }: ProgressBarProps) {
   const progressArray = useMemo(() => {
     let progress = 0;
     let progressArrayTemp: number[] = [];
-    survey.questions.forEach((question) => {
-      progress = calculateProgress(question.id, survey, progress);
+    form.questions.forEach((question) => {
+      progress = calculateProgress(question.id, form, progress);
       progressArrayTemp.push(progress);
     });
     return progressArrayTemp;
-  }, [calculateProgress, survey]);
+  }, [calculateProgress, form]);
 
   return <Progress progress={questionId === "end" ? 1 : progressArray[currentQuestionIdx]} />;
 }

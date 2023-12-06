@@ -40,27 +40,27 @@ export const SurveyCheckboxGroup: React.FC<SurveyCheckboxGroupProps> = ({
             All current and new surveys
           </label>
         </div>
-        {surveys.map((survey) => (
-          <div key={survey.id} className="my-1 flex items-center space-x-2">
+        {surveys.map((form) => (
+          <div key={form.id} className="my-1 flex items-center space-x-2">
             <Checkbox
               type="button"
-              id={survey.id}
-              value={survey.id}
+              id={form.id}
+              value={form.id}
               className="bg-white"
-              checked={selectedSurveys.includes(survey.id) && !selectedAllSurveys}
+              checked={selectedSurveys.includes(form.id) && !selectedAllSurveys}
               disabled={selectedAllSurveys || !allowChanges}
               onCheckedChange={() => {
                 if (allowChanges) {
-                  onSelectedSurveyChange(survey.id);
+                  onSelectedSurveyChange(form.id);
                 }
               }}
             />
             <label
-              htmlFor={survey.id}
+              htmlFor={form.id}
               className={`flex cursor-pointer items-center ${
                 selectedAllSurveys ? "cursor-not-allowed opacity-50" : ""
               } ${!allowChanges ? "cursor-not-allowed opacity-50" : ""}`}>
-              {survey.name}
+              {form.name}
             </label>
           </div>
         ))}

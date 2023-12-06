@@ -2,7 +2,7 @@ import { cn } from "@fastform/lib/cn";
 
 import Link from "next/link";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import SurveyNavBarName from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/components/SurveyNavBarName";
 
 interface SecondNavbarProps {
@@ -24,18 +24,16 @@ export default async function SecondNavbar({
     throw new Error("Product not found");
   }
 
-  let survey;
+  let form;
   if (surveyId) {
-    survey = await getSurvey(surveyId);
+    form = await getSurvey(surveyId);
   }
 
   return (
     <div {...props}>
       <div className="grid h-14 w-full grid-cols-3 items-center justify-items-stretch border-b bg-white px-4">
         <div className="justify-self-start">
-          {survey && environmentId && (
-            <SurveyNavBarName surveyName={survey.name} productName={product.name} />
-          )}
+          {form && environmentId && <SurveyNavBarName surveyName={form.name} productName={product.name} />}
         </div>{" "}
         <nav className="flex h-full items-center space-x-4 justify-self-center" aria-label="Tabs">
           {tabs.map((tab) => (

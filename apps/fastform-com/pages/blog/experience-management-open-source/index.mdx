@@ -8,7 +8,7 @@ import SnoopForms from "./snoopforms-open-source-typeform-alternative.png";
 import TwitterResult from "./twitter-results-PMF-cal.png";
 import EmailResult from "./email-results-PMF-cal.png";
 import TitleImage from "../github-accelerator-experience/fastform-sponsored-by-github-accelerator-2023.webp";
-import PMFDashboard from "./pmf-survey-dashboard.png";
+import PMFDashboard from "./pmf-form-dashboard.png";
 import MattiJojo from "./matti-jojo.jpg";
 
 export const meta = {
@@ -34,7 +34,7 @@ Funnily enough, it started with a tweet:
   className="rounded-lg w-full"
 />
 
-When I read this tweet, I was sitting in a WeWork in Mexico City, feeling a bit guilty for being such a cliché digital nomad. Sipping on my decaffeinated matcha with lactose-free goat milk, I slid into Matti's DMs. I knew he had built an open-source survey tool a few months ago and suggested he comment on the tweet. We started chatting.
+When I read this tweet, I was sitting in a WeWork in Mexico City, feeling a bit guilty for being such a cliché digital nomad. Sipping on my decaffeinated matcha with lactose-free goat milk, I slid into Matti's DMs. I knew he had built an open-source form tool a few months ago and suggested he comment on the tweet. We started chatting.
 
 Both Matti and I had been freelancing for several months. While the money was good, we missed working on a project of our own. We met a couple of years ago while working on our startups. I had an app and wanted to be GDPR compliant; Matti offered to help out. We've stayed in contact ever since, giving feedback on projects and ideas.
 
@@ -50,13 +50,13 @@ So we chatted about the opportunity of building a commercial open-source alterna
 
 We shipped a first version of the product and the landing page and shared it on ProductHunt and HackerNews. It stirred up quite some interest—1.5k people signed up over a few weeks. During the launch, we sold 10 early bird deals for $179 each. We got excited! Is it really that easy?
 
-Well no, it is not. Apart from the Early Birds (🤍) we attracted a looooooooot of people who liked Typeform, but didn’t want to pay the high price tag. Generally, it's not the best idea to build a product with high competition (100s of survey tools) for a price-sensitive target group. Even data privacy isn’t a good selling point when Jotform offers self-hosting and Typeform is an EU-based company (GDPR). We’ve written **[in-depth](https://fastform.com/blog/open-source-qualtrics-beats-typeform)** about why we eventually decided to shift our focus away from open-source Typeform.
+Well no, it is not. Apart from the Early Birds (🤍) we attracted a looooooooot of people who liked Typeform, but didn’t want to pay the high price tag. Generally, it's not the best idea to build a product with high competition (100s of form tools) for a price-sensitive target group. Even data privacy isn’t a good selling point when Jotform offers self-hosting and Typeform is an EU-based company (GDPR). We’ve written **[in-depth](https://fastform.com/blog/open-source-qualtrics-beats-typeform)** about why we eventually decided to shift our focus away from open-source Typeform.
 
 Nonetheless, we were hooked on open-source surveys; we just hadn't found the right application yet.
 
 ### **snoopForms → Fastform, a detour, and going full-time**
 
-We decided to wrap up our freelance gigs and go in full-time, to find the right angle quicker. We built a MVP for _Building Bricks for Forms and Surveys_, but while the idea made sense, we struggled to build an easy, opionated solution which can be used for several use cases. To help engineers build form and survey applications faster, it needed to pack form creation, form analytics, graphs, data handling, data storage, analysis, integrations, and ways to act on the insights for a variety of use cases 🤷 There's a reason why successful dev tools focus on one of these aspects and do them well. So we kept looking…
+We decided to wrap up our freelance gigs and go in full-time, to find the right angle quicker. We built a MVP for _Building Bricks for Forms and Surveys_, but while the idea made sense, we struggled to build an easy, opionated solution which can be used for several use cases. To help engineers build form and form applications faster, it needed to pack form creation, form analytics, graphs, data handling, data storage, analysis, integrations, and ways to act on the insights for a variety of use cases 🤷 There's a reason why successful dev tools focus on one of these aspects and do them well. So we kept looking…
 
 ### **Data Processing vs. Experience Management**
 
@@ -73,7 +73,7 @@ We had talked to and surveyed a lot of people. Zooming out, we saw that there ar
 
 We researched what was out there and talked to more founders. Initially, we wanted to build a solution for a problem we had ourselves: Gathering qualitative insights along the user journey of early adopters. It’s common sense to never launch without analytics, but why does everyone launch without a system to gather qualitative user insights continuously? Mostly, because there's no easy, cheap and quick way to do it (yet).
 
-### **The Product-Market Fit Survey Tool**
+### **The Product-Market Fit Form Tool**
 
 Following Paul Graham's advice to start with a **[narrow but deep hole](http://paulgraham.com/startupideas.html)**, we narrowed it down to one specific problem every founder has: Measuring Product-Market Fit. Many know the **[article](https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit)** on how Superhuman built an engine to measure and optimize PMF. However, to run it correctly within your product, you do have to do quite some custom coding. So we decided to offer a solution which works out of the box.
 
@@ -82,22 +82,22 @@ Following Paul Graham's advice to start with a **[narrow but deep hole](http://p
   alt="Peer tweets about the best open-source Typeform alternative"
   className="rounded-lg w-full"
 />
-_We built a custom dashboard just to visualize the PMF survey results_
+_We built a custom dashboard just to visualize the PMF form results_
 
 We shipped an MVP, launched it, and picked up the conversations with the founders who had tried to measure PMF
 before. We quickly learned this:
 
 - Our MVP was scoped so rigidly that we had to do quite some custom coding ourselves to get it implemented. Setting it up and maintaining it stood in no relation to the value it provided because…
-- The PMF survey is for teams that "kinda" have PMF, not for teams which are just starting out. You need a few hundred recurring users in your app to be able to reach statistical significance and run the survey every 3 months without asking anyone twice. For teams who don’t have that, talking to users 1:1 will remain the best way to go.
-- Founders were reluctant to add another tool just for one survey and purpose.
+- The PMF form is for teams that "kinda" have PMF, not for teams which are just starting out. You need a few hundred recurring users in your app to be able to reach statistical significance and run the form every 3 months without asking anyone twice. For teams who don’t have that, talking to users 1:1 will remain the best way to go.
+- Founders were reluctant to add another tool just for one form and purpose.
 
-After the rather disappointing launch of the PMF survey tool, we hit a low. The excitement about the initial snoopForm traction had passed. Since November, we had been working full-time for four months iterating on different products in the forms and survey space, and it didn’t feel like we made much progress. But that wasn’t really true.
+After the rather disappointing launch of the PMF form tool, we hit a low. The excitement about the initial snoopForm traction had passed. Since November, we had been working full-time for four months iterating on different products in the forms and form space, and it didn’t feel like we made much progress. But that wasn’t really true.
 
 ### **"The essence of strategy is choosing what not to do.”**
 
 It was quite a journey since Matti wrote the first line of code in July last year. Even though it didn’t _feel_ like much progress, we had learned a lot. Most importantly, we knew what **not** to build.
 
-With snoopForms, we learned that there is a latent need for an open-source standalone survey tool, with a Typeform-like feature set: It’s a great opportunity to build a community and **not** a great business opportunity. The PMF survey tool taught us about the needs of early-stage teams and that surveys are **not** the best solution to their problems. However, they do need some form to gather qualitative feedback and a smooth way to work with it 😏
+With snoopForms, we learned that there is a latent need for an open-source standalone form tool, with a Typeform-like feature set: It’s a great opportunity to build a community and **not** a great business opportunity. The PMF form tool taught us about the needs of early-stage teams and that surveys are **not** the best solution to their problems. However, they do need some form to gather qualitative feedback and a smooth way to work with it 😏
 
 We took everything we knew and wrote a Masterplan. And then we sat down coded.
 
@@ -115,9 +115,9 @@ A welcomed motivator came in the form of an email from GitHub: We we were chosen
 
 ### **On the right track 🚆**
 
-Once we were ready to share our MVP with the world, we knew we were on the right track! The feedback was really good and usage picked up right from the start. One morning we woke up to our analytics dashboard showing thousands of survey displays with 500+ responses in the past couple of hours! This is when we knew we’re onto something 🚀
+Once we were ready to share our MVP with the world, we knew we were on the right track! The feedback was really good and usage picked up right from the start. One morning we woke up to our analytics dashboard showing thousands of form displays with 500+ responses in the past couple of hours! This is when we knew we’re onto something 🚀
 
-A couple of weeks later, Peer from [Cal.com](http://Cal.com) came back to northern Germany to visit his family and friends. We hung out in the co-working space, where he did his first steps as an entrepreneur. As we were chatting about how to separate opinion from experience, Peer decided to shoot an email with a survey to the 12k most active users of Cal.com. A few days before, he asked his Twitter following the PMF question:
+A couple of weeks later, Peer from [Cal.com](http://Cal.com) came back to northern Germany to visit his family and friends. We hung out in the co-working space, where he did his first steps as an entrepreneur. As we were chatting about how to separate opinion from experience, Peer decided to shoot an email with a form to the 12k most active users of Cal.com. A few days before, he asked his Twitter following the PMF question:
 
 <Image
   src={TwitterResult}
@@ -125,7 +125,7 @@ A couple of weeks later, Peer from [Cal.com](http://Cal.com) came back to northe
   className="rounded-lg w-full"
 />
 
-We wanted to compare how the publicly asked survey (Twitter) compared to a survey among the community of users. The results were eye-opening:
+We wanted to compare how the publicly asked form (Twitter) compared to a form among the community of users. The results were eye-opening:
 
 <Image
   src={EmailResult}
@@ -138,18 +138,18 @@ For us, this was not only a good test for our system but it was a great example 
 
 ### **Typeform sneaking back in?**
 
-Given our early traction with snoopForms, it’s not a big surprise that community requests for a Typeform-like standalone survey popped up more and more. Since we had all the pieces in place, we shipped standalone surveys in a day. However, it’s not our focus right now, so we hand over most of the feature requests to the community. And the community ships! Just in the past couple of weeks, we got:
+Given our early traction with snoopForms, it’s not a big surprise that community requests for a Typeform-like standalone form popped up more and more. Since we had all the pieces in place, we shipped standalone surveys in a day. However, it’s not our focus right now, so we hand over most of the feature requests to the community. And the community ships! Just in the past couple of weeks, we got:
 
 - **Prefill Data in Link Surveys** by Piyush - [Docs](https://fastform.com/docs/link-surveys/data-prefilling)
 - **Identify Users Link identification** by Zorig - [Docs](https://fastform.com/docs/link-surveys/user-identification)
-- **Close Survey on Date** by Piyush
-- **Close Survey after x Responses** by Pradumn
-- **Redirect on Link Survey Completion** by Dhruwang
-- **Embed Link Survey via iframe** by Ankur
-- **Set Custom ‘Survey Closed’ Message** by Pradumn
+- **Close Form on Date** by Piyush
+- **Close Form after x Responses** by Pradumn
+- **Redirect on Link Form Completion** by Dhruwang
+- **Embed Link Form via iframe** by Ankur
+- **Set Custom ‘Form Closed’ Message** by Pradumn
 - **Randomize Answer Options** by Shubdeep
 
-We absolutely love the idea of being the platform for a community-developed standalone survey experience! It’s a win-win: The community gets a free, self-hostable standalone survey product and we get a growing upper funnel for our Experience Management solution 🤸
+We absolutely love the idea of being the platform for a community-developed standalone form experience! It’s a win-win: The community gets a free, self-hostable standalone form product and we get a growing upper funnel for our Experience Management solution 🤸
 
 ### **It’s coming together 🔥**
 
@@ -157,7 +157,7 @@ Looking back at the amount of value Fastform can deliver after not even 5 months
 
 And we’re only getting started: We were able to hire two engineers from our community of contributors to build up more shipping velocity. We also started working with Kristian who runs our [open-source Design repo](https://github.com/fastform/design) more closely and are super excited about what we’re cooking up. We’ll make sure Fastform stays easy-to-use, accessible and simply beautiful as it grows more powerful! We can't tell you how excited we are about what's coming 😁
 
-If you’re curious to learn about all the things you can do with Fastform today, we’ve written and keep updating a list of Best Practices incl. survey templates in our [Docs](https://fastform.com/docs/best-practices/cancel-subscription).
+If you’re curious to learn about all the things you can do with Fastform today, we’ve written and keep updating a list of Best Practices incl. form templates in our [Docs](https://fastform.com/docs/best-practices/cancel-subscription).
 
 ### Sounds good? **Build with us!**
 

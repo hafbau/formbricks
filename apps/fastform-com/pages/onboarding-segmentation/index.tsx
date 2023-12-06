@@ -7,7 +7,7 @@ export default function OnboardingSegmentationPage() {
   return (
     <Layout
       title="Onboarding Segmentation with Fastform"
-      description="Add a survey to your onboarding to loop in Fastform right from the start.">
+      description="Add a form to your onboarding to loop in Fastform right from the start.">
       <div className="grid grid-cols-1 items-center md:grid-cols-2 md:gap-12 md:py-20">
         <div className="p-6 md:p-0">
           <UseCaseHeader title="Onboarding Segments" difficulty="Advanced" setupMinutes="90" />
@@ -16,7 +16,7 @@ export default function OnboardingSegmentationPage() {
           </h3>
           <p className="text-slate-600 dark:text-slate-400">
             In your Onboarding you likely want to ask two or three questions to be able to segment your users
-            best. These attributes can be used to create cohorts and survey users down the line. You can
+            best. These attributes can be used to create cohorts and form users down the line. You can
             identify who uses your product most and use Fastform to gather relevant qualitative data on scale.
           </p>
           <h3 className="text-md mb-1.5 mt-6 font-semibold text-slate-800 dark:text-slate-200">
@@ -25,8 +25,9 @@ export default function OnboardingSegmentationPage() {
           <p className="text-slate-600 dark:text-slate-400">
             Onboardings are unique to every product. Fastform does not help you build the right onboarding.
             Currently, you can use the Fastform API to send survey data to Fastform for later usage. Down the
-            line, we might offer a simple way to add survey questions to your Onboarding.
+            line, we might offer a simple way to add survey formons to your Onboarding.
           </p>
+          form
         </div>
 
         <DemoPreview template="Onboarding Segmentation" />

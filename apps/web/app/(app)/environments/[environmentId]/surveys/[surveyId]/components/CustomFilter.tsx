@@ -48,7 +48,7 @@ enum FilterDropDownLabels {
 
 interface CustomFilterProps {
   environmentTags: TTag[];
-  survey: TSurvey;
+  form: TSurvey;
   responses: TResponse[];
   totalResponses: TResponse[];
 }
@@ -64,7 +64,7 @@ const getDifferenceOfDays = (from, to) => {
   }
 };
 
-const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: CustomFilterProps) => {
+const CustomFilter = ({ environmentTags, responses, form, totalResponses }: CustomFilterProps) => {
   const { setSelectedOptions, dateRange, setDateRange } = useResponseFilter();
   const [filterRange, setFilterRange] = useState<FilterDropDownLabels>(
     dateRange.from && dateRange.to
@@ -80,20 +80,20 @@ const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: Cu
   // when the page loads we get total responses and iterate over the responses and questions, tags and attributes to create the filter options
   useEffect(() => {
     const { questionFilterOptions, questionOptions } = generateQuestionAndFilterOptions(
-      survey,
+      form,
       totalResponses,
       environmentTags
     );
     setSelectedOptions({ questionFilterOptions, questionOptions });
-  }, [totalResponses, survey, setSelectedOptions, environmentTags]);
+  }, [totalResponses, form, setSelectedOptions, environmentTags]);
 
   const datePickerRef = useRef<HTMLDivElement>(null);
 
-  const getMatchQandA = (responses: any, survey: any) => {
-    if (survey && responses) {
+  const getMatchQandA = (responses: any, form: any) => {
+    if (form && responses) {
       // Create a mapping of question IDs to their headlines
       const questionIdToHeadline = {};
-      survey.questions.forEach((question) => {
+      form.questions.forEach((question) => {
         questionIdToHeadline[question.id] = question.headline;
       });
 
@@ -107,8 +107,8 @@ const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: Cu
           scale?: "number" | "star" | "smiley";
           range?: number;
         }> = []; // Specify the type of updatedData
-        // iterate over survey questions and build the updated response
-        for (const question of survey.questions) {
+        // iterate over form questions and build the updated response
+        for (const question of form.questions) {
           const answer = response.data[question.id];
           if (answer) {
             updatedResponse.push({
@@ -135,25 +135,25 @@ const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: Cu
   };
 
   const downloadFileName = useMemo(() => {
-    if (survey) {
+    if (form) {
       const formattedDateString = getTodaysDateFormatted("_");
-      return `${survey.name.split(" ").join("_")}_responses_${formattedDateString}`.toLocaleLowerCase();
+      return `${form.name.split(" ").join("_")}_responses_${formattedDateString}`.toLocaleLowerCase();
     }
 
     return "my_survey_responses";
-  }, [survey]);
+  }, [form]);
 
   const downloadResponses = useCallback(
     async (filter: FilterDownload, filetype: "csv" | "xlsx") => {
       const downloadResponse = filter === FilterDownload.ALL ? totalResponses : responses;
-      const { attributeMap, questionNames } = generateQuestionsAndAttributes(survey, downloadResponse);
-      const matchQandA = getMatchQandA(downloadResponse, survey);
+      const { attributeMap, questionNames } = generateQuestionsAndAttributes(form, downloadResponse);
+      const matchQandA = getMatchQandA(downloadResponse, form);
       const jsonData = matchQandA.map((response) => {
         const fileResponse = {
           "Response ID": response.id,
           Timestamp: response.createdAt,
           Finished: response.finished,
-          "Survey ID": response.surveyId,
+          "Form ID": response.surveyId,
           "Fastform User ID": response.person?.id ?? "",
         };
 
@@ -192,7 +192,7 @@ const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: Cu
         "Response ID",
         "Timestamp",
         "Finished",
-        "Survey ID",
+        "Form ID",
         "Fastform User ID",
         ...Object.keys(attributeMap),
         ...questionNames,
@@ -243,7 +243,7 @@ const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: Cu
 
       URL.revokeObjectURL(downloadUrl);
     },
-    [downloadFileName, responses, totalResponses, survey]
+    [downloadFileName, responses, totalResponses, form]
   );
 
   const handleDateHoveredChange = (date: Date) => {

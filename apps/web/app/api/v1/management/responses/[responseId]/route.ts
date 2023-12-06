@@ -4,7 +4,7 @@ import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { deleteResponse, getResponse, updateResponse } from "@fastform/lib/response/service";
 import { TResponse, ZResponseUpdateInput } from "@fastform/types/responses";
 import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { handleErrorResponse } from "@/app/api/v1/auth";
 
@@ -17,13 +17,13 @@ async function fetchAndValidateResponse(authentication: any, responseId: string)
 }
 
 const canUserAccessResponse = async (authentication: any, response: TResponse): Promise<boolean> => {
-  const survey = await getSurvey(response.surveyId);
-  if (!survey) return false;
+  const form = await getSurvey(response.surveyId);
+  if (!form) return false;
 
   if (authentication.type === "session") {
-    return await hasUserEnvironmentAccess(authentication.session.user.id, survey.environmentId);
+    return await hasUserEnvironmentAccess(authentication.session.user.id, form.environmentId);
   } else if (authentication.type === "apiKey") {
-    return survey.environmentId === authentication.environmentId;
+    return form.environmentId === authentication.environmentId;
   } else {
     throw Error("Unknown authentication type");
   }

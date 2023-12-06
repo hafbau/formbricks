@@ -1,20 +1,20 @@
 import { responses } from "@/app/lib/api/response";
 import { NextResponse } from "next/server";
-import { getSurvey, updateSurvey, deleteSurvey } from "@fastform/lib/survey/service";
+import { getSurvey, updateSurvey, deleteSurvey } from "@fastform/lib/form/service";
 import { TSurvey, ZSurvey } from "@fastform/types/surveys";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { handleErrorResponse } from "@/app/api/v1/auth";
 
 async function fetchAndAuthorizeSurvey(authentication: any, surveyId: string): Promise<TSurvey | null> {
-  const survey = await getSurvey(surveyId);
-  if (!survey) {
+  const form = await getSurvey(surveyId);
+  if (!form) {
     return null;
   }
-  if (survey.environmentId !== authentication.environmentId) {
+  if (form.environmentId !== authentication.environmentId) {
     throw new Error("Unauthorized");
   }
-  return survey;
+  return form;
 }
 
 export async function GET(
@@ -24,11 +24,11 @@ export async function GET(
   try {
     const authentication = await authenticateRequest(request);
     if (!authentication) return responses.notAuthenticatedResponse();
-    const survey = await fetchAndAuthorizeSurvey(authentication, params.surveyId);
-    if (survey) {
-      return responses.successResponse(survey);
+    const form = await fetchAndAuthorizeSurvey(authentication, params.surveyId);
+    if (form) {
+      return responses.successResponse(form);
     }
-    return responses.notFoundResponse("Survey", params.surveyId);
+    return responses.notFoundResponse("Form", params.surveyId);
   } catch (error) {
     return handleErrorResponse(error);
   }
@@ -41,9 +41,9 @@ export async function DELETE(
   try {
     const authentication = await authenticateRequest(request);
     if (!authentication) return responses.notAuthenticatedResponse();
-    const survey = await fetchAndAuthorizeSurvey(authentication, params.surveyId);
-    if (!survey) {
-      return responses.notFoundResponse("Survey", params.surveyId);
+    const form = await fetchAndAuthorizeSurvey(authentication, params.surveyId);
+    if (!form) {
+      return responses.notFoundResponse("Form", params.surveyId);
     }
     const deletedSurvey = await deleteSurvey(params.surveyId);
     return responses.successResponse(deletedSurvey);
@@ -59,13 +59,13 @@ export async function PUT(
   try {
     const authentication = await authenticateRequest(request);
     if (!authentication) return responses.notAuthenticatedResponse();
-    const survey = await fetchAndAuthorizeSurvey(authentication, params.surveyId);
-    if (!survey) {
-      return responses.notFoundResponse("Survey", params.surveyId);
+    const form = await fetchAndAuthorizeSurvey(authentication, params.surveyId);
+    if (!form) {
+      return responses.notFoundResponse("Form", params.surveyId);
     }
     const surveyUpdate = await request.json();
     const inputValidation = ZSurvey.safeParse({
-      ...survey,
+      ...form,
       ...surveyUpdate,
     });
     if (!inputValidation.success) {

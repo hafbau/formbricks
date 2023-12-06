@@ -6,12 +6,12 @@ import { Badge } from "@fastform/ui/Badge";
 
 const renderSelectedSurveysText = (webhook: TWebhook, allSurveys: TSurvey[]) => {
   if (webhook.surveyIds.length === 0) {
-    const allSurveyNames = allSurveys.map((survey) => survey.name);
+    const allSurveyNames = allSurveys.map((form) => form.name);
     return <p className="text-slate-400">{allSurveyNames.join(", ")}</p>;
   } else {
     const selectedSurveyNames = webhook.surveyIds.map((surveyId) => {
-      const survey = allSurveys.find((survey) => survey.id === surveyId);
-      return survey ? survey.name : "";
+      const form = allSurveys.find((form) => form.id === surveyId);
+      return form ? form.name : "";
     });
     return <p className="text-slate-400">{selectedSurveyNames.join(", ")}</p>;
   }

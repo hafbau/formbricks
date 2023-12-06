@@ -69,7 +69,7 @@ if (typeof window !== "undefined") {
                 </span>{" "}
                 <Link
                   className="decoration-brand-dark"
-                  href="https://fastform.com/docs/getting-started/quickstart-in-app-survey"
+                  href="https://fastform.com/docs/getting-started/quickstart-in-app-form"
                   target="_blank">
                   Check out the docs.
                 </Link>

@@ -43,10 +43,10 @@ function cleanNotificationSettings(
         (notificationSettings.weeklySummary && notificationSettings.weeklySummary[product.id]) || false;
       // set default values for alerts
       for (const environment of product.environments) {
-        for (const survey of environment.surveys) {
-          newNotificationSettings.alert[survey.id] =
-            notificationSettings[survey.id]?.responseFinished ||
-            (notificationSettings.alert && notificationSettings.alert[survey.id]) ||
+        for (const form of environment.surveys) {
+          newNotificationSettings.alert[form.id] =
+            notificationSettings[form.id]?.responseFinished ||
+            (notificationSettings.alert && notificationSettings.alert[form.id]) ||
             false; // check for legacy notification settings w/o "alerts" key
         }
       }

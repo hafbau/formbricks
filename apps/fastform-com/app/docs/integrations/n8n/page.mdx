@@ -5,9 +5,9 @@ import Image from "next/image";
 import AddFormbricksTrigger from "./add-fastform-trigger.png";
 import CreateNewCredentialBtn from "./create-new-credential-btn.png";
 import AddApiKey from "./add-api-key.png";
-import DuplicateSurvey from "./duplicate-survey.png";
+import DuplicateSurvey from "./duplicate-form.png";
 import SelectEvent from "./select-event.png";
-import SelectSurvey from "./select-survey.png";
+import SelectSurvey from "./select-form.png";
 import SelectedSurveys from "./selected-surveys.png";
 import ListenForEvent from "./listen-for-event.png";
 import TestResponseSuccess from "./test-response-success.png";
@@ -20,7 +20,7 @@ import UpdateQuestionId from "./update-question-id.png";
 
 export const metadata = {
   title: "Comprehensive Guide to Integrating Fastform with n8n",
-  description: "Unlock the potential of combining Fastform with n8n for a streamlined workflow experience. Dive into our step-by-step guide and send your survey data effortlessly to 350+ applications. Streamline your data processes now!",
+  description: "Unlock the potential of combining Fastform with n8n for a streamlined workflow experience. Dive into our step-by-step guide and send your form data effortlessly to 350+ applications. Streamline your data processes now!",
 };
 
 #### Integrations
@@ -30,26 +30,26 @@ export const metadata = {
 n8n allows you to build flexible workflows focused on deep data integration. And with sharable templates and a user-friendly UI, the less technical people on your team can collaborate on them too. Unlike other tools, complexity is not a limitation. So you can build whatever you want — without stressing over budget. Hook up Fastform with n8n and you can send your data to 350+ other apps. Here is how to do it.
 
 <Note>
-  ### Nail down your survey first
-  Any changes in the survey cause additional work in the n8n node. It makes sense to first settle on the survey
+  ### Nail down your form first
+  Any changes in the form cause additional work in the n8n node. It makes sense to first settle on the form
   you want to run and then get to setting up n8n.
 </Note>
 
-## Step 1: Setup your survey incl. `questionId` for every question
+## Step 1: Setup your form incl. `questionId` for every question
 
-When setting up the node your life will be easier when you change the `questionId`s of your survey questions. You can only do so **before** you publish your survey.
+When setting up the node your life will be easier when you change the `questionId`s of your form questions. You can only do so **before** you publish your form.
 
 <Image src={UpdateQuestionId} alt="Update Question ID" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
 _In every question card in the Advanced Settings you find the Question ID field. Update it so that you'll recognize the response tied to this question._
 
 <Note>
-  ### Already published? Duplicate survey
-  You can only update the questionId when the survey was not yet published. Already published it? Just **duplicate
+  ### Already published? Duplicate form
+  You can only update the questionId when the form was not yet published. Already published it? Just **duplicate
   it** to update the questionIds.
   <Image
     src={DuplicateSurvey}
-    alt="Duplicate Survey"
+    alt="Duplicate Form"
     quality="100"
     className="rounded-lg max-w-full sm:max-w-3xl"
   />
@@ -83,13 +83,13 @@ Next, you can choose the event you want to trigger the node on. You can select m
 
 <Image src={SelectEvent} alt="Select Event" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
-Here, we are adding `Response Finished` as an event, which will trigger when the survey has been filled out.
+Here, we are adding `Response Finished` as an event, which will trigger when the form has been filled out.
 
-## Step 5: Select Survey
+## Step 5: Select Form
 
 Next, you can choose from all the surveys you have created in this environment. You can select multiple surveys:
 
-<Image src={SelectSurvey} alt="Select Survey" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
+<Image src={SelectSurvey} alt="Select Form" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
 Here, we are selecting two surveys.
 
@@ -97,7 +97,7 @@ Here, we are selecting two surveys.
 
 ## Step 6: Test your trigger
 
-In order to set up n8n you'll need a test response in the selected survey. This allows you to select the individual values of each response in your workflow. If you have Fastform running locally and you want to set up an in-app survey, you can use our [Demo App](/docs/contributing/demo) to trigger a survey and submit a response.
+In order to set up n8n you'll need a test response in the selected form. This allows you to select the individual values of each response in your workflow. If you have Fastform running locally and you want to set up an in-app form, you can use our [Demo App](/docs/contributing/demo) to trigger a form and submit a response.
 
 <Image src={SubmitTestResponse} alt="Submit Test Response" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
@@ -105,7 +105,7 @@ Next, click on Listen for event button.
 
 <Image src={ListenForEvent} alt="Listen for event" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
-Then, go to the survey which you selected. Fill it out, and wait for the particular event to trigger (in this case it's `Response Finished`). Once the event is triggered you will see the response that you filled out in the survey.
+Then, go to the form which you selected. Fill it out, and wait for the particular event to trigger (in this case it's `Response Finished`). Once the event is triggered you will see the response that you filled out in the form.
 
 <Image src={TestResponseSuccess} alt="Test Response Success" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 

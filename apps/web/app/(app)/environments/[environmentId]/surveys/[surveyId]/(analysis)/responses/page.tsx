@@ -17,7 +17,7 @@ export default async function Page({ params }) {
   if (!session) {
     throw new Error("Unauthorized");
   }
-  const [{ responses, survey }, environment] = await Promise.all([
+  const [{ responses, form }, environment] = await Promise.all([
     getAnalysisData(params.surveyId, params.environmentId),
     getEnvironment(params.environmentId),
   ]);
@@ -46,7 +46,7 @@ export default async function Page({ params }) {
       <ResponsePage
         environment={environment}
         responses={responses}
-        survey={survey}
+        form={form}
         surveyId={params.surveyId}
         webAppUrl={WEBAPP_URL}
         product={product}

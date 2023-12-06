@@ -11,32 +11,32 @@ import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
 interface LinkSingleUseSurveyModalProps {
-  survey: TSurvey;
+  form: TSurvey;
   surveyBaseUrl: string;
 }
 
-export default function LinkSingleUseSurveyModal({ survey, surveyBaseUrl }: LinkSingleUseSurveyModalProps) {
+export default function LinkSingleUseSurveyModal({ form, surveyBaseUrl }: LinkSingleUseSurveyModalProps) {
   const [singleUseIds, setSingleUseIds] = useState<string[] | null>(null);
 
   useEffect(() => {
     fetchSingleUseIds();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [survey.singleUse?.isEncrypted]);
+  }, [form.singleUse?.isEncrypted]);
 
   const fetchSingleUseIds = async () => {
-    const ids = await generateSingleUseIds(survey.singleUse?.isEncrypted ?? false);
+    const ids = await generateSingleUseIds(form.singleUse?.isEncrypted ?? false);
     setSingleUseIds(ids);
   };
 
   const generateSingleUseIds = async (isEncrypted: boolean) => {
     const promises = Array(7)
       .fill(null)
-      .map(() => generateSingleUseIdAction(survey.id, isEncrypted));
+      .map(() => generateSingleUseIdAction(form.id, isEncrypted));
     return await Promise.all(promises);
   };
 
-  const defaultSurveyUrl = `${surveyBaseUrl}/s/${survey.id}`;
+  const defaultSurveyUrl = `${surveyBaseUrl}/s/${form.id}`;
   const [selectedSingleUseIds, setSelectedSingleIds] = useState<number[]>([]);
 
   const linkTextRef = useRef<HTMLDivElement>(null);
@@ -56,13 +56,13 @@ export default function LinkSingleUseSurveyModal({ survey, surveyBaseUrl }: Link
           <div className="flex justify-end">
             <Button
               variant="darkCTA"
-              title="Preview survey"
-              aria-label="Preview survey"
+              title="Preview form"
+              aria-label="Preview form"
               className="flex w-fit justify-center"
               href={`${defaultSurveyUrl}?suId=${singleUseIds[0]}&preview=true`}
               target="_blank"
               EndIcon={EyeIcon}>
-              Preview Survey
+              Preview Form
             </Button>
           </div>
 
@@ -103,13 +103,13 @@ export default function LinkSingleUseSurveyModal({ survey, surveyBaseUrl }: Link
           <div className="mt-4 flex flex-col justify-center gap-2 sm:flex-row sm:justify-end">
             <Button
               variant="secondary"
-              title="Generate new single-use survey link"
-              aria-label="Generate new single-use survey link"
+              title="Generate new single-use form link"
+              aria-label="Generate new single-use form link"
               className="flex justify-center"
               onClick={() => {
                 fetchSingleUseIds();
                 setSelectedSingleIds([]);
-                toast.success("New survey links generated!");
+                toast.success("New form links generated!");
               }}
               EndIcon={ArrowPathIcon}>
               Regenerate
@@ -124,8 +124,8 @@ export default function LinkSingleUseSurveyModal({ survey, surveyBaseUrl }: Link
                 navigator.clipboard.writeText(allSurveyUrls);
                 toast.success("All URLs copied to clipboard!");
               }}
-              title="Copy all survey links to clipboard"
-              aria-label="Copy all survey links to clipboard"
+              title="Copy all form links to clipboard"
+              aria-label="Copy all form links to clipboard"
               className="flex justify-center"
               EndIcon={DocumentDuplicateIcon}>
               Copy all URLs

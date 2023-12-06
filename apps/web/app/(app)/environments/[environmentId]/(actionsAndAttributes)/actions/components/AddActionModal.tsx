@@ -79,8 +79,8 @@ export default function AddNoCodeActionModal({
       watch("noCodeConfig.[pageUrl].rule")
     );
     setIsMatch(match);
-    if (match === "yes") toast.success("Your survey would be shown on this URL.");
-    if (match === "no") toast.error("Your survey would not be shown.");
+    if (match === "yes") toast.success("Your form would be shown on this URL.");
+    if (match === "no") toast.error("Your form would not be shown.");
   };
 
   const submitEventClass = async (data: Partial<TActionClassInput>): Promise<void> => {

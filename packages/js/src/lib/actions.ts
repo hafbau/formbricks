@@ -61,11 +61,11 @@ export const trackAction = async (
 };
 
 export const triggerSurvey = (actionName: string, activeSurveys: TSurvey[]): void => {
-  for (const survey of activeSurveys) {
-    for (const trigger of survey.triggers) {
+  for (const form of activeSurveys) {
+    for (const trigger of form.triggers) {
       if (trigger === actionName) {
-        logger.debug(`Fastform: survey ${survey.id} triggered by action "${actionName}"`);
-        renderWidget(survey);
+        logger.debug(`Fastform: form ${form.id} triggered by action "${actionName}"`);
+        renderWidget(form);
         return;
       }
     }

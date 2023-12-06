@@ -18,7 +18,7 @@ import { TMembershipRole } from "@fastform/types/memberships";
 
 interface ResponsePageProps {
   environment: TEnvironment;
-  survey: TSurvey;
+  form: TSurvey;
   surveyId: string;
   responses: TResponse[];
   webAppUrl: string;
@@ -31,7 +31,7 @@ interface ResponsePageProps {
 
 const ResponsePage = ({
   environment,
-  survey,
+  form,
   surveyId,
   responses,
   webAppUrl,
@@ -53,13 +53,13 @@ const ResponsePage = ({
 
   // get the filtered array when the selected filter value changes
   const filterResponses: TResponse[] = useMemo(() => {
-    return getFilterResponses(responses, selectedFilter, survey, dateRange);
-  }, [selectedFilter, responses, survey, dateRange]);
+    return getFilterResponses(responses, selectedFilter, form, dateRange);
+  }, [selectedFilter, responses, form, dateRange]);
   return (
     <ContentWrapper>
       <SummaryHeader
         environment={environment}
-        survey={survey}
+        form={form}
         surveyId={surveyId}
         webAppUrl={webAppUrl}
         product={product}
@@ -69,7 +69,7 @@ const ResponsePage = ({
       <CustomFilter
         environmentTags={environmentTags}
         responses={filterResponses}
-        survey={survey}
+        form={form}
         totalResponses={responses}
       />
       <SurveyResultsTabs activeId="responses" environmentId={environment.id} surveyId={surveyId} />
@@ -77,7 +77,7 @@ const ResponsePage = ({
         environment={environment}
         surveyId={surveyId}
         responses={filterResponses}
-        survey={survey}
+        form={form}
         profile={profile}
         environmentTags={environmentTags}
         responsesPerPage={responsesPerPage}

@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Survey" ADD COLUMN     "autoClose" INTEGER;
+ALTER TABLE "Form" ADD COLUMN     "autoClose" INTEGER;

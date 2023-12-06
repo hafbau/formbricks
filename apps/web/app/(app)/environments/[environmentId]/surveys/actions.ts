@@ -3,7 +3,7 @@
 import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
 import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
-import { createSurvey } from "@fastform/lib/survey/service";
+import { createSurvey } from "@fastform/lib/form/service";
 import { AuthorizationError } from "@fastform/types/errors";
 import { TSurveyInput } from "@fastform/types/surveys";
 

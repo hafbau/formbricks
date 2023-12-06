@@ -6,7 +6,7 @@ import { IS_FORMBRICKS_CLOUD, PRICING_USERTARGETING_FREE_MTU } from "@fastform/l
 import { getEnvironment, updateEnvironment } from "@fastform/lib/environment/service";
 import { createPerson, getPersonByUserId } from "@fastform/lib/person/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSyncSurveys } from "@fastform/lib/survey/service";
+import { getSyncSurveys } from "@fastform/lib/form/service";
 import { getMonthlyActiveTeamPeopleCount, getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { TEnvironment } from "@fastform/types/environment";
 import { TJsStateSync, ZJsPeopleUserIdInput } from "@fastform/types/js";

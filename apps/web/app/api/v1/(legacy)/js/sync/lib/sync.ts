@@ -8,7 +8,7 @@ import {
 import { getEnvironment } from "@fastform/lib/environment/service";
 import { getPerson } from "@fastform/lib/person/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSurveys, getSyncSurveys } from "@fastform/lib/survey/service";
+import { getSurveys, getSyncSurveys } from "@fastform/lib/form/service";
 import {
   getMonthlyActiveTeamPeopleCount,
   getMonthlyTeamResponseCount,
@@ -20,8 +20,8 @@ import { TPerson } from "@fastform/types/people";
 import { TSurvey } from "@fastform/types/surveys";
 
 export const transformLegacySurveys = (surveys: TSurvey[]): TSurveyWithTriggers[] => {
-  const updatedSurveys = surveys.map((survey) => {
-    const updatedSurvey: any = { ...survey };
+  const updatedSurveys = surveys.map((form) => {
+    const updatedSurvey: any = { ...form };
     updatedSurvey.triggers = updatedSurvey.triggers.map((trigger) => ({ name: trigger }));
     return updatedSurvey;
   });
@@ -75,7 +75,7 @@ export const getUpdatedState = async (environmentId: string, personId?: string):
       person = { id: "legacy" };
     }
   }
-  // check if App Survey limit is reached
+  // check if App Form limit is reached
   let isAppSurveyLimitReached = false;
   if (IS_FORMBRICKS_CLOUD) {
     const hasAppSurveySubscription =
@@ -97,7 +97,7 @@ export const getUpdatedState = async (environmentId: string, personId?: string):
     surveys = await getSyncSurveys(environmentId, person as TPerson);
   } else {
     surveys = await getSurveys(environmentId);
-    surveys = surveys.filter((survey) => survey.type === "web" && survey.status === "inProgress");
+    surveys = surveys.filter((form) => form.type === "web" && form.status === "inProgress");
   }
 
   surveys = transformLegacySurveys(surveys);

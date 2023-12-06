@@ -15,7 +15,7 @@ import Image from "next/image";
 export default function MeasurePMFPage() {
   return (
     <Layout
-      title="Product-Market Fit Survey with Fastform"
+      title="Product-Market Fit Form with Fastform"
       description="Measure Product-Market Fit to understand how to develop your product further.">
       <div className="grid grid-cols-1 items-center md:grid-cols-2 md:gap-12 md:py-20">
         <div className="p-6 md:p-0">
@@ -24,7 +24,7 @@ export default function MeasurePMFPage() {
             Why is it useful?
           </h3>
           <p className="text-slate-600 dark:text-slate-400">
-            The Product-Market Fit survey is a proven method to get a continuous understanding of how users
+            The Product-Market Fit form is a proven method to get a continuous understanding of how users
             value your product. This helps you prioritize features to increase your PMF. To run it properly,
             you need granular control over who to ask when. Fastform makes this possible.
           </p>
@@ -37,7 +37,7 @@ export default function MeasurePMFPage() {
             automatically asks a predetermined amount of users weekly, bi-weekly or monthly. The continuous
             stream of insights help you develop your product with the core user needs front and center.
           </p>
-          <UseCaseCTA href="/docs/best-practices/pmf-survey" />
+          <UseCaseCTA href="/docs/best-practices/pmf-form" />
         </div>
         <DemoPreview template="Product Market Fit (Superhuman)" />
       </div>
@@ -52,7 +52,7 @@ export default function MeasurePMFPage() {
               </h2>
               <p className="text-md mt-6 max-w-lg leading-7 text-slate-500 dark:text-slate-400">
                 Signed up for more than 4 weeks? Used a specific feature? Set up a custom condition to{" "}
-                <strong>only survey the right subset</strong> of your user base.
+                <strong>only form the right subset</strong> of your user base.
               </p>
             </div>
             <div className="rounded-lg bg-slate-100 p-4 dark:bg-slate-800 sm:p-8">
@@ -77,12 +77,12 @@ export default function MeasurePMFPage() {
         <div className="px-4 sm:max-w-4xl sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="grid md:grid-cols-2 md:items-center md:gap-16">
             <div className="order-last rounded-lg sm:py-8 md:order-first md:p-4">
-              <DemoPreview template="Product Market Fit Survey (short)" />
+              <DemoPreview template="Product Market Fit Form (short)" />
             </div>
             <div className="pb-8 md:pb-0">
               <h4 className="text-brand-dark font-bold">Step 2</h4>
               <h2 className="xs:text-3xl text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-3xl">
-                Survey users in-app
+                Form users in-app
               </h2>
               <p className="text-md mt-6 max-w-lg leading-7 text-slate-500 dark:text-slate-400">
                 On average, in-app surveys convert 6x better than email surveys. Get significant results even
@@ -102,7 +102,7 @@ export default function MeasurePMFPage() {
               </h2>
               <p className="text-md mt-6 max-w-lg leading-7 text-slate-500 dark:text-slate-400">
                 Pipe insights to where your team works: Slack, Discord, Email. Use the webhook and Zapier to
-                pipe survey data where you want it.
+                pipe form data where you want it.
               </p>
             </div>
             <div className="w-full rounded-lg bg-slate-100 p-8 dark:bg-slate-800">
@@ -151,7 +151,7 @@ export default function MeasurePMFPage() {
       <BreakerCTA
         teaser="READY to measure PMF?"
         headline="Get started in minutes."
-        subheadline="Measure Product-Market Fit with a survey that converts 6x better than email."
+        subheadline="Measure Product-Market Fit with a form that converts 6x better than email."
         cta="Sign up for free"
         href="https://app.fastform.com/auth/signup"
       />

@@ -8,7 +8,7 @@ export default function FeatureChaserPage() {
   return (
     <Layout
       title="Feature Chaser with Fastform"
-      description="Show a survey about a new feature shown only to people who used it and gain insightful data.">
+      description="Show a form about a new feature shown only to people who used it and gain insightful data.">
       <div className="grid grid-cols-1 items-center md:grid-cols-2 md:gap-12 md:py-20">
         <div className="p-6 md:p-0">
           <UseCaseHeader title="Feature Chaser" difficulty="Easy" setupMinutes="10" />
@@ -18,8 +18,8 @@ export default function FeatureChaserPage() {
           <p className="text-slate-600 dark:text-slate-400">
             You don&apos;t always know how well a feature works. Product analytics don&apos;t tell you why it
             is used - and why not. Especially in complex products it can be difficult to gather reliable
-            experience data. The Feature Chaser allows you to granularly survey users at exactly the right
-            point in the user journey.
+            experience data. The Feature Chaser allows you to granularly form users at exactly the right point
+            in the user journey.
           </p>
           <h3 className="text-md mb-1.5 mt-6 font-semibold text-slate-800 dark:text-slate-200">
             How to get started:

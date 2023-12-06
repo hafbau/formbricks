@@ -199,7 +199,7 @@ export default function StylingCard({ localSurvey, setLocalSurvey, colours }: St
               <Label htmlFor="autoComplete" className="cursor-pointer">
                 <div className="ml-2">
                   <h3 className="text-sm font-semibold text-slate-700">Overwrite Brand Color</h3>
-                  <p className="text-xs font-normal text-slate-500">Change the main color for this survey.</p>
+                  <p className="text-xs font-normal text-slate-500">Change the main color for this form.</p>
                 </div>
               </Label>
             </div>
@@ -280,7 +280,7 @@ export default function StylingCard({ localSurvey, setLocalSurvey, colours }: St
                 <Label htmlFor="surveyDeadline" className="cursor-pointer">
                   <div className="ml-2">
                     <h3 className="text-sm font-semibold text-slate-700">Overwrite Placement</h3>
-                    <p className="text-xs font-normal text-slate-500">Change the placement of this survey.</p>
+                    <p className="text-xs font-normal text-slate-500">Change the placement of this form.</p>
                   </div>
                 </Label>
               </div>
@@ -315,7 +315,7 @@ export default function StylingCard({ localSurvey, setLocalSurvey, colours }: St
                   <div className="ml-2">
                     <h3 className="text-sm font-semibold text-slate-700">Overwrite Highlight Border</h3>
                     <p className="text-xs font-normal text-slate-500">
-                      Change the highlight border for this survey.
+                      Change the highlight border for this form.
                     </p>
                   </div>
                 </Label>

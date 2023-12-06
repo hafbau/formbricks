@@ -31,7 +31,7 @@ import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { LoadingWrapper } from "../LoadingWrapper";
 
 export interface SingleResponseCardProps {
-  survey: TSurvey;
+  form: TSurvey;
   response: TResponse;
   profile: TProfile;
   pageType: string;
@@ -62,14 +62,14 @@ function TooltipRenderer(props: TooltipRendererProps) {
 }
 
 export default function SingleResponseCard({
-  survey,
+  form,
   response,
   profile,
   pageType,
   environmentTags,
   environment,
 }: SingleResponseCardProps) {
-  const environmentId = survey.environmentId;
+  const environmentId = form.environmentId;
   const router = useRouter();
   const displayIdentifier = response.person ? getPersonIdentifier(response.person) : null;
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -80,7 +80,7 @@ export default function SingleResponseCard({
   let temp: string[] = [];
   const { membershipRole, isLoading, error } = useMembershipRole(environmentId);
   const { isViewer } = getAccessFlags(membershipRole);
-  const isFirstQuestionAnswered = response.data[survey.questions[0].id] ? true : false;
+  const isFirstQuestionAnswered = response.data[form.questions[0].id] ? true : false;
 
   function isValidValue(value: any) {
     return (
@@ -91,7 +91,7 @@ export default function SingleResponseCard({
   }
 
   if (response.finished) {
-    survey.questions.forEach((question) => {
+    form.questions.forEach((question) => {
       if (!response.data[question.id]) {
         temp.push(question.id);
       } else {
@@ -102,8 +102,8 @@ export default function SingleResponseCard({
       }
     });
   } else {
-    for (let index = survey.questions.length - 1; index >= 0; index--) {
-      const question = survey.questions[index];
+    for (let index = form.questions.length - 1; index >= 0; index--) {
+      const question = form.questions[index];
       if (!response.data[question.id]) {
         if (skippedQuestions.length === 0) {
           temp.push(question.id);
@@ -201,8 +201,8 @@ export default function SingleResponseCard({
     </>
   );
   const deleteSubmissionToolTip = <>This response is in progress.</>;
-  const hasHiddenFieldsEnabled = survey.hiddenFields?.enabled;
-  const fieldIds = survey.hiddenFields?.fieldIds || [];
+  const hasHiddenFieldsEnabled = form.hiddenFields?.enabled;
+  const fieldIds = form.hiddenFields?.fieldIds || [];
   const hasFieldIds = !!fieldIds.length;
 
   return (
@@ -241,13 +241,13 @@ export default function SingleResponseCard({
 
             {pageType === "people" && (
               <div className="flex items-center justify-center space-x-2 rounded-full bg-slate-100 p-1 px-2 text-sm text-slate-600">
-                {(survey.type === "link" || environment.widgetSetupCompleted) && (
-                  <SurveyStatusIndicator status={survey.status} />
+                {(form.type === "link" || environment.widgetSetupCompleted) && (
+                  <SurveyStatusIndicator status={form.status} />
                 )}
                 <Link
                   className="hover:underline"
-                  href={`/environments/${environmentId}/surveys/${survey.id}/summary`}>
-                  {survey.name}
+                  href={`/environments/${environmentId}/surveys/${form.id}/summary`}>
+                  {form.name}
                 </Link>
               </div>
             )}
@@ -276,16 +276,16 @@ export default function SingleResponseCard({
           </div>
         </div>
         <div className="rounded-b-lg bg-white p-6">
-          {survey.welcomeCard.enabled && (
+          {form.welcomeCard.enabled && (
             <QuestionSkip
               skippedQuestions={[]}
-              questions={survey.questions}
+              questions={form.questions}
               status={"welcomeCard"}
               isFirstQuestionAnswered={isFirstQuestionAnswered}
             />
           )}
           <div className="space-y-6">
-            {survey.questions.map((question) => {
+            {form.questions.map((question) => {
               const skipped = skippedQuestions.find((skippedQuestionElement) =>
                 skippedQuestionElement.includes(question.id)
               );
@@ -302,7 +302,7 @@ export default function SingleResponseCard({
                   ) : (
                     <QuestionSkip
                       skippedQuestions={skipped}
-                      questions={survey.questions}
+                      questions={form.questions}
                       status={
                         response.finished ||
                         (skippedQuestions.length > 0 &&

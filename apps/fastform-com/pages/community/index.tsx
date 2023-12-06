@@ -37,7 +37,7 @@ import LevelsGrid from "./LevelGrid";
   },
   {
     points: "Design a background (250 Points)",
-    quest: "Illustrate a captivating background for survey enthusiasts (more infos on Notion).",
+    quest: "Illustrate a captivating background for form enthusiasts (more infos on Notion).",
     proof: "Share the design in the “side-quest” channel.",
   },
   {
@@ -65,8 +65,8 @@ import LevelsGrid from "./LevelGrid";
   },
   {
     points: "Feedback Fanatic (50 Points)",
-    quest: "Fill out our feedback survey after the hackathon with suggestions for improvement.",
-    proof: "Submit the survey.",
+    quest: "Fill out our feedback form after the hackathon with suggestions for improvement.",
+    proof: "Submit the form.",
   },
   {
     points: "Side Quest Babo (500 Points)",
@@ -123,7 +123,7 @@ const TheDeal = [
   },
   {
     os: "All community features included",
-    free: "Unlimited Link Survey Submissions",
+    free: "Unlimited Link Form Submissions",
     pro: "Remove Branding",
   },
   {
@@ -159,17 +159,17 @@ const TheDeal = [
 
   {
     os: "ok one more",
-    free: "Close Survey after Submission Limit",
+    free: "Close Form after Submission Limit",
     pro: "",
   },
   {
     os: "no flavor like free flavor",
-    free: "Custom Survey Closed Message",
+    free: "Custom Form Closed Message",
     pro: "",
   },
   {
     os: "...",
-    free: "Close Survey on Date",
+    free: "Close Form on Date",
     pro: "",
   },
   {

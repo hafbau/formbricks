@@ -34,10 +34,10 @@ export default function SurveyStarter({
       autoComplete,
     } as TSurveyInput;
     try {
-      const survey = await createSurveyAction(environmentId, augmentedTemplate);
-      router.push(`/environments/${environmentId}/surveys/${survey.id}/edit`);
+      const form = await createSurveyAction(environmentId, augmentedTemplate);
+      router.push(`/environments/${environmentId}/surveys/${form.id}/edit`);
     } catch (e) {
-      toast.error("An error occured creating a new survey");
+      toast.error("An error occured creating a new form");
       setIsCreateSurveyLoading(false);
     }
   };
@@ -49,7 +49,7 @@ export default function SurveyStarter({
         <>
           <div className="px-7 pb-4">
             <h1 className="text-3xl font-extrabold text-slate-700">
-              You&apos;re all set! Time to create your first survey.
+              You&apos;re all set! Time to create your first form.
             </h1>
           </div>
           <TemplateList

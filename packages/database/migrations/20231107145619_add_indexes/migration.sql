@@ -44,7 +44,7 @@ CREATE INDEX "Response_surveyId_idx" ON "Response"("surveyId");
 CREATE INDEX "ResponseNote_responseId_idx" ON "ResponseNote"("responseId");
 
 -- CreateIndex
-CREATE INDEX "Survey_environmentId_idx" ON "Survey"("environmentId");
+CREATE INDEX "Survey_environmentId_idx" ON "Form"("environmentId");
 
 -- CreateIndex
 CREATE INDEX "SurveyAttributeFilter_surveyId_idx" ON "SurveyAttributeFilter"("surveyId");

@@ -5,8 +5,8 @@ import { createAttributeClass, getAttributeClassByName } from "@fastform/lib/att
 import { personCache } from "@fastform/lib/person/cache";
 import { getPerson, updatePersonAttribute } from "@fastform/lib/person/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { surveyCache } from "@fastform/lib/survey/cache";
-import { getSyncSurveys } from "@fastform/lib/survey/service";
+import { surveyCache } from "@fastform/lib/form/cache";
+import { getSyncSurveys } from "@fastform/lib/form/service";
 import { TJsStateSync, ZJsPeopleAttributeInput } from "@fastform/types/js";
 import { NextResponse } from "next/server";
 

@@ -7,7 +7,7 @@ import { headers } from "next/headers";
 import { putFileToLocalStorage } from "@fastform/lib/storage/service";
 import { UPLOADS_DIR } from "@fastform/lib/constants";
 import { env } from "@fastform/lib/env.mjs";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { validateLocalSignedUrl } from "@fastform/lib/crypto";
 
@@ -25,7 +25,7 @@ export async function OPTIONS(): Promise<NextResponse> {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers":
-          "Content-Type, Authorization, X-File-Name, X-File-Type, X-Survey-ID, X-Signature, X-Timestamp, X-UUID",
+          "Content-Type, Authorization, X-File-Name, X-File-Type, X-Form-ID, X-Signature, X-Timestamp, X-UUID",
       },
     }
   );
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest, context: Context): Promise<NextResp
 
   const fileType = headersList.get("X-File-Type");
   const encodedFileName = headersList.get("X-File-Name");
-  const surveyId = headersList.get("X-Survey-ID");
+  const surveyId = headersList.get("X-Form-ID");
 
   const signedSignature = headersList.get("X-Signature");
   const signedUuid = headersList.get("X-UUID");
@@ -69,10 +69,10 @@ export async function POST(req: NextRequest, context: Context): Promise<NextResp
     return responses.unauthorizedResponse();
   }
 
-  const [survey, team] = await Promise.all([getSurvey(surveyId), getTeamByEnvironmentId(environmentId)]);
+  const [form, team] = await Promise.all([getSurvey(surveyId), getTeamByEnvironmentId(environmentId)]);
 
-  if (!survey) {
-    return responses.notFoundResponse("Survey", surveyId);
+  if (!form) {
+    return responses.notFoundResponse("Form", surveyId);
   }
 
   if (!team) {

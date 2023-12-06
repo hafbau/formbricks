@@ -170,7 +170,7 @@ export const createDisplay = async (displayInput: TDisplayCreateInput): Promise<
     }
     const display = await prisma.display.create({
       data: {
-        survey: {
+        form: {
           connect: {
             id: surveyId,
           },
@@ -208,7 +208,7 @@ export const createDisplayLegacy = async (displayInput: TDisplayLegacyCreateInpu
   try {
     const display = await prisma.display.create({
       data: {
-        survey: {
+        form: {
           connect: {
             id: displayInput.surveyId,
           },

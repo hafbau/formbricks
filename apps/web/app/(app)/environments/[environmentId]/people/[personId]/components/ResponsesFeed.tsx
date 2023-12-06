@@ -25,15 +25,15 @@ export default async function ResponseFeed({
         <EmptySpaceFiller type="response" environment={environment} />
       ) : (
         responses.map((response, idx) => {
-          const survey = surveys.find((survey) => {
-            return survey.id === response.surveyId;
+          const form = surveys.find((form) => {
+            return form.id === response.surveyId;
           });
           return (
             <div key={idx}>
-              {survey && (
+              {form && (
                 <SingleResponseCard
                   response={response}
-                  survey={survey}
+                  form={form}
                   profile={profile}
                   pageType="people"
                   environmentTags={environmentTags}

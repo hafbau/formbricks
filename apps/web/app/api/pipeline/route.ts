@@ -103,7 +103,7 @@ export async function POST(request: Request) {
     if (integrations.length > 0) {
       handleIntegrations(integrations, inputValidation.data);
     }
-    // filter all users that have email notifications enabled for this survey
+    // filter all users that have email notifications enabled for this form
     const usersWithNotifications = users.filter((user) => {
       const notificationSettings: TUserNotificationSettings | null = user.notificationSettings;
       if (notificationSettings?.alert && notificationSettings.alert[surveyId]) {
@@ -113,8 +113,8 @@ export async function POST(request: Request) {
     });
 
     if (usersWithNotifications.length > 0) {
-      // get survey
-      const surveyData = await prisma.survey.findUnique({
+      // get form
+      const surveyData = await prisma.form.findUnique({
         where: {
           id: surveyId,
         },
@@ -125,13 +125,13 @@ export async function POST(request: Request) {
         },
       });
       if (!surveyData) {
-        console.error(`Pipeline: Survey with id ${surveyId} not found`);
-        return new Response("Survey not found", {
+        console.error(`Pipeline: Form with id ${surveyId} not found`);
+        return new Response("Form not found", {
           status: 404,
         });
       }
-      // create survey object
-      const survey = {
+      // create form object
+      const form = {
         id: surveyData.id,
         name: surveyData.name,
         questions: JSON.parse(JSON.stringify(surveyData.questions)) as TSurveyQuestion[],
@@ -139,14 +139,14 @@ export async function POST(request: Request) {
       // send email to all users
       await Promise.all(
         usersWithNotifications.map(async (user) => {
-          await sendResponseFinishedEmail(user.email, environmentId, survey, response);
+          await sendResponseFinishedEmail(user.email, environmentId, form, response);
         })
       );
     }
 
     const updateSurveyStatus = async (surveyId: string) => {
-      // Get the survey instance by surveyId
-      const survey = await prisma.survey.findUnique({
+      // Get the form instance by surveyId
+      const form = await prisma.form.findUnique({
         where: {
           id: surveyId,
         },
@@ -155,15 +155,15 @@ export async function POST(request: Request) {
         },
       });
 
-      if (survey?.autoComplete) {
-        // Get the number of responses to a survey
+      if (form?.autoComplete) {
+        // Get the number of responses to a form
         const responseCount = await prisma.response.count({
           where: {
             surveyId: surveyId,
           },
         });
-        if (responseCount === survey.autoComplete) {
-          await prisma.survey.update({
+        if (responseCount === form.autoComplete) {
+          await prisma.form.update({
             where: {
               id: surveyId,
             },

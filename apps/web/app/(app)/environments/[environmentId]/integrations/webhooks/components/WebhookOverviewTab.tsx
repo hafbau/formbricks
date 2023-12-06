@@ -11,11 +11,11 @@ interface ActivityTabProps {
 
 const getSurveyNamesForWebhook = (webhook: TWebhook, allSurveys: TSurvey[]): string[] => {
   if (webhook.surveyIds.length === 0) {
-    return allSurveys.map((survey) => survey.name);
+    return allSurveys.map((form) => form.name);
   } else {
     return webhook.surveyIds.map((surveyId) => {
-      const survey = allSurveys.find((survey) => survey.id === surveyId);
-      return survey ? survey.name : "";
+      const form = allSurveys.find((form) => form.id === surveyId);
+      return form ? form.name : "";
     });
   }
 };

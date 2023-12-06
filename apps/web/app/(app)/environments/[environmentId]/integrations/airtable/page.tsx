@@ -3,7 +3,7 @@ import { getAirtableTables } from "@fastform/lib/airtable/service";
 import { AIRTABLE_CLIENT_ID, WEBAPP_URL } from "@fastform/lib/constants";
 import { getEnvironment } from "@fastform/lib/environment/service";
 import { getIntegrations } from "@fastform/lib/integration/service";
-import { getSurveys } from "@fastform/lib/survey/service";
+import { getSurveys } from "@fastform/lib/form/service";
 import { TIntegrationItem } from "@fastform/types/integration";
 import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
 import GoBackButton from "@fastform/ui/GoBackButton";

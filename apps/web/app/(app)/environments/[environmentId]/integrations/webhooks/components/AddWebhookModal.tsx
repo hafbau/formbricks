@@ -90,7 +90,7 @@ export default function AddWebhookModal({ environmentId, surveys, open, setOpen 
         }
 
         if (!selectedAllSurveys && selectedSurveys.length === 0) {
-          throw new Error("Please select at least one survey");
+          throw new Error("Please select at least one form");
         }
 
         const endpointHitSuccessfully = await handleTestEndpoint(false);
@@ -137,7 +137,7 @@ export default function AddWebhookModal({ environmentId, surveys, open, setOpen 
               </div>
               <div>
                 <div className="text-xl font-medium text-slate-700">Add Webhook</div>
-                <div className="text-sm text-slate-500">Send survey response data to a custom endpoint</div>
+                <div className="text-sm text-slate-500">Send form response data to a custom endpoint</div>
               </div>
             </div>
           </div>

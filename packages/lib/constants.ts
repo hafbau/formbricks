@@ -71,7 +71,7 @@ export const IS_S3_CONFIGURED: boolean =
 export const PRICING_USERTARGETING_FREE_MTU = 2500;
 export const PRICING_APPSURVEYS_FREE_RESPONSES = 250;
 
-// Colors for Survey Bg
+// Colors for Form Bg
 export const colours = [
   "#FFF2D8",
   "#EAD7BB",

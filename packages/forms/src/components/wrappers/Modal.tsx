@@ -109,7 +109,7 @@ export default function Modal({
                 type="button"
                 onClick={onClose}
                 class="text-close-button hover:text-close-button-focus focus:ring-close-button-focus relative h-5 w-5 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2">
-                <span class="sr-only">Close survey</span>
+                <span class="sr-only">Close form</span>
                 <svg
                   class="h-4 w-4"
                   fill="none"

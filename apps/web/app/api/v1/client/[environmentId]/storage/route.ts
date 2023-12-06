@@ -1,5 +1,5 @@
 import { responses } from "@/app/lib/api/response";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { NextRequest, NextResponse } from "next/server";
 import uploadPrivateFile from "./lib/uploadPrivateFile";
@@ -17,7 +17,7 @@ export async function OPTIONS(): Promise<NextResponse> {
 // api endpoint for uploading private files
 // uploaded files will be private, only the user who has access to the environment can access the file
 // uploading private files requires no authentication
-// use this to let users upload files to a survey for example
+// use this to let users upload files to a form for example
 // this api endpoint will return a signed url for uploading the file to s3 and another url for uploading file to the local storage
 
 export async function POST(req: NextRequest, context: Context): Promise<NextResponse> {
@@ -37,10 +37,10 @@ export async function POST(req: NextRequest, context: Context): Promise<NextResp
     return responses.badRequestResponse("contentType is required");
   }
 
-  const [survey, team] = await Promise.all([getSurvey(surveyId), getTeamByEnvironmentId(environmentId)]);
+  const [form, team] = await Promise.all([getSurvey(surveyId), getTeamByEnvironmentId(environmentId)]);
 
-  if (!survey) {
-    return responses.notFoundResponse("Survey", surveyId);
+  if (!form) {
+    return responses.notFoundResponse("Form", surveyId);
   }
 
   if (!team) {

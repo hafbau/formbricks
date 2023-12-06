@@ -9,10 +9,10 @@ import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 
 export default function VerifyEmail({
-  survey,
+  form,
   isErrorComponent,
 }: {
-  survey: TSurvey;
+  form: TSurvey;
   isErrorComponent?: boolean;
 }) {
   const [showPreviewQuestions, setShowPreviewQuestions] = useState(false);
@@ -30,9 +30,9 @@ export default function VerifyEmail({
       return;
     }
     const data = {
-      surveyId: survey.id,
+      surveyId: form.id,
       email: email,
-      surveyData: survey.verifyEmail,
+      surveyData: form.verifyEmail,
     };
     try {
       await sendLinkSurveyEmailAction(data);
@@ -78,7 +78,7 @@ export default function VerifyEmail({
           <EnvelopeIcon className="h-24 w-24 rounded-full bg-slate-300 p-6 text-white" />
           <p className="mt-8 text-2xl font-bold lg:text-4xl">Verify your email to respond.</p>
           <p className="mt-2 text-sm text-slate-400 lg:text-base">
-            To respond to this survey please verify your email.
+            To respond to this form please verify your email.
           </p>
           <div className="mt-6 flex w-full space-x-2">
             <Input
@@ -94,7 +94,7 @@ export default function VerifyEmail({
             </Button>
           </div>
           <p className="mt-6 cursor-pointer text-xs text-slate-400" onClick={handlePreviewClick}>
-            Just curious? <span className="underline">Preview survey questions.</span>
+            Just curious? <span className="underline">Preview form questions.</span>
           </p>
         </div>
       )}
@@ -102,7 +102,7 @@ export default function VerifyEmail({
         <div className="flex flex-col items-center justify-center">
           <p className="text-4xl font-bold">Question Preview</p>
           <div className="mt-4 flex w-full flex-col justify-center rounded-lg border border-slate-200 p-8">
-            {survey.questions.map((question, index) => (
+            {form.questions.map((question, index) => (
               <p key={index} className="my-1">{`${index + 1}. ${question.headline}`}</p>
             ))}
           </div>
@@ -116,7 +116,7 @@ export default function VerifyEmail({
           <h1 className="mt-8 text-2xl font-bold lg:text-4xl">Check your email.</h1>
           <p className="mt-4 text-center text-sm text-slate-400 lg:text-base">
             We sent an email to <span className="font-semibold italic">{email}</span>. Please click the link
-            in the email to take your survey.
+            in the email to take your form.
           </p>
           <p className="mt-6 cursor-pointer text-sm text-slate-400" onClick={handleGoBackClick}>
             Go Back

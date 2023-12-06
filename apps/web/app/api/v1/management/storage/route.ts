@@ -8,7 +8,7 @@ import getSignedUrlForPublicFile from "./lib/getSignedUrl";
 // api endpoint for uploading public files
 // uploaded files will be public, anyone can access the file
 // uploading public files requires authentication
-// use this to upload files for a specific resource, e.g. a user profile picture or a survey
+// use this to upload files for a specific resource, e.g. a user profile picture or a form
 // this api endpoint will return a signed url for uploading the file to s3 and another url for uploading file to the local storage
 
 export async function POST(req: NextRequest): Promise<NextResponse> {

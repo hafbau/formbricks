@@ -80,8 +80,8 @@ export default function AddIntegrationModal({
         name: selectedIntegration.spreadsheetName,
       });
       setSelectedSurvey(
-        surveys.find((survey) => {
-          return survey.id === selectedIntegration.surveyId;
+        surveys.find((form) => {
+          return form.id === selectedIntegration.surveyId;
         })!
       );
       setSelectedQuestions(selectedIntegration.questionIds);
@@ -96,7 +96,7 @@ export default function AddIntegrationModal({
         throw new Error("Please select a spreadsheet");
       }
       if (!selectedSurvey) {
-        throw new Error("Please select a survey");
+        throw new Error("Please select a form");
       }
 
       if (selectedQuestions.length === 0) {
@@ -243,8 +243,8 @@ export default function AddIntegrationModal({
                   />
                   {selectedSpreadsheet && hasMatchingId && (
                     <p className="text-xs text-amber-700">
-                      <strong>Warning:</strong> You have already connected one survey with this sheet. Your
-                      data will be inconsistent
+                      <strong>Warning:</strong> You have already connected one form with this sheet. Your data
+                      will be inconsistent
                     </p>
                   )}
                   <p className="m-1 text-xs text-slate-500">
@@ -254,15 +254,14 @@ export default function AddIntegrationModal({
                 </div>
                 <div>
                   <DropdownSelector
-                    label="Select Survey"
+                    label="Select Form"
                     items={surveys}
                     selectedItem={selectedSurvey}
                     setSelectedItem={setSelectedSurvey}
                     disabled={surveys.length === 0}
                   />
                   <p className="m-1 text-xs text-slate-500">
-                    {surveys.length === 0 &&
-                      "You have to create a survey to be able to setup this integration"}
+                    {surveys.length === 0 && "You have to create a form to be able to setup this integration"}
                   </p>
                 </div>
               </div>

@@ -1,9 +1,9 @@
 import { Fence } from "@/components/shared/Fence";
 
 export const metadata = {
-  title: "Fastform Public Client API Guide: Manage Survey Displays & Responses",
+  title: "Fastform Public Client API Guide: Manage Form Displays & Responses",
   description:
-    "Dive deep into Fastform' Public Client API designed for customisation. This comprehensive guide provides detailed instructions on how to mark create and update survey displays for users.",
+    "Dive deep into Fastform' Public Client API designed for customisation. This comprehensive guide provides detailed instructions on how to mark create and update form displays for users.",
 };
 
 #### Client API
@@ -23,19 +23,19 @@ This set of API can be used to
 <Row>
   <Col>
 
-    Create Display of survey for a user
+    Create Display of form for a user
 
     ### Mandatory Request Body JSON Keys
     <Properties>
       <Property name="surveyId" type="string">
-        Survey ID to mark as viewed for a person
+        Form ID to mark as viewed for a person
       </Property>
     </Properties>
 
     ### Optional Request Body JSON Keys
     <Properties>
       <Property name="userId" type="string">
-        Already existing user's ID to mark as viewed for a survey
+        Already existing user's ID to mark as viewed for a form
       </Property>
       <Property name="responseId" type="string">
         Already existing response's ID to link with this new Display
@@ -53,7 +53,7 @@ This set of API can be used to
     'https://app.fastform.com/api/v1/client/displays' \
     -H 'Content-Type: application/json' \
     -d '{
-        "surveyId":"<survey-id>",
+        "surveyId":"<form-id>",
         "userId":"<user-id>"
       }'
     ```
@@ -96,7 +96,7 @@ This set of API can be used to
     ### Optional Request Body JSON Keys
     <Properties>
       <Property name="userId" type="string">
-        Already existing user's ID to mark as viewed for a survey
+        Already existing user's ID to mark as viewed for a form
       </Property>
       <Property name="responseId" type="string">
         Already existing response's ID to link with this new Display

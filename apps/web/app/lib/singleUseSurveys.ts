@@ -2,7 +2,7 @@ import { env } from "@fastform/lib/env.mjs";
 import { decryptAES128, symmetricDecrypt, symmetricEncrypt } from "@fastform/lib/crypto";
 import cuid2 from "@paralleldrive/cuid2";
 
-// generate encrypted single use id for the survey
+// generate encrypted single use id for the form
 export const generateSurveySingleUseId = (isEncrypted: boolean): string => {
   const cuid = cuid2.createId();
   if (!isEncrypted) {
@@ -13,7 +13,7 @@ export const generateSurveySingleUseId = (isEncrypted: boolean): string => {
   return encryptedCuid;
 };
 
-// validate the survey single use id
+// validate the form single use id
 export const validateSurveySingleUseId = (surveySingleUseId: string): string | undefined => {
   try {
     let decryptedCuid: string | null = null;

@@ -59,7 +59,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         id: true,
       },
       data: {
-        survey: {
+        form: {
           connect: {
             id: surveyId,
           },

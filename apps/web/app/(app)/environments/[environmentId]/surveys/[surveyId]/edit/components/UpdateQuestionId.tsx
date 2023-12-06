@@ -34,7 +34,7 @@ export default function UpdateQuestionId({
     const questionIds = localSurvey.questions.map((q) => q.id);
     if (questionIds.includes(currentValue)) {
       setIsInputInvalid(true);
-      toast.error("IDs have to be unique per survey.");
+      toast.error("IDs have to be unique per form.");
     } else if (currentValue.trim() === "" || currentValue.includes(" ")) {
       setCurrentValue(prevValue);
       updateQuestion(questionIdx, { id: prevValue });

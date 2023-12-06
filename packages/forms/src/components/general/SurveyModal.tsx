@@ -1,10 +1,10 @@
 import { useState } from "preact/hooks";
 import { SurveyModalProps } from "@/types/props";
 import Modal from "@/components/wrappers/Modal";
-import { Survey } from "./Survey";
+import { Form } from "./Form";
 
 export function SurveyModal({
-  survey,
+  form,
   isBrandingEnabled,
   activeQuestionId,
   placement,
@@ -38,8 +38,8 @@ export function SurveyModal({
         highlightBorderColor={highlightBorderColor}
         isOpen={isOpen}
         onClose={close}>
-        <Survey
-          survey={survey}
+        <Form
+          form={form}
           isBrandingEnabled={isBrandingEnabled}
           activeQuestionId={activeQuestionId}
           onDisplay={onDisplay}
@@ -49,7 +49,7 @@ export function SurveyModal({
           onFinished={() => {
             onFinished();
             setTimeout(() => {
-              if (!survey.redirectUrl) {
+              if (!form.redirectUrl) {
                 close();
               }
             }, 4000); // close modal automatically after 4 seconds

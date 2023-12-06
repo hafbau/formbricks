@@ -1,7 +1,7 @@
 import ResponseTimeline from "@/app/(app)/environments/[environmentId]/people/[personId]/components/ResponseTimeline";
 import { authOptions } from "@fastform/lib/authOptions";
 import { getResponsesByPersonId } from "@fastform/lib/response/service";
-import { getSurveys } from "@fastform/lib/survey/service";
+import { getSurveys } from "@fastform/lib/form/service";
 import { TEnvironment } from "@fastform/types/environment";
 import { TSurvey } from "@fastform/types/surveys";
 import { TTag } from "@fastform/types/tags";

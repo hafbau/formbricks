@@ -14,7 +14,7 @@ import LinkTab from "./shareEmbedTabs/LinkTab";
 import WebpageTab from "./shareEmbedTabs/WebpageTab";
 
 interface ShareEmbedSurveyProps {
-  survey: TSurvey;
+  form: TSurvey;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   webAppUrl: string;
@@ -22,18 +22,18 @@ interface ShareEmbedSurveyProps {
   profile: TProfile;
 }
 export default function ShareEmbedSurvey({
-  survey,
+  form,
   open,
   setOpen,
   webAppUrl,
   product,
   profile,
 }: ShareEmbedSurveyProps) {
-  const surveyUrl = useMemo(() => webAppUrl + "/s/" + survey.id, [survey]);
-  const isSingleUseLinkSurvey = survey.singleUse?.enabled;
+  const surveyUrl = useMemo(() => webAppUrl + "/s/" + form.id, [form]);
+  const isSingleUseLinkSurvey = form.singleUse?.enabled;
   const { email } = profile;
   const { brandColor } = product;
-  const surveyBrandColor = survey.productOverwrites?.brandColor || brandColor;
+  const surveyBrandColor = form.productOverwrites?.brandColor || brandColor;
 
   const tabs = [
     { id: "link", label: `${isSingleUseLinkSurvey ? "Single Use Links" : "Share the Link"}`, icon: LinkIcon },
@@ -51,7 +51,7 @@ export default function ShareEmbedSurvey({
         setOpen(open);
       }}>
       <DialogContent className="bottom-0 flex h-[95%] w-full flex-col gap-0 overflow-hidden rounded-2xl bg-white p-0 sm:max-w-none lg:bottom-auto lg:h-auto lg:w-[960px]">
-        <div className="border-b border-gray-200 px-4 py-3 lg:px-6 lg:py-4 ">Share or embed your survey</div>
+        <div className="border-b border-gray-200 px-4 py-3 lg:px-6 lg:py-4 ">Share or embed your form</div>
         <div className="flex grow overflow-x-hidden overflow-y-scroll">
           <div className="hidden basis-[326px] border-r border-gray-200 px-6 py-8 lg:block lg:shrink-0">
             <div className="flex w-max flex-col gap-3">
@@ -78,11 +78,11 @@ export default function ShareEmbedSurvey({
           <div className="flex w-full grow flex-col gap-6 bg-gray-50 px-4 py-6 lg:p-6">
             <div className="flex h-full overflow-y-scroll lg:h-[590px] lg:overflow-y-visible">
               {isSingleUseLinkSurvey ? (
-                <LinkSingleUseSurveyModal survey={survey} surveyBaseUrl={webAppUrl} />
+                <LinkSingleUseSurveyModal form={form} surveyBaseUrl={webAppUrl} />
               ) : activeId === "link" ? (
-                <LinkTab surveyUrl={surveyUrl} survey={survey} brandColor={surveyBrandColor} />
+                <LinkTab surveyUrl={surveyUrl} form={form} brandColor={surveyBrandColor} />
               ) : activeId === "email" ? (
-                <EmailTab surveyId={survey.id} email={email} />
+                <EmailTab surveyId={form.id} email={email} />
               ) : activeId === "webpage" ? (
                 <WebpageTab surveyUrl={surveyUrl} />
               ) : null}

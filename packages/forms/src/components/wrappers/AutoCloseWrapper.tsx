@@ -3,12 +3,12 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import Progress from "../general/Progress";
 
 interface AutoCloseProps {
-  survey: TSurvey;
+  form: TSurvey;
   onClose: () => void;
   children: any;
 }
 
-export function AutoCloseWrapper({ survey, onClose, children }: AutoCloseProps) {
+export function AutoCloseWrapper({ form, onClose, children }: AutoCloseProps) {
   const [countdownProgress, setCountdownProgress] = useState(100);
   const [countdownStop, setCountdownStop] = useState(false);
   const startRef = useRef(performance.now());
@@ -23,10 +23,10 @@ export function AutoCloseWrapper({ survey, onClose, children }: AutoCloseProps) 
   };
 
   useEffect(() => {
-    if (!survey.autoClose) return;
+    if (!form.autoClose) return;
 
     const updateCountdown = () => {
-      const timeout = survey.autoClose! * 1000;
+      const timeout = form.autoClose! * 1000;
       const elapsed = performance.now() - startRef.current;
       const remaining = Math.max(0, timeout - elapsed);
 
@@ -44,11 +44,11 @@ export function AutoCloseWrapper({ survey, onClose, children }: AutoCloseProps) 
     frameRef.current = requestAnimationFrame(updateCountdown);
 
     return () => handleStopCountdown();
-  }, [survey.autoClose, onClose]);
+  }, [form.autoClose, onClose]);
 
   return (
     <>
-      {!countdownStop && survey.autoClose && <Progress progress={countdownProgress} />}
+      {!countdownStop && form.autoClose && <Progress progress={countdownProgress} />}
       <div onClick={handleStopCountdown} onMouseOver={handleStopCountdown} className="h-full w-full">
         {children}
       </div>

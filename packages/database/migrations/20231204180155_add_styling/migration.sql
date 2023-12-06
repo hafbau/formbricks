@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Survey" ADD COLUMN     "styling" JSONB;
+ALTER TABLE "Form" ADD COLUMN     "styling" JSONB;

@@ -31,8 +31,8 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     }
     // personId can be null, e.g. for link surveys
 
-    // check if survey exists
-    const survey = await prisma.survey.findUnique({
+    // check if form exists
+    const form = await prisma.form.findUnique({
       where: {
         id: surveyId,
       },
@@ -42,8 +42,8 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       },
     });
 
-    if (!survey) {
-      return res.status(404).json({ message: "Survey not found" });
+    if (!form) {
+      return res.status(404).json({ message: "Form not found" });
     }
 
     // get teamId from environment
@@ -79,7 +79,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     const teamOwnerId = environment.product.team.memberships.find((m) => m.role === "owner")?.userId;
 
     const responseInput = {
-      survey: {
+      form: {
         connect: {
           id: surveyId,
         },
@@ -192,7 +192,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     if (teamOwnerId) {
       await capturePosthogEvent(teamOwnerId, "response created", teamId, {
         surveyId,
-        surveyType: survey.type,
+        surveyType: form.type,
       });
     } else {
       console.warn("Posthog capture not possible. No team owner found");

@@ -97,13 +97,13 @@ const revalidateSurveyByAttributeClassId = (attributeFilters: TSurveyAttributeFi
 };
 
 export const getSurvey = async (surveyId: string): Promise<TSurvey | null> => {
-  const survey = await unstable_cache(
+  const form = await unstable_cache(
     async () => {
       validateInputs([surveyId, ZId]);
 
       let surveyPrisma;
       try {
-        surveyPrisma = await prisma.survey.findUnique({
+        surveyPrisma = await prisma.form.findUnique({
           where: {
             id: surveyId,
           },
@@ -136,15 +136,15 @@ export const getSurvey = async (surveyId: string): Promise<TSurvey | null> => {
     }
   )();
 
-  if (!survey) {
+  if (!form) {
     return null;
   }
 
   // since the unstable_cache function does not support deserialization of dates, we need to manually deserialize them
   // https://github.com/vercel/next.js/issues/51613
   return {
-    ...survey,
-    ...formatSurveyDateFields(survey),
+    ...form,
+    ...formatSurveyDateFields(form),
   };
 };
 
@@ -156,7 +156,7 @@ export const getSurveysByAttributeClassId = async (
     async () => {
       validateInputs([attributeClassId, ZId], [page, ZOptionalNumber]);
 
-      const surveysPrisma = await prisma.survey.findMany({
+      const surveysPrisma = await prisma.form.findMany({
         where: {
           attributeFilters: {
             some: {
@@ -188,9 +188,9 @@ export const getSurveysByAttributeClassId = async (
     }
   )();
 
-  return surveys.map((survey) => ({
-    ...survey,
-    ...formatSurveyDateFields(survey),
+  return surveys.map((form) => ({
+    ...form,
+    ...formatSurveyDateFields(form),
   }));
 };
 
@@ -199,7 +199,7 @@ export const getSurveysByActionClassId = async (actionClassId: string, page?: nu
     async () => {
       validateInputs([actionClassId, ZId], [page, ZOptionalNumber]);
 
-      const surveysPrisma = await prisma.survey.findMany({
+      const surveysPrisma = await prisma.form.findMany({
         where: {
           triggers: {
             some: {
@@ -233,9 +233,9 @@ export const getSurveysByActionClassId = async (actionClassId: string, page?: nu
     }
   )();
 
-  return surveys.map((survey) => ({
-    ...survey,
-    ...formatSurveyDateFields(survey),
+  return surveys.map((form) => ({
+    ...form,
+    ...formatSurveyDateFields(form),
   }));
 };
 
@@ -245,7 +245,7 @@ export const getSurveys = async (environmentId: string, page?: number): Promise<
       validateInputs([environmentId, ZId], [page, ZOptionalNumber]);
       let surveysPrisma;
       try {
-        surveysPrisma = await prisma.survey.findMany({
+        surveysPrisma = await prisma.form.findMany({
           where: {
             environmentId,
           },
@@ -282,9 +282,9 @@ export const getSurveys = async (environmentId: string, page?: number): Promise<
 
   // since the unstable_cache function does not support deserialization of dates, we need to manually deserialize them
   // https://github.com/vercel/next.js/issues/51613
-  return surveys.map((survey) => ({
-    ...survey,
-    ...formatSurveyDateFields(survey),
+  return surveys.map((form) => ({
+    ...form,
+    ...formatSurveyDateFields(form),
   }));
 };
 
@@ -298,7 +298,7 @@ export const updateSurvey = async (updatedSurvey: TSurvey): Promise<TSurvey> => 
   const currentSurvey = await getSurvey(surveyId);
 
   if (!currentSurvey) {
-    throw new ResourceNotFoundError("Survey", surveyId);
+    throw new ResourceNotFoundError("Form", surveyId);
   }
 
   const { triggers, attributeFilters, environmentId, ...surveyData } = updatedSurvey;
@@ -433,7 +433,7 @@ export const updateSurvey = async (updatedSurvey: TSurvey): Promise<TSurvey> => 
   };
 
   try {
-    const prismaSurvey = await prisma.survey.update({
+    const prismaSurvey = await prisma.form.update({
       where: { id: surveyId },
       data,
     });
@@ -463,7 +463,7 @@ export const updateSurvey = async (updatedSurvey: TSurvey): Promise<TSurvey> => 
 export async function deleteSurvey(surveyId: string) {
   validateInputs([surveyId, ZId]);
 
-  const deletedSurvey = await prisma.survey.delete({
+  const deletedSurvey = await prisma.form.delete({
     where: {
       id: surveyId,
     },
@@ -514,7 +514,7 @@ export const createSurvey = async (environmentId: string, surveyBody: TSurveyInp
     ...surveyBody,
   };
 
-  const survey = await prisma.survey.create({
+  const form = await prisma.form.create({
     data: {
       ...data,
       environment: {
@@ -527,15 +527,15 @@ export const createSurvey = async (environmentId: string, surveyBody: TSurveyInp
   });
 
   const transformedSurvey = {
-    ...survey,
-    triggers: survey.triggers.map((trigger) => trigger.actionClass.name),
+    ...form,
+    triggers: form.triggers.map((trigger) => trigger.actionClass.name),
   };
 
-  captureTelemetry("survey created");
+  captureTelemetry("form created");
 
   surveyCache.revalidate({
-    id: survey.id,
-    environmentId: survey.environmentId,
+    id: form.id,
+    environmentId: form.environmentId,
   });
 
   return transformedSurvey;
@@ -546,7 +546,7 @@ export const duplicateSurvey = async (environmentId: string, surveyId: string) =
   const existingSurvey = await getSurvey(surveyId);
 
   if (!existingSurvey) {
-    throw new ResourceNotFoundError("Survey", surveyId);
+    throw new ResourceNotFoundError("Form", surveyId);
   }
 
   const actionClasses = await getActionClasses(environmentId);
@@ -556,8 +556,8 @@ export const duplicateSurvey = async (environmentId: string, surveyId: string) =
     value: attributeFilter.value,
   }));
 
-  // create new survey with the data of the existing survey
-  const newSurvey = await prisma.survey.create({
+  // create new form with the data of the existing form
+  const newSurvey = await prisma.form.create({
     data: {
       ...existingSurvey,
       id: undefined, // id is auto-generated
@@ -623,19 +623,19 @@ export const getSyncSurveys = (environmentId: string, person: TPerson): Promise<
       let surveys = await getSurveys(environmentId);
 
       // filtered surveys for running and web
-      surveys = surveys.filter((survey) => survey.status === "inProgress" && survey.type === "web");
+      surveys = surveys.filter((form) => form.status === "inProgress" && form.type === "web");
 
       const displays = await getDisplaysByPersonId(person.id);
 
       // filter surveys that meet the displayOption criteria
-      surveys = surveys.filter((survey) => {
-        if (survey.displayOption === "respondMultiple") {
+      surveys = surveys.filter((form) => {
+        if (form.displayOption === "respondMultiple") {
           return true;
-        } else if (survey.displayOption === "displayOnce") {
-          return displays.filter((display) => display.surveyId === survey.id).length === 0;
-        } else if (survey.displayOption === "displayMultiple") {
+        } else if (form.displayOption === "displayOnce") {
+          return displays.filter((display) => display.surveyId === form.id).length === 0;
+        } else if (form.displayOption === "displayMultiple") {
           return (
-            displays.filter((display) => display.surveyId === survey.id && display.responseId !== null)
+            displays.filter((display) => display.surveyId === form.id && display.responseId !== null)
               .length === 0
           );
         } else {
@@ -646,8 +646,8 @@ export const getSyncSurveys = (environmentId: string, person: TPerson): Promise<
       const attributeClasses = await getAttributeClasses(environmentId);
 
       // filter surveys that meet the attributeFilters criteria
-      const potentialSurveysWithAttributes = surveys.filter((survey) => {
-        const attributeFilters = survey.attributeFilters;
+      const potentialSurveysWithAttributes = surveys.filter((form) => {
+        const attributeFilters = form.attributeFilters;
         if (attributeFilters.length === 0) {
           return true;
         }
@@ -673,15 +673,15 @@ export const getSyncSurveys = (environmentId: string, person: TPerson): Promise<
       const latestDisplay = displays[0];
 
       // filter surveys that meet the recontactDays criteria
-      surveys = potentialSurveysWithAttributes.filter((survey) => {
+      surveys = potentialSurveysWithAttributes.filter((form) => {
         if (!latestDisplay) {
           return true;
-        } else if (survey.recontactDays !== null) {
-          const lastDisplaySurvey = displays.filter((display) => display.surveyId === survey.id)[0];
+        } else if (form.recontactDays !== null) {
+          const lastDisplaySurvey = displays.filter((display) => display.surveyId === form.id)[0];
           if (!lastDisplaySurvey) {
             return true;
           }
-          return diffInDays(new Date(), new Date(lastDisplaySurvey.createdAt)) >= survey.recontactDays;
+          return diffInDays(new Date(), new Date(lastDisplaySurvey.createdAt)) >= form.recontactDays;
         } else if (product.recontactDays !== null) {
           return diffInDays(new Date(), new Date(latestDisplay.createdAt)) >= product.recontactDays;
         } else {

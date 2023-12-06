@@ -40,16 +40,16 @@ const welcomeCardDefault = {
 
 export const customSurvey: TTemplate = {
   name: "Start from scratch",
-  description: "Create a survey without template.",
+  description: "Create a form without template.",
   icon: null,
   preset: {
-    name: "New Survey",
+    name: "New Form",
     questions: [
       {
         id: createId(),
         type: TSurveyQuestionType.OpenText,
-        headline: "Custom Survey",
-        subheader: "This is an example survey.",
+        headline: "Custom Form",
+        subheader: "This is an example form.",
         placeholder: "Type your answer here...",
         inputType: "text",
         longAnswer: true,
@@ -390,12 +390,12 @@ export const templates: TTemplate[] = [
     },
   },
   {
-    name: "Churn Survey",
+    name: "Churn Form",
     icon: CancelSubscriptionIcon,
     category: "Increase Revenue",
     description: "Find out why people cancel their subscriptions. These insights are pure gold!",
     preset: {
-      name: "Churn Survey",
+      name: "Churn Form",
       questions: [
         {
           id: createId(),
@@ -732,13 +732,13 @@ export const templates: TTemplate[] = [
     },
   },
   {
-    name: "Product Market Fit Survey (short)",
+    name: "Product Market Fit Form (short)",
     icon: PMFIcon,
     category: "Product Experience",
 
     description: "Measure PMF by assessing how disappointed users would be if your product disappeared.",
     preset: {
-      name: "Product Market Fit Survey (short)",
+      name: "Product Market Fit Form (short)",
       questions: [
         {
           id: createId(),
@@ -822,12 +822,12 @@ export const templates: TTemplate[] = [
     },
   },
   {
-    name: "Integration usage survey",
+    name: "Integration usage form",
     icon: DashboardIcon,
     category: "Product Experience",
     description: "Evaluate how easily users can add integrations to your product. Find blind spots.",
     preset: {
-      name: "Integration Usage Survey",
+      name: "Integration Usage Form",
       questions: [
         {
           id: createId(),
@@ -876,12 +876,12 @@ export const templates: TTemplate[] = [
     },
   },
   {
-    name: "New integration survey",
+    name: "New integration form",
     icon: DashboardIcon,
     category: "Exploration",
     description: "Find out which integrations your users would like to see next.",
     preset: {
-      name: "New integration survey",
+      name: "New integration form",
       questions: [
         {
           id: createId(),

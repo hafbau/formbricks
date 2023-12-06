@@ -46,7 +46,7 @@ const FAQ_DATA = [
     ),
   },
   {
-    question: "How can I change Button texts in my survey?",
+    question: "How can I change Button texts in my form?",
     answer: () => (
       <>
         For the question that you want to change the button text, click on the <b>Show Advanced Settings</b>{" "}

@@ -13,7 +13,7 @@ import { useState } from "react";
 
 interface EditWelcomeCardProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  setLocalSurvey: (form: TSurvey) => void;
   setActiveQuestionId: (id: string | null) => void;
   activeQuestionId: string | null;
 }
@@ -173,7 +173,7 @@ export default function EditWelcomeCard({
                   Time to Finish
                 </Label>
                 <div className="text-sm text-gray-500 dark:text-gray-400">
-                  Display an estimate of completion time for survey
+                  Display an estimate of completion time for form
                 </div>
               </div>
             </div>
@@ -194,7 +194,7 @@ export default function EditWelcomeCard({
                     Show Response Count
                   </Label>
                   <div className="text-sm text-gray-500 dark:text-gray-400">
-                    Display number of responses for survey
+                    Display number of responses for form
                   </div>
                 </div>
               </div>

@@ -12,7 +12,7 @@ import {
   getActionCountInLast7Days,
   getActionCountInLastHour,
 } from "@fastform/lib/action/service";
-import { getSurveysByActionClassId } from "@fastform/lib/survey/service";
+import { getSurveysByActionClassId } from "@fastform/lib/form/service";
 import { AuthorizationError } from "@fastform/types/errors";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 
@@ -134,8 +134,8 @@ export const GetActiveInactiveSurveysAction = async (
 
   const surveys = await getSurveysByActionClassId(actionClassId);
   const response = {
-    activeSurveys: surveys.filter((s) => s.status === "inProgress").map((survey) => survey.name),
-    inactiveSurveys: surveys.filter((s) => s.status !== "inProgress").map((survey) => survey.name),
+    activeSurveys: surveys.filter((s) => s.status === "inProgress").map((form) => form.name),
+    inactiveSurveys: surveys.filter((s) => s.status !== "inProgress").map((form) => form.name),
   };
   return response;
 };

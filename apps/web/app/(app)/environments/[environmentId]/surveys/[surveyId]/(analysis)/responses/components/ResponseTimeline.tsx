@@ -13,7 +13,7 @@ interface ResponseTimelineProps {
   environment: TEnvironment;
   surveyId: string;
   responses: TResponse[];
-  survey: TSurvey;
+  form: TSurvey;
   profile: TProfile;
   environmentTags: TTag[];
   responsesPerPage: number;
@@ -22,7 +22,7 @@ interface ResponseTimelineProps {
 export default function ResponseTimeline({
   environment,
   responses,
-  survey,
+  form,
   profile,
   environmentTags,
   responsesPerPage,
@@ -60,21 +60,17 @@ export default function ResponseTimeline({
 
   return (
     <div className="space-y-4">
-      {survey.type === "web" && displayedResponses.length === 0 && !environment.widgetSetupCompleted ? (
+      {form.type === "web" && displayedResponses.length === 0 && !environment.widgetSetupCompleted ? (
         <EmptyInAppSurveys environment={environment} />
       ) : displayedResponses.length === 0 ? (
-        <EmptySpaceFiller
-          type="response"
-          environment={environment}
-          noWidgetRequired={survey.type === "link"}
-        />
+        <EmptySpaceFiller type="response" environment={environment} noWidgetRequired={form.type === "link"} />
       ) : (
         <div>
           {displayedResponses.map((response) => {
             return (
               <div key={response.id}>
                 <SingleResponseCard
-                  survey={survey}
+                  form={form}
                   response={response}
                   profile={profile}
                   environmentTags={environmentTags}

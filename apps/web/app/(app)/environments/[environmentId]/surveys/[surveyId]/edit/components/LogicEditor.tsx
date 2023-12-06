@@ -338,7 +338,7 @@ export default function LogicEditor({
                         </SelectItem>
                       )
                   )}
-                  <SelectItem value="end">End of survey</SelectItem>
+                  <SelectItem value="end">End of form</SelectItem>
                 </SelectContent>
               </Select>
 

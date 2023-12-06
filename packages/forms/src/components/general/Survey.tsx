@@ -10,8 +10,8 @@ import QuestionConditional from "./QuestionConditional";
 import ThankYouCard from "./ThankYouCard";
 import WelcomeCard from "./WelcomeCard";
 
-export function Survey({
-  survey,
+export function Form({
+  form,
   isBrandingEnabled,
   activeQuestionId,
   onDisplay = () => {},
@@ -25,23 +25,23 @@ export function Survey({
   responseCount,
 }: SurveyBaseProps) {
   const [questionId, setQuestionId] = useState(
-    activeQuestionId || (survey.welcomeCard.enabled ? "start" : survey?.questions[0]?.id)
+    activeQuestionId || (form.welcomeCard.enabled ? "start" : form?.questions[0]?.id)
   );
   const [loadingElement, setLoadingElement] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
   const [responseData, setResponseData] = useState<TResponseData>({});
-  const currentQuestionIndex = survey.questions.findIndex((q) => q.id === questionId);
-  const currentQuestion = survey.questions[currentQuestionIndex];
+  const currentQuestionIndex = form.questions.findIndex((q) => q.id === questionId);
+  const currentQuestion = form.questions[currentQuestionIndex];
   const contentRef = useRef<HTMLDivElement | null>(null);
   const [ttc, setTtc] = useState<TResponseTtc>({});
   useEffect(() => {
     if (activeQuestionId === "hidden") return;
-    if (activeQuestionId === "start" && !survey.welcomeCard.enabled) {
-      setQuestionId(survey?.questions[0]?.id);
+    if (activeQuestionId === "start" && !form.welcomeCard.enabled) {
+      setQuestionId(form?.questions[0]?.id);
       return;
     }
-    setQuestionId(activeQuestionId || (survey.welcomeCard.enabled ? "start" : survey?.questions[0]?.id));
-  }, [activeQuestionId, survey.questions, survey.welcomeCard.enabled]);
+    setQuestionId(activeQuestionId || (form.welcomeCard.enabled ? "start" : form?.questions[0]?.id));
+  }, [activeQuestionId, form.questions, form.welcomeCard.enabled]);
 
   useEffect(() => {
     // scroll to top when question changes
@@ -61,7 +61,7 @@ export function Survey({
   let currIdx = currentQuestionIndex;
   let currQues = currentQuestion;
   function getNextQuestionId(data: TResponseData, isFromPrefilling: Boolean = false): string {
-    const questions = survey.questions;
+    const questions = form.questions;
     const responseValue = data[questionId];
 
     if (questionId === "start") {
@@ -113,44 +113,44 @@ export function Survey({
     if (history?.length > 0) {
       const newHistory = [...history];
       prevQuestionId = newHistory.pop();
-      if (prefillResponseData && prevQuestionId === survey.questions[0].id) return;
+      if (prefillResponseData && prevQuestionId === form.questions[0].id) return;
       setHistory(newHistory);
     } else {
       // otherwise go back to previous question in array
-      prevQuestionId = survey.questions[currIdx - 1]?.id;
+      prevQuestionId = form.questions[currIdx - 1]?.id;
     }
     if (!prevQuestionId) throw new Error("Question not found");
     setQuestionId(prevQuestionId);
     onActiveQuestionChange(prevQuestionId);
   };
   function getCardContent() {
-    if (questionId === "start" && survey.welcomeCard.enabled) {
+    if (questionId === "start" && form.welcomeCard.enabled) {
       return (
         <WelcomeCard
-          headline={survey.welcomeCard.headline}
-          html={survey.welcomeCard.html}
-          fileUrl={survey.welcomeCard.fileUrl}
-          buttonLabel={survey.welcomeCard.buttonLabel}
+          headline={form.welcomeCard.headline}
+          html={form.welcomeCard.html}
+          fileUrl={form.welcomeCard.fileUrl}
+          buttonLabel={form.welcomeCard.buttonLabel}
           onSubmit={onSubmit}
-          survey={survey}
+          form={form}
           responseCount={responseCount}
         />
       );
-    } else if (questionId === "end" && survey.thankYouCard.enabled) {
+    } else if (questionId === "end" && form.thankYouCard.enabled) {
       return (
         <ThankYouCard
-          headline={survey.thankYouCard.headline}
-          subheader={survey.thankYouCard.subheader}
-          redirectUrl={survey.redirectUrl}
+          headline={form.thankYouCard.headline}
+          subheader={form.thankYouCard.subheader}
+          redirectUrl={form.redirectUrl}
           isRedirectDisabled={isRedirectDisabled}
         />
       );
     } else {
-      const currQues = survey.questions.find((q) => q.id === questionId);
+      const currQues = form.questions.find((q) => q.id === questionId);
       return (
         currQues && (
           <QuestionConditional
-            surveyId={survey.id}
+            surveyId={form.id}
             question={currQues}
             value={responseData[currQues.id]}
             onChange={onChange}
@@ -161,10 +161,10 @@ export function Survey({
             onFileUpload={onFileUpload}
             isFirstQuestion={
               history && prefillResponseData
-                ? history[history.length - 1] === survey.questions[0].id
-                : currQues.id === survey?.questions[0]?.id
+                ? history[history.length - 1] === form.questions[0].id
+                : currQues.id === form?.questions[0]?.id
             }
-            isLastQuestion={currQues.id === survey.questions[survey.questions.length - 1].id}
+            isLastQuestion={currQues.id === form.questions[form.questions.length - 1].id}
           />
         )
       );
@@ -173,10 +173,10 @@ export function Survey({
 
   return (
     <>
-      <AutoCloseWrapper survey={survey} onClose={onClose}>
-        <div className="flex h-full w-full flex-col justify-between rounded-lg bg-[--fb-survey-background-color] px-6 pb-3 pt-6">
+      <AutoCloseWrapper form={form} onClose={onClose}>
+        <div className="flex h-full w-full flex-col justify-between rounded-lg bg-[--fb-form-background-color] px-6 pb-3 pt-6">
           <div ref={contentRef} className={cn(loadingElement ? "animate-pulse opacity-60" : "", "my-auto")}>
-            {survey.questions.length === 0 && !survey.welcomeCard.enabled && !survey.thankYouCard.enabled ? (
+            {form.questions.length === 0 && !form.welcomeCard.enabled && !form.thankYouCard.enabled ? (
               // Handle the case when there are no questions and both welcome and thank you cards are disabled
               <div>No questions available.</div>
             ) : (
@@ -185,7 +185,7 @@ export function Survey({
           </div>
           <div className="mt-8">
             {isBrandingEnabled && <FormbricksBranding />}
-            <ProgressBar survey={survey} questionId={questionId} />
+            <ProgressBar form={form} questionId={questionId} />
           </div>
         </div>
       </AutoCloseWrapper>

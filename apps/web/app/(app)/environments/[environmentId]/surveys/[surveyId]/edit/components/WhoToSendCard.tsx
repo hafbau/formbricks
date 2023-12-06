@@ -20,7 +20,7 @@ const filterConditions = [
 
 interface WhoToSendCardProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  setLocalSurvey: (form: TSurvey) => void;
   environmentId: string;
   attributeClasses: TAttributeClass[];
 }
@@ -93,7 +93,7 @@ export default function WhoToSendCard({ localSurvey, setLocalSurvey, attributeCl
             </div>
             {localSurvey.type === "link" && (
               <div className="flex w-full items-center justify-end pr-2">
-                <Badge size="normal" text="In-app survey settings" type="gray" />
+                <Badge size="normal" text="In-app form settings" type="gray" />
               </div>
             )}
           </div>
@@ -136,8 +136,8 @@ export default function WhoToSendCard({ localSurvey, setLocalSurvey, attributeCl
               </p>
               <p className="mt-1 text-sm text-slate-500">
                 {localSurvey.attributeFilters?.length === 0
-                  ? "All users can see the survey."
-                  : "Only users who match the attribute filter will see the survey."}
+                  ? "All users can see the form."
+                  : "Only users who match the attribute filter will see the form."}
               </p>
             </div>
           </div>

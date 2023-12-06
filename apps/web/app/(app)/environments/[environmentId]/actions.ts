@@ -7,9 +7,9 @@ import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
 import { createMembership } from "@fastform/lib/membership/service";
 import { createProduct } from "@fastform/lib/product/service";
 import { createShortUrl } from "@fastform/lib/shortUrl/service";
-import { canUserAccessSurvey, verifyUserRoleAccess } from "@fastform/lib/survey/auth";
-import { surveyCache } from "@fastform/lib/survey/cache";
-import { deleteSurvey, duplicateSurvey, getSurvey } from "@fastform/lib/survey/service";
+import { canUserAccessSurvey, verifyUserRoleAccess } from "@fastform/lib/form/auth";
+import { surveyCache } from "@fastform/lib/form/cache";
+import { deleteSurvey, duplicateSurvey, getSurvey } from "@fastform/lib/form/service";
 import { createTeam, getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { AuthenticationError, AuthorizationError, ResourceNotFoundError } from "@fastform/types/errors";
 import { Team } from "@prisma/client";
@@ -23,7 +23,7 @@ export const createShortUrlAction = async (url: string) => {
   const regexPattern = new RegExp("^" + WEBAPP_URL);
   const isValidUrl = regexPattern.test(url);
 
-  if (!isValidUrl) throw new Error("Only Fastform survey URLs are allowed");
+  if (!isValidUrl) throw new Error("Only Fastform form URLs are allowed");
 
   const shortUrl = await createShortUrl(url);
   const fullShortUrl = SHORT_URL_BASE + "/" + shortUrl.id;
@@ -84,7 +84,7 @@ export async function copyToOtherEnvironmentAction(
   const isAuthorized = await canUserAccessSurvey(session.user.id, surveyId);
   if (!isAuthorized) throw new AuthorizationError("Not authorized");
 
-  const existingSurvey = await prisma.survey.findFirst({
+  const existingSurvey = await prisma.form.findFirst({
     where: {
       id: surveyId,
       environmentId,
@@ -104,7 +104,7 @@ export async function copyToOtherEnvironmentAction(
   });
 
   if (!existingSurvey) {
-    throw new ResourceNotFoundError("Survey", surveyId);
+    throw new ResourceNotFoundError("Form", surveyId);
   }
 
   let targetEnvironmentTriggers: string[] = [];
@@ -173,8 +173,8 @@ export async function copyToOtherEnvironmentAction(
     }
   }
 
-  // create new survey with the data of the existing survey
-  const newSurvey = await prisma.survey.create({
+  // create new form with the data of the existing form
+  const newSurvey = await prisma.form.create({
     data: {
       ...existingSurvey,
       id: undefined, // id is auto-generated
@@ -222,9 +222,9 @@ export const deleteSurveyAction = async (surveyId: string) => {
   const isAuthorized = await canUserAccessSurvey(session.user.id, surveyId);
   if (!isAuthorized) throw new AuthorizationError("Not authorized");
 
-  const survey = await getSurvey(surveyId);
+  const form = await getSurvey(surveyId);
 
-  const { hasDeleteAccess } = await verifyUserRoleAccess(survey!.environmentId, session.user.id);
+  const { hasDeleteAccess } = await verifyUserRoleAccess(form!.environmentId, session.user.id);
   if (!hasDeleteAccess) throw new AuthorizationError("Not authorized");
 
   await deleteSurvey(surveyId);

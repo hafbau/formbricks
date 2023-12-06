@@ -22,7 +22,7 @@ export default function BestPracticeNavigation() {
       category: "Understand Users",
     },
     {
-      name: "Product-Market Fit Survey",
+      name: "Product-Market Fit Form",
       href: "/measure-product-market-fit",
       status: true,
       icon: PMFIcon,
@@ -67,7 +67,7 @@ export default function BestPracticeNavigation() {
       href: "/feature-chaser",
       status: true,
       icon: DogChaserIcon,
-      description: "Show a survey about a new feature shown only to people who used it.",
+      description: "Show a form about a new feature shown only to people who used it.",
       category: "Boost Retention",
     },
     {

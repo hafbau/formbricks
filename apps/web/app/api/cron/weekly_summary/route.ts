@@ -4,7 +4,7 @@ import { CRON_SECRET } from "@fastform/lib/constants";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { sendNoLiveSurveyNotificationEmail, sendWeeklySummaryNotificationEmail } from "./email";
-import { EnvironmentData, NotificationResponse, ProductData, Survey, SurveyResponse } from "./types";
+import { EnvironmentData, NotificationResponse, ProductData, Form, SurveyResponse } from "./types";
 
 const BATCH_SIZE = 10;
 
@@ -170,25 +170,25 @@ const getNotificationResponse = (environment: EnvironmentData, productName: stri
     numLiveSurvey: 0,
   };
 
-  const surveys: Survey[] = [];
+  const surveys: Form[] = [];
 
   // iterate through the surveys and calculate the overall insights
-  for (const survey of environment.surveys) {
-    const surveyData: Survey = {
-      id: survey.id,
-      name: survey.name,
-      status: survey.status,
-      responseCount: survey.responses.length,
+  for (const form of environment.surveys) {
+    const surveyData: Form = {
+      id: form.id,
+      name: form.name,
+      status: form.status,
+      responseCount: form.responses.length,
       responses: [],
     };
-    // iterate through the responses and calculate the survey insights
-    for (const response of survey.responses) {
+    // iterate through the responses and calculate the form insights
+    for (const response of form.responses) {
       // only take the first 3 responses
       if (surveyData.responses.length >= 1) {
         break;
       }
       const surveyResponse: SurveyResponse = {};
-      for (const question of survey.questions) {
+      for (const question of form.questions) {
         const headline = question.headline;
         const answer = response.data[question.id]?.toString() || null;
         if (answer === null || answer === "" || answer?.length === 0) {
@@ -200,12 +200,12 @@ const getNotificationResponse = (environment: EnvironmentData, productName: stri
     }
     surveys.push(surveyData);
     // calculate the overall insights
-    if (survey.status == "inProgress") {
+    if (form.status == "inProgress") {
       insights.numLiveSurvey += 1;
     }
-    insights.totalCompletedResponses += survey.responses.filter((r) => r.finished).length;
-    insights.totalDisplays += survey.displays.length;
-    insights.totalResponses += survey.responses.length;
+    insights.totalCompletedResponses += form.responses.filter((r) => r.finished).length;
+    insights.totalDisplays += form.displays.length;
+    insights.totalResponses += form.responses.length;
     insights.completionRate = Math.round((insights.totalCompletedResponses / insights.totalResponses) * 100);
   }
   // build the notification response needed for the emails

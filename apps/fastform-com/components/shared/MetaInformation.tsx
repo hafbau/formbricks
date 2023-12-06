@@ -56,7 +56,7 @@ export default function MetaInformation({
       />
       <meta
         name="keywords"
-        content="Fastform, Privacy-first Experience Management, Create your survey, open-source typeform alternative, form with data insights"
+        content="Fastform, Privacy-first Experience Management, Create your form, open-source typeform alternative, form with data insights"
       />
       <meta name="theme-color" content="#00C4B8" />
     </Head>

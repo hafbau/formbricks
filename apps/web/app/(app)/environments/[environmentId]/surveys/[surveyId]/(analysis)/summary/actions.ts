@@ -4,7 +4,7 @@ import { getEmailTemplateHtml } from "@/app/(app)/environments/[environmentId]/s
 import { generateSurveySingleUseId } from "@/app/lib/singleUseSurveys";
 import { authOptions } from "@fastform/lib/authOptions";
 import { sendEmbedSurveyPreviewEmail } from "@fastform/lib/emails/emails";
-import { canUserAccessSurvey } from "@fastform/lib/survey/auth";
+import { canUserAccessSurvey } from "@fastform/lib/form/auth";
 import { AuthenticationError, AuthorizationError } from "@fastform/types/errors";
 import { getServerSession } from "next-auth";
 

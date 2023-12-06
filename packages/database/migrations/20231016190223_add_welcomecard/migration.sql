@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Survey" ADD COLUMN     "welcomeCard" JSONB NOT NULL DEFAULT '{"enabled": false}';
+ALTER TABLE "Form" ADD COLUMN     "welcomeCard" JSONB NOT NULL DEFAULT '{"enabled": false}';

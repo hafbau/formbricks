@@ -16,7 +16,7 @@ import { TMembershipRole } from "@fastform/types/memberships";
 import Loading from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/edit/loading";
 
 interface SurveyEditorProps {
-  survey: TSurvey;
+  form: TSurvey;
   product: TProduct;
   environment: TEnvironment;
   actionClasses: TActionClass[];
@@ -27,7 +27,7 @@ interface SurveyEditorProps {
 }
 
 export default function SurveyEditor({
-  survey,
+  form,
   product,
   environment,
   actionClasses,
@@ -42,17 +42,17 @@ export default function SurveyEditor({
   const [invalidQuestions, setInvalidQuestions] = useState<String[] | null>(null);
 
   useEffect(() => {
-    if (survey) {
+    if (form) {
       if (localSurvey) return;
-      setLocalSurvey(JSON.parse(JSON.stringify(survey)));
+      setLocalSurvey(JSON.parse(JSON.stringify(form)));
 
-      if (survey.questions.length > 0) {
-        setActiveQuestionId(survey.questions[0].id);
+      if (form.questions.length > 0) {
+        setActiveQuestionId(form.questions[0].id);
       }
     }
-  }, [survey]);
+  }, [form]);
 
-  // when the survey type changes, we need to reset the active question id to the first question
+  // when the form type changes, we need to reset the active question id to the first question
   useEffect(() => {
     if (localSurvey?.questions?.length && localSurvey.questions.length > 0) {
       setActiveQuestionId(localSurvey.questions[0].id);
@@ -71,7 +71,7 @@ export default function SurveyEditor({
         <SurveyMenuBar
           setLocalSurvey={setLocalSurvey}
           localSurvey={localSurvey}
-          survey={survey}
+          form={form}
           environment={environment}
           activeId={activeView}
           setActiveId={setActiveView}
@@ -107,7 +107,7 @@ export default function SurveyEditor({
           </main>
           <aside className="group hidden flex-1 flex-shrink-0 items-center justify-center overflow-hidden border-l border-slate-100 bg-slate-50 py-6  md:flex md:flex-col">
             <PreviewSurvey
-              survey={localSurvey}
+              form={localSurvey}
               setActiveQuestionId={setActiveQuestionId}
               activeQuestionId={activeQuestionId}
               product={product}

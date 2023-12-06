@@ -1,6 +1,6 @@
 "use server";
 
-import { createSurvey } from "@fastform/lib/survey/service";
+import { createSurvey } from "@fastform/lib/form/service";
 import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
 import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";

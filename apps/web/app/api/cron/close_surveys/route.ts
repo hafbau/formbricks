@@ -11,7 +11,7 @@ export async function POST() {
     return responses.notAuthenticatedResponse();
   }
 
-  const surveys = await prisma.survey.findMany({
+  const surveys = await prisma.form.findMany({
     where: {
       status: "inProgress",
       closeOnDate: {
@@ -27,10 +27,10 @@ export async function POST() {
     return responses.successResponse({ message: "No surveys to close" });
   }
 
-  const mutationResp = await prisma.survey.updateMany({
+  const mutationResp = await prisma.form.updateMany({
     where: {
       id: {
-        in: surveys.map((survey) => survey.id),
+        in: surveys.map((form) => form.id),
       },
     },
     data: {
@@ -39,6 +39,6 @@ export async function POST() {
   });
 
   return responses.successResponse({
-    message: `Closed ${mutationResp.count} survey(s)`,
+    message: `Closed ${mutationResp.count} form(s)`,
   });
 }

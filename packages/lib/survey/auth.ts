@@ -16,10 +16,10 @@ export const canUserAccessSurvey = async (userId: string, surveyId: string): Pro
 
       if (!userId) return false;
 
-      const survey = await getSurvey(surveyId);
-      if (!survey) throw new Error("Survey not found");
+      const form = await getSurvey(surveyId);
+      if (!form) throw new Error("Form not found");
 
-      const hasAccessToEnvironment = await hasUserEnvironmentAccess(userId, survey.environmentId);
+      const hasAccessToEnvironment = await hasUserEnvironmentAccess(userId, form.environmentId);
       if (!hasAccessToEnvironment) return false;
 
       return true;

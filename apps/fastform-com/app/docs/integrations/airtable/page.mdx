@@ -3,7 +3,7 @@ import { Callout } from "@/components/shared/Callout";
 import IntegrationTab from "./integrations-tab.webp";
 import ConnectWithAirtable from "./connect-with-airtable.webp";
 import AirtableConnected from "./airtable-connected.webp";
-import LinkSurveyWithTable from "./link-survey-with-table.webp";
+import LinkSurveyWithTable from "./link-form-with-table.webp";
 import LinkWithQuestions from "./link-with-questions.webp";
 import ListLinkedSurveys from "./list-linked-surveys.webp";
 import OpenDeveloperHub from "./open-developer-hub.webp";
@@ -15,7 +15,7 @@ import Image from "next/image";
 
 export const metadata = {
   title: "Airtable Setup",
-  description: "Instantly populate your airtable table with survey data",
+  description: "Instantly populate your airtable table with form data",
 };
 
 #### Integrations
@@ -69,7 +69,7 @@ The Airtable integration allows you to automatically send responses to an Airtab
 
 <Note>
 
-Before the next step, make sure that you have a Fastform Survey with at least one question and a Airtable base with atleast one table in the Airtable account you integrated.
+Before the next step, make sure that you have a Fastform Form with at least one question and a Airtable base with atleast one table in the Airtable account you integrated.
 
 </Note>
 
@@ -82,7 +82,7 @@ Before the next step, make sure that you have a Fastform Survey with at least on
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
 
-7. Select the Base and table you want to link with Fastform and the Survey. On doing so, you will be asked with what questions' responses you want to feed in Airtable. Select the questions and click on the "Save" button.
+7. Select the Base and table you want to link with Fastform and the Form. On doing so, you will be asked with what questions' responses you want to feed in Airtable. Select the questions and click on the "Save" button.
 
 <Image
   src={LinkWithQuestions}
@@ -101,7 +101,7 @@ Before the next step, make sure that you have a Fastform Survey with at least on
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
 
-Congratulations! You have successfully linked an Airtable with Fastform. Now whenever a response is submitted for the linked Survey, it will be automatically added to the linked Airtable.
+Congratulations! You have successfully linked an Airtable with Fastform. Now whenever a response is submitted for the linked Form, it will be automatically added to the linked Airtable.
 
 Still struggling or something not working as expected? [Join our Discord!](https://fastform.com/discord) and we'd be glad to assist you!
 

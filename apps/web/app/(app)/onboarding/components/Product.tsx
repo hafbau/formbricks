@@ -116,7 +116,7 @@ const Product: React.FC<Product> = ({ done, isLoading, environmentId, product })
               className="absolute left-0 right-0 top-0 h-full w-full opacity-10"
               style={{ backgroundColor: color }}
             />
-            <p className="text-xs text-slate-500">This is what your survey will look like:</p>
+            <p className="text-xs text-slate-500">This is what your form will look like:</p>
             <div className="relative w-full max-w-sm cursor-not-allowed rounded-lg bg-white px-4 py-6 shadow-lg ring-1 ring-black ring-opacity-5 sm:p-6">
               <label className="mb-1.5 block text-base font-semibold leading-6 text-slate-900">
                 How do you like {name || "Fastform"}

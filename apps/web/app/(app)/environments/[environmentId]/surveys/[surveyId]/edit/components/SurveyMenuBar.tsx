@@ -19,8 +19,8 @@ import SurveyStatusDropdown from "@/app/(app)/environments/[environmentId]/surve
 
 interface SurveyMenuBarProps {
   localSurvey: TSurvey;
-  survey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  form: TSurvey;
+  setLocalSurvey: (form: TSurvey) => void;
   environment: TEnvironment;
   activeId: "questions" | "settings";
   setActiveId: (id: "questions" | "settings") => void;
@@ -31,7 +31,7 @@ interface SurveyMenuBarProps {
 
 export default function SurveyMenuBar({
   localSurvey,
-  survey,
+  form,
   environment,
   setLocalSurvey,
   activeId,
@@ -60,7 +60,7 @@ export default function SurveyMenuBar({
   useEffect(() => {
     const warningText = "You have unsaved changes - are you sure you wish to leave this page?";
     const handleWindowClose = (e: BeforeUnloadEvent) => {
-      if (!isEqual(localSurvey, survey)) {
+      if (!isEqual(localSurvey, form)) {
         e.preventDefault();
         return (e.returnValue = warningText);
       }
@@ -70,9 +70,9 @@ export default function SurveyMenuBar({
     return () => {
       window.removeEventListener("beforeunload", handleWindowClose);
     };
-  }, [localSurvey, survey]);
+  }, [localSurvey, form]);
 
-  // write a function which updates the local survey status
+  // write a function which updates the local form status
   const updateLocalSurveyStatus = (status: TSurvey["status"]) => {
     const updatedSurvey = { ...localSurvey };
     updatedSurvey.status = status;
@@ -86,7 +86,7 @@ export default function SurveyMenuBar({
       setDeleteDialogOpen(false);
       router.back();
     } catch (error) {
-      console.log("An error occurred deleting the survey");
+      console.log("An error occurred deleting the form");
     }
   };
 
@@ -96,44 +96,44 @@ export default function SurveyMenuBar({
 
     if (createdAt === updatedAt && localSurvey.status === "draft") {
       setDeleteDialogOpen(true);
-    } else if (!isEqual(localSurvey, survey)) {
+    } else if (!isEqual(localSurvey, form)) {
       setConfirmDialogOpen(true);
     } else {
       router.back();
     }
   };
 
-  const validateSurvey = (survey) => {
+  const validateSurvey = (form) => {
     const existingQuestionIds = new Set();
 
-    if (survey.questions.length === 0) {
+    if (form.questions.length === 0) {
       toast.error("Please add at least one question");
       return;
     }
 
-    let pin = survey?.pin;
+    let pin = form?.pin;
     if (pin !== null && pin.toString().length !== 4) {
       toast.error("PIN must be a four digit number.");
       return;
     }
 
     faultyQuestions = [];
-    for (let index = 0; index < survey.questions.length; index++) {
-      const question = survey.questions[index];
+    for (let index = 0; index < form.questions.length; index++) {
+      const question = form.questions[index];
       const isValid = validateQuestion(question);
 
       if (!isValid) {
         faultyQuestions.push(question.id);
       }
     }
-    // if there are any faulty questions, the user won't be allowed to save the survey
+    // if there are any faulty questions, the user won't be allowed to save the form
     if (faultyQuestions.length > 0) {
       setInvalidQuestions(faultyQuestions);
       toast.error("Please fill all required fields.");
       return false;
     }
 
-    for (const question of survey.questions) {
+    for (const question of form.questions) {
       const existingLogicConditions = new Set();
 
       if (existingQuestionIds.has(question.id)) {
@@ -186,11 +186,7 @@ export default function SurveyMenuBar({
       }
     }
 
-    if (
-      survey.redirectUrl &&
-      !survey.redirectUrl.includes("https://") &&
-      !survey.redirectUrl.includes("http://")
-    ) {
+    if (form.redirectUrl && !form.redirectUrl.includes("https://") && !form.redirectUrl.includes("http://")) {
       toast.error("Please enter a valid URL for redirecting respondents.");
       return false;
     }
@@ -200,8 +196,8 @@ export default function SurveyMenuBar({
      than the current count of accepted response and also it is not set to 0
     */
     if (
-      (survey.autoComplete && survey._count?.responses && survey._count.responses >= survey.autoComplete) ||
-      survey?.autoComplete === 0
+      (form.autoComplete && form._count?.responses && form._count.responses >= form.autoComplete) ||
+      form?.autoComplete === 0
     ) {
       return false;
     }
@@ -298,14 +294,14 @@ export default function SurveyMenuBar({
           <div className="mx-auto flex items-center rounded-full border border-amber-200 bg-amber-100 p-2 text-amber-700 shadow-sm">
             <ExclamationTriangleIcon className=" h-5 w-5 text-amber-400" />
             <p className=" pl-1 text-xs lg:text-sm">
-              This survey received responses, make changes with caution.
+              This form received responses, make changes with caution.
             </p>
           </div>
         )}
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
           <div className="mr-4 flex items-center">
             <SurveyStatusDropdown
-              survey={survey}
+              form={form}
               environment={environment}
               updateLocalSurveyStatus={updateLocalSurveyStatus}
             />
@@ -367,14 +363,14 @@ export default function SurveyMenuBar({
           }}
         />
         <AlertDialog
-          confirmWhat="Survey changes"
+          confirmWhat="Form changes"
           open={isConfirmDialogOpen}
           setOpen={setConfirmDialogOpen}
           onDiscard={() => {
             setConfirmDialogOpen(false);
             router.back();
           }}
-          text="You have unsaved changes in your survey. Would you like to save them before leaving?"
+          text="You have unsaved changes in your form. Would you like to save them before leaving?"
           confirmButtonLabel="Save"
           onSave={() => saveSurveyAction(true)}
         />

@@ -1,7 +1,7 @@
 "use client";
 
 import toast from "react-hot-toast";
-import { SurveyInline } from "@fastform/ui/Survey";
+import { SurveyInline } from "@fastform/ui/Form";
 import { cn } from "@fastform/lib/cn";
 import { TSurvey } from "@fastform/types/surveys";
 import { Button } from "@fastform/ui/Button";
@@ -11,11 +11,11 @@ import { useRef } from "react";
 
 interface EmailTabProps {
   surveyUrl: string;
-  survey: TSurvey;
+  form: TSurvey;
   brandColor: string;
 }
 
-export default function LinkTab({ surveyUrl, survey, brandColor }: EmailTabProps) {
+export default function LinkTab({ surveyUrl, form, brandColor }: EmailTabProps) {
   const linkTextRef = useRef(null);
 
   const handleTextSelection = () => {
@@ -42,8 +42,8 @@ export default function LinkTab({ surveyUrl, survey, brandColor }: EmailTabProps
         </div>
         <Button
           variant="darkCTA"
-          title="Copy survey link to clipboard"
-          aria-label="Copy survey link to clipboard"
+          title="Copy form link to clipboard"
+          aria-label="Copy form link to clipboard"
           onClick={() => {
             navigator.clipboard.writeText(surveyUrl);
             toast.success("URL copied to clipboard!");
@@ -55,11 +55,11 @@ export default function LinkTab({ surveyUrl, survey, brandColor }: EmailTabProps
       <div className="relative grow overflow-y-scroll rounded-xl border border-gray-200 bg-white px-4 py-[18px]">
         <SurveyInline
           brandColor={brandColor}
-          survey={survey}
+          form={form}
           isBrandingEnabled={false}
           autoFocus={false}
           isRedirectDisabled={false}
-          key={survey.id}
+          key={form.id}
           onFileUpload={async () => ""}
         />
 
@@ -69,8 +69,8 @@ export default function LinkTab({ surveyUrl, survey, brandColor }: EmailTabProps
             "absolute bottom-8 left-1/2 -translate-x-1/2 transform rounded-lg border border-slate-200 bg-white"
           )}
           EndIcon={ArrowUpRightIcon}
-          title="Open survey in new tab"
-          aria-label="Open survey in new tab"
+          title="Open form in new tab"
+          aria-label="Open form in new tab"
           endIconClassName="h-4 w-4 "
           href={`${surveyUrl}?preview=true`}
           target="_blank">

@@ -34,7 +34,7 @@ export default function Loading() {
         </div>
       </SettingsCard>
       <SettingsCard
-        title="In-app Survey Placement"
+        title="In-app Form Placement"
         description="Change where surveys will be shown in your web app.">
         <div className="w-full items-center">
           <div className="flex cursor-not-allowed select-none">
@@ -71,7 +71,7 @@ export default function Loading() {
       <SettingsCard
         noPadding
         title="Highlight Border"
-        description="Make sure your users notice the survey you display">
+        description="Make sure your users notice the form you display">
         <div className="flex min-h-full w-full">
           <div className="flex w-1/2 flex-col px-6 py-5">
             <div className="pointer-events-none mb-6 flex cursor-not-allowed select-none items-center space-x-2">

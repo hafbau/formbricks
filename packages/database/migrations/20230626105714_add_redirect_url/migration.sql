@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Survey" ADD COLUMN     "redirectUrl" TEXT;
+ALTER TABLE "Form" ADD COLUMN     "redirectUrl" TEXT;

@@ -6,19 +6,19 @@ import { TimerIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 interface SummaryDropOffsProps {
-  survey: TSurvey;
+  form: TSurvey;
   responses: TResponse[];
   displayCount: number;
 }
 
-export default function SummaryDropOffs({ responses, survey, displayCount }: SummaryDropOffsProps) {
+export default function SummaryDropOffs({ responses, form, displayCount }: SummaryDropOffsProps) {
   const initialAvgTtc = useMemo(
     () =>
-      survey.questions.reduce((acc, question) => {
+      form.questions.reduce((acc, question) => {
         acc[question.id] = 0;
         return acc;
       }, {}),
-    [survey.questions]
+    [form.questions]
   );
 
   const [avgTtc, setAvgTtc] = useState(initialAvgTtc);
@@ -38,9 +38,9 @@ export default function SummaryDropOffs({ responses, survey, displayCount }: Sum
     let totalTtc = { ...initialAvgTtc };
     let responseCounts = { ...initialAvgTtc };
 
-    let dropoffArr = new Array(survey.questions.length).fill(0);
-    let viewsArr = new Array(survey.questions.length).fill(0);
-    let dropoffPercentageArr = new Array(survey.questions.length).fill(0);
+    let dropoffArr = new Array(form.questions.length).fill(0);
+    let viewsArr = new Array(form.questions.length).fill(0);
+    let dropoffPercentageArr = new Array(form.questions.length).fill(0);
 
     responses.forEach((response) => {
       // Calculate total time-to-completion
@@ -53,15 +53,15 @@ export default function SummaryDropOffs({ responses, survey, displayCount }: Sum
 
       let currQuesIdx = 0;
 
-      while (currQuesIdx < survey.questions.length) {
-        const currQues = survey.questions[currQuesIdx];
+      while (currQuesIdx < form.questions.length) {
+        const currQues = form.questions[currQuesIdx];
         if (!currQues) break;
 
         if (!currQues.required) {
           if (!response.data[currQues.id]) {
             viewsArr[currQuesIdx]++;
 
-            if (currQuesIdx === survey.questions.length - 1 && !response.finished) {
+            if (currQuesIdx === form.questions.length - 1 && !response.finished) {
               dropoffArr[currQuesIdx]++;
               break;
             }
@@ -73,7 +73,7 @@ export default function SummaryDropOffs({ responses, survey, displayCount }: Sum
                 if (!logic.destination) continue;
                 if (evaluateCondition(logic, response.data[currQues.id] ?? null)) {
                   didLogicPass = true;
-                  currQuesIdx = survey.questions.findIndex((q) => q.id === logic.destination);
+                  currQuesIdx = form.questions.findIndex((q) => q.id === logic.destination);
                   break;
                 }
               }
@@ -103,13 +103,13 @@ export default function SummaryDropOffs({ responses, survey, displayCount }: Sum
           for (let logic of questionHasCustomLogic) {
             if (!logic.destination) continue;
             if (evaluateCondition(logic, response.data[currQues.id])) {
-              nextQuesIdx = survey.questions.findIndex((q) => q.id === logic.destination);
+              nextQuesIdx = form.questions.findIndex((q) => q.id === logic.destination);
               break;
             }
           }
         }
 
-        if (!response.data[survey.questions[nextQuesIdx]?.id] && !response.finished) {
+        if (!response.data[form.questions[nextQuesIdx]?.id] && !response.finished) {
           dropoffArr[nextQuesIdx]++;
           viewsArr[nextQuesIdx]++;
           break;
@@ -127,7 +127,7 @@ export default function SummaryDropOffs({ responses, survey, displayCount }: Sum
 
     // Calculate drop-off percentages
     dropoffPercentageArr[0] = (dropoffArr[0] / displayCount) * 100 || 0;
-    for (let i = 1; i < survey.questions.length; i++) {
+    for (let i = 1; i < form.questions.length; i++) {
       if (viewsArr[i - 1] !== 0) {
         dropoffPercentageArr[i] = (dropoffArr[i] / viewsArr[i - 1]) * 100;
       }
@@ -139,7 +139,7 @@ export default function SummaryDropOffs({ responses, survey, displayCount }: Sum
       viewsCount: viewsArr,
       dropoffPercentage: dropoffPercentageArr,
     };
-  }, [responses, survey.questions, displayCount, initialAvgTtc, avgTtc]);
+  }, [responses, form.questions, displayCount, initialAvgTtc, avgTtc]);
 
   useEffect(() => {
     const { newAvgTtc, dropoffCount, viewsCount, dropoffPercentage } = calculateMetrics();
@@ -167,7 +167,7 @@ export default function SummaryDropOffs({ responses, survey, displayCount }: Sum
           <div className="px-4 text-center md:px-6">Views</div>
           <div className="pr-6 text-center md:pl-6">Drop Offs</div>
         </div>
-        {survey.questions.map((question, i) => (
+        {form.questions.map((question, i) => (
           <div
             key={question.id}
             className="grid grid-cols-6 items-center border-b border-slate-100 py-2 text-sm text-slate-800 md:text-base">

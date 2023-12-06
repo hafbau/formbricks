@@ -2,12 +2,12 @@ import { TSurveyQuestion } from "@fastform/types/surveys";
 import { TResponse } from "@fastform/types/responses";
 
 export const getQuestionResponseMapping = (
-  survey: { questions: TSurveyQuestion[] },
+  form: { questions: TSurveyQuestion[] },
   response: TResponse
 ): { question: string; answer: string }[] => {
   const questionResponseMapping: { question: string; answer: string }[] = [];
 
-  for (const question of survey.questions) {
+  for (const question of form.questions) {
     const answer = response.data[question.id];
 
     questionResponseMapping.push({

@@ -35,7 +35,7 @@ export default function EmailTab({ surveyId, email }: EmailTabProps) {
     }
   });
 
-  const subject = "Fastform Email Survey Preview";
+  const subject = "Fastform Email Form Preview";
 
   const sendPreviewEmail = async (html) => {
     try {
@@ -60,8 +60,8 @@ export default function EmailTab({ surveyId, email }: EmailTabProps) {
         {showEmbed ? (
           <Button
             variant="darkCTA"
-            title="Embed survey in your website"
-            aria-label="Embed survey in your website"
+            title="Embed form in your website"
+            aria-label="Embed form in your website"
             onClick={() => {
               toast.success("Embed code copied to clipboard!");
               navigator.clipboard.writeText(emailHtml);

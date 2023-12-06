@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Survey" ADD COLUMN     "productOverwrites" JSONB;
+ALTER TABLE "Form" ADD COLUMN     "productOverwrites" JSONB;

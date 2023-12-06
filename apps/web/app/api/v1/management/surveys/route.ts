@@ -2,7 +2,7 @@ import { responses } from "@/app/lib/api/response";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { NextResponse } from "next/server";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { createSurvey, getSurveys } from "@fastform/lib/survey/service";
+import { createSurvey, getSurveys } from "@fastform/lib/form/service";
 import { ZSurveyInput } from "@fastform/types/surveys";
 import { DatabaseError } from "@fastform/types/errors";
 
@@ -38,8 +38,8 @@ export async function POST(request: Request): Promise<NextResponse> {
     const environmentId = authentication.environmentId;
     const surveyData = { ...inputValidation.data, environmentId: undefined };
 
-    const survey = await createSurvey(environmentId, surveyData);
-    return responses.successResponse(survey);
+    const form = await createSurvey(environmentId, surveyData);
+    return responses.successResponse(form);
   } catch (error) {
     if (error instanceof DatabaseError) {
       return responses.badRequestResponse(error.message);

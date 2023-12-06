@@ -29,7 +29,7 @@ const IndexPage = () => (
         teaser="READY?"
         headline="Create surveys in minutes."
         subheadline="Don’t take our word for it, try it yourself."
-        cta="Create survey"
+        cta="Create form"
         href="https://app.fastform.com/auth/signup"
       />
     </div>

@@ -72,7 +72,7 @@ const nextConfig = {
 
       {
         source: "/docs/quickstart",
-        destination: "/docs/getting-started/quickstart-in-app-survey",
+        destination: "/docs/getting-started/quickstart-in-app-form",
         permanent: true,
       },
       {
@@ -122,7 +122,7 @@ const nextConfig = {
       },
       {
         source: "/docs/quickstart",
-        destination: "/docs/quickstart-in-app-survey",
+        destination: "/docs/quickstart-in-app-form",
         permanent: true,
       },
       {

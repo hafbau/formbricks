@@ -1,26 +1,26 @@
 import Image from "next/image";
 
-import I1 from "./1-in-app-survey-or-popup-survey-setup.webp";
-import I2 from "./2-settings-for-survey-popup-in-app-for-feedback.webp";
-import I3 from "./3-web-app-survey-settings-for-in-app-survey-popup.webp";
-import I4 from "./4-in-app-survey-trigger-for-popup-survey.webp";
-import I5 from "./5-options-survey-popup-in-app-for-feedback.webp";
-import I6 from "./6-setup-in-app-survey-popup-feedback-box.webp";
-import I7 from "./7-in-app-survey-popup-for-feedback.webp";
-import I8 from "./8-pop-up-form-in-web-app-survey.webp";
-import ReactApp from "../framework-guides/react-in-app-survey-app-popup-form.webp";
+import I1 from "./1-in-app-form-or-popup-form-setup.webp";
+import I2 from "./2-settings-for-form-popup-in-app-for-feedback.webp";
+import I3 from "./3-web-app-form-settings-for-in-app-form-popup.webp";
+import I4 from "./4-in-app-form-trigger-for-popup-form.webp";
+import I5 from "./5-options-form-popup-in-app-for-feedback.webp";
+import I6 from "./6-setup-in-app-form-popup-feedback-box.webp";
+import I7 from "./7-in-app-form-popup-for-feedback.webp";
+import I8 from "./8-pop-up-form-in-web-app-form.webp";
+import ReactApp from "../framework-guides/react-in-app-form-app-popup-form.webp";
 
 export const metadata = {
   title: "Fastform Quickstart Guide: In-App Surveys Made Simple",
   description:
-    "Launch your first in-app survey effortlessly. Dive into our step-by-step guide to set up, integrate, and debug Fastform in your web app in under 15 minutes.",
+    "Launch your first in-app form effortlessly. Dive into our step-by-step guide to set up, integrate, and debug Fastform in your web app in under 15 minutes.",
 };
 
 #### Getting Started
 
 # Quickstart
 
-In app surveys have 6-10x better conversion rates than emailed out surveys. This tutorial explains how to run an in app survey in your web app in 10 to 15 minutes. Let’s go!
+In app surveys have 6-10x better conversion rates than emailed out surveys. This tutorial explains how to run an in app form in your web app in 10 to 15 minutes. Let’s go!
 
 ## Create a free Fastform Cloud account
 
@@ -28,56 +28,56 @@ While you can [self-host](/docs/self-hosting/deployment) Fastform, the quickest 
 
 <Image
   src={I1}
-  alt="Choose in app survey template"
+  alt="Choose in app form template"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl "
 />
 
-## Create your first survey
+## Create your first form
 
-To be able to see a survey in your app, you need to create one. We’ll choose one of the templates and head over to the survey settings:
+To be able to see a form in your app, you need to create one. We’ll choose one of the templates and head over to the form settings:
 
 <Image
   src={I2}
-  alt="Settings for popup survey inside web app"
+  alt="Settings for popup form inside web app"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
 
-As you can see in the orange note here, we have not yet connected Fastform Cloud with our app. We will do so in just a minute, let’s first setup the survey correctly.
+As you can see in the orange note here, we have not yet connected Fastform Cloud with our app. We will do so in just a minute, let’s first setup the form correctly.
 
 Select “Web App” in the How to ask settings:
 
 <Image
   src={I3}
-  alt="Survey settings for popup micro surve"
+  alt="Form settings for popup micro surve"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
 
-Scroll down to Survey Trigger and choose “New Session”. This will cause this survey to appear when the Fastform Widget tracks a new user session:
+Scroll down to Form Trigger and choose “New Session”. This will cause this form to appear when the Fastform Widget tracks a new user session:
 
 <Image
   src={I4}
-  alt="In app survey trigger for feedback popup micro survey"
+  alt="In app form trigger for feedback popup micro form"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
 
-In **Recontact Options** we choose the following settings, so that we can play around with the survey more easily. By default, each survey will be shown only once to each user to prevent survey fatigue:
+In **Recontact Options** we choose the following settings, so that we can play around with the form more easily. By default, each form will be shown only once to each user to prevent form fatigue:
 
 <Image
   src={I5}
-  alt="Options for survey popup in app micro survey"
+  alt="Options for form popup in app micro form"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
 
-Now hit **Publish** and you’ll be forwarded to the Summary Page. This is where you’ll find the responses to this survey. On the Summary Page click through to the Setup Checklist:
+Now hit **Publish** and you’ll be forwarded to the Summary Page. This is where you’ll find the responses to this form. On the Summary Page click through to the Setup Checklist:
 
 <Image
   src={I6}
-  alt="pop up survey settings for inapp web survey"
+  alt="pop up form settings for inapp web form"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
@@ -88,7 +88,7 @@ On the Setup Checklist you have two elements. At the top you find the Widget Sta
 
 <Image
   src={I7}
-  alt="feedback popup in app survey"
+  alt="feedback popup in app form"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
@@ -100,7 +100,7 @@ In the manual below, this code snippet contains all the information you need:
 
 <Image
   src={I8}
-  alt="settings for in app survey popping up"
+  alt="settings for in app form popping up"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
@@ -118,11 +118,11 @@ In a local instance of your app, you'll embed the Fastform Widget. Dependent on 
 
 ## Restart your app and open browser console
 
-Now, restart your app in your terminal to make sure the widget is loaded. Once its loaded, open the browser console to see the Fastform debug logs. If you did everything right, you should now see your survey in the lower right corner:
+Now, restart your app in your terminal to make sure the widget is loaded. Once its loaded, open the browser console to see the Fastform debug logs. If you did everything right, you should now see your form in the lower right corner:
 
 <Image
   src={ReactApp}
-  alt="In app survey in React app for micro surveys"
+  alt="In app form in React app for micro surveys"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />

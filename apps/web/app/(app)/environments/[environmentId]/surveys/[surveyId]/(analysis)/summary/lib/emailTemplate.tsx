@@ -4,7 +4,7 @@ import { TSurvey, TSurveyQuestionType } from "@fastform/types/surveys";
 import { isLight } from "@/app/lib/utils";
 import { WEBAPP_URL } from "@fastform/lib/constants";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import {
   Column,
   Container,
@@ -19,23 +19,23 @@ import {
 import { render } from "@react-email/render";
 
 interface EmailTemplateProps {
-  survey: TSurvey;
+  form: TSurvey;
   surveyUrl: string;
   brandColor: string;
 }
 
 export const getEmailTemplateHtml = async (surveyId) => {
-  const survey = await getSurvey(surveyId);
-  if (!survey) {
-    throw new Error("Survey not found");
+  const form = await getSurvey(surveyId);
+  if (!form) {
+    throw new Error("Form not found");
   }
-  const product = await getProductByEnvironmentId(survey.environmentId);
+  const product = await getProductByEnvironmentId(form.environmentId);
   if (!product) {
     throw new Error("Product not found");
   }
   const brandColor = product.brandColor;
-  const surveyUrl = WEBAPP_URL + "/s/" + survey.id;
-  const html = render(<EmailTemplate survey={survey} surveyUrl={surveyUrl} brandColor={brandColor} />, {
+  const surveyUrl = WEBAPP_URL + "/s/" + form.id;
+  const html = render(<EmailTemplate form={form} surveyUrl={surveyUrl} brandColor={brandColor} />, {
     pretty: true,
   });
   const doctype =
@@ -45,11 +45,11 @@ export const getEmailTemplateHtml = async (surveyId) => {
   return htmlCleaned;
 };
 
-const EmailTemplate = ({ survey, surveyUrl, brandColor }: EmailTemplateProps) => {
+const EmailTemplate = ({ form, surveyUrl, brandColor }: EmailTemplateProps) => {
   const url = `${surveyUrl}?preview=true`;
   const urlWithPrefilling = `${surveyUrl}?preview=true&`;
 
-  const firstQuestion = survey.questions[0];
+  const firstQuestion = form.questions[0];
   switch (firstQuestion.type) {
     case TSurveyQuestionType.OpenText:
       return (

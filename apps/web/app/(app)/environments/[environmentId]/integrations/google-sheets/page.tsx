@@ -8,7 +8,7 @@ import {
 import { getEnvironment } from "@fastform/lib/environment/service";
 import { getSpreadSheets } from "@fastform/lib/googleSheet/service";
 import { getIntegrations } from "@fastform/lib/integration/service";
-import { getSurveys } from "@fastform/lib/survey/service";
+import { getSurveys } from "@fastform/lib/form/service";
 import { TIntegrationItem } from "@fastform/types/integration";
 import { TIntegrationGoogleSheets } from "@fastform/types/integration/googleSheet";
 import GoBackButton from "@fastform/ui/GoBackButton";

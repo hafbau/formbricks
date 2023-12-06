@@ -9,7 +9,7 @@ import * as Collapsible from "@radix-ui/react-collapsible";
 
 interface EditThankYouCardProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  setLocalSurvey: (form: TSurvey) => void;
   setActiveQuestionId: (id: string | null) => void;
   activeQuestionId: string | null;
 }

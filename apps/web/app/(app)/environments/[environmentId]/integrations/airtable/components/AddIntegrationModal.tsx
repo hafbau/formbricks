@@ -39,7 +39,7 @@ type AddIntegrationModalProps = {
 export type IntegrationModalInputs = {
   base: string;
   table: string;
-  survey: string;
+  form: string;
   questions: string[];
 };
 
@@ -131,8 +131,8 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEditMode]);
 
-  const survey = watch("survey");
-  const selectedSurvey = surveys.find((item) => item.id === survey);
+  const form = watch("form");
+  const selectedSurvey = surveys.find((item) => item.id === form);
   const submitHandler = async (data: IntegrationModalInputs) => {
     try {
       if (!data.base || data.base === "") {
@@ -144,7 +144,7 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
       }
 
       if (!selectedSurvey) {
-        throw new Error("Please select a survey");
+        throw new Error("Please select a form");
       }
 
       if (data.questions.length === 0) {
@@ -290,11 +290,11 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
 
             {surveys.length ? (
               <div className="flex w-full flex-col">
-                <Label htmlFor="survey">Select Survey</Label>
+                <Label htmlFor="form">Select Form</Label>
                 <div className="mt-1 flex">
                   <Controller
                     control={control}
-                    name="survey"
+                    name="form"
                     render={({ field }) => (
                       <Select
                         required
@@ -302,7 +302,7 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
                           field.onChange(val);
                           setValue("questions", []);
                         }}
-                        defaultValue={defaultData?.survey}>
+                        defaultValue={defaultData?.form}>
                         <SelectTrigger>
                           <SelectValue />
                         </SelectTrigger>
@@ -322,11 +322,11 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
 
             {!surveys.length ? (
               <p className="m-1 text-xs text-slate-500">
-                You have to create a survey to be able to setup this integration
+                You have to create a form to be able to setup this integration
               </p>
             ) : null}
 
-            {survey && selectedSurvey && (
+            {form && selectedSurvey && (
               <div>
                 <Label htmlFor="Surveys">Questions</Label>
                 <div className="mt-1 rounded-lg border border-slate-200">

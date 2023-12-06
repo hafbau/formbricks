@@ -54,7 +54,7 @@ export const Highlights: React.FC = ({}) => {
                 <span className="font-light">Pre-segment granularly.</span>
               </h2>
               <p className="text-md mt-6 max-w-md leading-7 text-slate-500 dark:text-slate-400">
-                Pre-segment who sees your survey based on custom attributes. Keep the signal, cancel out the
+                Pre-segment who sees your form based on custom attributes. Keep the signal, cancel out the
                 noise.
               </p>
             </div>

@@ -53,7 +53,7 @@ To get this running, you'll need a bit of time. Here are the steps we're going t
   className="max-w-full rounded-lg sm:max-w-3xl"
 />
 
-3. Then, create a survey using the template “Docs Feedback”:
+3. Then, create a form using the template “Docs Feedback”:
 
 <Image
   src={DocsTemplate}
@@ -97,7 +97,7 @@ To get this running, you'll need a bit of time. Here are the steps we're going t
   className="rounded"
 />
 
-8. Select the Non-Event in the dropdown. Now you see that the “Publish survey” button is active. Publish your survey 🤝
+8. Select the Non-Event in the dropdown. Now you see that the “Publish form” button is active. Publish your form 🤝
 
 <Image
   src={SelectNonevent}
@@ -269,7 +269,7 @@ return (
                     const id = await handleFeedbackSubmit(option, router.asPath); // handleFeedbackSubmit sends the Yes / No choice as well as the current URL to Fastform and returns the responseId
                     setResponseId(id); // add responseId to local state so we can use it if user decides to add more feedback in free text field
                   }}>
-                  {option} // "Yes 👍" or "No 👎" - they have to be identical with the choices in the survey on app.fastform.com for it to work (!)
+                  {option} // "Yes 👍" or "No 👎" - they have to be identical with the choices in the form on app.fastform.com for it to work (!)
                 </PopoverTrigger>
               ))}
             </div>
@@ -321,14 +321,14 @@ Here is the code for the `handleFeedbackSubmit` function with comments:
 export const handleFeedbackSubmit = async (YesNo, pageUrl) => {
   const response_data = {
     data: {
-      isHelpful: YesNo, // the "Yes 👍" or "No 👎" response. Remember: They have to be identical with the choices in the survey on app.fastform.com for it to work.
+      isHelpful: YesNo, // the "Yes 👍" or "No 👎" response. Remember: They have to be identical with the choices in the form on app.fastform.com for it to work.
       pageUrl: pageUrl, // So you know which page the user gives feedback about.
     },
   };
 
   const payload = {
     response: response_data,
-    surveyId: process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_SURVEY_ID, // For testing, replace this with the survey ID of your survey (more info below)
+    surveyId: process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_SURVEY_ID, // For testing, replace this with the form ID of your form (more info below)
   };
 
   try {
@@ -408,9 +408,9 @@ That’s almost it! 🤸
 Before you roll it out in production, you want to test it. To do so, you need two things:
 
 1. Environment ID (1) of the development environment on app.fastform.com
-2. Survey ID (2) of your test survey
+2. Form ID (2) of your test form
 
-When you are on the survey detail page, you’ll find both of them in the URL:
+When you are on the form detail page, you’ll find both of them in the URL:
 
 <Image src={CopyIds} alt="copy IDs" quality="100" className="max-w-full rounded-lg sm:max-w-3xl" />
 

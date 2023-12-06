@@ -47,7 +47,7 @@ export default function AppPage({}) {
       <div className="flex flex-col justify-between md:flex-row">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
-            Fastform In-product Survey Demo App
+            Fastform In-product Form Demo App
           </h1>
           <p className="text-slate-700 dark:text-slate-300">
             This app helps you test your in-app surveys. You can create and test user actions, create and

@@ -24,13 +24,13 @@ export default function LearnFromChurnPage() {
             How to get started:
           </h3>
           <p className="text-slate-600 dark:text-slate-400">
-            Once you&apos;ve setup Fastform, you have two ways to run this survey: Before users cancel or
-            after. If you guide them through the survey before they can cancel, you might add to their
-            frustration. But getting feedback from every user gets you there faster.
+            Once you&apos;ve setup Fastform, you have two ways to run this form: Before users cancel or after.
+            If you guide them through the form before they can cancel, you might add to their frustration. But
+            getting feedback from every user gets you there faster.
           </p>
           <UseCaseCTA href="/docs/best-practices/cancel-subscription" />
         </div>
-        <DemoPreview template="Churn Survey" />
+        <DemoPreview template="Churn Form" />
       </div>
       <h2 className="mb-6 ml-4 mt-12 text-2xl font-semibold text-slate-700 dark:text-slate-400 md:mt-0">
         Other Best Practices

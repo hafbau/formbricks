@@ -191,7 +191,7 @@ export const navigation: Array<NavGroup> = [
   {
     title: "Getting Started",
     links: [
-      { title: "Quickstart: In app", href: "/docs/getting-started/quickstart-in-app-survey" },
+      { title: "Quickstart: In app", href: "/docs/getting-started/quickstart-in-app-form" },
       { title: "Framework Guides", href: "/docs/getting-started/framework-guides" },
       { title: "Troubleshooting", href: "/docs/getting-started/troubleshooting" },
     ],
@@ -225,7 +225,7 @@ export const navigation: Array<NavGroup> = [
     links: [
       { title: "Learn from Churn", href: "/docs/best-practices/cancel-subscription" },
       { title: "Interview Prompt", href: "/docs/best-practices/interview-prompt" },
-      { title: "Product-Market Fit", href: "/docs/best-practices/pmf-survey" },
+      { title: "Product-Market Fit", href: "/docs/best-practices/pmf-form" },
       { title: "Trial Conversion", href: "/docs/best-practices/improve-trial-cr" },
       { title: "Feature Chaser", href: "/docs/best-practices/feature-chaser" },
       { title: "Feedback Box", href: "/docs/best-practices/feedback-box" },

@@ -46,7 +46,7 @@ export default function UrlShortenerModal({ open, setOpen, webAppUrl }: UrlShort
     const isValid = regexPattern.test(value);
     if (!isValid) {
       setUrlValidationState("invalid");
-      toast.error("Only fastform survey links allowed.");
+      toast.error("Only fastform form links allowed.");
     } else {
       setUrlValidationState("valid");
     }

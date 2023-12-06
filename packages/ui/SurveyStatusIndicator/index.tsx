@@ -48,21 +48,21 @@ export function SurveyStatusIndicator({ status, tooltip }: SurveyStatusIndicator
                 </>
               ) : status === "paused" ? (
                 <>
-                  <span className="text-slate-800">Survey paused.</span>
+                  <span className="text-slate-800">Form paused.</span>
                   <div className=" rounded-full bg-slate-300 p-1">
                     <PauseIcon className="h-3 w-3 text-slate-600" />
                   </div>
                 </>
               ) : status === "completed" ? (
                 <div className="flex items-center space-x-2">
-                  <span>Survey completed.</span>
+                  <span>Form completed.</span>
                   <div className=" rounded-full bg-slate-200 p-1">
                     <CheckIcon className="h-3 w-3 text-slate-600" />
                   </div>
                 </div>
               ) : status === "archived" ? (
                 <div className="flex items-center space-x-2">
-                  <span>Survey archived.</span>
+                  <span>Form archived.</span>
                   <div className=" rounded-full bg-slate-300 p-1">
                     <ArchiveBoxIcon className="h-3 w-3 text-slate-600" />
                   </div>

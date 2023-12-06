@@ -31,14 +31,14 @@ import PictureChoiceSummary from "./PictureChoiceSummary";
 
 interface SummaryListProps {
   environment: TEnvironment;
-  survey: TSurvey;
+  form: TSurvey;
   responses: TResponse[];
   responsesPerPage: number;
 }
 
-export default function SummaryList({ environment, survey, responses, responsesPerPage }: SummaryListProps) {
+export default function SummaryList({ environment, form, responses, responsesPerPage }: SummaryListProps) {
   const getSummaryData = (): TSurveyQuestionSummary<TSurveyQuestion>[] =>
-    survey.questions.map((question) => {
+    form.questions.map((question) => {
       const questionResponses = responses
         .filter((response) => question.id in response.data)
         .map((r) => ({
@@ -56,13 +56,13 @@ export default function SummaryList({ environment, survey, responses, responsesP
   return (
     <>
       <div className="mt-10 space-y-8">
-        {survey.type === "web" && responses.length === 0 && !environment.widgetSetupCompleted ? (
+        {form.type === "web" && responses.length === 0 && !environment.widgetSetupCompleted ? (
           <EmptyInAppSurveys environment={environment} />
         ) : responses.length === 0 ? (
           <EmptySpaceFiller
             type="response"
             environment={environment}
-            noWidgetRequired={survey.type === "link"}
+            noWidgetRequired={form.type === "link"}
           />
         ) : (
           <>
@@ -90,7 +90,7 @@ export default function SummaryList({ environment, survey, responses, responsesP
                       >
                     }
                     environmentId={environment.id}
-                    surveyType={survey.type}
+                    surveyType={form.type}
                     responsesPerPage={responsesPerPage}
                   />
                 );
@@ -148,14 +148,14 @@ export default function SummaryList({ environment, survey, responses, responsesP
               }
               return null;
             })}
-            {survey.hiddenFields?.enabled &&
-              survey.hiddenFields.fieldIds?.map((question) => {
+            {form.hiddenFields?.enabled &&
+              form.hiddenFields.fieldIds?.map((question) => {
                 return (
                   <HiddenFieldsSummary
                     environment={environment}
                     question={question}
                     responses={responses}
-                    survey={survey}
+                    form={form}
                     key={question}
                   />
                 );

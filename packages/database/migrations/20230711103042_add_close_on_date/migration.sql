@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Survey" ADD COLUMN     "closeOnDate" TIMESTAMP(3);
+ALTER TABLE "Form" ADD COLUMN     "closeOnDate" TIMESTAMP(3);

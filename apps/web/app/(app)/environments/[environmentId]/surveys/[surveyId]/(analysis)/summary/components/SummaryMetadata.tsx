@@ -10,7 +10,7 @@ interface SummaryMetadataProps {
   responses: TResponse[];
   showDropOffs: boolean;
   setShowDropOffs: React.Dispatch<React.SetStateAction<boolean>>;
-  survey: TSurvey;
+  form: TSurvey;
   displayCount: number;
 }
 
@@ -52,7 +52,7 @@ function formatTime(ttc, totalResponses) {
 
 export default function SummaryMetadata({
   responses,
-  survey,
+  form,
   displayCount,
   setShowDropOffs,
   showDropOffs,
@@ -89,19 +89,19 @@ export default function SummaryMetadata({
             label="Starts"
             percentage={`${Math.round((totalResponses / displayCount) * 100)}%`}
             value={totalResponses === 0 ? <span>-</span> : totalResponses}
-            tooltipText="People who started the survey."
+            tooltipText="People who started the form."
           />
           <StatCard
             label="Responses"
             percentage={`${Math.round((completedResponsesCount / displayCount) * 100)}%`}
             value={responses.length === 0 ? <span>-</span> : completedResponsesCount}
-            tooltipText="People who completed the survey."
+            tooltipText="People who completed the form."
           />
           <StatCard
             label="Drop Offs"
             percentage={`${Math.round(((totalResponses - completedResponsesCount) / totalResponses) * 100)}%`}
             value={responses.length === 0 ? <span>-</span> : totalResponses - completedResponsesCount}
-            tooltipText="People who started but not completed the survey."
+            tooltipText="People who started but not completed the form."
           />
           <StatCard
             label="Time to Complete"
@@ -109,12 +109,12 @@ export default function SummaryMetadata({
             value={
               validTtcResponsesCount === 0 ? <span>-</span> : `${formatTime(ttc, validTtcResponsesCount)}`
             }
-            tooltipText="Average time to complete the survey."
+            tooltipText="Average time to complete the form."
           />
         </div>
         <div className="flex flex-col justify-between gap-2 lg:col-span-1">
           <div className="text-right text-xs text-slate-400">
-            Last updated: {timeSinceConditionally(survey.updatedAt.toISOString())}
+            Last updated: {timeSinceConditionally(form.updatedAt.toISOString())}
           </div>
           <Button
             variant="minimal"

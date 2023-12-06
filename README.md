@@ -6,7 +6,7 @@
   <h3 align="center">Fastform</h3>
 
   <p align="center">
-    The Open Source Survey Toolbox
+    The Open Source Form Toolbox
     <br />
     <a href="https://fastform.com/">Website</a>  |  <a href="https://fastform.com/discord">Join Discord community</a>
   </p>
@@ -162,7 +162,7 @@ Please check out [our contribution guide](https://fastform.com/docs/contributing
 
 ## 📆 Contact us
 
-Let's have a chat about your survey needs and get you started.
+Let's have a chat about your form needs and get you started.
 
 <a href="https://cal.com/johannes/onboarding?utm_source=banner&utm_campaign=oss"><img alt="Book us with Cal.com" src="https://cal.com/book-with-cal-dark.svg" /></a>
 

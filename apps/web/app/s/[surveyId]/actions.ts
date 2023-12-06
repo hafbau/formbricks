@@ -11,18 +11,18 @@ interface LinkSurveyEmailData {
 
 interface TSurveyPinValidationResponse {
   error?: TSurveyPinValidationResponseError;
-  survey?: TSurvey;
+  form?: TSurvey;
 }
 
 import { TSurveyPinValidationResponseError } from "@/app/s/[surveyId]/types";
 import { sendLinkSurveyToVerifiedEmail } from "@/app/lib/email";
 import { verifyTokenForLinkSurvey } from "@fastform/lib/jwt";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { TSurvey } from "@fastform/types/surveys";
 
 export async function sendLinkSurveyEmailAction(data: LinkSurveyEmailData) {
   if (!data.surveyData) {
-    throw new Error("No survey data provided");
+    throw new Error("No form data provided");
   }
   return await sendLinkSurveyToVerifiedEmail(data);
 }
@@ -35,16 +35,16 @@ export async function validateSurveyPinAction(
   pin: string
 ): Promise<TSurveyPinValidationResponse> {
   try {
-    const survey = await getSurvey(surveyId);
-    if (!survey) return { error: TSurveyPinValidationResponseError.NOT_FOUND };
+    const form = await getSurvey(surveyId);
+    if (!form) return { error: TSurveyPinValidationResponseError.NOT_FOUND };
 
-    const originalPin = survey.pin?.toString();
+    const originalPin = form.pin?.toString();
 
-    if (!originalPin) return { survey };
+    if (!originalPin) return { form };
 
     if (originalPin !== pin) return { error: TSurveyPinValidationResponseError.INCORRECT_PIN };
 
-    return { survey };
+    return { form };
   } catch (error) {
     return { error: TSurveyPinValidationResponseError.INTERNAL_SERVER_ERROR };
   }

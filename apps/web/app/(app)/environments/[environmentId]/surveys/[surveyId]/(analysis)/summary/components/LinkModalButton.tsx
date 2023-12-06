@@ -10,7 +10,7 @@ import ShareEmbedSurvey from "./ShareEmbedSurvey";
 import { TProfile } from "@fastform/types/profile";
 
 interface LinkSurveyShareButtonProps {
-  survey: TSurvey;
+  form: TSurvey;
   className?: string;
   webAppUrl: string;
   product: TProduct;
@@ -18,7 +18,7 @@ interface LinkSurveyShareButtonProps {
 }
 
 export default function LinkSurveyShareButton({
-  survey,
+  form,
   className,
   webAppUrl,
   product,
@@ -41,7 +41,7 @@ export default function LinkSurveyShareButton({
       </Button>
       {showLinkModal && (
         <ShareEmbedSurvey
-          survey={survey}
+          form={form}
           open={showLinkModal}
           setOpen={setShowLinkModal}
           product={product}

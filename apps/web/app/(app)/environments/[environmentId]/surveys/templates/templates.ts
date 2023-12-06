@@ -534,13 +534,13 @@ export const templates: TTemplate[] = [
     },
   },
   {
-    name: "Churn Survey",
+    name: "Churn Form",
 
     category: "Increase Revenue",
     objectives: ["sharpen_marketing_messaging", "improve_user_retention"],
     description: "Find out why people cancel their subscriptions. These insights are pure gold!",
     preset: {
-      name: "Churn Survey",
+      name: "Churn Form",
       welcomeCard: welcomeCardDefault,
       questions: [
         {
@@ -1014,11 +1014,11 @@ export const templates: TTemplate[] = [
     },
   },
   {
-    name: "Product Market Fit Survey (Short)",
+    name: "Product Market Fit Form (Short)",
     category: "Product Experience",
     description: "Measure PMF by assessing how disappointed users would be if your product disappeared.",
     preset: {
-      name: "Product Market Fit Survey (Short)",
+      name: "Product Market Fit Form (Short)",
       welcomeCard: welcomeCardDefault,
       questions: [
         {
@@ -1362,13 +1362,13 @@ export const templates: TTemplate[] = [
     },
   },
   {
-    name: "Integration Setup Survey",
+    name: "Integration Setup Form",
 
     category: "Product Experience",
     objectives: ["increase_user_adoption"],
     description: "Evaluate how easily users can add integrations to your product. Find blind spots.",
     preset: {
-      name: "Integration Usage Survey",
+      name: "Integration Usage Form",
       welcomeCard: welcomeCardDefault,
       questions: [
         {
@@ -1405,13 +1405,13 @@ export const templates: TTemplate[] = [
     },
   },
   {
-    name: "New Integration Survey",
+    name: "New Integration Form",
 
     category: "Exploration",
     objectives: ["increase_user_adoption", "increase_conversion"],
     description: "Find out which integrations your users would like to see next.",
     preset: {
-      name: "New Integration Survey",
+      name: "New Integration Form",
       welcomeCard: welcomeCardDefault,
       questions: [
         {
@@ -2000,7 +2000,7 @@ export const templates: TTemplate[] = [
           html: '<p class="fb-editor-paragraph" dir="ltr"><span>You seem to be considering signing up. Answer four questions and get 10% on any plan.</span></p>',
           type: TSurveyQuestionType.CTA,
           logic: [{ condition: "skipped", destination: "end" }],
-          headline: "Answer this short survey, get 10% off!",
+          headline: "Answer this short form, get 10% off!",
           required: false,
           buttonLabel: "Get 10% discount",
           buttonExternal: false,
@@ -2150,7 +2150,7 @@ export const templates: TTemplate[] = [
     objectives: ["increase_conversion", "increase_user_adoption"],
     description: "Find out how close your visitors are to buy or subscribe.",
     preset: {
-      name: "Purchase Intention Survey",
+      name: "Purchase Intention Form",
       welcomeCard: welcomeCardDefault,
       questions: [
         {
@@ -2253,7 +2253,7 @@ export const templates: TTemplate[] = [
 
     category: "Exploration",
     objectives: ["improve_user_retention", "increase_user_adoption"],
-    description: "Survey users about product or feature ideas. Get feedback rapidly.",
+    description: "Form users about product or feature ideas. Get feedback rapidly.",
     preset: {
       name: "Evaluate a Product Idea",
       welcomeCard: welcomeCardDefault,
@@ -2476,16 +2476,16 @@ questions: [
 
 export const customSurvey: TTemplate = {
   name: "Start from scratch",
-  description: "Create a survey without template.",
+  description: "Create a form without template.",
   preset: {
-    name: "New Survey",
+    name: "New Form",
     welcomeCard: welcomeCardDefault,
     questions: [
       {
         id: createId(),
         type: TSurveyQuestionType.OpenText,
         headline: "What would you like to know?",
-        subheader: "This is an example survey.",
+        subheader: "This is an example form.",
         placeholder: "Type your answer here...",
         required: true,
         inputType: "text",
@@ -2500,7 +2500,7 @@ export const minimalSurvey: TSurvey = {
   id: "someUniqueId1",
   createdAt: new Date(),
   updatedAt: new Date(),
-  name: "Minimal Survey",
+  name: "Minimal Form",
   type: "web",
   environmentId: "someEnvId1",
   status: "draft",

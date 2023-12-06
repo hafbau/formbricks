@@ -7,7 +7,7 @@ import TriggerInnerText from "./trigger-inner-text.webp";
 import TriggerCSS from "./trigger-css-selector.webp";
 import TriggerPageUrl from "./trigger-page-url.webp";
 import RecontactOptions from "./recontact-options.webp";
-import PublishSurvey from "./publish-survey.webp";
+import PublishSurvey from "./publish-form.webp";
 import SelectAction from "./select-action.webp";
 
 export const metadata = {
@@ -23,42 +23,42 @@ Churn is hard, but can teach you a lot. Whenever a user decides that your produc
 
 ## Purpose
 
-The Churn Survey is among the most effective ways to identify weaknesses in your offering. People were willing to pay but now are not anymore: What changed? Let’s find out!
+The Churn Form is among the most effective ways to identify weaknesses in your offering. People were willing to pay but now are not anymore: What changed? Let’s find out!
 
 ## Preview
 
-<DemoPreview template="Churn Survey" />
+<DemoPreview template="Churn Form" />
 
 ## Fastform Approach
 
 - Ask at exactly the right point in time
 - Follow-up to prevent bad reviews
-- Coming soon: Make survey mandatory
+- Coming soon: Make form mandatory
 
 ## Overview
 
-To run the Churn Survey in your app you want to proceed as follows:
+To run the Churn Form in your app you want to proceed as follows:
 
-1. Create new Churn Survey at [app.fastform.com](http://app.fastform.com/)
-2. Set up the user action to display survey at right point in time
+1. Create new Churn Form at [app.fastform.com](http://app.fastform.com/)
+2. Set up the user action to display form at right point in time
 3. Choose correct recontact options to never miss a feedback
 4. Prevent that churn!
 
 <Note>
   ## Fastform Widget running?
   We assume that you have already installed the Fastform Widget in your web app. It’s required to display messages
-  and surveys in your app. If not, please follow the [Quick Start Guide (takes 15mins max.)](/docs/getting-started/quickstart-in-app-survey)
+  and surveys in your app. If not, please follow the [Quick Start Guide (takes 15mins max.)](/docs/getting-started/quickstart-in-app-form)
 </Note>
 
-### 1. Create new Churn Survey
+### 1. Create new Churn Form
 
 If you don't have an account yet, create one at [app.fastform.com](https://app.fastform.com/auth/signup)
 
-Click on "Create Survey" and choose the template “Churn Survey”:
+Click on "Create Form" and choose the template “Churn Form”:
 
 <Image
   src={CreateChurnFlow}
-  alt="Create churn survey by template"
+  alt="Create churn form by template"
   quality="100"
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
@@ -84,9 +84,9 @@ In this case, you don’t really need to pre-segment your audience. You likely w
 
 ### 4. Set up a trigger
 
-To create the trigger for your Churn Survey, you have two options to choose from:
+To create the trigger for your Churn Form, you have two options to choose from:
 
-1. **Trigger by innerText:** You likely have a “Cancel Subscription” button in your app. You can setup a user Action with the according `innerText` to trigger the survey, like so:
+1. **Trigger by innerText:** You likely have a “Cancel Subscription” button in your app. You can setup a user Action with the according `innerText` to trigger the form, like so:
 
 <Image
   src={TriggerInnerText}
@@ -95,7 +95,7 @@ To create the trigger for your Churn Survey, you have two options to choose from
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-2. **Trigger by CSS Selector:** In case you have more than one button saying “Cancel Subscription” in your app and only want to display the survey when one of them is clicked, you want to be more specific. The best way to do that is to give this button the HTML `id=“cancel-subscription”` and set your user action up like so:
+2. **Trigger by CSS Selector:** In case you have more than one button saying “Cancel Subscription” in your app and only want to display the form when one of them is clicked, you want to be more specific. The best way to do that is to give this button the HTML `id=“cancel-subscription”` and set your user action up like so:
 
 <Image
   src={TriggerCSS}
@@ -104,7 +104,7 @@ To create the trigger for your Churn Survey, you have two options to choose from
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-3. **Trigger by pageURL:** Lastly, you could also display your survey on a subpage “/subscription-cancelled” where you forward users once they cancelled the trial subscription. You can then create a user Action with the type `pageURL` with the following settings:
+3. **Trigger by pageURL:** Lastly, you could also display your form on a subpage “/subscription-cancelled” where you forward users once they cancelled the trial subscription. You can then create a user Action with the type `pageURL` with the following settings:
 
 <Image
   src={TriggerPageUrl}
@@ -113,15 +113,15 @@ To create the trigger for your Churn Survey, you have two options to choose from
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-Whenever a user visits this page, matches the filter conditions above and the recontact options (below) the survey will be displayed ✅
+Whenever a user visits this page, matches the filter conditions above and the recontact options (below) the form will be displayed ✅
 
 Here is our complete [Actions manual](/docs/actions/why) covering [Code](/docs/actions/code) and [No-Code](/docs/actions/no-code) Actions.
 
 <Note>
   ## Pre-churn flow coming soon 
-  We’re currently building full-screen survey pop-ups. You’ll be able to prevent users from closing the survey
+  We’re currently building full-screen form pop-ups. You’ll be able to prevent users from closing the form
   unless they respond to it. It’s certainly debatable if you want that but you could force them to click through
-  the survey before letting them cancel 🤷
+  the form before letting them cancel 🤷
 </Note>
 
 ### 5. Select Action in the “When to ask” card
@@ -135,7 +135,7 @@ Here is our complete [Actions manual](/docs/actions/why) covering [Code](/docs/a
 
 ### 6. Last step: Set Recontact Options correctly
 
-Lastly, scroll down to “Recontact Options”. Here you have to choose the correct settings to make sure you milk these super valuable insights. You want to make sure that this survey is always displayed, no matter if the user has already seen a survey in the past days:
+Lastly, scroll down to “Recontact Options”. Here you have to choose the correct settings to make sure you milk these super valuable insights. You want to make sure that this form is always displayed, no matter if the user has already seen a form in the past days:
 
 <Image
   src={RecontactOptions}
@@ -144,21 +144,21 @@ Lastly, scroll down to “Recontact Options”. Here you have to choose the corr
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-These settings make sure the survey is always displayed, when a user wants to Cancel their subscription.
+These settings make sure the form is always displayed, when a user wants to Cancel their subscription.
 
-### 7. Congrats! You’re ready to publish your survey 💃
+### 7. Congrats! You’re ready to publish your form 💃
 
 <Image
   src={PublishSurvey}
-  alt="Publish survey"
+  alt="Publish form"
   quality="100"
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
 <Note>
   ## Fastform Widget running? 
-  You need to have the Fastform Widget installed to display the Churn Survey in your app. Please follow [this
-  tutorial (Step 4 onwards)](/docs/getting-started/quickstart-in-app-survey) to install the widget.
+  You need to have the Fastform Widget installed to display the Churn Form in your app. Please follow [this
+  tutorial (Step 4 onwards)](/docs/getting-started/quickstart-in-app-form) to install the widget.
 </Note>
 
 ###

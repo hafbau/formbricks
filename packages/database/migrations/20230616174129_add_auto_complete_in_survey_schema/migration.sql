@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Survey" ADD COLUMN     "autoComplete" INTEGER;
+ALTER TABLE "Form" ADD COLUMN     "autoComplete" INTEGER;

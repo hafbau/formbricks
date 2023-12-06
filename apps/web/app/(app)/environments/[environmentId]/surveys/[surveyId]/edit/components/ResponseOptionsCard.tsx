@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 
 interface ResponseOptionsCardProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey | ((TSurvey) => TSurvey)) => void;
+  setLocalSurvey: (form: TSurvey | ((TSurvey) => TSurvey)) => void;
   responseCount: number;
 }
 
@@ -31,12 +31,12 @@ export default function ResponseOptionsCard({
   const [verifyEmailToggle, setVerifyEmailToggle] = useState(false);
 
   const [surveyClosedMessage, setSurveyClosedMessage] = useState({
-    heading: "Survey Completed",
-    subheading: "This free & open-source survey has been closed",
+    heading: "Form Completed",
+    subheading: "This free & open-source form has been closed",
   });
 
   const [singleUseMessage, setSingleUseMessage] = useState({
-    heading: "The survey has already been answered.",
+    heading: "The form has already been answered.",
     subheading: "You can only use this link once.",
   });
 
@@ -294,17 +294,17 @@ export default function ResponseOptionsCard({
       <Collapsible.CollapsibleContent>
         <hr className="py-1 text-slate-600" />
         <div className="p-3">
-          {/* Close Survey on Limit */}
+          {/* Close Form on Limit */}
           <AdvancedOptionToggle
             htmlId="closeOnNumberOfResponse"
             isChecked={autoComplete}
             onToggle={handleCheckMark}
-            title="Close survey on response limit"
-            description="Automatically close the survey after a certain number of responses."
+            title="Close form on response limit"
+            description="Automatically close the form after a certain number of responses."
             childBorder={true}>
             <label htmlFor="autoCompleteResponses" className="cursor-pointer bg-slate-50 p-4">
               <p className="text-sm font-semibold text-slate-700">
-                Automatically mark the survey as complete after
+                Automatically mark the form as complete after
                 <Input
                   autoFocus
                   type="number"
@@ -319,17 +319,17 @@ export default function ResponseOptionsCard({
               </p>
             </label>
           </AdvancedOptionToggle>
-          {/* Close Survey on Date */}
+          {/* Close Form on Date */}
           <AdvancedOptionToggle
             htmlId="closeOnDate"
             isChecked={surveyCloseOnDateToggle}
             onToggle={handleSurveyCloseOnDateToggle}
-            title="Close survey on date"
-            description="Automatically closes the survey at the beginning of the day (UTC)."
+            title="Close form on date"
+            description="Automatically closes the form at the beginning of the day (UTC)."
             childBorder={true}>
             <div className="flex cursor-pointer p-4">
               <p className="mr-2 mt-3 text-sm font-semibold text-slate-700">
-                Automatically mark survey as complete on:
+                Automatically mark form as complete on:
               </p>
               <DatePicker date={closeOnDate} handleDateChange={handleCloseOnDateChange} />
             </div>
@@ -341,7 +341,7 @@ export default function ResponseOptionsCard({
             isChecked={redirectToggle}
             onToggle={handleRedirectCheckMark}
             title="Redirect on completion"
-            description="Redirect user to specified link on survey completion"
+            description="Redirect user to specified link on form completion"
             childBorder={true}>
             <div className="w-full p-4">
               <div className="flex w-full cursor-pointer items-center">
@@ -362,13 +362,13 @@ export default function ResponseOptionsCard({
 
           {localSurvey.type === "link" && (
             <>
-              {/* Adjust Survey Closed Message */}
+              {/* Adjust Form Closed Message */}
               <AdvancedOptionToggle
                 htmlId="adjustSurveyClosedMessage"
                 isChecked={surveyClosedMessageToggle}
                 onToggle={handleCloseSurveyMessageToggle}
-                title="Adjust 'Survey Closed' message"
-                description="Change the message visitors see when the survey is closed."
+                title="Adjust 'Form Closed' message"
+                description="Change the message visitors see when the form is closed."
                 childBorder={true}>
                 <div className="flex w-full items-center space-x-1 p-4 pb-4">
                   <div className="w-full cursor-pointer items-center  bg-slate-50">
@@ -394,13 +394,13 @@ export default function ResponseOptionsCard({
                 </div>
               </AdvancedOptionToggle>
 
-              {/* Single User Survey Options */}
+              {/* Single User Form Options */}
               <AdvancedOptionToggle
                 htmlId="singleUserSurveyOptions"
                 isChecked={!!localSurvey.singleUse?.enabled}
                 onToggle={handleSingleUseSurveyToggle}
-                title="Single-Use Survey Links"
-                description="Allow only 1 response per survey link."
+                title="Single-Use Form Links"
+                description="Allow only 1 response per form link."
                 childBorder={true}>
                 <div className="flex w-full items-center space-x-1 p-4 pb-4">
                   <div className="w-full cursor-pointer items-center  bg-slate-50">
@@ -409,10 +409,10 @@ export default function ResponseOptionsCard({
                     </div>
                     <ul className="mb-3 ml-4 cursor-default list-inside list-disc space-y-1">
                       <li className="text-sm text-slate-600">
-                        Blocks survey if the survey URL has no Single Use Id (suId).
+                        Blocks form if the form URL has no Single Use Id (suId).
                       </li>
                       <li className="text-sm text-slate-600">
-                        Blocks survey if a submission with the Single Use Id (suId) in the URL exists already.
+                        Blocks form if a submission with the Single Use Id (suId) in the URL exists already.
                       </li>
                     </ul>
                     <Label htmlFor="headline">&lsquo;Link Used&rsquo; Message</Label>
@@ -444,7 +444,7 @@ export default function ResponseOptionsCard({
                         <Label htmlFor="encryption-label">
                           <div className="ml-2">
                             <p className="text-sm font-normal text-slate-600">
-                              Enable encryption of Single Use Id (suId) in survey URL.
+                              Enable encryption of Single Use Id (suId) in form URL.
                             </p>
                           </div>
                         </Label>
@@ -466,9 +466,9 @@ export default function ResponseOptionsCard({
                   <div className="w-full cursor-pointer items-center  bg-slate-50">
                     <p className="text-md font-semibold">How it works</p>
                     <p className="mb-4 mt-2 text-sm text-slate-500">
-                      Respondants will receive the survey link via email.
+                      Respondants will receive the form link via email.
                     </p>
-                    <Label htmlFor="headline">Survey Name (Public)</Label>
+                    <Label htmlFor="headline">Form Name (Public)</Label>
                     <Input
                       autoFocus
                       id="heading"
@@ -495,8 +495,8 @@ export default function ResponseOptionsCard({
                 htmlId="protectSurveyWithPin"
                 isChecked={isPinProtectionEnabled}
                 onToggle={handleProtectSurveyWithPinToggle}
-                title="Protect Survey with a PIN"
-                description="Only users who have the PIN can access the survey."
+                title="Protect Form with a PIN"
+                description="Only users who have the PIN can access the form."
                 childBorder={true}>
                 <div className="flex w-full items-center space-x-1 p-4 pb-4">
                   <div className="w-full cursor-pointer items-center  bg-slate-50">

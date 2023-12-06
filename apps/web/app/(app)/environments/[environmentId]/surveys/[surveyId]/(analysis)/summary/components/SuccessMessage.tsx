@@ -12,7 +12,7 @@ import { TProfile } from "@fastform/types/profile";
 
 interface SummaryMetadataProps {
   environment: TEnvironment;
-  survey: TSurvey;
+  form: TSurvey;
   webAppUrl: string;
   product: TProduct;
   profile: TProfile;
@@ -21,7 +21,7 @@ interface SummaryMetadataProps {
 
 export default function SuccessMessage({
   environment,
-  survey,
+  form,
   webAppUrl,
   product,
   profile,
@@ -32,19 +32,19 @@ export default function SuccessMessage({
 
   useEffect(() => {
     const newSurveyParam = searchParams?.get("success");
-    if (newSurveyParam && survey && environment) {
+    if (newSurveyParam && form && environment) {
       setConfetti(true);
       toast.success(
-        survey.type === "web" && !environment.widgetSetupCompleted
+        form.type === "web" && !environment.widgetSetupCompleted
           ? "Almost there! Install widget to start receiving responses."
-          : "Congrats! Your survey is live.",
+          : "Congrats! Your form is live.",
         {
-          icon: survey.type === "web" && !environment.widgetSetupCompleted ? "🤏" : "🎉",
+          icon: form.type === "web" && !environment.widgetSetupCompleted ? "🤏" : "🎉",
           duration: 5000,
           position: "bottom-right",
         }
       );
-      if (survey.type === "link") {
+      if (form.type === "link") {
         setShowLinkModal(true);
       }
       // Remove success param from url
@@ -52,12 +52,12 @@ export default function SuccessMessage({
       url.searchParams.delete("success");
       window.history.replaceState({}, "", url.toString());
     }
-  }, [environment, searchParams, survey]);
+  }, [environment, searchParams, form]);
 
   return (
     <>
       <ShareEmbedSurvey
-        survey={survey}
+        form={form}
         open={showLinkModal}
         setOpen={setShowLinkModal}
         webAppUrl={webAppUrl}

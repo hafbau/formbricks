@@ -4,8 +4,8 @@ import AddNewZap from "./add-new-zap.webp";
 import ChooseEvent from "./choose-event.webp";
 import ConnectWithFB1 from "./connect-with-fastform-1.webp";
 import ConnectWithFB2 from "./connect-with-fastform-2.webp";
-import DuplicateSurvey from "./duplicate-survey.webp";
-import SelectSurvey from "./select-survey.webp";
+import DuplicateSurvey from "./duplicate-form.webp";
+import SelectSurvey from "./select-form.webp";
 import SlackChannelMsg from "./slack-channel-msg.webp";
 import SlackMsg from "./slack-message.webp";
 import SubmitTestResponse from "./submit-test-response.webp";
@@ -26,14 +26,14 @@ export const metadata = {
 Zapier is a powerful ally. Hook up Fastform with Zapier and you can send your data to 5000+ other apps. Here is how to do it.
 
 <Note>
-  ### Nail down your survey first? 
-  Any changes in the survey cause additional work in the Zap. It makes sense to first settle on the survey you
+  ### Nail down your form first? 
+  Any changes in the form cause additional work in the Zap. It makes sense to first settle on the form you
   want to run and then get to setting up Zapier.
 </Note>
 
-## Step 1: Setup your survey incl. `questionId` for every question
+## Step 1: Setup your form incl. `questionId` for every question
 
-When setting up the Zap your life will be easier when you change the `questionId`s of your survey questions. You can only do so **before** you publish your survey.
+When setting up the Zap your life will be easier when you change the `questionId`s of your form questions. You can only do so **before** you publish your form.
 
 <Image
   src={UpdateQuestionId}
@@ -45,12 +45,12 @@ When setting up the Zap your life will be easier when you change the `questionId
 _In every question card in the Advanced Settings you find the Question ID field. Update it so that you’ll recognize the response tied to this question._
 
 <Note>
-  ### Already published? Duplicate survey 
-  You can only update the questionId when the survey was not yet published. Already published it? Just **duplicate
+  ### Already published? Duplicate form 
+  You can only update the questionId when the form was not yet published. Already published it? Just **duplicate
   it** to update the questionIds.
   <Image
     src={DuplicateSurvey}
-    alt="Duplicate Survey"
+    alt="Duplicate Form"
     quality="100"
     className="rounded-lg max-w-full sm:max-w-3xl"
   />
@@ -58,7 +58,7 @@ _In every question card in the Advanced Settings you find the Question ID field.
 
 ## Step 2: Send a test response
 
-In order to set up Zapier you’ll need a test response. This allows you to select the individual values of each response in your Zap. If you have Fastform running locally and you want to set up an in-app survey, you can use our [Demo App](/docs/contributing/demo) to trigger a survey and submit a response.
+In order to set up Zapier you’ll need a test response. This allows you to select the individual values of each response in your Zap. If you have Fastform running locally and you want to set up an in-app form, you can use our [Demo App](/docs/contributing/demo) to trigger a form and submit a response.
 
 <Image
   src={SubmitTestResponse}
@@ -105,15 +105,15 @@ Once you copied it in the newly opened Zapier window, you will be connected:
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-## Step 5: Select Survey
+## Step 5: Select Form
 
 Next, you can choose from all the surveys you have created in this environment:
 
-<Image src={SelectSurvey} alt="Select Survey" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
+<Image src={SelectSurvey} alt="Select Form" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
 ## Step 6: Test your trigger
 
-Once you hit “Test” you will see the three most recent submissions for this survey. If you don’t have any submissions in the survey, submit one to continue setting up your Zap:
+Once you hit “Test” you will see the three most recent submissions for this form. If you don’t have any submissions in the form, submit one to continue setting up your Zap:
 
 <Image
   src={TestSubmission}
@@ -134,11 +134,11 @@ Now you have all the data you need at hand. The next steps depend on what you wa
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-In the action itself we can determine the data and layout of the message. Here, we only choose the submission data. You can also refer to the meta data of the submission and the [attributes](/docs/attributes/why) of the person who submitted the survey.
+In the action itself we can determine the data and layout of the message. Here, we only choose the submission data. You can also refer to the meta data of the submission and the [attributes](/docs/attributes/why) of the person who submitted the form.
 
 <Image src={SlackMsg} alt="Slack Message" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
-We now receive a notifcation in our Slack channel whenever a Churn survey is completed:
+We now receive a notifcation in our Slack channel whenever a Churn form is completed:
 
 <Image
   src={ZapierMessage}

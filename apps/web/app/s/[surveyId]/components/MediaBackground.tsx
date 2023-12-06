@@ -5,7 +5,7 @@ import React from "react";
 
 interface MediaBackgroundProps {
   children: React.ReactNode;
-  survey: TSurvey;
+  form: TSurvey;
   isEditorView?: boolean;
   isMobilePreview?: boolean;
   ContentRef?: React.RefObject<HTMLDivElement>;
@@ -13,40 +13,38 @@ interface MediaBackgroundProps {
 
 export const MediaBackground: React.FC<MediaBackgroundProps> = ({
   children,
-  survey,
+  form,
   isEditorView = false,
   isMobilePreview = false,
   ContentRef,
 }) => {
   const getFilterStyle = () => {
-    return survey.styling?.background?.brightness
-      ? `brightness-${survey.styling?.background?.brightness}`
-      : "";
+    return form.styling?.background?.brightness ? `brightness-${form.styling?.background?.brightness}` : "";
   };
 
   const renderBackground = () => {
     const filterStyle = getFilterStyle();
     const baseClasses = "absolute inset-0 h-full w-full";
 
-    switch (survey.styling?.background?.bgType) {
+    switch (form.styling?.background?.bgType) {
       case "color":
         return (
           <div
             className={`${baseClasses} ${filterStyle}`}
-            style={{ backgroundColor: survey.styling?.background?.bg || "#ffff" }}
+            style={{ backgroundColor: form.styling?.background?.bg || "#ffff" }}
           />
         );
       case "animation":
         return (
           <video muted loop autoPlay className={`${baseClasses} object-cover ${filterStyle}`}>
-            <source src={survey.styling?.background?.bg || ""} type="video/mp4" />
+            <source src={form.styling?.background?.bg || ""} type="video/mp4" />
           </video>
         );
       case "image":
         return (
           <div
             className={`${baseClasses} bg-cover bg-center ${filterStyle}`}
-            style={{ backgroundImage: `url(${survey.styling?.background?.bg})` }}
+            style={{ backgroundImage: `url(${form.styling?.background?.bg})` }}
           />
         );
       default:

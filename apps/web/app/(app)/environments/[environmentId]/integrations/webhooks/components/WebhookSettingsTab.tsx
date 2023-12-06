@@ -99,7 +99,7 @@ export default function WebhookSettingsTab({
     }
 
     if (!selectedAllSurveys && selectedSurveys.length === 0) {
-      toast.error("Please select at least one survey");
+      toast.error("Please select at least one form");
       return;
     }
     const endpointHitSuccessfully = await handleTestEndpoint(false);

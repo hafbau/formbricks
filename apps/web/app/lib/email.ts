@@ -71,12 +71,12 @@ export const sendLinkSurveyToVerifiedEmail = async (data) => {
   const surveyLink = `${WEBAPP_URL}/s/${surveyId}?verify=${encodeURIComponent(token)}`;
   await sendEmail({
     to: data.email,
-    subject: "Your Fastform Survey",
+    subject: "Your Fastform Form",
     html: withEmailTemplate(`<h1>Hey 👋</h1>
-    Thanks for validating your email. Here is your Survey.<br/><br/>
+    Thanks for validating your email. Here is your Form.<br/><br/>
     <strong>${surveyData.name}</strong>
     <p>${surveyData.subheading}</p>
-    <a class="button" href="${surveyLink}">Take survey</a><br/>
+    <a class="button" href="${surveyLink}">Take form</a><br/>
     <br/>
     All the best,<br/>
     Your Fastform Team 🤍`),
@@ -145,23 +145,23 @@ export const sendInviteAcceptedEmail = async (inviterName, inviteeName, email) =
 export const sendResponseFinishedEmail = async (
   email: string,
   environmentId: string,
-  survey: { id: string; name: string; questions: TSurveyQuestion[] },
+  form: { id: string; name: string; questions: TSurveyQuestion[] },
   response: TResponse
 ) => {
   const personEmail = response.person?.attributes["email"];
   await sendEmail({
     to: email,
     subject: personEmail
-      ? `${personEmail} just completed your ${survey.name} survey ✅`
-      : `A response for ${survey.name} was completed ✅`,
+      ? `${personEmail} just completed your ${form.name} form ✅`
+      : `A response for ${form.name} was completed ✅`,
     replyTo: personEmail?.toString() || MAIL_FROM,
-    html: withEmailTemplate(`<h1>Hey 👋</h1>Someone just completed your survey <strong>${
-      survey.name
+    html: withEmailTemplate(`<h1>Hey 👋</h1>Someone just completed your form <strong>${
+      form.name
     }</strong><br/>
 
     <hr/> 
 
-    ${getQuestionResponseMapping(survey, response)
+    ${getQuestionResponseMapping(form, response)
       .map(
         (question) =>
           question.answer &&
@@ -174,7 +174,7 @@ export const sendResponseFinishedEmail = async (
    
    
     <a class="button" href="${WEBAPP_URL}/environments/${environmentId}/surveys/${
-      survey.id
+      form.id
     }/responses?utm_source=emailnotification&utm_medium=email&utm_content=ViewResponsesCTA">View all responses</a>
 
     <div class="tooltip">

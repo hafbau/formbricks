@@ -1,8 +1,8 @@
 import { SurveyBaseProps } from "@/types/props";
-import { Survey } from "./Survey";
+import { Form } from "./Form";
 
 export function SurveyInline({
-  survey,
+  form,
   isBrandingEnabled,
   activeQuestionId,
   onDisplay = () => {},
@@ -16,8 +16,8 @@ export function SurveyInline({
 }: SurveyBaseProps) {
   return (
     <div id="fbjs" className="fastform-form h-full w-full">
-      <Survey
-        survey={survey}
+      <Form
+        form={form}
         isBrandingEnabled={isBrandingEnabled}
         activeQuestionId={activeQuestionId}
         onDisplay={onDisplay}

@@ -1,6 +1,6 @@
 import { getAnalysisData } from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/data";
 import { authOptions } from "@fastform/lib/authOptions";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 
@@ -10,12 +10,12 @@ type Props = {
 
 export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
   const session = await getServerSession(authOptions);
-  const survey = await getSurvey(params.surveyId);
+  const form = await getSurvey(params.surveyId);
 
   if (session) {
     const { responseCount } = await getAnalysisData(params.surveyId, params.environmentId);
     return {
-      title: `${responseCount} Responses | ${survey?.name} Results`,
+      title: `${responseCount} Responses | ${form?.name} Results`,
     };
   }
   return {

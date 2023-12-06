@@ -2,7 +2,7 @@ import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { createDisplayLegacy } from "@fastform/lib/display/service";
 import { capturePosthogEvent } from "@fastform/lib/posthogServer";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { getTeamDetails } from "@fastform/lib/teamDetail/service";
 import { TDisplay, ZDisplayLegacyCreateInput } from "@fastform/types/displays";
 import { InvalidInputError } from "@fastform/types/errors";
@@ -31,10 +31,10 @@ export async function POST(request: Request): Promise<NextResponse> {
   let { personId } = inputValidation.data;
 
   // find environmentId from surveyId
-  let survey;
+  let form;
 
   try {
-    survey = await getSurvey(surveyId);
+    form = await getSurvey(surveyId);
   } catch (error) {
     if (error instanceof InvalidInputError) {
       return responses.badRequestResponse(error.message);
@@ -45,7 +45,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   }
 
   // find teamId & teamOwnerId from environmentId
-  const teamDetails = await getTeamDetails(survey.environmentId);
+  const teamDetails = await getTeamDetails(form.environmentId);
 
   // create display
   let display: TDisplay;

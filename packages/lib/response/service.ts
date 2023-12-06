@@ -213,7 +213,7 @@ export const createResponse = async (responseInput: TResponseInput): Promise<TRe
 
     const responsePrisma = await prisma.response.create({
       data: {
-        survey: {
+        form: {
           connect: {
             id: surveyId,
           },
@@ -281,7 +281,7 @@ export const createResponseLegacy = async (responseInput: TResponseLegacyInput):
         : ttcTemp;
     const responsePrisma = await prisma.response.create({
       data: {
-        survey: {
+        form: {
           connect: {
             id: responseInput.surveyId,
           },
@@ -442,7 +442,7 @@ export const getResponsesByEnvironmentId = async (
       try {
         const responses = await prisma.response.findMany({
           where: {
-            survey: {
+            form: {
               environmentId,
             },
           },

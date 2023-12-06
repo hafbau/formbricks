@@ -19,9 +19,9 @@ const SurveyInactive = ({
   };
 
   const descriptions = {
-    paused: "This free & open-source survey is temporarily paused.",
-    completed: "This free & open-source survey has been closed.",
-    "link invalid": "This survey can only be taken by invitation.",
+    paused: "This free & open-source form is temporarily paused.",
+    completed: "This free & open-source form has been closed.",
+    "link invalid": "This form can only be taken by invitation.",
   };
 
   return (
@@ -30,7 +30,7 @@ const SurveyInactive = ({
       <div className="flex flex-col items-center space-y-3 text-slate-300">
         {icons[status]}
         <h1 className="text-4xl font-bold text-slate-800">
-          {status === "completed" && surveyClosedMessage ? surveyClosedMessage.heading : `Survey ${status}.`}
+          {status === "completed" && surveyClosedMessage ? surveyClosedMessage.heading : `Form ${status}.`}
         </h1>
         <p className="text-lg leading-10 text-gray-500">
           {status === "completed" && surveyClosedMessage

@@ -177,7 +177,7 @@ Add a webhook to your product.
         List of events that will trigger the webhook.
       </Property>
       <Property name="surveyIds" type="string[]">
-        List of survey IDs that will trigger the webhook. If not provided, the webhook will be triggered for all surveys.
+        List of form IDs that will trigger the webhook. If not provided, the webhook will be triggered for all surveys.
       </Property>
     </Properties>
 
@@ -185,7 +185,7 @@ Add a webhook to your product.
 | ---------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
 | url        | yes      | -       | The endpoint that the webhook will send data to                                                                   |
 | trigger    | yes      | -       | The event that will trigger the webhook ("responseCreated" or "responseUpdated" or "responseFinished")            |
-| surveyIds  | no       | -       | List of survey IDs that will trigger the webhook. If not provided, the webhook will be triggered for all surveys. |
+| surveyIds  | no       | -       | List of form IDs that will trigger the webhook. If not provided, the webhook will be triggered for all surveys. |
 
   </Col>
   <Col sticky>
@@ -336,8 +336,8 @@ This documentation helps understand the payload structure that will be received 
 | data.id               | String  | Fastform Response ID.                                                                                                                        |
 | data.createdAt        | String  | The timestamp when the response was created.                                                                                                   |
 | data.updatedAt        | String  | The timestamp when the response was last updated.                                                                                              |
-| data.surveyId         | String  | The identifier of the survey associated with this response.                                                                                    |
-| data.finished         | Boolean | A boolean value indicating whether the survey response is marked as finished.                                                                  |
+| data.surveyId         | String  | The identifier of the form associated with this response.                                                                                    |
+| data.finished         | Boolean | A boolean value indicating whether the form response is marked as finished.                                                                  |
 | data.data             | Object  | An object containing the response data, where keys are question identifiers, and values are the corresponding answers given by the respondent. |
 | data.meta             | Object  | Additional metadata related to the response, such as the user's operating system and browser information.                                      |
 | data.personAttributes | Object  | An object with attributes related to the respondent, such as their email and a user ID (if available).                                         |

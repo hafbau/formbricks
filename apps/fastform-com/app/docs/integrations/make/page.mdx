@@ -1,13 +1,13 @@
 import Image from "next/image";
 
 import UpdateQuestionId from "./update-question-id.webp";
-import DuplicateSurvey from "./duplicate-survey.webp";
+import DuplicateSurvey from "./duplicate-form.webp";
 import CreateNewScenario from "./create-new-scenario.webp";
 import SearchFormbricks from "./search-fastform.webp";
 import SelectTriggers from "./select-trigger.webp";
 import CreateWebhook from "./create-webhook.webp";
 import EnterApiKey from "./enter-api-key.webp";
-import SelectSurvey from "./select-survey.webp";
+import SelectSurvey from "./select-form.webp";
 import SubmitTestResponse from "./submit-test-response.webp";
 import AddModule from "./add-module.webp";
 import SelectFields from "./select-fields.webp";
@@ -16,7 +16,7 @@ import SelectAction from "./select-action.webp";
 
 export const metadata = {
   title: "Fastform Integration with Make.com: A Step-by-Step Guide",
-  description: "Discover how to seamlessly integrate Fastform with Make.com. Dive into our comprehensive guide to set up scenarios, connect with a plethora of apps, and send your survey data to more than 1000 platforms.",
+  description: "Discover how to seamlessly integrate Fastform with Make.com. Dive into our comprehensive guide to set up scenarios, connect with a plethora of apps, and send your form data to more than 1000 platforms.",
 };
 
 #### Integrations
@@ -26,14 +26,14 @@ export const metadata = {
 Make is a powerful tool to send information between Fastform and thousands of apps. Here's how to set it up.
 
 <Note>
-  ### Nail down your survey first ? 
-  Any changes in the survey cause additional work in the _Scenario_. It
-  makes sense to first settle on the survey you want to run and then get to setting up Make.
+  ### Nail down your form first ? 
+  Any changes in the form cause additional work in the _Scenario_. It
+  makes sense to first settle on the form you want to run and then get to setting up Make.
 </Note>
 
-## Step 1: Setup your survey incl. `questionId` for every question
+## Step 1: Setup your form incl. `questionId` for every question
 
-Set up the `questionId`s of your survey questions before publishing.
+Set up the `questionId`s of your form questions before publishing.
 
 <Image
   src={UpdateQuestionId}
@@ -45,12 +45,12 @@ Set up the `questionId`s of your survey questions before publishing.
 _Update the Question ID field in every question card under Advanced Settings._
 
 <Note>
-  ### Already published? Duplicate survey 
-  You can only update the questionId before publishing the survey. If
+  ### Already published? Duplicate form 
+  You can only update the questionId before publishing the form. If
   already published, simply duplicate it.
   <Image
     src={DuplicateSurvey}
-    alt="Duplicate Survey"
+    alt="Duplicate Form"
     quality="100"
     className="rounded-lg max-w-full sm:max-w-3xl"
   />
@@ -100,11 +100,11 @@ Enter the Fastform API key. Learn how to get one from the [API Key tutorial](/do
 
 <Image src={EnterApiKey} alt="Enter API Key" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
-## Step 4: Select Survey
+## Step 4: Select Form
 
 Choose from your created surveys:
 
-<Image src={SelectSurvey} alt="Select Survey" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
+<Image src={SelectSurvey} alt="Select Form" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
 ## Step 5: Send a test response
 

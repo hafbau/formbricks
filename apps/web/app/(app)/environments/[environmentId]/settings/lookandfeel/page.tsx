@@ -59,14 +59,14 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
         />
       </SettingsCard>
       <SettingsCard
-        title="In-app Survey Placement"
+        title="In-app Form Placement"
         description="Change where surveys will be shown in your web app.">
         <EditPlacement product={product} environmentId={params.environmentId} />
       </SettingsCard>
       <SettingsCard
         noPadding
         title="Highlight Border"
-        description="Make sure your users notice the survey you display">
+        description="Make sure your users notice the form you display">
         <EditHighlightBorder
           product={product}
           defaultBrandColor={DEFAULT_BRAND_COLOR}

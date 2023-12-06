@@ -13,11 +13,11 @@ import { TSurvey } from "@fastform/types/surveys";
 import { TTag } from "@fastform/types/tags";
 import { isWithinInterval } from "date-fns";
 
-export const generateQuestionsAndAttributes = (survey: TSurvey, responses: TResponse[]) => {
+export const generateQuestionsAndAttributes = (form: TSurvey, responses: TResponse[]) => {
   let questionNames: string[] = [];
 
-  if (survey?.questions) {
-    questionNames = survey.questions.map((question) => question.headline);
+  if (form?.questions) {
+    questionNames = form.questions.map((question) => question.headline);
   }
 
   const attributeMap: Record<string, Record<string, string | number>> = {};
@@ -91,7 +91,7 @@ const getPersonAttributes = (responses: TResponse[]): { [key: string]: any[] } |
 
 // creating the options for the filtering to be selected there are three types questions, attributes and tags
 export const generateQuestionAndFilterOptions = (
-  survey: TSurvey,
+  form: TSurvey,
   responses: TResponse[],
   environmentTags: TTag[] | undefined
 ): {
@@ -103,7 +103,7 @@ export const generateQuestionAndFilterOptions = (
 
   let questionsOptions: any = [];
 
-  survey.questions.forEach((q) => {
+  form.questions.forEach((q) => {
     if (Object.keys(conditionOptions).includes(q.type)) {
       questionsOptions.push({
         label: q.headline,
@@ -114,7 +114,7 @@ export const generateQuestionAndFilterOptions = (
     }
   });
   questionOptions = [...questionOptions, { header: OptionsType.QUESTIONS, option: questionsOptions }];
-  survey.questions.forEach((q) => {
+  form.questions.forEach((q) => {
     if (Object.keys(conditionOptions).includes(q.type)) {
       if (
         q.type === TSurveyQuestionType.MultipleChoiceMulti ||
@@ -180,14 +180,14 @@ export const generateQuestionAndFilterOptions = (
 export const getFilterResponses = (
   responses: TResponse[],
   selectedFilter: SelectedFilterValue,
-  survey: TSurvey,
+  form: TSurvey,
   dateRange: DateRange
 ) => {
   // added the question on the response object to filter out the responses which has been selected
   let toBeFilterResponses = responses.map((r) => {
     return {
       ...r,
-      questions: survey.questions.map((q) => {
+      questions: form.questions.map((q) => {
         if (q.id in r.data) {
           return q;
         }

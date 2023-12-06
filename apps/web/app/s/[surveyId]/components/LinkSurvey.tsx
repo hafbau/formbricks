@@ -11,13 +11,13 @@ import { TResponse, TResponseData, TResponseUpdate } from "@fastform/types/respo
 import { TUploadFileConfig } from "@fastform/types/storage";
 import { TSurvey } from "@fastform/types/surveys";
 import ContentWrapper from "@fastform/ui/ContentWrapper";
-import { SurveyInline } from "@fastform/ui/Survey";
+import { SurveyInline } from "@fastform/ui/Form";
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 interface LinkSurveyProps {
-  survey: TSurvey;
+  form: TSurvey;
   product: TProduct;
   userId?: string;
   emailVerificationStatus?: string;
@@ -29,7 +29,7 @@ interface LinkSurveyProps {
 }
 
 export default function LinkSurvey({
-  survey,
+  form,
   product,
   userId,
   emailVerificationStatus,
@@ -43,23 +43,23 @@ export default function LinkSurvey({
   const searchParams = useSearchParams();
   const isPreview = searchParams?.get("preview") === "true";
   const sourceParam = searchParams?.get("source");
-  // pass in the responseId if the survey is a single use survey, ensures survey state is updated with the responseId
-  const [surveyState, setSurveyState] = useState(new SurveyState(survey.id, singleUseId, responseId, userId));
+  // pass in the responseId if the form is a single use form, ensures form state is updated with the responseId
+  const [surveyState, setSurveyState] = useState(new SurveyState(form.id, singleUseId, responseId, userId));
   const [activeQuestionId, setActiveQuestionId] = useState<string>(
-    survey.welcomeCard.enabled ? "start" : survey?.questions[0]?.id
+    form.welcomeCard.enabled ? "start" : form?.questions[0]?.id
   );
   const prefillResponseData: TResponseData | undefined = prefillAnswer
-    ? getPrefillResponseData(survey.questions[0], survey, prefillAnswer)
+    ? getPrefillResponseData(form.questions[0], form, prefillAnswer)
     : undefined;
 
-  const brandColor = survey.productOverwrites?.brandColor || product.brandColor;
+  const brandColor = form.productOverwrites?.brandColor || product.brandColor;
 
   const responseQueue = useMemo(
     () =>
       new ResponseQueue(
         {
           apiHost: webAppUrl,
-          environmentId: survey.environmentId,
+          environmentId: form.environmentId,
           retryAttempts: 2,
           onResponseSendingFailed: (response) => {
             alert(`Failed to send response: ${JSON.stringify(response, null, 2)}`);
@@ -90,7 +90,7 @@ export default function LinkSurvey({
     const fieldsRecord: Record<string, string | number | string[]> = {};
     let fieldsSet = false;
 
-    survey.hiddenFields?.fieldIds?.forEach((field) => {
+    form.hiddenFields?.fieldIds?.forEach((field) => {
       const answer = searchParams?.get(field);
       if (answer) {
         fieldsRecord[field] = answer;
@@ -100,21 +100,21 @@ export default function LinkSurvey({
 
     // Only return the record if at least one field was set.
     return fieldsSet ? fieldsRecord : null;
-  }, [searchParams, survey.hiddenFields?.fieldIds]);
+  }, [searchParams, form.hiddenFields?.fieldIds]);
 
   useEffect(() => {
     responseQueue.updateSurveyState(surveyState);
   }, [responseQueue, surveyState]);
 
   if (!surveyState.isResponseFinished() && hasFinishedSingleUseResponse) {
-    return <SurveyLinkUsed singleUseMessage={survey.singleUse} />;
+    return <SurveyLinkUsed singleUseMessage={form.singleUse} />;
   }
-  if (survey.verifyEmail && emailVerificationStatus !== "verified") {
+  if (form.verifyEmail && emailVerificationStatus !== "verified") {
     if (emailVerificationStatus === "fishy") {
-      return <VerifyEmail survey={survey} isErrorComponent={true} />;
+      return <VerifyEmail form={form} isErrorComponent={true} />;
     }
     //emailVerificationStatus === "not-verified"
-    return <VerifyEmail survey={survey} />;
+    return <VerifyEmail form={form} />;
   }
 
   return (
@@ -123,28 +123,28 @@ export default function LinkSurvey({
         {isPreview && (
           <div className="fixed left-0 top-0 flex w-full items-center justify-between bg-slate-600 p-2 px-4 text-center text-sm text-white shadow-sm">
             <div />
-            Survey Preview 👀
+            Form Preview 👀
             <button
               className="flex items-center rounded-full bg-slate-500 px-3 py-1 hover:bg-slate-400"
               onClick={() =>
-                setActiveQuestionId(survey.welcomeCard.enabled ? "start" : survey?.questions[0]?.id)
+                setActiveQuestionId(form.welcomeCard.enabled ? "start" : form?.questions[0]?.id)
               }>
               Restart <ArrowPathIcon className="ml-2 h-4 w-4" />
             </button>
           </div>
         )}
         <SurveyInline
-          survey={survey}
+          form={form}
           brandColor={brandColor}
           isBrandingEnabled={product.linkSurveyBranding}
           onDisplay={async () => {
             if (!isPreview) {
               const api = new FormbricksAPI({
                 apiHost: webAppUrl,
-                environmentId: survey.environmentId,
+                environmentId: form.environmentId,
               });
               const res = await api.client.display.create({
-                surveyId: survey.id,
+                surveyId: form.id,
               });
               if (!res.ok) {
                 throw new Error("Could not create display");
@@ -174,7 +174,7 @@ export default function LinkSurvey({
           onFileUpload={async (file: File, params: TUploadFileConfig) => {
             const api = new FormbricksAPI({
               apiHost: webAppUrl,
-              environmentId: survey.environmentId,
+              environmentId: form.environmentId,
             });
 
             try {

@@ -30,7 +30,7 @@ A service consists of multiple functions that can be easily reused in server act
 
 **Generic database level functionalities**
 
-By generic we mean that if in the `survey` service there is a function that only gets a survey and now you want a function to get both survey and all its responses, you should not create another function specifically for that. Instead use the `getSurvey` function and then a `getResponsesBySurveyId` function in the `response` service to get this data. The functions need to be generic so that they can be reused for cases like this where you need to combine multiple cached functions to get what you need.
+By generic we mean that if in the `form` service there is a function that only gets a form and now you want a function to get both form and all its responses, you should not create another function specifically for that. Instead use the `getSurvey` function and then a `getResponsesBySurveyId` function in the `response` service to get this data. The functions need to be generic so that they can be reused for cases like this where you need to combine multiple cached functions to get what you need.
 
 ## Do you need a new service?
 

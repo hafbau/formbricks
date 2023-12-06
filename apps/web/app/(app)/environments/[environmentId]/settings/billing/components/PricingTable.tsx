@@ -285,7 +285,7 @@ export default function PricingTableComponent({
         />
 
         <PricingCard
-          title={"Link Survey"}
+          title={"Link Form"}
           subtitle={"Link Surveys include unlimited surveys and responses for free."}
           featureName={ProductFeatureKeys[ProductFeatureKeys.linkSurvey]}
           monthlyPrice={30}

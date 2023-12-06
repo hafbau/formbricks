@@ -4,7 +4,7 @@ import Image from "next/image";
 import ActionText from "./action-innertext.webp";
 import ActionPageurl from "./action-pageurl.webp";
 import ChangeText from "./change-text.webp";
-import CreateSurvey from "./create-survey.webp";
+import CreateSurvey from "./create-form.webp";
 import Publish from "./publish.webp";
 import RecontactOptions from "./recontact-options.webp";
 import SelectAction from "./select-action.webp";
@@ -18,7 +18,7 @@ export const metadata = {
 
 # Improve Trial Conversion
 
-When a user doesn't convert, you want to know why. A micro-survey displayed at exactly the right time gives you a window into understanding the most relevant question: To pay or not to pay?
+When a user doesn't convert, you want to know why. A micro-form displayed at exactly the right time gives you a window into understanding the most relevant question: To pay or not to pay?
 
 ## Purpose
 
@@ -35,27 +35,27 @@ The better you understand why free users don’t convert to paid users, the high
 
 ## Installation
 
-To display the Trial Conversion Survey in your app you want to proceed as follows:
+To display the Trial Conversion Form in your app you want to proceed as follows:
 
-1. Create new Trial Conversion Survey at [app.fastform.com](http://app.fastform.com/)
-2. Set up the user action to display survey at right point in time
+1. Create new Trial Conversion Form at [app.fastform.com](http://app.fastform.com/)
+2. Set up the user action to display form at right point in time
 3. Print that 💸
 
 <Note>
   ## Fastform Widget running? 
   We assume that you have already installed the Fastform Widget in your web app. It’s required to display messages
-  and surveys in your app. If not, please follow the [Quick Start Guide (takes 15mins max.)](/docs/getting-started/quickstart-in-app-survey)
+  and surveys in your app. If not, please follow the [Quick Start Guide (takes 15mins max.)](/docs/getting-started/quickstart-in-app-form)
 </Note>
 
-### 1. Create new Trial Conversion Survey
+### 1. Create new Trial Conversion Form
 
 If you don't have an account yet, create one at [app.fastform.com](https://app.fastform.com/auth/signup)
 
-Click on "Create Survey" and choose the template “Improve Trial Conversion”:
+Click on "Create Form" and choose the template “Improve Trial Conversion”:
 
 <Image
   src={CreateSurvey}
-  alt="Create survey by template"
+  alt="Create form by template"
   quality="100"
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
@@ -82,11 +82,11 @@ Save, and move over to the “Audience” tab.
   We're working on pre-segmenting users by attributes. We will update this manual in the next days.
 </Note>
 
-Pre-segmentation isn't relevant for this survey because you likely want to solve all people who cancel their trial. You probably have a specific user action e.g. clicking on "Cancel Trial" you can use to only display the survey to users trialing your product.
+Pre-segmentation isn't relevant for this form because you likely want to solve all people who cancel their trial. You probably have a specific user action e.g. clicking on "Cancel Trial" you can use to only display the form to users trialing your product.
 
-### 4. Set up a trigger for the Trial Conversion Survey:
+### 4. Set up a trigger for the Trial Conversion Form:
 
-How you trigger your survey depends on your product. There are two options:
+How you trigger your form depends on your product. There are two options:
 
 1. **Trigger by pageURL:** Let’s say you have a page under “/trial-cancelled” where you forward users once they cancelled the trial subscription. You can then create an user Action with the type `pageURL` with the following settings:
 
@@ -97,7 +97,7 @@ How you trigger your survey depends on your product. There are two options:
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-Whenever a user visits this page, the survey will be displayed ✅
+Whenever a user visits this page, the form will be displayed ✅
 
 2. **Trigger by Button Click:** In a different case, you have a “Cancel Trial button in your app. You can setup a user Action with the according `innerText` like so:
 
@@ -121,7 +121,7 @@ Please have a look at our complete [Actions manual](/docs/actions/why) if you ha
 
 ### 6. Last step: Set Recontact Options correctly
 
-Lastly, scroll down to “Recontact Options”. Here you have to choose the correct settings to make sure you gather as many insights as possible. You want to make sure that this survey is always displayed, no matter if the user has already seen a survey in the past days:
+Lastly, scroll down to “Recontact Options”. Here you have to choose the correct settings to make sure you gather as many insights as possible. You want to make sure that this form is always displayed, no matter if the user has already seen a form in the past days:
 
 <Image
   src={RecontactOptions}
@@ -130,14 +130,14 @@ Lastly, scroll down to “Recontact Options”. Here you have to choose the corr
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-### 7. Congrats! You’re ready to publish your survey 💃
+### 7. Congrats! You’re ready to publish your form 💃
 
-<Image src={Publish} alt="Publish survey" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
+<Image src={Publish} alt="Publish form" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
 <Note>
   ## Fastform Widget running? 
   You need to have the Fastform Widget installed to display the Feedback Box in your app. Please follow [this
-  tutorial (Step 4 onwards)](/docs/getting-started/quickstart-in-app-survey) to install the widget.
+  tutorial (Step 4 onwards)](/docs/getting-started/quickstart-in-app-form) to install the widget.
 </Note>
 
 ###

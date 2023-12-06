@@ -4,7 +4,7 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-red.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
 Please see [Fastform Docs](https://fastform.com/docs).
-Specifically, [Quickstart/Implementation details](https://fastform.com/docs/getting-started/quickstart-in-app-survey).
+Specifically, [Quickstart/Implementation details](https://fastform.com/docs/getting-started/quickstart-in-app-form).
 
 ## What is Fastform
 

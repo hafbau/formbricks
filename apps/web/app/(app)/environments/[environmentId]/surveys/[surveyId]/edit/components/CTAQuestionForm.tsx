@@ -68,7 +68,7 @@ export default function CTAQuestionForm({
         <div className="flex items-center space-x-2 rounded-lg border border-slate-200 p-3 dark:border-slate-500">
           <RadioGroupItem value="internal" id="internal" className="bg-slate-50" />
           <Label htmlFor="internal" className="cursor-pointer dark:text-slate-200">
-            Button to continue in survey
+            Button to continue in form
           </Label>
         </div>
         <div className="flex items-center space-x-2 rounded-lg border border-slate-200 p-3 dark:border-slate-500">

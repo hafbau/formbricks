@@ -30,7 +30,7 @@ export default function ArticlesIndex({ articles }: any) {
     <>
       <Layout
         title="Blog"
-        description="Articles around Fastform, feature updates, the open source ecosystem and the future of form and survey software.">
+        description="Articles around Fastform, feature updates, the open source ecosystem and the future of form and form software.">
         <HeroTitle headingPt1="What's" headingTeal="new?" />
         <div className="mx-auto mb-20 max-w-3xl px-4 md:border-l md:border-slate-100 md:pl-6 md:dark:border-slate-800">
           <div className="flex flex-col space-y-16 px-4">

@@ -33,7 +33,7 @@ const bestPractices: Array<BestPractice> = [
     },
   },
   {
-    href: "/docs/best-practices/pmf-survey",
+    href: "/docs/best-practices/pmf-form",
     name: "Product Market Fit",
     description:
       "Measuring and understanding your PMF helps you understand what users like, what they’re missing and what to build next.",

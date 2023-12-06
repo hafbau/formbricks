@@ -4,10 +4,10 @@ import { TUploadFileConfig } from "@fastform/types/storage";
 import { TSurvey } from "@fastform/types/surveys";
 import { useEffect, useMemo } from "react";
 
-const createContainerId = () => `fastform-survey-container`;
+const createContainerId = () => `fastform-form-container`;
 
 interface SurveyProps {
-  survey: TSurvey;
+  form: TSurvey;
   brandColor: string;
   isBrandingEnabled: boolean;
   activeQuestionId?: string;
@@ -31,7 +31,7 @@ interface SurveyModalProps extends SurveyProps {
 }
 
 export const SurveyInline = ({
-  survey,
+  form,
   brandColor,
   isBrandingEnabled,
   activeQuestionId,
@@ -48,7 +48,7 @@ export const SurveyInline = ({
   const containerId = useMemo(() => createContainerId(), []);
   useEffect(() => {
     renderSurveyInline({
-      survey,
+      form,
       brandColor,
       isBrandingEnabled,
       containerId,
@@ -72,7 +72,7 @@ export const SurveyInline = ({
     onClose,
     onDisplay,
     onResponse,
-    survey,
+    form,
     autoFocus,
     prefillResponseData,
     isRedirectDisabled,
@@ -83,7 +83,7 @@ export const SurveyInline = ({
 };
 
 export const SurveyModal = ({
-  survey,
+  form,
   brandColor,
   isBrandingEnabled,
   activeQuestionId,
@@ -102,7 +102,7 @@ export const SurveyModal = ({
 }: SurveyModalProps) => {
   useEffect(() => {
     renderSurveyModal({
-      survey,
+      form,
       brandColor,
       isBrandingEnabled,
       placement,
@@ -131,11 +131,11 @@ export const SurveyModal = ({
     onDisplay,
     onResponse,
     placement,
-    survey,
+    form,
     autoFocus,
     isRedirectDisabled,
     onFileUpload,
     responseCount,
   ]);
-  return <div id="fastform-survey"></div>;
+  return <div id="fastform-form"></div>;
 };

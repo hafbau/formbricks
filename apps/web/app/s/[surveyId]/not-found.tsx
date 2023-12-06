@@ -11,8 +11,8 @@ export default function NotFound() {
       <div></div>
       <div className="flex flex-col items-center space-y-3 text-slate-300">
         <QuestionMarkCircleIcon className="h-20 w-20" />,
-        <h1 className="text-4xl font-bold text-slate-800">Survey not found.</h1>
-        <p className="text-lg leading-10 text-gray-500">There is no survey with this ID.</p>
+        <h1 className="text-4xl font-bold text-slate-800">Form not found.</h1>
+        <p className="text-lg leading-10 text-gray-500">There is no form with this ID.</p>
         <Button variant="darkCTA" className="mt-2" href="https://fastform.com">
           Create your own
         </Button>

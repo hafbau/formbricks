@@ -3,7 +3,7 @@ import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { getActionClasses } from "@fastform/lib/actionClass/service";
 import { getEnvironment, updateEnvironment } from "@fastform/lib/environment/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSurveys } from "@fastform/lib/survey/service";
+import { getSurveys } from "@fastform/lib/form/service";
 import { TJsStateSync, ZJsPublicSyncInput } from "@fastform/types/js";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -51,7 +51,7 @@ export async function GET(
     }
 
     const state: TJsStateSync = {
-      surveys: surveys.filter((survey) => survey.status === "inProgress" && survey.type === "web"),
+      surveys: surveys.filter((form) => form.status === "inProgress" && form.type === "web"),
       noCodeActionClasses: noCodeActionClasses.filter((actionClass) => actionClass.type === "noCode"),
       product,
       person: null,

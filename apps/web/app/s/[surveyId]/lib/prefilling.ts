@@ -4,15 +4,15 @@ import { TSurvey, TSurveyQuestion } from "@fastform/types/surveys";
 
 export function getPrefillResponseData(
   currentQuestion: TSurveyQuestion,
-  survey: TSurvey,
+  form: TSurvey,
   firstQuestionPrefill: string
 ): TResponseData | undefined {
   try {
     if (firstQuestionPrefill) {
       if (!currentQuestion) return;
-      const firstQuestionId = survey?.questions[0].id;
+      const firstQuestionId = form?.questions[0].id;
       if (currentQuestion.id !== firstQuestionId) return;
-      const question = survey?.questions.find((q: any) => q.id === firstQuestionId);
+      const question = form?.questions.find((q: any) => q.id === firstQuestionId);
       if (!question) throw new Error("Question not found");
 
       const answer = transformAnswer(question, firstQuestionPrefill || "");

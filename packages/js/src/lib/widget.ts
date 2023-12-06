@@ -16,20 +16,20 @@ const logger = Logger.getInstance();
 const errorHandler = ErrorHandler.getInstance();
 let surveyRunning = false;
 
-export const renderWidget = (survey: TSurvey) => {
+export const renderWidget = (form: TSurvey) => {
   if (surveyRunning) {
-    logger.debug("A survey is already running. Skipping.");
+    logger.debug("A form is already running. Skipping.");
     return;
   }
   surveyRunning = true;
 
-  if (survey.delay) {
-    logger.debug(`Delaying survey by ${survey.delay} seconds.`);
+  if (form.delay) {
+    logger.debug(`Delaying form by ${form.delay} seconds.`);
   }
 
   const product = config.get().state.product;
 
-  const surveyState = new SurveyState(survey.id, null, null, config.get().userId);
+  const surveyState = new SurveyState(form.id, null, null, config.get().userId);
 
   const responseQueue = new ResponseQueue(
     {
@@ -43,7 +43,7 @@ export const renderWidget = (survey: TSurvey) => {
     surveyState
   );
 
-  const productOverwrites = survey.productOverwrites ?? {};
+  const productOverwrites = form.productOverwrites ?? {};
   const brandColor = productOverwrites.brandColor ?? product.brandColor;
   const highlightBorderColor = productOverwrites.highlightBorderColor ?? product.highlightBorderColor;
   const clickOutside = productOverwrites.clickOutsideClose ?? product.clickOutsideClose;
@@ -53,7 +53,7 @@ export const renderWidget = (survey: TSurvey) => {
 
   setTimeout(() => {
     renderSurveyModal({
-      survey: survey,
+      form: form,
       brandColor,
       isBrandingEnabled: isBrandingEnabled,
       clickOutside,
@@ -66,7 +66,7 @@ export const renderWidget = (survey: TSurvey) => {
         if (!userId) {
           const localDisplay: TJSStateDisplay = {
             createdAt: new Date(),
-            surveyId: survey.id,
+            surveyId: form.id,
             responded: false,
           };
 
@@ -88,7 +88,7 @@ export const renderWidget = (survey: TSurvey) => {
           environmentId: config.get().environmentId,
         });
         const res = await api.client.display.create({
-          surveyId: survey.id,
+          surveyId: form.id,
           userId,
         });
         if (!res.ok) {
@@ -142,7 +142,7 @@ export const renderWidget = (survey: TSurvey) => {
         return await api.client.storage.uploadFile(file, params);
       },
     });
-  }, survey.delay * 1000);
+  }, form.delay * 1000);
 };
 
 export const closeSurvey = async (): Promise<void> => {

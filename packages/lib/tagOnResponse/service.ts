@@ -87,7 +87,7 @@ export const getTagsOnResponsesCount = async (environmentId: string): Promise<TT
           by: ["tagId"],
           where: {
             response: {
-              survey: {
+              form: {
                 environment: {
                   id: environmentId,
                 },

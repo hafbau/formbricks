@@ -106,7 +106,7 @@ export const ZResponseUpdateInput = z.object({
 export type TResponseUpdateInput = z.infer<typeof ZResponseUpdateInput>;
 
 export const ZResponseWithSurvey = ZResponse.extend({
-  survey: ZSurvey,
+  form: ZSurvey,
 });
 
 export type TResponseWithSurvey = z.infer<typeof ZResponseWithSurvey>;

@@ -12,40 +12,40 @@ import toast from "react-hot-toast";
 export default function SurveyStatusDropdown({
   environment,
   updateLocalSurveyStatus,
-  survey,
+  form,
 }: {
   environment: TEnvironment;
   updateLocalSurveyStatus?: (status: "draft" | "inProgress" | "paused" | "completed" | "archived") => void;
-  survey: TSurvey;
+  form: TSurvey;
 }) {
-  const isCloseOnDateEnabled = survey.closeOnDate !== null;
-  const closeOnDate = survey.closeOnDate ? new Date(survey.closeOnDate) : null;
+  const isCloseOnDateEnabled = form.closeOnDate !== null;
+  const closeOnDate = form.closeOnDate ? new Date(form.closeOnDate) : null;
   const isStatusChangeDisabled = (isCloseOnDateEnabled && closeOnDate && closeOnDate < new Date()) ?? false;
 
   return (
     <>
-      {survey.status === "draft" ? (
+      {form.status === "draft" ? (
         <div className="flex items-center">
-          {(survey.type === "link" || environment.widgetSetupCompleted) && (
-            <SurveyStatusIndicator status={survey.status} />
+          {(form.type === "link" || environment.widgetSetupCompleted) && (
+            <SurveyStatusIndicator status={form.status} />
           )}
-          {survey.status === "draft" && <p className="text-sm italic text-slate-600">Draft</p>}
+          {form.status === "draft" && <p className="text-sm italic text-slate-600">Draft</p>}
         </div>
       ) : (
         <Select
-          value={survey.status}
+          value={form.status}
           disabled={isStatusChangeDisabled}
           onValueChange={(value) => {
             const castedValue = value as "draft" | "inProgress" | "paused" | "completed";
-            updateSurveyAction({ ...survey, status: castedValue })
+            updateSurveyAction({ ...form, status: castedValue })
               .then(() => {
                 toast.success(
                   value === "inProgress"
-                    ? "Survey live"
+                    ? "Form live"
                     : value === "paused"
-                    ? "Survey paused"
+                    ? "Form paused"
                     : value === "completed"
-                    ? "Survey completed"
+                    ? "Form completed"
                     : ""
                 );
               })
@@ -62,13 +62,13 @@ export default function SurveyStatusDropdown({
                 <SelectTrigger className="w-[170px] bg-white py-6 md:w-[200px]">
                   <SelectValue>
                     <div className="flex items-center">
-                      {(survey.type === "link" || environment.widgetSetupCompleted) && (
-                        <SurveyStatusIndicator status={survey.status} />
+                      {(form.type === "link" || environment.widgetSetupCompleted) && (
+                        <SurveyStatusIndicator status={form.status} />
                       )}
                       <span className="ml-2 text-sm text-slate-700">
-                        {survey.status === "inProgress" && "In-progress"}
-                        {survey.status === "paused" && "Paused"}
-                        {survey.status === "completed" && "Completed"}
+                        {form.status === "inProgress" && "In-progress"}
+                        {form.status === "paused" && "Paused"}
+                        {form.status === "completed" && "Completed"}
                       </span>
                     </div>
                   </SelectValue>
@@ -90,8 +90,8 @@ export default function SurveyStatusDropdown({
               </SelectContent>
 
               <TooltipContent>
-                To update the survey status, update the &ldquo;Close
-                <br /> survey on date&rdquo; setting in the Response Options.
+                To update the form status, update the &ldquo;Close
+                <br /> form on date&rdquo; setting in the Response Options.
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>

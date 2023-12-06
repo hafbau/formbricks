@@ -1,2 +1,2 @@
 -- AlterTable
-ALTER TABLE "Survey" ADD COLUMN     "pin" INTEGER;
+ALTER TABLE "Form" ADD COLUMN     "pin" INTEGER;

@@ -128,23 +128,23 @@ export const sendInviteAcceptedEmail = async (inviterName: string, inviteeName: 
 export const sendResponseFinishedEmail = async (
   email: string,
   environmentId: string,
-  survey: { id: string; name: string; questions: TSurveyQuestion[] },
+  form: { id: string; name: string; questions: TSurveyQuestion[] },
   response: TResponse
 ) => {
   const personEmail = response.person?.attributes["email"];
   await sendEmail({
     to: email,
     subject: personEmail
-      ? `${personEmail} just completed your ${survey.name} survey ✅`
-      : `A response for ${survey.name} was completed ✅`,
+      ? `${personEmail} just completed your ${form.name} form ✅`
+      : `A response for ${form.name} was completed ✅`,
     replyTo: personEmail?.toString() || process.env.MAIL_FROM,
-    html: withEmailTemplate(`<h1>Hey 👋</h1>Someone just completed your survey <strong>${
-      survey.name
+    html: withEmailTemplate(`<h1>Hey 👋</h1>Someone just completed your form <strong>${
+      form.name
     }</strong><br/>
 
     <hr/>
 
-    ${getQuestionResponseMapping(survey, response)
+    ${getQuestionResponseMapping(form, response)
       .map(
         (question) =>
           question.answer &&
@@ -156,7 +156,7 @@ export const sendResponseFinishedEmail = async (
       .join("")}
 
     <a class="button" href="${WEBAPP_URL}/environments/${environmentId}/surveys/${
-      survey.id
+      form.id
     }/responses?utm_source=emailnotification&utm_medium=email&utm_content=ViewResponsesCTA">View all responses</a>
 
     <div class="tooltip">

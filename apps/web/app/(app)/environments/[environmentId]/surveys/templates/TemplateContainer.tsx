@@ -41,7 +41,7 @@ export default function TemplateContainerWithPreview({
       <div className="relative z-0 flex flex-1 overflow-hidden">
         <div className="flex-1 flex-col overflow-auto bg-slate-50">
           <div className="flex flex-col items-center justify-between md:flex-row md:items-start">
-            <h1 className="ml-6 mt-6 text-2xl font-bold text-slate-800">Create a new survey</h1>
+            <h1 className="ml-6 mt-6 text-2xl font-bold text-slate-800">Create a new form</h1>
             <div className="ml-6 mt-6 px-6">
               <SearchBox
                 autoFocus
@@ -72,7 +72,7 @@ export default function TemplateContainerWithPreview({
             <div className="my-6 flex h-full w-full flex-col items-center justify-center">
               <p className="pb-2 text-center text-sm font-normal text-slate-400">Preview</p>
               <PreviewSurvey
-                survey={{ ...minimalSurvey, ...activeTemplate.preset }}
+                form={{ ...minimalSurvey, ...activeTemplate.preset }}
                 activeQuestionId={activeQuestionId}
                 product={product}
                 environment={environment}

@@ -52,7 +52,7 @@ export class StorageAPI {
       requestHeaders = {
         "X-File-Type": file.type,
         "X-File-Name": encodeURIComponent(file.name),
-        "X-Survey-ID": surveyId ?? "",
+        "X-Form-ID": surveyId ?? "",
         "X-Signature": signature,
         "X-Timestamp": String(timestamp),
         "X-UUID": uuid,

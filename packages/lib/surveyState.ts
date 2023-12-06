@@ -21,8 +21,8 @@ export class SurveyState {
   }
 
   /**
-   * Set the current survey ID
-   * @param id - The survey ID
+   * Set the current form ID
+   * @param id - The form ID
    */
   setSurveyId(id: string) {
     this.surveyId = id;

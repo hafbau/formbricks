@@ -1,7 +1,7 @@
 import { writeData as airtableWriteData } from "@fastform/lib/airtable/service";
 import { TIntegration } from "@fastform/types/integration";
 import { writeData } from "@fastform/lib/googleSheet/service";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { TPipelineInput } from "@fastform/types/pipelines";
 import { TIntegrationGoogleSheets } from "@fastform/types/integration/googleSheet";
 import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
@@ -45,7 +45,7 @@ async function handleGoogleSheetsIntegration(integration: TIntegrationGoogleShee
 async function extractResponses(data: TPipelineInput, questionIds: string[]): Promise<string[][]> {
   const responses: string[] = [];
   const questions: string[] = [];
-  const survey = await getSurvey(data.surveyId);
+  const form = await getSurvey(data.surveyId);
 
   for (const questionId of questionIds) {
     const responseValue = data.response.data[questionId];
@@ -56,7 +56,7 @@ async function extractResponses(data: TPipelineInput, questionIds: string[]): Pr
       responses.push("");
     }
 
-    const question = survey?.questions.find((q) => q.id === questionId);
+    const question = form?.questions.find((q) => q.id === questionId);
     questions.push(question?.headline || "");
   }
 

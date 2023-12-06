@@ -8,7 +8,7 @@ import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
 import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
 import { getResponseCountBySurveyId } from "@fastform/lib/response/service";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { ErrorComponent } from "@fastform/ui/ErrorComponent";
 import { getServerSession } from "next-auth";
@@ -16,14 +16,14 @@ import { colours } from "@fastform/lib/constants";
 import SurveyEditor from "./components/SurveyEditor";
 
 export const generateMetadata = async ({ params }) => {
-  const survey = await getSurvey(params.surveyId);
+  const form = await getSurvey(params.surveyId);
   return {
-    title: survey?.name ? `${survey?.name} | Editor` : "Editor",
+    title: form?.name ? `${form?.name} | Editor` : "Editor",
   };
 };
 
 export default async function SurveysEditPage({ params }) {
-  const [survey, product, environment, actionClasses, attributeClasses, responseCount, team, session] =
+  const [form, product, environment, actionClasses, attributeClasses, responseCount, team, session] =
     await Promise.all([
       getSurvey(params.surveyId),
       getProductByEnvironmentId(params.environmentId),
@@ -48,7 +48,7 @@ export default async function SurveysEditPage({ params }) {
   const isSurveyCreationDeletionDisabled = isViewer;
 
   if (
-    !survey ||
+    !form ||
     !environment ||
     !actionClasses ||
     !attributeClasses ||
@@ -61,7 +61,7 @@ export default async function SurveysEditPage({ params }) {
   return (
     <>
       <SurveyEditor
-        survey={survey}
+        form={form}
         product={product}
         environment={environment}
         actionClasses={actionClasses}

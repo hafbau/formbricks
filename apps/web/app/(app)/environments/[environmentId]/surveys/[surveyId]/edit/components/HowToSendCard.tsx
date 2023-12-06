@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 
 interface HowToSendCardProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey | ((TSurvey) => TSurvey)) => void;
+  setLocalSurvey: (form: TSurvey | ((TSurvey) => TSurvey)) => void;
   environment: TEnvironment;
 }
 
@@ -48,25 +48,25 @@ export default function HowToSendCard({ localSurvey, setLocalSurvey, environment
   const options = [
     {
       id: "web",
-      name: "In-App Survey",
+      name: "In-App Form",
       icon: ComputerDesktopIcon,
-      description: "Embed a survey in your web app to collect responses.",
+      description: "Embed a form in your web app to collect responses.",
       comingSoon: false,
       alert: !widgetSetupCompleted,
     },
     {
       id: "link",
-      name: "Link survey",
+      name: "Link form",
       icon: LinkIcon,
-      description: "Share a link to a survey page or embed it in a web page or email.",
+      description: "Share a link to a form page or embed it in a web page or email.",
       comingSoon: false,
       alert: false,
     },
     {
       id: "mobile",
-      name: "Mobile App Survey",
+      name: "Mobile App Form",
       icon: DevicePhoneMobileIcon,
-      description: "Survey users inside a mobile app (iOS & Android).",
+      description: "Form users inside a mobile app (iOS & Android).",
       comingSoon: true,
       alert: false,
     },
@@ -87,7 +87,7 @@ export default function HowToSendCard({ localSurvey, setLocalSurvey, environment
           </div>
           <div>
             <p className="font-semibold text-slate-800">How to ask</p>
-            <p className="mt-1 text-sm text-slate-500">In-app survey, link survey or email survey.</p>
+            <p className="mt-1 text-sm text-slate-500">In-app form, link form or email form.</p>
           </div>
         </div>
       </Collapsible.CollapsibleTrigger>

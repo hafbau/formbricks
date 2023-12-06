@@ -150,7 +150,7 @@ export default function Navigation({
 
   const dropdownnavigation = [
     {
-      title: "Survey",
+      title: "Form",
       links: [
         {
           icon: AdjustmentsVerticalIcon,

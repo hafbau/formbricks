@@ -14,7 +14,7 @@ export interface SurveyResponse {
   [headline: string]: string | number | boolean | Date | string[];
 }
 
-export interface Survey {
+export interface Form {
   id: string;
   name: string;
   responses: SurveyResponse[];
@@ -27,7 +27,7 @@ export interface NotificationResponse {
   currentDate: Date;
   lastWeekDate: Date;
   productName: string;
-  surveys: Survey[];
+  surveys: Form[];
   insights: Insights;
 }
 

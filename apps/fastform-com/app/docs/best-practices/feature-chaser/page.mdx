@@ -4,14 +4,14 @@ import Image from "next/image";
 import ActionCSS from "./action-css.webp";
 import ActionText from "./action-text.webp";
 import ChangeText from "./change-text.webp";
-import CreateSurvey from "./create-survey.webp";
+import CreateSurvey from "./create-form.webp";
 import Publish from "./publish.webp";
 import RecontactOptions from "./recontact-options.webp";
 import SelectAction from "./select-action.webp";
 
 export const metadata = {
   title: "Setting Up Feature Chaser Surveys with Fastform: A Comprehensive Guide",
-  description: "Learn how to harness the power of Fastform to gather targeted user feedback on specific features. Dive deep into creating, triggering, and publishing the Feature Chaser survey to enhance your product with actionable insights for specific users.",
+  description: "Learn how to harness the power of Fastform to gather targeted user feedback on specific features. Dive deep into creating, triggering, and publishing the Feature Chaser form to enhance your product with actionable insights for specific users.",
 };
 
 #### Best Practices
@@ -30,32 +30,32 @@ Product analytics never tell you why a feature is used - and why not. Following 
 
 ## Fastform Approach
 
-- Trigger survey at exactly the right point in the user journey
+- Trigger form at exactly the right point in the user journey
 - Never ask twice, keep your data clean
-- Prevent survey fatigue with global waiting period
+- Prevent form fatigue with global waiting period
 
 ## Overview
 
-To run the Feature Chaser survey in your app you want to proceed as follows:
+To run the Feature Chaser form in your app you want to proceed as follows:
 
-1. Create new Feature Chaser survey at [app.fastform.com](http://app.fastform.com/)
-2. Setup a user action to display survey at the right point in time
+1. Create new Feature Chaser form at [app.fastform.com](http://app.fastform.com/)
+2. Setup a user action to display form at the right point in time
 
 <Note>
   ## Fastform Widget running? 
   We assume that you have already installed the Fastform Widget in your web app. It’s required to display messages
-  and surveys in your app. If not, please follow the [Quick Start Guide (takes 15mins max.)](/docs/getting-started/quickstart-in-app-survey)
+  and surveys in your app. If not, please follow the [Quick Start Guide (takes 15mins max.)](/docs/getting-started/quickstart-in-app-form)
 </Note>
 
 ### 1. Create new Feature Chaser
 
 If you don't have an account yet, create one at [app.fastform.com](https://app.fastform.com/auth/signup)
 
-Click on "Create Survey" and choose the template “Feature Chaser”:
+Click on "Create Form" and choose the template “Feature Chaser”:
 
 <Image
   src={CreateSurvey}
-  alt="Create survey by template"
+  alt="Create form by template"
   quality="100"
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
@@ -73,7 +73,7 @@ The questions you want to ask are dependent on your feature and can be very spec
 
 Save, and move over to where the magic happens: The “Audience” tab.
 
-### 3. Set up a trigger for the Feature Chaser survey:
+### 3. Set up a trigger for the Feature Chaser form:
 
 Before setting the right trigger, you need to identify a user action in your app which signals, that they have just used the feature you want to understand better. In most cases, it is clicking a specific button in your product.
 
@@ -81,7 +81,7 @@ You can create [Code Actions](/docs/actions/code) and [No Code Actions](/docs/ac
 
 There are two ways to track a button:
 
-1. **Trigger by innerText:** You might have a button with a unique text at the end of your feature e.g. "Export Report". You can setup a user Action with the according `innerText` to trigger the survey, like so:
+1. **Trigger by innerText:** You might have a button with a unique text at the end of your feature e.g. "Export Report". You can setup a user Action with the according `innerText` to trigger the form, like so:
 
 <Image
   src={ActionText}
@@ -90,7 +90,7 @@ There are two ways to track a button:
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-2. **Trigger by CSS Selector:** In case you have more than one button saying “Export Report” in your app and only want to display the survey when one of them is clicked, you want to be more specific. The best way to do that is to give this button the HTML `id=“export-report-featurename”` and set your user action up like so:
+2. **Trigger by CSS Selector:** In case you have more than one button saying “Export Report” in your app and only want to display the form when one of them is clicked, you want to be more specific. The best way to do that is to give this button the HTML `id=“export-report-featurename”` and set your user action up like so:
 
 <Image
   src={ActionCSS}
@@ -112,7 +112,7 @@ Please follow our [Actions manual](/docs/actions/why) for an in-depth descriptio
 
 ### 5. Last step: Set Recontact Options correctly
 
-Lastly, scroll down to “Recontact Options”. Here you have full freedom to decide who you want to ask. Generally, you only want to ask every user once and prevent survey fatigue. It's up to you to decide if you want to ask again, when the user did not yet reply:
+Lastly, scroll down to “Recontact Options”. Here you have full freedom to decide who you want to ask. Generally, you only want to ask every user once and prevent form fatigue. It's up to you to decide if you want to ask again, when the user did not yet reply:
 
 <Image
   src={RecontactOptions}
@@ -121,14 +121,14 @@ Lastly, scroll down to “Recontact Options”. Here you have full freedom to de
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-### 7. Congrats! You’re ready to publish your survey 💃
+### 7. Congrats! You’re ready to publish your form 💃
 
-<Image src={Publish} alt="Publish survey" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
+<Image src={Publish} alt="Publish form" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
 <Note>
   ## Fastform Widget running? 
   You need to have the Fastform Widget installed to display the Feature Chaser in your app. Please follow [this
-  tutorial (Step 4 onwards)](/docs/getting-started/quickstart-in-app-survey) to install the widget.
+  tutorial (Step 4 onwards)](/docs/getting-started/quickstart-in-app-form) to install the widget.
 </Note>
 
 ###

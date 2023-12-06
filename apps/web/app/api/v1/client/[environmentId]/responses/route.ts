@@ -4,7 +4,7 @@ import { sendToPipeline } from "@/app/lib/pipelines";
 import { getPerson } from "@fastform/lib/person/service";
 import { capturePosthogEvent } from "@fastform/lib/posthogServer";
 import { createResponse } from "@fastform/lib/response/service";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { getTeamDetails } from "@fastform/lib/teamDetail/service";
 import { ZId } from "@fastform/types/environment";
 import { InvalidInputError } from "@fastform/types/errors";
@@ -54,23 +54,23 @@ export async function POST(request: Request, context: Context): Promise<NextResp
     );
   }
 
-  // get and check survey
-  const survey = await getSurvey(responseInput.surveyId);
-  if (!survey) {
-    return responses.notFoundResponse("Survey", responseInput.surveyId, true);
+  // get and check form
+  const form = await getSurvey(responseInput.surveyId);
+  if (!form) {
+    return responses.notFoundResponse("Form", responseInput.surveyId, true);
   }
-  if (survey.environmentId !== environmentId) {
+  if (form.environmentId !== environmentId) {
     return responses.badRequestResponse(
-      "Survey is part of another environment",
+      "Form is part of another environment",
       {
-        "survey.environmentId": survey.environmentId,
+        "form.environmentId": form.environmentId,
         environmentId,
       },
       true
     );
   }
 
-  const teamDetails = await getTeamDetails(survey.environmentId);
+  const teamDetails = await getTeamDetails(form.environmentId);
 
   let response: TResponse;
   try {
@@ -99,7 +99,7 @@ export async function POST(request: Request, context: Context): Promise<NextResp
 
   sendToPipeline({
     event: "responseCreated",
-    environmentId: survey.environmentId,
+    environmentId: form.environmentId,
     surveyId: response.surveyId,
     response: response,
   });
@@ -107,7 +107,7 @@ export async function POST(request: Request, context: Context): Promise<NextResp
   if (responseInput.finished) {
     sendToPipeline({
       event: "responseFinished",
-      environmentId: survey.environmentId,
+      environmentId: form.environmentId,
       surveyId: response.surveyId,
       response: response,
     });
@@ -116,7 +116,7 @@ export async function POST(request: Request, context: Context): Promise<NextResp
   if (teamDetails?.teamOwnerId) {
     await capturePosthogEvent(teamDetails.teamOwnerId, "response created", teamDetails.teamId, {
       surveyId: response.surveyId,
-      surveyType: survey.type,
+      surveyType: form.type,
     });
   } else {
     console.warn("Posthog capture not possible. No team owner found");

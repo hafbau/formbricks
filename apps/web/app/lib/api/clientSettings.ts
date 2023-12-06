@@ -40,7 +40,7 @@ export const getSettings = async (environmentId: string, personId: string): Prom
   }
 
   // get all surveys that meet the displayOption criteria
-  const potentialSurveys = await prisma.survey.findMany({
+  const potentialSurveys = await prisma.form.findMany({
     where: {
       OR: [
         {
@@ -127,8 +127,8 @@ export const getSettings = async (environmentId: string, personId: string): Prom
   });
 
   // filter surveys that meet the attributeFilters criteria
-  const potentialSurveysWithAttributes = potentialSurveys.filter((survey) => {
-    const attributeFilters = survey.attributeFilters;
+  const potentialSurveysWithAttributes = potentialSurveys.filter((form) => {
+    const attributeFilters = form.attributeFilters;
     if (attributeFilters.length === 0) {
       return true;
     }
@@ -149,13 +149,13 @@ export const getSettings = async (environmentId: string, personId: string): Prom
 
   // filter surveys that meet the recontactDays criteria
   const surveys = potentialSurveysWithAttributes
-    .filter((survey) => {
+    .filter((form) => {
       if (!lastDisplayPerson) {
         // no display yet - always display
         return true;
-      } else if (survey.recontactDays !== null) {
-        // if recontactDays is set on survey, use that
-        const lastDisplaySurvey = survey.displays[0];
+      } else if (form.recontactDays !== null) {
+        // if recontactDays is set on form, use that
+        const lastDisplaySurvey = form.displays[0];
         if (!lastDisplaySurvey) {
           // no display yet - always display
           return true;
@@ -164,28 +164,28 @@ export const getSettings = async (environmentId: string, personId: string): Prom
         const currentDate = new Date();
         const diffTime = Math.abs(currentDate.getTime() - lastDisplayDate.getTime());
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-        return diffDays >= survey.recontactDays;
+        return diffDays >= form.recontactDays;
       } else if (product.recontactDays !== null) {
-        // if recontactDays is not set in survey, use product recontactDays
+        // if recontactDays is not set in form, use product recontactDays
         const lastDisplayDate = new Date(lastDisplayPerson.createdAt);
         const currentDate = new Date();
         const diffTime = Math.abs(currentDate.getTime() - lastDisplayDate.getTime());
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
         return diffDays >= product.recontactDays;
       } else {
-        // if recontactDays is not set in survey or product, always display
+        // if recontactDays is not set in form or product, always display
         return true;
       }
     })
-    .map((survey) => {
+    .map((form) => {
       return {
-        id: survey.id,
-        questions: JSON.parse(JSON.stringify(survey.questions)),
-        triggers: survey.triggers.map((trigger) => trigger.actionClass.name),
-        thankYouCard: JSON.parse(JSON.stringify(survey.thankYouCard)),
-        welcomeCard: JSON.parse(JSON.stringify(survey.welcomeCard)),
-        autoClose: survey.autoClose,
-        delay: survey.delay,
+        id: form.id,
+        questions: JSON.parse(JSON.stringify(form.questions)),
+        triggers: form.triggers.map((trigger) => trigger.actionClass.name),
+        thankYouCard: JSON.parse(JSON.stringify(form.thankYouCard)),
+        welcomeCard: JSON.parse(JSON.stringify(form.welcomeCard)),
+        autoClose: form.autoClose,
+        delay: form.delay,
       };
     });
 

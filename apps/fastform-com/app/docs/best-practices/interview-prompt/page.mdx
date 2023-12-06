@@ -8,7 +8,7 @@ import AddAction from "./add-action.webp";
 import ChangeText from "./change-text.webp";
 import CreatePrompt from "./create-prompt.webp";
 import InterviewExample from "./interview-example.webp";
-import Publish from "./publish-survey.webp";
+import Publish from "./publish-form.webp";
 import RecontactOptions from "./recontact-options.webp";
 import SelectAction from "./select-action.webp";
 
@@ -49,14 +49,14 @@ To display an Interview Prompt in your app you want to proceed as follows:
 <Note>
   ## Fastform Widget running? 
   We assume that you have already installed the Fastform Widget in your web app. It’s required to display messages
-  and surveys in your app. If not, please follow the [Quick Start Guide (15mins).](/docs/getting-started/quickstart-in-app-survey)
+  and surveys in your app. If not, please follow the [Quick Start Guide (15mins).](/docs/getting-started/quickstart-in-app-form)
 </Note>
 
 ### 1. Create new Interview Prompt
 
 If you don't have an account yet, create one at [app.fastform.com](https://app.fastform.com/auth/signup)
 
-Click on "Create Survey" and choose the template “Interview Prompt”:
+Click on "Create Form" and choose the template “Interview Prompt”:
 
 <Image
   src={CreatePrompt}
@@ -114,7 +114,7 @@ To create the trigger to show your Interview Prompt, go to the “Audience” ta
 
 Generally, we have two types of user actions: Page views and clicks. The Interview Prompt, you’ll likely want to display it on a page visit since you already filter who sees the prompt by attributes.
 
-1. **pageURL:** Whenever a user visits a page the survey will be displayed, as long as the other conditions match. Other conditions are pre-segmentation, if this user has seen a survey in the past 2 weeks, etc.
+1. **pageURL:** Whenever a user visits a page the form will be displayed, as long as the other conditions match. Other conditions are pre-segmentation, if this user has seen a form in the past 2 weeks, etc.
 
 <Image
   src={ActionPageurl}
@@ -146,7 +146,7 @@ Generally, we have two types of user actions: Page views and clicks. The Intervi
 
 ### 6. Set Recontact Options correctly
 
-Scroll down to “Recontact Options”. Here you have to choose the correct settings to strike the right balance between asking for user feedback and preventing survey fatigue. Your settings also depend on the size of your user base or segment. If you e.g. have thousands of “Power Users” you can easily afford to only display the prompt once. If you have a smaller user base you might want to ask twice to get a sufficient amount of bookings:
+Scroll down to “Recontact Options”. Here you have to choose the correct settings to strike the right balance between asking for user feedback and preventing form fatigue. Your settings also depend on the size of your user base or segment. If you e.g. have thousands of “Power Users” you can easily afford to only display the prompt once. If you have a smaller user base you might want to ask twice to get a sufficient amount of bookings:
 
 <Image
   src={RecontactOptions}
@@ -155,14 +155,14 @@ Scroll down to “Recontact Options”. Here you have to choose the correct sett
   className="rounded-lg max-w-full sm:max-w-3xl"
 />
 
-### 7. Congrats! You’re ready to publish your survey 💃 🤸
+### 7. Congrats! You’re ready to publish your form 💃 🤸
 
-<Image src={Publish} alt="Publish survey" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
+<Image src={Publish} alt="Publish form" quality="100" className="rounded-lg max-w-full sm:max-w-3xl" />
 
 <Note>
   ## Fastform Widget running? 
   You need to have the Fastform Widget installed to display the Feedback Box in your app. Please follow [this
-  tutorial (Step 4 onwards)](/docs/getting-started/quickstart-in-app-survey) to install the widget.
+  tutorial (Step 4 onwards)](/docs/getting-started/quickstart-in-app-form) to install the widget.
 </Note>
 
 ###

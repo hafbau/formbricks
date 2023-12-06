@@ -9,10 +9,10 @@ export const metadata = generateManagementApiMetadata("Surveys",["Fetch","Create
 
 This set of API can be used to
 - [List All Surveys](#list-all-surveys)
-- [Get Survey](#get-survey-by-id)
-- [Create Survey](#create-survey)
-- [Update Survey](#update-survey-by-id)
-- [Delete Survey](#delete-survey-by-id)
+- [Get Form](#get-form-by-id)
+- [Create Form](#create-form)
+- [Update Form](#update-form-by-id)
+- [Delete Form](#delete-form-by-id)
 
 <Note>You will need an API Key to interact with these APIs.</Note>
 
@@ -183,12 +183,12 @@ This set of API can be used to
 
 ---
 
-## Get Survey by ID {{ tag: 'GET', label: '/api/v1/management/surveys/<survey-id>' }}
+## Get Form by ID {{ tag: 'GET', label: '/api/v1/management/surveys/<form-id>' }}
 
 <Row>
   <Col>
 
-    Get a specific survey by its ID.
+    Get a specific form by its ID.
 
     ### Mandatory Headers
 
@@ -201,11 +201,11 @@ This set of API can be used to
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="GET" label="/api/v1/management/surveys/<survey-id>">
+    <CodeGroup title="Request" tag="GET" label="/api/v1/management/surveys/<form-id>">
 
     ```bash {{ title: 'cURL' }}
     curl --location \
-    'https://app.fastform.com/api/v1/management/surveys/<survey-id>' \
+    'https://app.fastform.com/api/v1/management/surveys/<form-id>' \
     --header \
     'x-api-key: <your-api-key>'
     ```
@@ -220,7 +220,7 @@ This set of API can be used to
             "id": "cln8k0tjz00n5z87nwq527h3z",
             "createdAt": "2023-10-02T07:13:19.775Z",
             "updatedAt": "2023-10-02T07:13:19.775Z",
-            "name": "Churn Survey",
+            "name": "Churn Form",
             "type": "link",
             "environmentId": "cln8k0t47000fz87njmmu2bck",
             "status": "inProgress",
@@ -376,12 +376,12 @@ This set of API can be used to
 
 ---
 
-## Create Survey {{ tag: 'POST', label: '/api/v1/management/surveys' }}
+## Create Form {{ tag: 'POST', label: '/api/v1/management/surveys' }}
 
 <Row>
   <Col>
 
-    Create a survey
+    Create a form
 
     ### Mandatory Headers
 
@@ -398,7 +398,7 @@ This set of API can be used to
     {
         "environmentId": "clmlmwdqq0003196ufewo6ibg",
         "type": "link",
-        "name": "My new Survey"
+        "name": "My new Form"
     }
     ```
     </CodeGroup>
@@ -420,7 +420,7 @@ This set of API can be used to
     curl -X POST https://app.fastform.com/api/v1/management/surveys/ \
      --header 'Content-Type: application/json' \
      --header 'x-api-key: <your-api-key>' \
-     -d '{"environmentId": "cln8k0t47000fz87njmmu2bck", "name": "My Survey from API", "type": "link"}'
+     -d '{"environmentId": "cln8k0t47000fz87njmmu2bck", "name": "My Form from API", "type": "link"}'
     ```
 
     </CodeGroup>
@@ -433,7 +433,7 @@ This set of API can be used to
         "id": "clna6bqnz000az8zubq3e757t",
             "createdAt": "2023-10-03T10:25:26.975Z",
             "updatedAt": "2023-10-03T10:25:26.975Z",
-            "name": "My new Survey",
+            "name": "My new Form",
             "redirectUrl": null,
             "type": "link",
             "environmentId": "cln8k0t47000fz87njmmu2bck",
@@ -470,12 +470,12 @@ This set of API can be used to
 
 ---
 
-## Update Survey by ID {{ tag: 'PUT', label: '/api/v1/management/surveys/<survey-id>' }}
+## Update Form by ID {{ tag: 'PUT', label: '/api/v1/management/surveys/<form-id>' }}
 
 <Row>
   <Col>
 
-    Update a survey by its ID
+    Update a form by its ID
 
     ### Mandatory Headers
 
@@ -490,7 +490,7 @@ This set of API can be used to
     <CodeGroup title="Request Body">
     ```json {{ title: 'cURL' }}
     {
-        "name": "My renamed Survey",
+        "name": "My renamed Form",
         "redirectUrl":"https://fastform.com",
         "type":"web"
     }
@@ -501,13 +501,13 @@ This set of API can be used to
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="PUT" label="/api/v1/management/surveys/<survey-id>">
+    <CodeGroup title="Request" tag="PUT" label="/api/v1/management/surveys/<form-id>">
 
     ```bash {{ title: 'cURL' }}
-    curl -X POST https://app.fastform.com/api/v1/management/surveys/<survey-id> \
+    curl -X POST https://app.fastform.com/api/v1/management/surveys/<form-id> \
      --header 'Content-Type: application/json' \
      --header 'x-api-key: <your-api-key>' \
-     -d '{"name": "My renamed Survey"}'
+     -d '{"name": "My renamed Form"}'
     ```
 
     </CodeGroup>
@@ -520,7 +520,7 @@ This set of API can be used to
             "id": "cloqzeuu70000z8khcirufo60",
             "createdAt": "2023-11-09T09:23:42.367Z",
             "updatedAt": "2023-11-09T09:23:42.367Z",
-            "name": "My renamed Survey",
+            "name": "My renamed Form",
             "redirectUrl": null,
             "type": "link",
             "environmentId": "clonzr6vc0009z8md7y06hipl",
@@ -586,12 +586,12 @@ This set of API can be used to
 ---
 
 
-## Delete Survey by ID {{ tag: 'DELETE', label: '/api/v1/management/surveys/<survey-id>' }}
+## Delete Form by ID {{ tag: 'DELETE', label: '/api/v1/management/surveys/<form-id>' }}
 
 <Row>
   <Col>
 
-    Delete a survey by its ID.
+    Delete a form by its ID.
 
     ### Mandatory Headers
 
@@ -604,11 +604,11 @@ This set of API can be used to
   </Col>
   <Col sticky>
 
-    <CodeGroup title="Request" tag="DELETE" label="/api/v1/management/surveys/<survey-id>">
+    <CodeGroup title="Request" tag="DELETE" label="/api/v1/management/surveys/<form-id>">
 
     ```bash {{ title: 'cURL' }}
     curl -X DELETE \
-    'https://app.fastform.com/api/v1/management/surveys/<survey-id>' \
+    'https://app.fastform.com/api/v1/management/surveys/<form-id>' \
     --header \
     'x-api-key: <your-api-key>'
     ```
@@ -623,7 +623,7 @@ This set of API can be used to
             "id": "cln8k0tjz00n5z87nwq527h3z",
             "createdAt": "2023-10-02T07:13:19.775Z",
             "updatedAt": "2023-10-02T07:13:19.775Z",
-            "name": "Churn Survey",
+            "name": "Churn Form",
             "type": "link",
             "environmentId": "cln8k0t47000fz87njmmu2bck",
             "status": "inProgress",

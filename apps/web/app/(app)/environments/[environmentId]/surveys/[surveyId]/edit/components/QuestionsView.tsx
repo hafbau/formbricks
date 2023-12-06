@@ -16,7 +16,7 @@ import { validateQuestion } from "./Validation";
 
 interface QuestionsViewProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  setLocalSurvey: (form: TSurvey) => void;
   activeQuestionId: string | null;
   setActiveQuestionId: (questionId: string | null) => void;
   product: TProduct;
@@ -42,8 +42,8 @@ export default function QuestionsView({
 
   const [backButtonLabel, setbackButtonLabel] = useState(null);
 
-  const handleQuestionLogicChange = (survey: TSurvey, compareId: string, updatedId: string): TSurvey => {
-    survey.questions.forEach((question) => {
+  const handleQuestionLogicChange = (form: TSurvey, compareId: string, updatedId: string): TSurvey => {
+    form.questions.forEach((question) => {
       if (!question.logic) return;
       question.logic.forEach((rule) => {
         if (rule.destination === compareId) {
@@ -51,12 +51,12 @@ export default function QuestionsView({
         }
       });
     });
-    return survey;
+    return form;
   };
 
   // function to validate individual questions
   const validateSurvey = (question: TSurveyQuestion) => {
-    // prevent this function to execute further if user hasnt still tried to save the survey
+    // prevent this function to execute further if user hasnt still tried to save the form
     if (invalidQuestions === null) {
       return;
     }
@@ -74,7 +74,7 @@ export default function QuestionsView({
     let updatedSurvey = { ...localSurvey };
 
     if ("id" in updatedAttributes) {
-      // if the survey whose id is to be changed is linked to logic of any other survey then changing it
+      // if the form whose id is to be changed is linked to logic of any other form then changing it
       const initialQuestionId = updatedSurvey.questions[questionIdx].id;
       updatedSurvey = handleQuestionLogicChange(updatedSurvey, initialQuestionId, updatedAttributes.id);
       if (invalidQuestions?.includes(initialQuestionId)) {

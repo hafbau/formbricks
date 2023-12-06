@@ -13,7 +13,7 @@ import { TMembershipRole } from "@fastform/types/memberships";
 interface SettingsViewProps {
   environment: TEnvironment;
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  setLocalSurvey: (form: TSurvey) => void;
   actionClasses: TActionClass[];
   attributeClasses: TAttributeClass[];
   responseCount: number;

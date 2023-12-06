@@ -110,7 +110,7 @@ model Response {
   createdAt        DateTime          @default(now()) @map(name: "created_at")
   updatedAt        DateTime          @updatedAt @map(name: "updated_at")
   finished         Boolean           @default(false)
-  survey           Survey            @relation(fields: [surveyId], references: [id], onDelete: Cascade)
+  form             Form              @relation(fields: [surveyId], references: [id], onDelete: Cascade)
   surveyId         String
   person           Person?           @relation(fields: [personId], references: [id], onDelete: Cascade)
   personId         String?
@@ -190,7 +190,7 @@ model Display {
   id         String         @id @default(cuid())
   createdAt  DateTime       @default(now()) @map(name: "created_at")
   updatedAt  DateTime       @updatedAt @map(name: "updated_at")
-  survey     Survey         @relation(fields: [surveyId], references: [id], onDelete: Cascade)
+  form       Form           @relation(fields: [surveyId], references: [id], onDelete: Cascade)
   surveyId   String
   person     Person?        @relation(fields: [personId], references: [id], onDelete: Cascade)
   personId   String?
@@ -205,7 +205,7 @@ model SurveyTrigger {
   id            String      @id @default(cuid())
   createdAt     DateTime    @default(now()) @map(name: "created_at")
   updatedAt     DateTime    @updatedAt @map(name: "updated_at")
-  survey        Survey      @relation(fields: [surveyId], references: [id], onDelete: Cascade)
+  form          Form        @relation(fields: [surveyId], references: [id], onDelete: Cascade)
   surveyId      String
   actionClass   ActionClass @relation(fields: [actionClassId], references: [id], onDelete: Cascade)
   actionClassId String
@@ -225,7 +225,7 @@ model SurveyAttributeFilter {
   updatedAt        DateTime                       @updatedAt @map(name: "updated_at")
   attributeClass   AttributeClass                 @relation(fields: [attributeClassId], references: [id], onDelete: Cascade)
   attributeClassId String
-  survey           Survey                         @relation(fields: [surveyId], references: [id], onDelete: Cascade)
+  form             Form                           @relation(fields: [surveyId], references: [id], onDelete: Cascade)
   surveyId         String
   condition        SurveyAttributeFilterCondition
   value            String
@@ -248,7 +248,7 @@ enum displayOptions {
   respondMultiple
 }
 
-model Survey {
+model Form {
   id                  String                  @id @default(cuid())
   createdAt           DateTime                @default(now()) @map(name: "created_at")
   updatedAt           DateTime                @updatedAt @map(name: "updated_at")
@@ -374,7 +374,7 @@ model Environment {
   product              Product          @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId            String
   widgetSetupCompleted Boolean          @default(false)
-  surveys              Survey[]
+  surveys              Form[]
   people               Person[]
   actionClasses        ActionClass[]
   attributeClasses     AttributeClass[]
@@ -405,8 +405,8 @@ model Product {
   brandColor           String          @default("#64748b")
   highlightBorderColor String?
   recontactDays        Int             @default(7)
-  linkSurveyBranding   Boolean         @default(true) // Determines if the survey branding should be displayed in link surveys
-  inAppSurveyBranding  Boolean         @default(true) // Determines if the survey branding should be displayed in in-app surveys
+  linkSurveyBranding   Boolean         @default(true) // Determines if the form branding should be displayed in link surveys
+  inAppSurveyBranding  Boolean         @default(true) // Determines if the form branding should be displayed in in-app surveys
   placement            WidgetPlacement @default(bottomRight)
   clickOutsideClose    Boolean         @default(true)
   darkOverlay          Boolean         @default(false)

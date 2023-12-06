@@ -3,7 +3,7 @@ import { TSurvey } from "@fastform/types/surveys";
 import { TUploadFileConfig } from "@fastform/types/storage";
 
 export interface SurveyBaseProps {
-  survey: TSurvey;
+  form: TSurvey;
   isBrandingEnabled: boolean;
   activeQuestionId?: string;
   onDisplay?: () => void;

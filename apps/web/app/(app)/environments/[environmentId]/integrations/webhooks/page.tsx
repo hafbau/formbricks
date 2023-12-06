@@ -4,7 +4,7 @@ import WebhookRowData from "@/app/(app)/environments/[environmentId]/integration
 import WebhookTable from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookTable";
 import WebhookTableHeading from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookTableHeading";
 import GoBackButton from "@fastform/ui/GoBackButton";
-import { getSurveys } from "@fastform/lib/survey/service";
+import { getSurveys } from "@fastform/lib/form/service";
 import { getWebhooks } from "@fastform/lib/webhook/service";
 import { REVALIDATION_INTERVAL } from "@fastform/lib/constants";
 import { getEnvironment } from "@fastform/lib/environment/service";

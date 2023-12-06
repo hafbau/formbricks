@@ -12,7 +12,7 @@ import toast from "react-hot-toast";
 
 interface HiddenFieldsCardProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  setLocalSurvey: (form: TSurvey) => void;
   activeQuestionId: string | null;
   setActiveQuestionId: (questionId: string | null) => void;
 }

@@ -11,15 +11,15 @@ import { FC, useMemo } from "react";
 
 interface HiddenFieldsSummaryProps {
   question: string;
-  survey: TSurvey;
+  form: TSurvey;
   responses: TResponse[];
   environment: TEnvironment;
 }
 
-const HiddenFieldsSummary: FC<HiddenFieldsSummaryProps> = ({ environment, responses, survey, question }) => {
+const HiddenFieldsSummary: FC<HiddenFieldsSummaryProps> = ({ environment, responses, form, question }) => {
   const hiddenFieldResponses = useMemo(
     () =>
-      survey.hiddenFields?.fieldIds?.map((question) => {
+      form.hiddenFields?.fieldIds?.map((question) => {
         const questionResponses = responses
           .filter((response) => question in response.data)
           .map((r) => ({
@@ -33,7 +33,7 @@ const HiddenFieldsSummary: FC<HiddenFieldsSummaryProps> = ({ environment, respon
           responses: questionResponses,
         };
       }),
-    [responses, survey.hiddenFields?.fieldIds]
+    [responses, form.hiddenFields?.fieldIds]
   );
 
   return (

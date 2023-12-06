@@ -1,7 +1,7 @@
 import { sendEmail } from "@/app/lib/email";
 import { withEmailTemplate } from "@/app/lib/email-template";
 import { WEBAPP_URL } from "@fastform/lib/constants";
-import { Insights, NotificationResponse, Survey, SurveyResponse } from "./types";
+import { Insights, NotificationResponse, Form, SurveyResponse } from "./types";
 
 const getEmailSubject = (productName: string) => {
   return `${productName} User Insights - Last Week by Fastform`;
@@ -91,21 +91,21 @@ const getButtonLabel = (count) => {
   return `View ${count > 2 ? count - 1 : "1"} more Response${count > 2 ? "s" : ""}`;
 };
 
-const notificationLiveSurveys = (surveys: Survey[], environmentId: string) => {
+const notificationLiveSurveys = (surveys: Form[], environmentId: string) => {
   if (!surveys.length) return ` `;
 
   return surveys
-    .map((survey) => {
-      const displayStatus = convertSurveyStatus(survey.status);
+    .map((form) => {
+      const displayStatus = convertSurveyStatus(form.status);
       const isLive = displayStatus === "Live";
-      const noResponseLastWeek = isLive && survey.responses.length === 0;
+      const noResponseLastWeek = isLive && form.responses.length === 0;
 
       return `
         <div style="display: block; margin-top:3em;">
           <a href="${WEBAPP_URL}/environments/${environmentId}/surveys/${
-        survey.id
+        form.id
       }/responses?utm_source=weekly&utm_medium=email&utm_content=ViewResponsesCTA" style="color:#1e293b;">
-            <h2 style="text-decoration: underline; display:inline;">${survey.name}</h2>
+            <h2 style="text-decoration: underline; display:inline;">${form.name}</h2>
           </a>
           <span style="display: inline; margin-left: 10px; background-color: ${
             isLive ? "#34D399" : "#cbd5e1"
@@ -115,14 +115,14 @@ const notificationLiveSurveys = (surveys: Survey[], environmentId: string) => {
           ${
             noResponseLastWeek
               ? "<p>No new response received this week 🕵️</p>"
-              : createSurveyFields(survey.responses)
+              : createSurveyFields(form.responses)
           }
           ${
-            survey.responseCount >= 0
+            form.responseCount >= 0
               ? `<a class="button" href="${WEBAPP_URL}/environments/${environmentId}/surveys/${
-                  survey.id
+                  form.id
                 }/responses?utm_source=weekly&utm_medium=email&utm_content=ViewResponsesCTA">
-                ${noResponseLastWeek ? "View previous responses" : getButtonLabel(survey.responseCount)}
+                ${noResponseLastWeek ? "View previous responses" : getButtonLabel(form.responseCount)}
               </a>`
               : ""
           }
@@ -172,10 +172,10 @@ const createReminderNotificationBody = (notificationData: NotificationResponse, 
 
     <p style="font-weight: bold; padding-top:1em;">Don’t let a week pass without learning about your users:</p>
 
-    <a class="button" href="${webUrl}/environments/${notificationData.environmentId}/surveys?utm_source=weekly&utm_medium=email&utm_content=SetupANewSurveyCTA">Setup a new survey</a>
+    <a class="button" href="${webUrl}/environments/${notificationData.environmentId}/surveys?utm_source=weekly&utm_medium=email&utm_content=SetupANewSurveyCTA">Setup a new form</a>
     
     <br/>
-    <p style="padding-top:1em;">Need help finding the right survey for your product? Pick a 15-minute slot <a href="https://cal.com/johannes/15">in our CEOs calendar</a> or reply to this email :)</p>
+    <p style="padding-top:1em;">Need help finding the right form for your product? Pick a 15-minute slot <a href="https://cal.com/johannes/15">in our CEOs calendar</a> or reply to this email :)</p>
      
    
     <p style="margin-bottom:0px; padding-top:1em; font-weight:500">All the best,</p>

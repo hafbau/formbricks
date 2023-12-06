@@ -23,7 +23,7 @@ import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { TMembershipRole } from "@fastform/types/memberships";
 interface WhenToSendCardProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  setLocalSurvey: (form: TSurvey) => void;
   environmentId: string;
   actionClasses: TActionClass[];
   membershipRole?: TMembershipRole;
@@ -163,12 +163,12 @@ export default function WhenToSendCard({
             </div>
 
             <div>
-              <p className="font-semibold text-slate-800">Survey Trigger</p>
-              <p className="mt-1 text-sm text-slate-500">Choose the actions which trigger the survey.</p>
+              <p className="font-semibold text-slate-800">Form Trigger</p>
+              <p className="mt-1 text-sm text-slate-500">Choose the actions which trigger the form.</p>
             </div>
             {localSurvey.type === "link" && (
               <div className="flex w-full items-center justify-end pr-2">
-                <Badge size="normal" text="In-app survey settings" type="gray" />
+                <Badge size="normal" text="In-app form settings" type="gray" />
               </div>
             )}
           </div>
@@ -242,7 +242,7 @@ export default function WhenToSendCard({
                       onChange={(e) => handleTriggerDelay(e)}
                       className="ml-2 mr-2 inline w-16 bg-white text-center text-sm"
                     />
-                    seconds before showing the survey.
+                    seconds before showing the form.
                   </p>
                 </div>
               </label>
@@ -254,11 +254,11 @@ export default function WhenToSendCard({
             isChecked={autoClose}
             onToggle={handleCheckMark}
             title="Auto close on inactivity"
-            description="Automatically close the survey if the user does not respond after certain number of seconds"
+            description="Automatically close the form if the user does not respond after certain number of seconds"
             childBorder={true}>
             <label htmlFor="autoCloseSeconds" className="cursor-pointer p-4">
               <p className="text-sm font-semibold text-slate-700">
-                Automatically close survey after
+                Automatically close form after
                 <Input
                   type="number"
                   min="1"

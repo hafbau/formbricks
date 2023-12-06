@@ -5,7 +5,7 @@ export default function DemoPage() {
   return (
     <LayoutWaitlist
       title="Fastform Demo"
-      description="Play around with our pre-defined 30+ templates and them to kick-start your survey & experience management.">
+      description="Play around with our pre-defined 30+ templates and them to kick-start your form & experience management.">
       <DemoView />
     </LayoutWaitlist>
   );

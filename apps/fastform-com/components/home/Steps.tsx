@@ -62,8 +62,8 @@ export const Steps: React.FC = () => {
                 No-Code: Track User Actions
               </h2>
               <p className="text-md mt-6 max-w-lg leading-7 text-slate-500 dark:text-slate-400">
-                Set up user actions which can trigger your survey without writing a single line of code.
-                Surveys can be triggered on specific pages or after an element is clicked.
+                Set up user actions which can trigger your form without writing a single line of code. Surveys
+                can be triggered on specific pages or after an element is clicked.
               </p>
             </div>
           </div>
@@ -75,15 +75,15 @@ export const Steps: React.FC = () => {
             <div className="pb-8 sm:pl-10 md:pb-0">
               <h4 className="text-brand-dark font-bold">Step 3</h4>
               <h2 className="xs:text-3xl text-2xl font-bold tracking-tight text-slate-800 dark:text-slate-200 sm:text-3xl">
-                Create your survey
+                Create your form
               </h2>
               <p className="text-md mt-6 max-w-lg leading-7 text-slate-500 dark:text-slate-400">
                 Start from a template - or from scratch. Ask what you want, in any language. You can also
-                adjust the look and feel of your survey.
+                adjust the look and feel of your form.
               </p>
             </div>
             <div className="relative w-full rounded-lg p-1 dark:bg-slate-800 sm:p-8">
-              <DemoPreview template="Product Market Fit Survey (short)" />
+              <DemoPreview template="Product Market Fit Form (short)" />
             </div>
           </div>
         </div>
@@ -102,8 +102,8 @@ export const Steps: React.FC = () => {
                 Set segment and trigger
               </h2>
               <p className="text-md mt-6 max-w-lg leading-7 text-slate-500 dark:text-slate-400">
-                Create a custom segment for each survey. Use attributes and past user actions to only survey
-                the people who have answers. Trigger your survey on any user action in your app.
+                Create a custom segment for each form. Use attributes and past user actions to only form the
+                people who have answers. Trigger your form on any user action in your app.
               </p>
             </div>
           </div>

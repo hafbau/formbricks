@@ -3,7 +3,7 @@
 import { getServerSession } from "next-auth";
 import { AuthorizationError } from "@fastform/types/errors";
 import { authOptions } from "@fastform/lib/authOptions";
-import { getSurveysByAttributeClassId } from "@fastform/lib/survey/service";
+import { getSurveysByAttributeClassId } from "@fastform/lib/form/service";
 import { canUserAccessAttributeClass } from "@fastform/lib/attributeClass/auth";
 
 export const GetActiveInactiveSurveysAction = async (
@@ -17,8 +17,8 @@ export const GetActiveInactiveSurveysAction = async (
 
   const surveys = await getSurveysByAttributeClassId(attributeClassId);
   const response = {
-    activeSurveys: surveys.filter((s) => s.status === "inProgress").map((survey) => survey.name),
-    inactiveSurveys: surveys.filter((s) => s.status !== "inProgress").map((survey) => survey.name),
+    activeSurveys: surveys.filter((s) => s.status === "inProgress").map((form) => form.name),
+    inactiveSurveys: surveys.filter((s) => s.status !== "inProgress").map((form) => form.name),
   };
   return response;
 };

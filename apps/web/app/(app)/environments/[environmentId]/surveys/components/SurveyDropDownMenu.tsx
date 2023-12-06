@@ -32,7 +32,7 @@ import toast from "react-hot-toast";
 
 interface SurveyDropDownMenuProps {
   environmentId: string;
-  survey: TSurvey;
+  form: TSurvey;
   environment: TEnvironment;
   otherEnvironment: TEnvironment;
   webAppUrl: string;
@@ -42,7 +42,7 @@ interface SurveyDropDownMenuProps {
 
 export default function SurveyDropDownMenu({
   environmentId,
-  survey,
+  form,
   environment,
   otherEnvironment,
   webAppUrl,
@@ -53,17 +53,17 @@ export default function SurveyDropDownMenu({
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const surveyUrl = useMemo(() => webAppUrl + "/s/" + survey.id, [survey.id, webAppUrl]);
+  const surveyUrl = useMemo(() => webAppUrl + "/s/" + form.id, [form.id, webAppUrl]);
 
-  const handleDeleteSurvey = async (survey) => {
+  const handleDeleteSurvey = async (form) => {
     setLoading(true);
     try {
-      await deleteSurveyAction(survey.id);
+      await deleteSurveyAction(form.id);
       router.refresh();
       setDeleteDialogOpen(false);
-      toast.success("Survey deleted successfully.");
+      toast.success("Form deleted successfully.");
     } catch (error) {
-      toast.error("An error occured while deleting survey");
+      toast.error("An error occured while deleting form");
     }
     setLoading(false);
   };
@@ -73,9 +73,9 @@ export default function SurveyDropDownMenu({
     try {
       await duplicateSurveyAction(environmentId, surveyId);
       router.refresh();
-      toast.success("Survey duplicated successfully.");
+      toast.success("Form duplicated successfully.");
     } catch (error) {
-      toast.error("Failed to duplicate the survey.");
+      toast.error("Failed to duplicate the form.");
     }
     setLoading(false);
   };
@@ -85,9 +85,9 @@ export default function SurveyDropDownMenu({
     try {
       await copyToOtherEnvironmentAction(environmentId, surveyId, otherEnvironment.id);
       if (otherEnvironment.type === "production") {
-        toast.success("Survey copied to production env.");
+        toast.success("Form copied to production env.");
       } else if (otherEnvironment.type === "development") {
-        toast.success("Survey copied to development env.");
+        toast.success("Form copied to development env.");
       }
       router.replace(`/environments/${otherEnvironment.id}`);
     } catch (error) {
@@ -118,7 +118,7 @@ export default function SurveyDropDownMenu({
                 <DropdownMenuItem>
                   <Link
                     className="flex w-full items-center"
-                    href={`/environments/${environmentId}/surveys/${survey.id}/edit`}>
+                    href={`/environments/${environmentId}/surveys/${form.id}/edit`}>
                     <PencilSquareIcon className="mr-2 h-4 w-4" />
                     Edit
                   </Link>
@@ -128,7 +128,7 @@ export default function SurveyDropDownMenu({
                   <button
                     className="flex w-full items-center"
                     onClick={async () => {
-                      duplicateSurveyAndRefresh(survey.id);
+                      duplicateSurveyAndRefresh(form.id);
                     }}>
                     <DocumentDuplicateIcon className="mr-2 h-4 w-4" />
                     Duplicate
@@ -143,7 +143,7 @@ export default function SurveyDropDownMenu({
                     <button
                       className="flex w-full items-center"
                       onClick={() => {
-                        copyToOtherEnvironment(survey.id);
+                        copyToOtherEnvironment(form.id);
                       }}>
                       <ArrowUpOnSquareStackIcon className="mr-2 h-4 w-4" />
                       Copy to Prod
@@ -154,7 +154,7 @@ export default function SurveyDropDownMenu({
                     <button
                       className="flex w-full items-center"
                       onClick={() => {
-                        copyToOtherEnvironment(survey.id);
+                        copyToOtherEnvironment(form.id);
                       }}>
                       <ArrowUpOnSquareStackIcon className="mr-2 h-4 w-4" />
                       Copy to Dev
@@ -163,19 +163,19 @@ export default function SurveyDropDownMenu({
                 ) : null}
               </>
             )}
-            {survey.type === "link" && survey.status !== "draft" && (
+            {form.type === "link" && form.status !== "draft" && (
               <>
                 <DropdownMenuItem>
                   <Link
                     className="flex w-full items-center"
                     href={
                       singleUseId
-                        ? `/s/${survey.id}?suId=${singleUseId}&preview=true`
-                        : `/s/${survey.id}?preview=true`
+                        ? `/s/${form.id}?suId=${singleUseId}&preview=true`
+                        : `/s/${form.id}?preview=true`
                     }
                     target="_blank">
                     <EyeIcon className="mr-2 h-4 w-4" />
-                    Preview Survey
+                    Preview Form
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
@@ -212,11 +212,11 @@ export default function SurveyDropDownMenu({
 
       {!isSurveyCreationDeletionDisabled && (
         <DeleteDialog
-          deleteWhat="Survey"
+          deleteWhat="Form"
           open={isDeleteDialogOpen}
           setOpen={setDeleteDialogOpen}
-          onDelete={() => handleDeleteSurvey(survey)}
-          text="Are you sure you want to delete this survey and all of its responses? This action cannot be undone."
+          onDelete={() => handleDeleteSurvey(form)}
+          text="Are you sure you want to delete this form and all of its responses? This action cannot be undone."
         />
       )}
     </>

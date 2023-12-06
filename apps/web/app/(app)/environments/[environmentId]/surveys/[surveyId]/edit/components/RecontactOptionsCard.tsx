@@ -22,7 +22,7 @@ const displayOptions: DisplayOption[] = [
   {
     id: "displayOnce",
     name: "Show only once",
-    description: "The survey will be shown once, even if person doesn't respond.",
+    description: "The form will be shown once, even if person doesn't respond.",
   },
   {
     id: "displayMultiple",
@@ -38,7 +38,7 @@ const displayOptions: DisplayOption[] = [
 
 interface RecontactOptionsCardProps {
   localSurvey: TSurvey;
-  setLocalSurvey: (survey: TSurvey) => void;
+  setLocalSurvey: (form: TSurvey) => void;
   environmentId: string;
 }
 
@@ -104,11 +104,11 @@ export default function RecontactOptionsCard({
           </div>
           <div>
             <p className="font-semibold text-slate-800">Recontact Options</p>
-            <p className="mt-1 text-sm text-slate-500">Decide how often people can answer this survey.</p>
+            <p className="mt-1 text-sm text-slate-500">Decide how often people can answer this form.</p>
           </div>
           {localSurvey.type === "link" && (
             <div className="flex w-full items-center justify-end pr-2">
-              <Badge size="normal" text="In-app survey settings" type="gray" />
+              <Badge size="normal" text="In-app form settings" type="gray" />
             </div>
           )}
         </div>
@@ -181,10 +181,10 @@ export default function RecontactOptionsCard({
                   className="aria-checked:border-brand-dark mx-4 text-sm disabled:border-slate-400 aria-checked:border-2"
                 />
                 <div>
-                  <p className="font-semibold text-slate-700">Always show survey</p>
+                  <p className="font-semibold text-slate-700">Always show form</p>
 
                   <p className="mt-2 text-xs font-normal text-slate-600">
-                    When conditions match, waiting time will be ignored and survey shown.
+                    When conditions match, waiting time will be ignored and form shown.
                   </p>
                 </div>
               </Label>
@@ -208,7 +208,7 @@ export default function RecontactOptionsCard({
                       onChange={handleRecontactDaysChange}
                       className="ml-2 mr-2 inline w-16 text-center text-sm"
                     />
-                    days before showing this survey again.
+                    days before showing this form again.
                   </p>
 
                   <p className="mt-2 text-xs font-normal text-slate-600">

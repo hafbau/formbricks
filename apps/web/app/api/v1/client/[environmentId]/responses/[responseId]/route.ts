@@ -2,7 +2,7 @@ import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { sendToPipeline } from "@/app/lib/pipelines";
 import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@fastform/types/errors";
-import { getSurvey } from "@fastform/lib/survey/service";
+import { getSurvey } from "@fastform/lib/form/service";
 import { updateResponse } from "@fastform/lib/response/service";
 import { ZResponseUpdateInput } from "@fastform/types/responses";
 import { NextResponse } from "next/server";
@@ -58,10 +58,10 @@ export async function PUT(
     }
   }
 
-  // get survey to get environmentId
-  let survey;
+  // get form to get environmentId
+  let form;
   try {
-    survey = await getSurvey(response.surveyId);
+    form = await getSurvey(response.surveyId);
   } catch (error) {
     if (error instanceof InvalidInputError) {
       return responses.badRequestResponse(error.message);
@@ -76,8 +76,8 @@ export async function PUT(
   // don't await to not block the response
   sendToPipeline({
     event: "responseUpdated",
-    environmentId: survey.environmentId,
-    surveyId: survey.id,
+    environmentId: form.environmentId,
+    surveyId: form.id,
     response,
   });
 
@@ -86,8 +86,8 @@ export async function PUT(
     // don't await to not block the response
     sendToPipeline({
       event: "responseFinished",
-      environmentId: survey.environmentId,
-      surveyId: survey.id,
+      environmentId: form.environmentId,
+      surveyId: form.id,
       response: response,
     });
   }

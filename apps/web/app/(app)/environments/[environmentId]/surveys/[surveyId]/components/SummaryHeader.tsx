@@ -31,7 +31,7 @@ import { getAccessFlags } from "@fastform/lib/membership/utils";
 interface SummaryHeaderProps {
   surveyId: string;
   environment: TEnvironment;
-  survey: TSurvey;
+  form: TSurvey;
   webAppUrl: string;
   product: TProduct;
   profile: TProfile;
@@ -40,7 +40,7 @@ interface SummaryHeaderProps {
 const SummaryHeader = ({
   surveyId,
   environment,
-  survey,
+  form,
   webAppUrl,
   product,
   profile,
@@ -48,24 +48,24 @@ const SummaryHeader = ({
 }: SummaryHeaderProps) => {
   const router = useRouter();
 
-  const isCloseOnDateEnabled = survey.closeOnDate !== null;
-  const closeOnDate = survey.closeOnDate ? new Date(survey.closeOnDate) : null;
+  const isCloseOnDateEnabled = form.closeOnDate !== null;
+  const closeOnDate = form.closeOnDate ? new Date(form.closeOnDate) : null;
   const isStatusChangeDisabled = (isCloseOnDateEnabled && closeOnDate && closeOnDate < new Date()) ?? false;
   const { isViewer } = getAccessFlags(membershipRole);
   return (
     <div className="mb-11 mt-6 flex flex-wrap items-center justify-between">
       <div>
-        <p className="text-3xl font-bold text-slate-800">{survey.name}</p>
+        <p className="text-3xl font-bold text-slate-800">{form.name}</p>
         <span className="text-base font-extralight text-slate-600">{product.name}</span>
       </div>
       <div className="hidden justify-end gap-x-1.5 sm:flex">
-        {survey.type === "link" && (
-          <LinkSurveyShareButton survey={survey} webAppUrl={webAppUrl} product={product} profile={profile} />
+        {form.type === "link" && (
+          <LinkSurveyShareButton form={form} webAppUrl={webAppUrl} product={product} profile={profile} />
         )}
         {!isViewer &&
-        (environment?.widgetSetupCompleted || survey.type === "link") &&
-        survey?.status !== "draft" ? (
-          <SurveyStatusDropdown environment={environment} survey={survey} />
+        (environment?.widgetSetupCompleted || form.type === "link") &&
+        form?.status !== "draft" ? (
+          <SurveyStatusDropdown environment={environment} form={form} />
         ) : null}
         {!isViewer && (
           <Button
@@ -85,11 +85,11 @@ const SummaryHeader = ({
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="p-2">
-            {survey.type === "link" && (
+            {form.type === "link" && (
               <>
                 <LinkSurveyShareButton
                   className="flex w-full justify-center p-1"
-                  survey={survey}
+                  form={form}
                   webAppUrl={webAppUrl}
                   product={product}
                   profile={profile}
@@ -97,38 +97,38 @@ const SummaryHeader = ({
                 <DropdownMenuSeparator />
               </>
             )}
-            {(environment?.widgetSetupCompleted || survey.type === "link") && survey?.status !== "draft" ? (
+            {(environment?.widgetSetupCompleted || form.type === "link") && form?.status !== "draft" ? (
               <>
                 <DropdownMenuSub>
                   <DropdownMenuSubTrigger
                     disabled={isStatusChangeDisabled}
                     style={isStatusChangeDisabled ? { pointerEvents: "none", opacity: 0.5 } : {}}>
                     <div className="flex items-center">
-                      {(survey.type === "link" || environment.widgetSetupCompleted) && (
-                        <SurveyStatusIndicator status={survey.status} />
+                      {(form.type === "link" || environment.widgetSetupCompleted) && (
+                        <SurveyStatusIndicator status={form.status} />
                       )}
                       <span className="ml-1 text-sm text-slate-700">
-                        {survey.status === "inProgress" && "In-progress"}
-                        {survey.status === "paused" && "Paused"}
-                        {survey.status === "completed" && "Completed"}
+                        {form.status === "inProgress" && "In-progress"}
+                        {form.status === "paused" && "Paused"}
+                        {form.status === "completed" && "Completed"}
                       </span>
                     </div>
                   </DropdownMenuSubTrigger>
                   <DropdownMenuPortal>
                     <DropdownMenuSubContent>
                       <DropdownMenuRadioGroup
-                        value={survey.status}
+                        value={form.status}
                         onValueChange={(value) => {
                           const castedValue = value as "draft" | "inProgress" | "paused" | "completed";
-                          updateSurveyAction({ ...survey, status: castedValue })
+                          updateSurveyAction({ ...form, status: castedValue })
                             .then(() => {
                               toast.success(
                                 value === "inProgress"
-                                  ? "Survey live"
+                                  ? "Form live"
                                   : value === "paused"
-                                  ? "Survey paused"
+                                  ? "Form paused"
                                   : value === "completed"
-                                  ? "Survey completed"
+                                  ? "Form completed"
                                   : ""
                               );
                               router.refresh();
@@ -174,7 +174,7 @@ const SummaryHeader = ({
       </div>
       <SuccessMessage
         environment={environment}
-        survey={survey}
+        form={form}
         webAppUrl={webAppUrl}
         product={product}
         profile={profile}

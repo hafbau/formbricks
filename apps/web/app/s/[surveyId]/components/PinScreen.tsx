@@ -38,14 +38,14 @@ const LinkSurveyPinScreen: NextPage<LinkSurveyPinScreenProps> = (props) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const [error, setError] = useState<TSurveyPinValidationResponseError>();
-  const [survey, setSurvey] = useState<TSurvey>();
+  const [form, setSurvey] = useState<TSurvey>();
 
   const _validateSurveyPinAsync = useCallback(async (surveyId: string, pin: string) => {
     const response = await validateSurveyPinAction(surveyId, pin);
     if (response.error) {
       setError(response.error);
-    } else if (response.survey) {
-      setSurvey(response.survey);
+    } else if (response.form) {
+      setSurvey(response.form);
     }
     setLoading(false);
   }, []);
@@ -80,12 +80,12 @@ const LinkSurveyPinScreen: NextPage<LinkSurveyPinScreenProps> = (props) => {
     setLoading(false);
   }, [_validateSurveyPinAsync, localPinEntry, surveyId]);
 
-  if (!survey) {
+  if (!form) {
     return (
       <div className="flex h-full w-full items-center justify-center">
         <div className="flex flex-col items-center justify-center">
           <div className="my-4 font-semibold">
-            <h4>This survey is protected. Enter the PIN below</h4>
+            <h4>This form is protected. Enter the PIN below</h4>
           </div>
           <OTPInput
             disabled={Boolean(error) || loading}
@@ -101,7 +101,7 @@ const LinkSurveyPinScreen: NextPage<LinkSurveyPinScreenProps> = (props) => {
 
   return (
     <LinkSurvey
-      survey={survey}
+      form={form}
       product={product}
       userId={userId}
       emailVerificationStatus={emailVerificationStatus}
