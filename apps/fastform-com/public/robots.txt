@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://fastform.com
+
+# Sitemaps
+Sitemap: https://fastform.com/sitemap.xml

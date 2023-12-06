@@ -7,19 +7,19 @@ import {
 import { CssSelector } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/actions/components/CssSelector";
 import { InnerHtmlSelector } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/actions/components/InnerHtmlSelector";
 import { PageUrlSelector } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/actions/components/PageUrlSelector";
-import { TActionClassInput, TActionClassNoCodeConfig, TNoCodeConfig } from "@formbricks/types/actionClasses";
-import { Button } from "@formbricks/ui/Button";
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { TActionClassInput, TActionClassNoCodeConfig, TNoCodeConfig } from "@fastform/types/actionClasses";
+import { Button } from "@fastform/ui/Button";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { testURLmatch } from "../lib/testURLmatch";
-import { TMembershipRole } from "@formbricks/types/memberships";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { TMembershipRole } from "@fastform/types/memberships";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 
 interface ActionSettingsTabProps {
   environmentId: string;
@@ -199,7 +199,7 @@ export default function ActionSettingsTab({
               </Button>
             )}
 
-            <Button variant="secondary" href="https://formbricks.com/docs/actions/no-code" target="_blank">
+            <Button variant="secondary" href="https://fastform.com/docs/actions/no-code" target="_blank">
               Read Docs
             </Button>
           </div>

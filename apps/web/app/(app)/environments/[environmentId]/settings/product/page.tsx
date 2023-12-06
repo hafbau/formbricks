@@ -1,4 +1,4 @@
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
 
 import SettingsCard from "../components/SettingsCard";
 import SettingsTitle from "../components/SettingsTitle";
@@ -6,13 +6,13 @@ import SettingsTitle from "../components/SettingsTitle";
 import EditProductName from "./components/EditProductName";
 import EditWaitingTime from "./components/EditWaitingTime";
 import DeleteProduct from "./components/DeleteProduct";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
 
 export default async function ProfileSettingsPage({ params }: { params: { environmentId: string } }) {
   const [, product, session, team] = await Promise.all([

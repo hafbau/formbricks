@@ -1,13 +1,13 @@
 "use client";
 
 import { updateProductAction } from "@/app/(app)/onboarding/actions";
-import LoadingSpinner from "@formbricks/ui/LoadingSpinner";
-import { TProduct } from "@formbricks/types/product";
-import { ColorPicker } from "@formbricks/ui/ColorPicker";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
+import LoadingSpinner from "@fastform/ui/LoadingSpinner";
+import { TProduct } from "@fastform/types/product";
+import { ColorPicker } from "@fastform/ui/ColorPicker";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { isLight } from "@/app/lib/utils";
@@ -98,7 +98,7 @@ const Product: React.FC<Product> = ({ done, isLoading, environmentId, product })
               <Input
                 id="product"
                 type="text"
-                placeholder="e.g. Formbricks"
+                placeholder="e.g. Fastform"
                 value={name}
                 onChange={handleNameChange}
                 aria-label="Your product name"
@@ -119,7 +119,7 @@ const Product: React.FC<Product> = ({ done, isLoading, environmentId, product })
             <p className="text-xs text-slate-500">This is what your survey will look like:</p>
             <div className="relative w-full max-w-sm cursor-not-allowed rounded-lg bg-white px-4 py-6 shadow-lg ring-1 ring-black ring-opacity-5 sm:p-6">
               <label className="mb-1.5 block text-base font-semibold leading-6 text-slate-900">
-                How do you like {name || "Formbricks"}
+                How do you like {name || "Fastform"}
               </label>
               <div className="mt-4">
                 <fieldset>

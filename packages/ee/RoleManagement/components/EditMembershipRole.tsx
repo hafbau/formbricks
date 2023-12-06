@@ -2,17 +2,17 @@
 
 import TransferOwnershipModal from "./TransferOwnershipModal";
 import { transferOwnershipAction, updateInviteAction, updateMembershipAction } from "../lib/actions";
-import { capitalizeFirstLetter } from "@formbricks/lib/strings";
-import { TMembershipRole } from "@formbricks/types/memberships";
+import { capitalizeFirstLetter } from "@fastform/lib/strings";
+import { TMembershipRole } from "@fastform/types/memberships";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from "@formbricks/ui/DropdownMenu";
-import { Button } from "@formbricks/ui/Button";
-import { Badge } from "@formbricks/ui/Badge";
+} from "@fastform/ui/DropdownMenu";
+import { Button } from "@fastform/ui/Button";
+import { Badge } from "@fastform/ui/Badge";
 import { ChevronDownIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

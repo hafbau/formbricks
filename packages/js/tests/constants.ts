@@ -6,7 +6,7 @@ const generateUserId = () => {
 };
 
 const generateEmailId = () => {
-  const domain = "formbricks.test";
+  const domain = "fastform.test";
   const randomString = Math.random().toString(36).substring(2);
   const emailId = `${randomString}@${domain}`;
   return emailId;

@@ -12,13 +12,13 @@
     "clean": "rimraf .turbo node_modules dist storybook-static"
   },
   "dependencies": {
-    "@formbricks/ui": "workspace:*",
+    "@fastform/ui": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.4.6"
   },
   "devDependencies": {
-    "@formbricks/tsconfig": "workspace:*",
+    "@fastform/tsconfig": "workspace:*",
     "@storybook/addon-essentials": "^7.5.0-alpha.5",
     "@storybook/addon-interactions": "^7.5.0-alpha.5",
     "@storybook/addon-links": "^7.5.0-alpha.5",

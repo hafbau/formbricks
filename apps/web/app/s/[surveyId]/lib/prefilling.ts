@@ -1,6 +1,6 @@
-import { TSurveyQuestionType } from "@formbricks/types/surveys";
-import { TResponseData } from "@formbricks/types/responses";
-import { TSurvey, TSurveyQuestion } from "@formbricks/types/surveys";
+import { TSurveyQuestionType } from "@fastform/types/surveys";
+import { TResponseData } from "@fastform/types/responses";
+import { TSurvey, TSurveyQuestion } from "@fastform/types/surveys";
 
 export function getPrefillResponseData(
   currentQuestion: TSurveyQuestion,

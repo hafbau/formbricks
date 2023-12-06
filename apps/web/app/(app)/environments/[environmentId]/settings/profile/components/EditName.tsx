@@ -1,12 +1,12 @@
 "use client";
 
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { useForm, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import { updateProfileAction } from "../actions";
-import { TProfile } from "@formbricks/types/profile";
+import { TProfile } from "@fastform/types/profile";
 
 type FormData = {
   name: string;

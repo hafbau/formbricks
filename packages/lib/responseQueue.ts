@@ -1,5 +1,5 @@
-import { FormbricksAPI } from "@formbricks/api";
-import { TResponseUpdate } from "@formbricks/types/responses";
+import { FormbricksAPI } from "@fastform/api";
+import { TResponseUpdate } from "@fastform/types/responses";
 import SurveyState from "./surveyState";
 
 interface QueueConfig {
@@ -52,7 +52,7 @@ export class ResponseQueue {
         this.queue.shift(); // remove the successfully sent response from the queue
         break; // exit the retry loop
       }
-      console.error("Formbricks: Failed to send response. Retrying...", attempts);
+      console.error("Fastform: Failed to send response. Retrying...", attempts);
       attempts++;
     }
 

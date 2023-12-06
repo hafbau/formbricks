@@ -1,15 +1,15 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import {
   getMembershipByUserIdTeamId,
   transferOwnership,
   updateMembership,
-} from "@formbricks/lib/membership/service";
-import { updateInvite } from "@formbricks/lib/invite/service";
+} from "@fastform/lib/membership/service";
+import { updateInvite } from "@fastform/lib/invite/service";
 import { TInviteUpdateInput } from "../../../types/invites";
 import { TMembershipUpdateInput } from "../../../types/memberships";
-import { hasTeamAccess, hasTeamAuthority, isOwner } from "@formbricks/lib/auth";
+import { hasTeamAccess, hasTeamAuthority, isOwner } from "@fastform/lib/auth";
 import { getServerSession } from "next-auth";
 import { AuthenticationError, AuthorizationError, ValidationError } from "../../../types/errors";
 import { TProfile } from "../../../types/profile";

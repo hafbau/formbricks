@@ -1,7 +1,7 @@
 import { evaluateCondition } from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/evaluateLogic";
-import { TResponse } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@formbricks/ui/Tooltip";
+import { TResponse } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { TimerIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 

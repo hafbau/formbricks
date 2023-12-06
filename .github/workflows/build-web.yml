@@ -3,7 +3,7 @@ on:
   workflow_call:
 jobs:
   build:
-    name: Build Formbricks-web
+    name: Build Fastform-web
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -30,5 +30,5 @@ jobs:
           SECRET=$(openssl rand -hex 32)
           echo "ENCRYPTION_KEY=$SECRET" >> $GITHUB_ENV
 
-      - name: Build Formbricks-web
+      - name: Build Fastform-web
         run: pnpm build --filter=web...

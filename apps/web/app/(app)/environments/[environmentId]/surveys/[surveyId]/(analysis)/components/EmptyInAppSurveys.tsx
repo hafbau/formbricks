@@ -1,5 +1,5 @@
-import { TEnvironment } from "@formbricks/types/environment";
-import { Button } from "@formbricks/ui/Button";
+import { TEnvironment } from "@fastform/types/environment";
+import { Button } from "@fastform/ui/Button";
 import { Unplug } from "lucide-react";
 import Link from "next/link";
 
@@ -17,7 +17,7 @@ export default async function EmptyInAppSurveys({ environment }: TEmptyInAppSurv
       <div className="flex flex-col">
         <h1 className="text-xl font-semibold text-slate-900">You&apos;re not plugged in yet!</h1>
 
-        <p className="mt-2 text-sm text-slate-600">Connect your app with Formbricks to run in app surveys.</p>
+        <p className="mt-2 text-sm text-slate-600">Connect your app with Fastform to run in app surveys.</p>
 
         <Link className="mt-2" href={`/environments/${environment.id}/settings/setup`}>
           <Button variant="darkCTA" size="sm" className="flex w-[120px] justify-center">

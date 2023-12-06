@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@formbricks/ui/Button";
-import { ProfileAvatar } from "@formbricks/ui/Avatars";
+import { Button } from "@fastform/ui/Button";
+import { ProfileAvatar } from "@fastform/ui/Avatars";
 import { Session } from "next-auth";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";

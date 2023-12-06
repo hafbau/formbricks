@@ -1,11 +1,11 @@
 import { NextRequest } from "next/server";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
 import { responses } from "@/app/lib/api/response";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
 import crypto from "crypto";
 
-import { AIRTABLE_CLIENT_ID, WEBAPP_URL } from "@formbricks/lib/constants";
+import { AIRTABLE_CLIENT_ID, WEBAPP_URL } from "@fastform/lib/constants";
 
 const scope = `data.records:read data.records:write schema.bases:read schema.bases:write user.email:read`;
 

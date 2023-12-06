@@ -1,7 +1,7 @@
-import { Popover, PopoverContent, PopoverTrigger } from "@formbricks/ui/Popover";
-import { Label } from "@formbricks/ui/Label";
+import { Popover, PopoverContent, PopoverTrigger } from "@fastform/ui/Popover";
+import { Label } from "@fastform/ui/Label";
 import { formatDistance } from "date-fns";
-import { TAction } from "@formbricks/types/actions";
+import { TAction } from "@fastform/types/actions";
 import { CodeBracketIcon, CursorArrowRaysIcon, SparklesIcon } from "@heroicons/react/24/solid";
 
 export const ActivityItemIcon = ({ actionItem }: { actionItem: TAction }) => (

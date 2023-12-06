@@ -1,11 +1,11 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { canUserAccessSurvey, verifyUserRoleAccess } from "@formbricks/lib/survey/auth";
-import { deleteSurvey, getSurvey, updateSurvey } from "@formbricks/lib/survey/service";
-import { formatSurveyDateFields } from "@formbricks/lib/survey/util";
-import { AuthorizationError } from "@formbricks/types/errors";
-import { TSurvey } from "@formbricks/types/surveys";
+import { authOptions } from "@fastform/lib/authOptions";
+import { canUserAccessSurvey, verifyUserRoleAccess } from "@fastform/lib/survey/auth";
+import { deleteSurvey, getSurvey, updateSurvey } from "@fastform/lib/survey/service";
+import { formatSurveyDateFields } from "@fastform/lib/survey/util";
+import { AuthorizationError } from "@fastform/types/errors";
+import { TSurvey } from "@fastform/types/surveys";
 import { getServerSession } from "next-auth";
 
 export async function updateSurveyAction(survey: TSurvey): Promise<TSurvey> {

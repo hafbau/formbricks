@@ -1,11 +1,11 @@
 "use client";
 
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
 import AvatarPlaceholder from "@/images/avatar-placeholder.png";
-import { formbricksLogout } from "@/app/lib/formbricks";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { ProfileAvatar } from "@formbricks/ui/Avatars";
+import { formbricksLogout } from "@/app/lib/fastform";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { ProfileAvatar } from "@fastform/ui/Avatars";
 import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
 import Image from "next/image";

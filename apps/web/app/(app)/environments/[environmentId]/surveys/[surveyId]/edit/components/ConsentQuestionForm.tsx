@@ -1,11 +1,11 @@
 "use client";
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/edit/components/QuestionFormInput";
-import { md } from "@formbricks/lib/markdownIt";
-import { TSurvey, TSurveyConsentQuestion } from "@formbricks/types/surveys";
-import { Editor } from "@formbricks/ui/Editor";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { md } from "@fastform/lib/markdownIt";
+import { TSurvey, TSurveyConsentQuestion } from "@fastform/types/surveys";
+import { Editor } from "@fastform/ui/Editor";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { useState } from "react";
 
 interface ConsentQuestionFormProps {

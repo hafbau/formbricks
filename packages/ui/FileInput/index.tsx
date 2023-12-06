@@ -1,7 +1,7 @@
 "use client";
 
-import { cn } from "@formbricks/lib/cn";
-import { TAllowedFileExtension } from "@formbricks/types/common";
+import { cn } from "@fastform/lib/cn";
+import { TAllowedFileExtension } from "@fastform/types/common";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { ArrowUpTrayIcon } from "@heroicons/react/24/solid";
 import { FileIcon } from "lucide-react";

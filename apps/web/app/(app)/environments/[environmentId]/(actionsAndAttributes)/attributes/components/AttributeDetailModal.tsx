@@ -1,8 +1,8 @@
-import ModalWithTabs from "@formbricks/ui/ModalWithTabs";
+import ModalWithTabs from "@fastform/ui/ModalWithTabs";
 import { TagIcon } from "@heroicons/react/24/solid";
 import AttributeActivityTab from "./AttributeActivityTab";
 import AttributeSettingsTab from "./AttributeSettingsTab";
-import { TAttributeClass } from "@formbricks/types/attributeClasses";
+import { TAttributeClass } from "@fastform/types/attributeClasses";
 
 interface AttributeDetailModalProps {
   open: boolean;

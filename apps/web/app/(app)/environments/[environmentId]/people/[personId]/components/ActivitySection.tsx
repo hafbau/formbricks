@@ -1,6 +1,6 @@
 import ActivityTimeline from "@/app/(app)/environments/[environmentId]/people/[personId]/components/ActivityTimeline";
-import { getActionsByPersonId } from "@formbricks/lib/action/service";
-import { getEnvironment } from "@formbricks/lib/environment/service";
+import { getActionsByPersonId } from "@fastform/lib/action/service";
+import { getEnvironment } from "@fastform/lib/environment/service";
 
 export default async function ActivitySection({
   environmentId,

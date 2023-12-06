@@ -4,7 +4,7 @@ import * as React from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 const DropdownMenu: React.ComponentType<DropdownMenuPrimitive.DropdownMenuProps> = DropdownMenuPrimitive.Root;
 

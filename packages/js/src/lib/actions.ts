@@ -1,10 +1,10 @@
-import { TJsActionInput } from "@formbricks/types/js";
-import { TSurvey } from "@formbricks/types/surveys";
+import { TJsActionInput } from "@fastform/types/js";
+import { TSurvey } from "@fastform/types/surveys";
 import { Config } from "./config";
 import { NetworkError, Result, err, okVoid } from "./errors";
 import { Logger } from "./logger";
 import { renderWidget } from "./widget";
-import { FormbricksAPI } from "@formbricks/api";
+import { FormbricksAPI } from "@fastform/api";
 const logger = Logger.getInstance();
 const config = Config.getInstance();
 
@@ -46,7 +46,7 @@ export const trackAction = async (
     }
   }
 
-  logger.debug(`Formbricks: Action "${name}" tracked`);
+  logger.debug(`Fastform: Action "${name}" tracked`);
 
   // get a list of surveys that are collecting insights
   const activeSurveys = config.get().state?.surveys;
@@ -64,7 +64,7 @@ export const triggerSurvey = (actionName: string, activeSurveys: TSurvey[]): voi
   for (const survey of activeSurveys) {
     for (const trigger of survey.triggers) {
       if (trigger === actionName) {
-        logger.debug(`Formbricks: survey ${survey.id} triggered by action "${actionName}"`);
+        logger.debug(`Fastform: survey ${survey.id} triggered by action "${actionName}"`);
         renderWidget(survey);
         return;
       }

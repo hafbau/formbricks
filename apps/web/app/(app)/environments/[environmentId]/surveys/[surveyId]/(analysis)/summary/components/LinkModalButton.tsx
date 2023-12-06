@@ -1,13 +1,13 @@
 "use client";
 
-import { TSurvey } from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
+import { TSurvey } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
 import { ShareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import clsx from "clsx";
-import { TProduct } from "@formbricks/types/product";
+import { TProduct } from "@fastform/types/product";
 import ShareEmbedSurvey from "./ShareEmbedSurvey";
-import { TProfile } from "@formbricks/types/profile";
+import { TProfile } from "@fastform/types/profile";
 
 interface LinkSurveyShareButtonProps {
   survey: TSurvey;

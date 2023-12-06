@@ -5,9 +5,9 @@ export enum ProductFeatureKeys {
 }
 
 export enum StripeProductNames {
-  inAppSurvey = "Formbricks In App Survey",
-  linkSurvey = "Formbricks Link Survey",
-  userTargeting = "Formbricks User Identification",
+  inAppSurvey = "Fastform In App Survey",
+  linkSurvey = "Fastform Link Survey",
+  userTargeting = "Fastform User Identification",
 }
 export enum StripePriceLookupKeys {
   inAppSurvey = "inAppSurvey",

@@ -1,4 +1,4 @@
-import { Logo } from "@formbricks/ui/Logo";
+import { Logo } from "@fastform/ui/Logo";
 
 export default function FormWrapper({ children }: { children: React.ReactNode }) {
   return (

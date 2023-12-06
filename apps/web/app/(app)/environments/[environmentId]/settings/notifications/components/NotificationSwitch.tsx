@@ -1,10 +1,10 @@
 "use client";
 
-import { Switch } from "@formbricks/ui/Switch";
+import { Switch } from "@fastform/ui/Switch";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { updateNotificationSettingsAction } from "../actions";
-import { TUserNotificationSettings } from "@formbricks/types/users";
+import { TUserNotificationSettings } from "@fastform/types/users";
 import { useState } from "react";
 
 interface NotificationSwitchProps {

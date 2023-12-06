@@ -1,13 +1,13 @@
-import { TSurvey, TSurveyPictureSelectionQuestion } from "@formbricks/types/surveys";
-import FileInput from "@formbricks/ui/FileInput";
-import { Label } from "@formbricks/ui/Label";
-import { Switch } from "@formbricks/ui/Switch";
+import { TSurvey, TSurveyPictureSelectionQuestion } from "@fastform/types/surveys";
+import FileInput from "@fastform/ui/FileInput";
+import { Label } from "@fastform/ui/Label";
+import { Switch } from "@fastform/ui/Switch";
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/edit/components/QuestionFormInput";
-import { cn } from "@formbricks/lib/cn";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
+import { cn } from "@fastform/lib/cn";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
 import { createId } from "@paralleldrive/cuid2";
 import { useState } from "react";
 

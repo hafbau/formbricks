@@ -1,5 +1,5 @@
 import { revalidateTag } from "next/cache";
-import { TWebhookInput } from "@formbricks/types/webhooks";
+import { TWebhookInput } from "@fastform/types/webhooks";
 
 interface RevalidateProps {
   id?: string;

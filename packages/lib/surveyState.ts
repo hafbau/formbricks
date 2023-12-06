@@ -1,4 +1,4 @@
-import { TResponseUpdate } from "@formbricks/types/responses";
+import { TResponseUpdate } from "@fastform/types/responses";
 
 export class SurveyState {
   responseId: string | null = null;

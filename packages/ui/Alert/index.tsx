@@ -1,7 +1,7 @@
 import * as React from "react";
 import { VariantProps, cva } from "class-variance-authority";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 const alertVariants = cva(
   "relative w-full rounded-lg border p-4 [&>svg]:absolute [&>svg]:text-foreground [&>svg]:left-4 [&>svg]:top-4 [&>svg+div]:translate-y-[-3px] [&:has(svg)]:pl-11",

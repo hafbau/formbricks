@@ -1,14 +1,14 @@
 "use client";
 
 import { replacePresetPlaceholders } from "@/app/lib/templates";
-import { cn } from "@formbricks/lib/cn";
-import type { TEnvironment } from "@formbricks/types/environment";
-import type { TProduct } from "@formbricks/types/product";
-import { TProfile } from "@formbricks/types/profile";
-import { TSurveyInput } from "@formbricks/types/surveys";
-import { TTemplate } from "@formbricks/types/templates";
-import { Button } from "@formbricks/ui/Button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@formbricks/ui/Tooltip";
+import { cn } from "@fastform/lib/cn";
+import type { TEnvironment } from "@fastform/types/environment";
+import type { TProduct } from "@fastform/types/product";
+import { TProfile } from "@fastform/types/profile";
+import { TSurveyInput } from "@fastform/types/surveys";
+import { TTemplate } from "@fastform/types/templates";
+import { Button } from "@fastform/ui/Button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import { SplitIcon } from "lucide-react";

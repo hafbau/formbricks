@@ -1,6 +1,6 @@
 import { responses } from "@/app/lib/api/response";
-import { getApiKeyFromKey } from "@formbricks/lib/apiKey/service";
-import { deleteWebhook, getWebhook } from "@formbricks/lib/webhook/service";
+import { getApiKeyFromKey } from "@fastform/lib/apiKey/service";
+import { deleteWebhook, getWebhook } from "@fastform/lib/webhook/service";
 import { headers } from "next/headers";
 
 export async function GET(_: Request, { params }: { params: { webhookId: string } }) {

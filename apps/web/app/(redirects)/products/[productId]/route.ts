@@ -1,8 +1,8 @@
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import { hasTeamAccess } from "@/app/lib/api/apiHelper";
-import { getEnvironments } from "@formbricks/lib/environment/service";
-import { getProduct } from "@formbricks/lib/product/service";
-import { AuthenticationError, AuthorizationError } from "@formbricks/types/errors";
+import { getEnvironments } from "@fastform/lib/environment/service";
+import { getProduct } from "@fastform/lib/product/service";
+import { AuthenticationError, AuthorizationError } from "@fastform/types/errors";
 import { getServerSession } from "next-auth";
 import { notFound, redirect } from "next/navigation";
 

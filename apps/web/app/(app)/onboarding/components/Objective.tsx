@@ -1,11 +1,11 @@
 "use client";
 
 import { updateProfileAction } from "@/app/(app)/onboarding/actions";
-import { formbricksEnabled, updateResponse } from "@/app/lib/formbricks";
-import { cn } from "@formbricks/lib/cn";
-import { env } from "@formbricks/lib/env.mjs";
-import { TProfile, TProfileObjective } from "@formbricks/types/profile";
-import { Button } from "@formbricks/ui/Button";
+import { formbricksEnabled, updateResponse } from "@/app/lib/fastform";
+import { cn } from "@fastform/lib/cn";
+import { env } from "@fastform/lib/env.mjs";
+import { TProfile, TProfileObjective } from "@fastform/types/profile";
+import { Button } from "@fastform/ui/Button";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-hot-toast";
 import { handleTabNavigation } from "../utils";

@@ -1,6 +1,6 @@
 "use client";
 
-import { TEnvironment } from "@formbricks/types/environment";
+import { TEnvironment } from "@fastform/types/environment";
 import Link from "next/link";
 import React from "react";
 
@@ -30,7 +30,7 @@ const EmptySpaceFiller: React.FC<EmptySpaceFillerProps> = ({
                 className="flex w-full items-center justify-center"
                 href={`/environments/${environment.id}/settings/setup`}>
                 <span className="decoration-brand-dark underline  transition-all duration-300  ease-in-out">
-                  Install Formbricks Widget. <strong>Go to Setup Checklist 👉</strong>
+                  Install Fastform Widget. <strong>Go to Setup Checklist 👉</strong>
                 </span>
               </Link>
             )}
@@ -59,7 +59,7 @@ const EmptySpaceFiller: React.FC<EmptySpaceFillerProps> = ({
                 className="flex h-full w-full items-center justify-center"
                 href={`/environments/${environment.id}/settings/setup`}>
                 <span className="decoration-brand-dark underline  transition-all duration-300 ease-in-out">
-                  Install Formbricks Widget. <strong>Go to Setup Checklist 👉</strong>
+                  Install Fastform Widget. <strong>Go to Setup Checklist 👉</strong>
                 </span>
               </Link>
             )}
@@ -88,7 +88,7 @@ const EmptySpaceFiller: React.FC<EmptySpaceFillerProps> = ({
                 className="flex h-full w-full items-center justify-center"
                 href={`/environments/${environment.id}/settings/setup`}>
                 <span className="decoration-brand-dark underline  transition-all duration-300 ease-in-out">
-                  Install Formbricks Widget. <strong>Go to Setup Checklist 👉</strong>
+                  Install Fastform Widget. <strong>Go to Setup Checklist 👉</strong>
                 </span>
               </Link>
             )}
@@ -116,7 +116,7 @@ const EmptySpaceFiller: React.FC<EmptySpaceFillerProps> = ({
               className="flex h-full w-full items-center justify-center"
               href={`/environments/${environment.id}/settings/setup`}>
               <span className="decoration-brand-dark underline  transition-all duration-300 ease-in-out">
-                Install Formbricks Widget. <strong>Go to Setup Checklist 👉</strong>
+                Install Fastform Widget. <strong>Go to Setup Checklist 👉</strong>
               </span>
             </Link>
           )}

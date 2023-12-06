@@ -1,10 +1,10 @@
 "use client";
 
 import { createProductAction } from "@/app/(app)/environments/[environmentId]/actions";
-import { Modal } from "@formbricks/ui/Modal";
-import { Button } from "@formbricks/ui/Button";
-import { Label } from "@formbricks/ui/Label";
-import { Input } from "@formbricks/ui/Input";
+import { Modal } from "@fastform/ui/Modal";
+import { Button } from "@fastform/ui/Button";
+import { Label } from "@fastform/ui/Label";
+import { Input } from "@fastform/ui/Input";
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

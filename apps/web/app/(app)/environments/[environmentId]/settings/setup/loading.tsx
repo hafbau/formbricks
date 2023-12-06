@@ -22,12 +22,12 @@ export default function Loading() {
   const cards = [
     {
       title: "Widget Status",
-      description: "Check if the Formbricks widget is alive and kicking.",
+      description: "Check if the Fastform widget is alive and kicking.",
       skeletonLines: [{ classes: "h-32 max-w-full rounded-md" }],
     },
     {
       title: "How to setup",
-      description: "Follow these steps to setup the Formbricks widget within your app",
+      description: "Follow these steps to setup the Fastform widget within your app",
       skeletonLines: [
         { classes: "h-6 w-24 rounded-full" },
         { classes: "h-4 w-60 rounded-full" },

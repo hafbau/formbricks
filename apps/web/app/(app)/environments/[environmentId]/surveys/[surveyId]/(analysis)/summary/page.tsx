@@ -2,14 +2,14 @@ export const revalidate = REVALIDATION_INTERVAL;
 
 import { getAnalysisData } from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/data";
 import SummaryPage from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/SummaryPage";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { REVALIDATION_INTERVAL, TEXT_RESPONSES_PER_PAGE, WEBAPP_URL } from "@formbricks/lib/constants";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { getProfile } from "@formbricks/lib/profile/service";
-import { getTagsByEnvironmentId } from "@formbricks/lib/tag/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { REVALIDATION_INTERVAL, TEXT_RESPONSES_PER_PAGE, WEBAPP_URL } from "@fastform/lib/constants";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { getProfile } from "@fastform/lib/profile/service";
+import { getTagsByEnvironmentId } from "@fastform/lib/tag/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { getServerSession } from "next-auth";
 
 export default async function Page({ params }) {

@@ -1,4 +1,4 @@
-import { TSurvey } from "@formbricks/types/surveys";
+import { TSurvey } from "@fastform/types/surveys";
 import { useState } from "react";
 
 interface AnimatedSurveyBgProps {

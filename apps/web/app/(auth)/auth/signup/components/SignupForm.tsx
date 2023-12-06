@@ -1,8 +1,8 @@
 "use client";
 
 import { createUser } from "@/app/lib/users/users";
-import { PasswordInput } from "@formbricks/ui/PasswordInput";
-import { Button } from "@formbricks/ui/Button";
+import { PasswordInput } from "@fastform/ui/PasswordInput";
+import { Button } from "@fastform/ui/Button";
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -105,7 +105,7 @@ export const SignupForm = ({
         </div>
       )}
       <div className="text-center">
-        <h1 className="mb-4 text-slate-700">Create your Formbricks account</h1>
+        <h1 className="mb-4 text-slate-700">Create your Fastform account</h1>
         <div className="space-y-2">
           <form onSubmit={handleSubmit} ref={formRef} className="space-y-2" onChange={checkFormValidity}>
             {showLogin && (

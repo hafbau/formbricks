@@ -4,14 +4,14 @@ import {
   GOOGLE_SHEETS_CLIENT_SECRET,
   GOOGLE_SHEETS_REDIRECT_URL,
   WEBAPP_URL,
-} from "@formbricks/lib/constants";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getSpreadSheets } from "@formbricks/lib/googleSheet/service";
-import { getIntegrations } from "@formbricks/lib/integration/service";
-import { getSurveys } from "@formbricks/lib/survey/service";
-import { TIntegrationItem } from "@formbricks/types/integration";
-import { TIntegrationGoogleSheets } from "@formbricks/types/integration/googleSheet";
-import GoBackButton from "@formbricks/ui/GoBackButton";
+} from "@fastform/lib/constants";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getSpreadSheets } from "@fastform/lib/googleSheet/service";
+import { getIntegrations } from "@fastform/lib/integration/service";
+import { getSurveys } from "@fastform/lib/survey/service";
+import { TIntegrationItem } from "@fastform/types/integration";
+import { TIntegrationGoogleSheets } from "@fastform/types/integration/googleSheet";
+import GoBackButton from "@fastform/ui/GoBackButton";
 
 export default async function GoogleSheet({ params }) {
   const enabled = !!(GOOGLE_SHEETS_CLIENT_ID && GOOGLE_SHEETS_CLIENT_SECRET && GOOGLE_SHEETS_REDIRECT_URL);

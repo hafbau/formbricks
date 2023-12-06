@@ -1,7 +1,7 @@
-import { getDisplayCountBySurveyId } from "@formbricks/lib/display/service";
-import { getResponses } from "@formbricks/lib/response/service";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
+import { getDisplayCountBySurveyId } from "@fastform/lib/display/service";
+import { getResponses } from "@fastform/lib/response/service";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 
 export const getAnalysisData = async (surveyId: string, environmentId: string) => {
   const [survey, team, responses, displayCount] = await Promise.all([

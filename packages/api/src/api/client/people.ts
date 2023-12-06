@@ -1,6 +1,6 @@
-import { Result } from "@formbricks/types/errorHandlers";
-import { NetworkError } from "@formbricks/types/errors";
-import { TPersonUpdateInput } from "@formbricks/types/people";
+import { Result } from "@fastform/types/errorHandlers";
+import { NetworkError } from "@fastform/types/errors";
+import { TPersonUpdateInput } from "@fastform/types/people";
 import { makeRequest } from "../../utils/makeRequest";
 
 export class PeopleAPI {

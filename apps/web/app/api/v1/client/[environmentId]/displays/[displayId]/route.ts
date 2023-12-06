@@ -1,7 +1,7 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { updateDisplay } from "@formbricks/lib/display/service";
-import { ZDisplayUpdateInput } from "@formbricks/types/displays";
+import { updateDisplay } from "@fastform/lib/display/service";
+import { ZDisplayUpdateInput } from "@fastform/types/displays";
 import { NextResponse } from "next/server";
 
 interface Context {

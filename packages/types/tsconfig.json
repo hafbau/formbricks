@@ -1,5 +1,5 @@
 {
-  "extends": "@formbricks/tsconfig/base.json",
+  "extends": "@fastform/tsconfig/base.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {

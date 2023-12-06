@@ -4,10 +4,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
-import { TProduct } from "@formbricks/types/product";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
+import { TProduct } from "@fastform/types/product";
 import { updateProductAction } from "../actions";
 
 type EditWaitingTimeFormValues = {

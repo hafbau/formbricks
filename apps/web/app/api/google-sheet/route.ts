@@ -1,13 +1,13 @@
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
 import { responses } from "@/app/lib/api/response";
 import {
   GOOGLE_SHEETS_CLIENT_ID,
   GOOGLE_SHEETS_CLIENT_SECRET,
   GOOGLE_SHEETS_REDIRECT_URL,
-} from "@formbricks/lib/constants";
+} from "@fastform/lib/constants";
 import { google } from "googleapis";
 import { NextRequest } from "next/server";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
 
 const scopes = [

@@ -1,5 +1,5 @@
 import jwt, { JwtPayload } from "jsonwebtoken";
-import { prisma } from "@formbricks/database";
+import { prisma } from "@fastform/database";
 import { env } from "./env.mjs";
 
 export function createToken(userId: string, userEmail: string, options = {}): string {

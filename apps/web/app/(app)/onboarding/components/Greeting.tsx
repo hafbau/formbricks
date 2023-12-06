@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@formbricks/ui/Button";
+import { Button } from "@fastform/ui/Button";
 import type { Session } from "next-auth";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -42,7 +42,7 @@ const Greeting: React.FC<Greeting> = ({ next, skip, name, session }) => {
         <div className="px-4">
           <h1 className="pb-4 text-4xl font-bold text-slate-900">
             👋 Hi, {name}! <br />
-            {legacyUser ? "Welcome back!" : "Welcome to Formbricks!"}
+            {legacyUser ? "Welcome back!" : "Welcome to Fastform!"}
           </h1>
           <p className="text-xl text-slate-500">
             {legacyUser ? "Let's customize your account." : "Let's finish setting up your account."}
@@ -61,7 +61,7 @@ const Greeting: React.FC<Greeting> = ({ next, skip, name, session }) => {
         <div className="pb-12 pt-8 text-center">
           <p>Your answers will help us improve your experience and help others like you.</p>
           <p>
-            <Link href="https://formbricks.com/privacy-policy" target="_blank" className="underline">
+            <Link href="https://fastform.com/privacy-policy" target="_blank" className="underline">
               Click here
             </Link>{" "}
             to learn how we handle your data.

@@ -33,7 +33,7 @@ export default function Loading() {
     },
     {
       title: "Avatar",
-      description: "Assist your team in identifying you on Formbricks.",
+      description: "Assist your team in identifying you on Fastform.",
       skeletonLines: [{ classes: "h-10 w-10" }, { classes: "h-8 w-24" }],
     },
     {

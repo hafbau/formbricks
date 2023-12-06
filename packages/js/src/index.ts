@@ -1,4 +1,4 @@
-import { TJsConfigInput } from "@formbricks/types/js";
+import { TJsConfigInput } from "@fastform/types/js";
 import { trackAction } from "./lib/actions";
 import { getApi } from "./lib/api";
 import { CommandQueue } from "./lib/commandQueue";
@@ -54,7 +54,7 @@ const registerRouteChange = async (): Promise<void> => {
   await queue.wait();
 };
 
-const formbricks = {
+const fastform = {
   init,
   setUserId,
   setEmail,
@@ -66,5 +66,5 @@ const formbricks = {
   getApi,
 };
 
-export type FormbricksType = typeof formbricks;
-export default formbricks as FormbricksType;
+export type FormbricksType = typeof fastform;
+export default fastform as FormbricksType;

@@ -1,5 +1,5 @@
-import { prisma } from "@formbricks/database";
-import { AuthenticationError } from "@formbricks/types/errors";
+import { prisma } from "@fastform/database";
+import { AuthenticationError } from "@fastform/types/errors";
 import { compare, hash } from "bcryptjs";
 
 export async function hashPassword(password: string) {

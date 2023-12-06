@@ -1,4 +1,4 @@
-import formbricks from "@formbricks/js";
+import fastform from "@fastform/js";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import fbsetup from "../../public/fb-setup.png";
@@ -22,18 +22,18 @@ export default function AppPage({}) {
     if (process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID && process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST) {
       const isUserId = window.location.href.includes("userId=true");
       const userId = isUserId ? "THIS-IS-A-VERY-LONG-USER-ID-FOR-TESTING" : undefined;
-      formbricks.init({
+      fastform.init({
         environmentId: process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID,
         apiHost: process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST,
         userId,
         debug: true,
       });
-      window.formbricks = formbricks;
+      window.fastform = fastform;
     }
 
-    // Connect next.js router to Formbricks
+    // Connect next.js router to Fastform
     if (process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID && process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST) {
-      const handleRouteChange = formbricks?.registerRouteChange;
+      const handleRouteChange = fastform?.registerRouteChange;
       router.events.on("routeChangeComplete", handleRouteChange);
 
       return () => {
@@ -47,7 +47,7 @@ export default function AppPage({}) {
       <div className="flex flex-col justify-between md:flex-row">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
-            Formbricks In-product Survey Demo App
+            Fastform In-product Survey Demo App
           </h1>
           <p className="text-slate-700 dark:text-slate-300">
             This app helps you test your in-app surveys. You can create and test user actions, create and
@@ -66,7 +66,7 @@ export default function AppPage({}) {
           <div className="rounded-lg border border-slate-300 bg-slate-100 p-6 dark:border-slate-600 dark:bg-slate-900">
             <h3 className="text-lg font-semibold text-slate-900 dark:text-white">1. Setup .env</h3>
             <p className="text-slate-700 dark:text-slate-300">
-              Copy the environment ID of your Formbricks app to the env variable in demo/.env
+              Copy the environment ID of your Fastform app to the env variable in demo/.env
             </p>
             <Image src={fbsetup} alt="fb setup" className="mt-4 rounded" priority />
 
@@ -98,22 +98,22 @@ export default function AppPage({}) {
         <div className="md:grid md:grid-cols-3">
           <div className="col-span-3 rounded-lg border border-slate-300 bg-slate-100 p-6 dark:border-gray-600 dark:bg-gray-800">
             <h3 className="text-lg font-semibold dark:text-white">
-              Reset person / pull data from Formbricks app
+              Reset person / pull data from Fastform app
             </h3>
             <p className="text-slate-700 dark:text-gray-300">
-              On formbricks.reset() a few things happen: <strong>New person is created</strong> and{" "}
-              <strong>surveys & no-code actions are pulled from Formbricks:</strong>.
+              On fastform.reset() a few things happen: <strong>New person is created</strong> and{" "}
+              <strong>surveys & no-code actions are pulled from Fastform:</strong>.
             </p>
             <button
               className="my-4 rounded-lg bg-slate-500 px-6 py-3 text-white hover:bg-slate-700 dark:bg-gray-700 dark:hover:bg-gray-600"
               onClick={() => {
-                formbricks.reset();
+                fastform.reset();
               }}>
               Reset
             </button>
             <p className="text-xs text-slate-700 dark:text-gray-300">
-              If you made a change in Formbricks app and it does not seem to work, hit &apos;Reset&apos; and
-              try again.
+              If you made a change in Fastform app and it does not seem to work, hit &apos;Reset&apos; and try
+              again.
             </p>
           </div>
 
@@ -122,7 +122,7 @@ export default function AppPage({}) {
               <button
                 className="mb-4 rounded-lg bg-slate-800 px-6 py-3 text-white hover:bg-slate-700 dark:bg-gray-700 dark:hover:bg-gray-600"
                 onClick={() => {
-                  formbricks.track("Code Action");
+                  fastform.track("Code Action");
                 }}>
                 Code Action
               </button>
@@ -130,10 +130,10 @@ export default function AppPage({}) {
             <div>
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sends a{" "}
-                <a href="https://formbricks.com/docs/actions/code" className="underline" target="_blank">
+                <a href="https://fastform.com/docs/actions/code" className="underline" target="_blank">
                   Code Action
                 </a>{" "}
-                to the Formbricks API called &apos;Code Action&apos;. You will find it in the Actions Tab.
+                to the Fastform API called &apos;Code Action&apos;. You will find it in the Actions Tab.
               </p>
             </div>
           </div>
@@ -147,14 +147,14 @@ export default function AppPage({}) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sends a{" "}
                 <a
-                  href="https://formbricks.com/docs/actions/no-code"
+                  href="https://fastform.com/docs/actions/no-code"
                   className="underline dark:text-blue-500"
                   target="_blank">
                   No Code Action
                 </a>{" "}
-                as long as you created it beforehand in the Formbricks App.{" "}
+                as long as you created it beforehand in the Fastform App.{" "}
                 <a
-                  href="https://formbricks.com/docs/actions/no-code"
+                  href="https://fastform.com/docs/actions/no-code"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   Here are instructions on how to do it.
@@ -166,7 +166,7 @@ export default function AppPage({}) {
             <div>
               <button
                 onClick={() => {
-                  formbricks.setAttribute("Plan", "Free");
+                  fastform.setAttribute("Plan", "Free");
                 }}
                 className="mb-4 rounded-lg bg-slate-800 px-6 py-3 text-white hover:bg-slate-700  dark:bg-gray-700 dark:hover:bg-gray-600">
                 Set Plan to &apos;Free&apos;
@@ -176,7 +176,7 @@ export default function AppPage({}) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sets the{" "}
                 <a
-                  href="https://formbricks.com/docs/attributes/custom-attributes"
+                  href="https://fastform.com/docs/attributes/custom-attributes"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   attribute
@@ -189,7 +189,7 @@ export default function AppPage({}) {
             <div>
               <button
                 onClick={() => {
-                  formbricks.setAttribute("Plan", "Paid");
+                  fastform.setAttribute("Plan", "Paid");
                 }}
                 className="mb-4 rounded-lg bg-slate-800 px-6 py-3 text-white hover:bg-slate-700  dark:bg-gray-700 dark:hover:bg-gray-600">
                 Set Plan to &apos;Paid&apos;
@@ -199,7 +199,7 @@ export default function AppPage({}) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sets the{" "}
                 <a
-                  href="https://formbricks.com/docs/attributes/custom-attributes"
+                  href="https://fastform.com/docs/attributes/custom-attributes"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   attribute
@@ -212,7 +212,7 @@ export default function AppPage({}) {
             <div>
               <button
                 onClick={() => {
-                  formbricks.setEmail("test@web.com");
+                  fastform.setEmail("test@web.com");
                 }}
                 className="mb-4 rounded-lg bg-slate-800 px-6 py-3 text-white hover:bg-slate-700  dark:bg-gray-700 dark:hover:bg-gray-600">
                 Set Email
@@ -222,7 +222,7 @@ export default function AppPage({}) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sets the{" "}
                 <a
-                  href="https://formbricks.com/docs/attributes/identify-users"
+                  href="https://fastform.com/docs/attributes/identify-users"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   user email
@@ -257,7 +257,7 @@ export default function AppPage({}) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button activates/deactivates{" "}
                 <a
-                  href="https://formbricks.com/docs/attributes/identify-users"
+                  href="https://fastform.com/docs/attributes/identify-users"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   user identification

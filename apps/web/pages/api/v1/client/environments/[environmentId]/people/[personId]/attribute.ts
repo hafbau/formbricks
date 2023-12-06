@@ -1,6 +1,6 @@
 import { getSettings } from "@/app/lib/api/clientSettings";
-import { prisma } from "@formbricks/database";
-import { personCache } from "@formbricks/lib/person/cache";
+import { prisma } from "@fastform/database";
+import { personCache } from "@fastform/lib/person/cache";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {

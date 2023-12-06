@@ -1,8 +1,8 @@
 import TeamActions from "@/app/(app)/environments/[environmentId]/settings/members/components/EditMemberships/TeamActions";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { getMembershipsByUserId, getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { Skeleton } from "@formbricks/ui/Skeleton";
+import { authOptions } from "@fastform/lib/authOptions";
+import { getMembershipsByUserId, getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { Skeleton } from "@fastform/ui/Skeleton";
 import { getServerSession } from "next-auth";
 import { Suspense } from "react";
 import SettingsCard from "../components/SettingsCard";
@@ -10,9 +10,9 @@ import SettingsTitle from "../components/SettingsTitle";
 import DeleteTeam from "./components/DeleteTeam";
 import { EditMemberships } from "./components/EditMemberships";
 import EditTeamName from "./components/EditTeamName";
-import { INVITE_DISABLED } from "@formbricks/lib/constants";
-import { getIsEnterpriseEdition } from "@formbricks/ee/lib/service";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { INVITE_DISABLED } from "@fastform/lib/constants";
+import { getIsEnterpriseEdition } from "@fastform/ee/lib/service";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 
 const MembersLoading = () => (
   <div className="rounded-lg border border-slate-200">

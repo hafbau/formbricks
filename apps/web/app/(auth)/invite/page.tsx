@@ -1,6 +1,6 @@
 import { sendInviteAcceptedEmail } from "@/app/lib/email";
-import { verifyInviteToken } from "@formbricks/lib/jwt";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { verifyInviteToken } from "@fastform/lib/jwt";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
 import {
   NotLoggedInContent,
@@ -9,9 +9,9 @@ import {
   UsedContent,
   RightAccountContent,
 } from "./components/InviteContentComponents";
-import { env } from "@formbricks/lib/env.mjs";
-import { deleteInvite, getInvite } from "@formbricks/lib/invite/service";
-import { createMembership } from "@formbricks/lib/membership/service";
+import { env } from "@fastform/lib/env.mjs";
+import { deleteInvite, getInvite } from "@fastform/lib/invite/service";
+import { createMembership } from "@fastform/lib/membership/service";
 
 export default async function JoinTeam({ searchParams }) {
   const currentUser = await getServerSession(authOptions);

@@ -1,4 +1,4 @@
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 import { PresentationChartLineIcon, InboxStackIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import revalidateSurveyIdPath from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/actions";

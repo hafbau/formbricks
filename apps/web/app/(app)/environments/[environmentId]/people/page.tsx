@@ -1,13 +1,13 @@
 export const revalidate = REVALIDATION_INTERVAL;
 
-import EmptySpaceFiller from "@formbricks/ui/EmptySpaceFiller";
-import { truncateMiddle } from "@formbricks/lib/strings";
-import { ITEMS_PER_PAGE, REVALIDATION_INTERVAL } from "@formbricks/lib/constants";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getPeople, getPeopleCount } from "@formbricks/lib/person/service";
-import { TPerson } from "@formbricks/types/people";
-import { PersonAvatar } from "@formbricks/ui/Avatars";
-import { Pagination } from "@formbricks/ui/Pagination";
+import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
+import { truncateMiddle } from "@fastform/lib/strings";
+import { ITEMS_PER_PAGE, REVALIDATION_INTERVAL } from "@fastform/lib/constants";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getPeople, getPeopleCount } from "@fastform/lib/person/service";
+import { TPerson } from "@fastform/types/people";
+import { PersonAvatar } from "@fastform/ui/Avatars";
+import { Pagination } from "@fastform/ui/Pagination";
 
 import Link from "next/link";
 

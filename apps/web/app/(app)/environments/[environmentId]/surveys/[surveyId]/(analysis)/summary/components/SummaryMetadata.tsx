@@ -1,8 +1,8 @@
-import { timeSinceConditionally } from "@formbricks/lib/time";
-import { TResponse } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@formbricks/ui/Tooltip";
+import { timeSinceConditionally } from "@fastform/lib/time";
+import { TResponse } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
 import { useMemo, useState } from "react";
 

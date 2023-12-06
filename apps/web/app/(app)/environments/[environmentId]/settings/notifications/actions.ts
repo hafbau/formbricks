@@ -1,9 +1,9 @@
 "use server";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { AuthorizationError } from "@formbricks/types/errors";
+import { authOptions } from "@fastform/lib/authOptions";
+import { AuthorizationError } from "@fastform/types/errors";
 import { getServerSession } from "next-auth";
-import { prisma } from "@formbricks/database";
-import { TUserNotificationSettings } from "@formbricks/types/users";
+import { prisma } from "@fastform/database";
+import { TUserNotificationSettings } from "@fastform/types/users";
 
 export async function updateNotificationSettingsAction(notificationSettings: TUserNotificationSettings) {
   const session = await getServerSession(authOptions);

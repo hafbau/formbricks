@@ -11,7 +11,7 @@ import {
   SIGNUP_ENABLED,
   TERMS_URL,
   WEBAPP_URL,
-} from "@formbricks/lib/constants";
+} from "@fastform/lib/constants";
 import { SignupForm } from "@/app/(auth)/auth/signup/components/SignupForm";
 import Testimonial from "@/app/(auth)/auth/components/Testimonial";
 import FormWrapper from "@/app/(auth)/auth/components/FormWrapper";

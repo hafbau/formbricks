@@ -1,9 +1,9 @@
-# @formbricks/api - API Wrapper for Formbricks
+# @fastform/api - API Wrapper for Fastform
 
 ## Installation
 
 ```bash
-npm install @formbricks/api
+npm install @fastform/api
 ```
 
 ## Usage
@@ -12,7 +12,7 @@ npm install @formbricks/api
 <summary>Create API Client</summary>
 
 ```ts
-import { FormbricksAPI, EnvironmentId } from "@formbricks/api";
+import { FormbricksAPI, EnvironmentId } from "@fastform/api";
 
 const api = new FormbricksAPI({
   apiHost: "http://localhost:3000",
@@ -23,7 +23,7 @@ const api = new FormbricksAPI({
 </details>
 
 > **Note**
-> All of the following methods return a `Result` from the `@formbricks/errors` package.
+> All of the following methods return a `Result` from the `@fastform/errors` package.
 
 <details>
 <summary>Create a new response</summary>

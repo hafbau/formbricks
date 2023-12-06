@@ -22,7 +22,7 @@ export const renderSurveyModal = (props: SurveyModalProps & { brandColor: string
 
   // add container element to DOM
   const element = document.createElement("div");
-  element.id = "formbricks-modal-container";
+  element.id = "fastform-modal-container";
   document.body.appendChild(element);
   render(h(SurveyModal, props), element);
 };

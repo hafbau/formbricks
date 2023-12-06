@@ -1,5 +1,5 @@
 import { responses } from "@/app/lib/api/response";
-import { default as webhookHandler } from "@formbricks/ee/billing/api/stripe-webhook";
+import { default as webhookHandler } from "@fastform/ee/billing/api/stripe-webhook";
 import { headers } from "next/headers";
 
 export async function POST(request: Request) {

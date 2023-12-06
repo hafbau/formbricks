@@ -1,6 +1,6 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
+import { prisma } from "@fastform/database";
 import { Prisma } from "@prisma/client";
 import {
   TInvite,
@@ -10,9 +10,9 @@ import {
   ZInviteUpdateInput,
   ZCurrentUser,
   TCurrentUser,
-} from "@formbricks/types/invites";
-import { ResourceNotFoundError, ValidationError, DatabaseError } from "@formbricks/types/errors";
-import { ZString, ZOptionalNumber } from "@formbricks/types/common";
+} from "@fastform/types/invites";
+import { ResourceNotFoundError, ValidationError, DatabaseError } from "@fastform/types/errors";
+import { ZString, ZOptionalNumber } from "@fastform/types/common";
 import { sendInviteMemberEmail } from "../emails/emails";
 import { validateInputs } from "../utils/validate";
 import { ITEMS_PER_PAGE, SERVICES_REVALIDATION_INTERVAL } from "../constants";

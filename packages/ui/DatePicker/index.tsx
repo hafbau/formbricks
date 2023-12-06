@@ -2,7 +2,7 @@
 
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 import { Popover, PopoverContent, PopoverTrigger } from "../Popover";
 import { Button } from "../Button";
 import { Calendar } from "../Calendar";

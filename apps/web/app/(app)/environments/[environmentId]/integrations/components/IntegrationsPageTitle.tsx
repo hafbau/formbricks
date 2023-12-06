@@ -1,4 +1,4 @@
-import { BackIcon } from "@formbricks/ui/icons";
+import { BackIcon } from "@fastform/ui/icons";
 import Link from "next/link";
 
 interface IntegrationPageTitleProps {

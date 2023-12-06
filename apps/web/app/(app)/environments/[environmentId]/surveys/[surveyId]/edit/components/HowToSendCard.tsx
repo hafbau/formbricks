@@ -1,10 +1,10 @@
 "use client";
-import { cn } from "@formbricks/lib/cn";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TSurvey, TSurveyType } from "@formbricks/types/surveys";
-import { Badge } from "@formbricks/ui/Badge";
-import { Label } from "@formbricks/ui/Label";
-import { RadioGroup, RadioGroupItem } from "@formbricks/ui/RadioGroup";
+import { cn } from "@fastform/lib/cn";
+import { TEnvironment } from "@fastform/types/environment";
+import { TSurvey, TSurveyType } from "@fastform/types/surveys";
+import { Badge } from "@fastform/ui/Badge";
+import { Label } from "@fastform/ui/Label";
+import { RadioGroup, RadioGroupItem } from "@fastform/ui/RadioGroup";
 import {
   CheckCircleIcon,
   ComputerDesktopIcon,
@@ -137,9 +137,7 @@ export default function HowToSendCard({ localSurvey, setLocalSurvey, environment
                       <div className="mt-2 flex items-center space-x-3 rounded-lg border border-amber-200 bg-amber-50 px-4 py-2">
                         <ExclamationCircleIcon className="h-5 w-5 text-amber-500" />
                         <div className=" text-amber-800">
-                          <p className="text-xs font-semibold">
-                            Your app is not yet connected to Formbricks.
-                          </p>
+                          <p className="text-xs font-semibold">Your app is not yet connected to Fastform.</p>
                           <p className="text-xs font-normal">
                             Follow the{" "}
                             <Link
@@ -148,7 +146,7 @@ export default function HowToSendCard({ localSurvey, setLocalSurvey, environment
                               target="_blank">
                               set up guide
                             </Link>{" "}
-                            to connect Formbricks and launch surveys in your app.
+                            to connect Fastform and launch surveys in your app.
                           </p>
                         </div>
                       </div>

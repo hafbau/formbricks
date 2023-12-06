@@ -6,8 +6,8 @@ version: "3.3"
 # This should be the same as below if you are running via docker compose up
 x-webapp-url: &webapp_url http://localhost:3000
 
-# PostgreSQL DB for Formbricks to connect to
-x-database-url: &database_url postgresql://postgres:postgres@postgres:5432/formbricks?schema=public
+# PostgreSQL DB for Fastform to connect to
+x-database-url: &database_url postgresql://postgres:postgres@postgres:5432/fastform?schema=public
 
 # NextJS Auth
 # @see: https://next-auth.js.org/configuration/options#nextauth_secret
@@ -79,7 +79,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
 
-  formbricks:
+  fastform:
     restart: always
     build:
       context: .

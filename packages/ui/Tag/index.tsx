@@ -1,4 +1,4 @@
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 import { XCircleIcon } from "@heroicons/react/24/solid";
 
 interface Tag {

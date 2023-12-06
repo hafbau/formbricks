@@ -1,7 +1,7 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@formbricks/ui/Select";
-import { Button } from "@formbricks/ui/Button";
-import { AdvancedOptionToggle } from "@formbricks/ui/AdvancedOptionToggle";
-import { Input } from "@formbricks/ui/Input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@fastform/ui/Select";
+import { Button } from "@fastform/ui/Button";
+import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
+import { Input } from "@fastform/ui/Input";
 
 import { Label } from "@radix-ui/react-dropdown-menu";
 import clsx from "clsx";

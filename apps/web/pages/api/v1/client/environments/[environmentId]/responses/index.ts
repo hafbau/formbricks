@@ -1,10 +1,10 @@
 import { sendToPipeline } from "@/app/lib/pipelines";
-import { prisma } from "@formbricks/database";
-import { transformPrismaPerson } from "@formbricks/lib/person/service";
-import { capturePosthogEvent } from "@formbricks/lib/posthogServer";
-import { captureTelemetry } from "@formbricks/lib/telemetry";
-import { TResponse } from "@formbricks/types/responses";
-import { TTag } from "@formbricks/types/tags";
+import { prisma } from "@fastform/database";
+import { transformPrismaPerson } from "@fastform/lib/person/service";
+import { capturePosthogEvent } from "@fastform/lib/posthogServer";
+import { captureTelemetry } from "@fastform/lib/telemetry";
+import { TResponse } from "@fastform/types/responses";
+import { TTag } from "@fastform/types/tags";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {

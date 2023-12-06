@@ -1,8 +1,8 @@
-import { capitalizeFirstLetter } from "@formbricks/lib/strings";
-import { timeSinceConditionally } from "@formbricks/lib/time";
-import { TSurvey } from "@formbricks/types/surveys";
-import { TWebhook } from "@formbricks/types/webhooks";
-import { Badge } from "@formbricks/ui/Badge";
+import { capitalizeFirstLetter } from "@fastform/lib/strings";
+import { timeSinceConditionally } from "@fastform/lib/time";
+import { TSurvey } from "@fastform/types/surveys";
+import { TWebhook } from "@fastform/types/webhooks";
+import { Badge } from "@fastform/ui/Badge";
 
 const renderSelectedSurveysText = (webhook: TWebhook, allSurveys: TSurvey[]) => {
   if (webhook.surveyIds.length === 0) {

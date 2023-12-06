@@ -15,20 +15,20 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@formbricks/ui/DropdownMenu";
-import CreateTeamModal from "@formbricks/ui/CreateTeamModal";
+} from "@fastform/ui/DropdownMenu";
+import CreateTeamModal from "@fastform/ui/CreateTeamModal";
 import UrlShortenerModal from "./UrlShortenerModal";
-import { formbricksLogout } from "@/app/lib/formbricks";
-import { capitalizeFirstLetter, truncate } from "@formbricks/lib/strings";
-import formbricks from "@formbricks/js";
-import { cn } from "@formbricks/lib/cn";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TProduct } from "@formbricks/types/product";
-import { TTeam } from "@formbricks/types/teams";
-import { CustomersIcon, DashboardIcon, FilterIcon, FormIcon, SettingsIcon } from "@formbricks/ui/icons";
-import { Popover, PopoverContent, PopoverTrigger } from "@formbricks/ui/Popover";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@formbricks/ui/Tooltip";
-import { ProfileAvatar } from "@formbricks/ui/Avatars";
+import { formbricksLogout } from "@/app/lib/fastform";
+import { capitalizeFirstLetter, truncate } from "@fastform/lib/strings";
+import fastform from "@fastform/js";
+import { cn } from "@fastform/lib/cn";
+import { TEnvironment } from "@fastform/types/environment";
+import { TProduct } from "@fastform/types/product";
+import { TTeam } from "@fastform/types/teams";
+import { CustomersIcon, DashboardIcon, FilterIcon, FormIcon, SettingsIcon } from "@fastform/ui/icons";
+import { Popover, PopoverContent, PopoverTrigger } from "@fastform/ui/Popover";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
+import { ProfileAvatar } from "@fastform/ui/Avatars";
 import {
   AdjustmentsVerticalIcon,
   ArrowRightOnRectangleIcon,
@@ -53,8 +53,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import AddProductModal from "./AddProductModal";
-import { TMembershipRole } from "@formbricks/types/memberships";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { TMembershipRole } from "@fastform/types/memberships";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 
 interface NavigationProps {
   environment: TEnvironment;
@@ -203,13 +203,13 @@ export default function Navigation({
         {
           icon: CodeBracketIcon,
           label: "Developer Docs",
-          href: "https://formbricks.com/docs",
+          href: "https://fastform.com/docs",
           target: "_blank",
         },
         {
           icon: HeartIcon,
-          label: "Contribute to Formbricks",
-          href: "https://github.com/formbricks/formbricks",
+          label: "Contribute to Fastform",
+          href: "https://github.com/fastform/fastform",
           target: "_blank",
         },
       ],
@@ -367,7 +367,7 @@ export default function Navigation({
                                     <div className="mt-0.5 h-2 w-2 rounded-full bg-amber-500 hover:bg-amber-600"></div>
                                   </TooltipTrigger>
                                   <TooltipContent>
-                                    <p>Your app is not connected to Formbricks.</p>
+                                    <p>Your app is not connected to Fastform.</p>
                                   </TooltipContent>
                                 </Tooltip>
                               </TooltipProvider>
@@ -480,7 +480,7 @@ export default function Navigation({
                         <DropdownMenuItem>
                           <button
                             onClick={() => {
-                              formbricks.track("Top Menu: Product Feedback");
+                              fastform.track("Top Menu: Product Feedback");
                             }}>
                             <div className="flex items-center">
                               <ChatBubbleBottomCenterTextIcon className="mr-2 h-4 w-4" />

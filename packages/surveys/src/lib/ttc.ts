@@ -1,4 +1,4 @@
-import { TResponseTtc } from "@formbricks/types/responses";
+import { TResponseTtc } from "@fastform/types/responses";
 import { useEffect } from "react";
 export const getUpdatedTtc = (ttc: TResponseTtc, questionId: string, time: number) => {
   // Check if the question ID already exists

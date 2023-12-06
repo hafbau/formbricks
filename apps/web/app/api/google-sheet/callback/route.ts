@@ -4,8 +4,8 @@ import {
   WEBAPP_URL,
   GOOGLE_SHEETS_CLIENT_SECRET,
   GOOGLE_SHEETS_REDIRECT_URL,
-} from "@formbricks/lib/constants";
-import { createOrUpdateIntegration } from "@formbricks/lib/integration/service";
+} from "@fastform/lib/constants";
+import { createOrUpdateIntegration } from "@fastform/lib/integration/service";
 import { google } from "googleapis";
 import { NextRequest, NextResponse } from "next/server";
 

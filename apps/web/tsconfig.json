@@ -1,5 +1,5 @@
 {
-  "extends": "@formbricks/tsconfig/nextjs.json",
+  "extends": "@fastform/tsconfig/nextjs.json",
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -14,7 +14,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@prisma/client/*": ["@formbricks/database/client/*"]
+      "@prisma/client/*": ["@fastform/database/client/*"]
     },
     "plugins": [
       {

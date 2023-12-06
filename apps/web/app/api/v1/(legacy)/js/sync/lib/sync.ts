@@ -1,23 +1,23 @@
-import { getActionClasses } from "@formbricks/lib/actionClass/service";
+import { getActionClasses } from "@fastform/lib/actionClass/service";
 import {
   IS_FORMBRICKS_CLOUD,
   MAU_LIMIT,
   PRICING_APPSURVEYS_FREE_RESPONSES,
   PRICING_USERTARGETING_FREE_MTU,
-} from "@formbricks/lib/constants";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getPerson } from "@formbricks/lib/person/service";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { getSurveys, getSyncSurveys } from "@formbricks/lib/survey/service";
+} from "@fastform/lib/constants";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getPerson } from "@fastform/lib/person/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { getSurveys, getSyncSurveys } from "@fastform/lib/survey/service";
 import {
   getMonthlyActiveTeamPeopleCount,
   getMonthlyTeamResponseCount,
   getTeamByEnvironmentId,
-} from "@formbricks/lib/team/service";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TJsLegacyState, TSurveyWithTriggers } from "@formbricks/types/js";
-import { TPerson } from "@formbricks/types/people";
-import { TSurvey } from "@formbricks/types/surveys";
+} from "@fastform/lib/team/service";
+import { TEnvironment } from "@fastform/types/environment";
+import { TJsLegacyState, TSurveyWithTriggers } from "@fastform/types/js";
+import { TPerson } from "@fastform/types/people";
+import { TSurvey } from "@fastform/types/surveys";
 
 export const transformLegacySurveys = (surveys: TSurvey[]): TSurveyWithTriggers[] => {
   const updatedSurveys = surveys.map((survey) => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { TSurvey } from "@formbricks/types/surveys";
+import { TSurvey } from "@fastform/types/surveys";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,21 +12,21 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@formbricks/ui/DropdownMenu";
-import { Button } from "@formbricks/ui/Button";
+} from "@fastform/ui/DropdownMenu";
+import { Button } from "@fastform/ui/Button";
 import { PencilSquareIcon, EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
-import { SurveyStatusIndicator } from "@formbricks/ui/SurveyStatusIndicator";
+import { SurveyStatusIndicator } from "@fastform/ui/SurveyStatusIndicator";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import SuccessMessage from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/SuccessMessage";
 import LinkSurveyShareButton from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/LinkModalButton";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TProduct } from "@formbricks/types/product";
+import { TEnvironment } from "@fastform/types/environment";
+import { TProduct } from "@fastform/types/product";
 import { updateSurveyAction } from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/edit/actions";
-import { TProfile } from "@formbricks/types/profile";
+import { TProfile } from "@fastform/types/profile";
 import SurveyStatusDropdown from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/components/SurveyStatusDropdown";
-import { TMembershipRole } from "@formbricks/types/memberships";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { TMembershipRole } from "@fastform/types/memberships";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 
 interface SummaryHeaderProps {
   surveyId: string;

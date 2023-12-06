@@ -1,10 +1,10 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { createDisplay } from "@formbricks/lib/display/service";
-import { capturePosthogEvent } from "@formbricks/lib/posthogServer";
-import { getTeamDetails } from "@formbricks/lib/teamDetail/service";
-import { ZDisplayCreateInput } from "@formbricks/types/displays";
-import { InvalidInputError } from "@formbricks/types/errors";
+import { createDisplay } from "@fastform/lib/display/service";
+import { capturePosthogEvent } from "@fastform/lib/posthogServer";
+import { getTeamDetails } from "@fastform/lib/teamDetail/service";
+import { ZDisplayCreateInput } from "@fastform/types/displays";
+import { InvalidInputError } from "@fastform/types/errors";
 import { NextResponse } from "next/server";
 
 interface Context {

@@ -1,7 +1,7 @@
 import { responses } from "@/app/lib/api/response";
-import { storageCache } from "@formbricks/lib/storage/cache";
-import { deleteFile } from "@formbricks/lib/storage/service";
-import { TAccessType } from "@formbricks/types/storage";
+import { storageCache } from "@fastform/lib/storage/cache";
+import { deleteFile } from "@fastform/lib/storage/service";
+import { TAccessType } from "@fastform/types/storage";
 
 export const handleDeleteFile = async (environmentId: string, accessType: TAccessType, fileName: string) => {
   try {

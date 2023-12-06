@@ -1,11 +1,11 @@
 version: "3.3"
 x-environment: &environment
   environment:
-    # The url of your Formbricks instance used in the admin panel
+    # The url of your Fastform instance used in the admin panel
     WEBAPP_URL:
 
-    # PostgreSQL DB for Formbricks to connect to
-    DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/formbricks?schema=public"
+    # PostgreSQL DB for Fastform to connect to
+    DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/fastform?schema=public"
 
     # NextJS Auth
     # @see: https://next-auth.js.org/configuration/options#nextauth_secret
@@ -73,9 +73,9 @@ services:
       - postgres:/var/lib/postgresql/data
     <<: *environment
 
-  formbricks:
+  fastform:
     restart: always
-    image: formbricks/formbricks:latest
+    image: fastform/fastform:latest
     depends_on:
       - postgres
     ports:

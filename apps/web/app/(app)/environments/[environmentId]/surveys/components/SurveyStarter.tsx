@@ -1,15 +1,15 @@
 "use client";
 import { createSurveyAction } from "../actions";
 import TemplateList from "@/app/(app)/environments/[environmentId]/surveys/templates/TemplateList";
-import LoadingSpinner from "@formbricks/ui/LoadingSpinner";
-import type { TEnvironment } from "@formbricks/types/environment";
-import type { TProduct } from "@formbricks/types/product";
-import { TSurveyInput } from "@formbricks/types/surveys";
-import { TTemplate } from "@formbricks/types/templates";
+import LoadingSpinner from "@fastform/ui/LoadingSpinner";
+import type { TEnvironment } from "@fastform/types/environment";
+import type { TProduct } from "@fastform/types/product";
+import { TSurveyInput } from "@fastform/types/surveys";
+import { TTemplate } from "@fastform/types/templates";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { TProfile } from "@formbricks/types/profile";
+import { TProfile } from "@fastform/types/profile";
 
 export default function SurveyStarter({
   environmentId,

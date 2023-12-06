@@ -1,10 +1,10 @@
 import SettingsCard from "@/app/(app)/environments/[environmentId]/settings/components/SettingsCard";
 import SettingsTitle from "@/app/(app)/environments/[environmentId]/settings/components/SettingsTitle";
-import { cn } from "@formbricks/lib/cn";
-import { RadioGroup, RadioGroupItem } from "@formbricks/ui/RadioGroup";
-import { Button } from "@formbricks/ui/Button";
-import { Switch } from "@formbricks/ui/Switch";
-import { Label } from "@formbricks/ui/Label";
+import { cn } from "@fastform/lib/cn";
+import { RadioGroup, RadioGroupItem } from "@fastform/ui/RadioGroup";
+import { Button } from "@fastform/ui/Button";
+import { Switch } from "@fastform/ui/Switch";
+import { Label } from "@fastform/ui/Label";
 
 const placements = [
   { name: "Bottom Right", value: "bottomRight", disabled: false },
@@ -103,12 +103,12 @@ export default function Loading() {
         </div>
       </SettingsCard>
       <SettingsCard
-        title="Formbricks Signature"
+        title="Fastform Signature"
         description="We love your support but understand if you toggle it off.">
         <div className="w-full items-center">
           <div className="pointer-events-none flex cursor-not-allowed select-none items-center space-x-2">
             <Switch id="signature" checked={false} />
-            <Label htmlFor="signature">Show &apos;Powered by Formbricks&apos; Signature</Label>
+            <Label htmlFor="signature">Show &apos;Powered by Fastform&apos; Signature</Label>
           </div>
         </div>
       </SettingsCard>

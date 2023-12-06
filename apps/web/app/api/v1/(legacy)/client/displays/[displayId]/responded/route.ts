@@ -1,5 +1,5 @@
 import { responses } from "@/app/lib/api/response";
-import { markDisplayRespondedLegacy } from "@formbricks/lib/display/service";
+import { markDisplayRespondedLegacy } from "@fastform/lib/display/service";
 import { NextResponse } from "next/server";
 
 export async function OPTIONS(): Promise<NextResponse> {

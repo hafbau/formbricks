@@ -1,6 +1,6 @@
 import "server-only";
 
-import { TSurveyDates } from "@formbricks/types/surveys";
+import { TSurveyDates } from "@fastform/types/surveys";
 
 export const formatSurveyDateFields = (survey: TSurveyDates): TSurveyDates => {
   if (typeof survey.createdAt === "string") {

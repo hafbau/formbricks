@@ -4,7 +4,7 @@ import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Check } from "lucide-react";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxPrimitive.CheckboxProps>(
   ({ className, ...props }, ref) => (

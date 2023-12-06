@@ -3,11 +3,11 @@ import SubmitButton from "@/components/buttons/SubmitButton";
 import QuestionImage from "@/components/general/QuestionImage";
 import Headline from "@/components/general/Headline";
 import Subheader from "@/components/general/Subheader";
-import { TResponseData } from "@formbricks/types/responses";
-import type { TSurveyOpenTextQuestion } from "@formbricks/types/surveys";
+import { TResponseData } from "@fastform/types/responses";
+import type { TSurveyOpenTextQuestion } from "@fastform/types/surveys";
 import { useCallback } from "react";
 import { useState } from "preact/hooks";
-import { TResponseTtc } from "@formbricks/types/responses";
+import { TResponseTtc } from "@fastform/types/responses";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 
 interface OpenTextQuestionProps {

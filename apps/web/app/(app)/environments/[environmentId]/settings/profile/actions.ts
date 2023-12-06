@@ -1,11 +1,11 @@
 "use server";
 
-import { disableTwoFactorAuth, enableTwoFactorAuth, setupTwoFactorAuth } from "@formbricks/lib/auth/service";
+import { disableTwoFactorAuth, enableTwoFactorAuth, setupTwoFactorAuth } from "@fastform/lib/auth/service";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { updateProfile, deleteProfile } from "@formbricks/lib/profile/service";
-import { TProfileUpdateInput } from "@formbricks/types/profile";
-import { AuthorizationError } from "@formbricks/types/errors";
+import { authOptions } from "@fastform/lib/authOptions";
+import { updateProfile, deleteProfile } from "@fastform/lib/profile/service";
+import { TProfileUpdateInput } from "@fastform/types/profile";
+import { AuthorizationError } from "@fastform/types/errors";
 
 export async function updateProfileAction(data: Partial<TProfileUpdateInput>) {
   const session = await getServerSession(authOptions);

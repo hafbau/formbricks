@@ -1,12 +1,12 @@
 import { sendInviteAcceptedEmail, sendVerificationEmail } from "@/app/lib/email";
-import { prisma } from "@formbricks/database";
-import { EMAIL_VERIFICATION_DISABLED, INVITE_DISABLED, SIGNUP_ENABLED } from "@formbricks/lib/constants";
-import { verifyInviteToken } from "@formbricks/lib/jwt";
-import { deleteInvite } from "@formbricks/lib/invite/service";
-import { createMembership } from "@formbricks/lib/membership/service";
-import { createProduct } from "@formbricks/lib/product/service";
-import { createProfile } from "@formbricks/lib/profile/service";
-import { createTeam } from "@formbricks/lib/team/service";
+import { prisma } from "@fastform/database";
+import { EMAIL_VERIFICATION_DISABLED, INVITE_DISABLED, SIGNUP_ENABLED } from "@fastform/lib/constants";
+import { verifyInviteToken } from "@fastform/lib/jwt";
+import { deleteInvite } from "@fastform/lib/invite/service";
+import { createMembership } from "@fastform/lib/membership/service";
+import { createProduct } from "@fastform/lib/product/service";
+import { createProfile } from "@fastform/lib/profile/service";
+import { createTeam } from "@fastform/lib/team/service";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {

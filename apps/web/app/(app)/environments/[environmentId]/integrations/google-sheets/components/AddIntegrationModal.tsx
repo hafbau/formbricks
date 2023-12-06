@@ -3,12 +3,12 @@ import {
   TIntegrationGoogleSheets,
   TIntegrationGoogleSheetsConfigData,
   TIntegrationGoogleSheetsInput,
-} from "@formbricks/types/integration/googleSheet";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
-import { Checkbox } from "@formbricks/ui/Checkbox";
-import { Label } from "@formbricks/ui/Label";
-import { Modal } from "@formbricks/ui/Modal";
+} from "@fastform/types/integration/googleSheet";
+import { TSurvey } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
+import { Checkbox } from "@fastform/ui/Checkbox";
+import { Label } from "@fastform/ui/Label";
+import { Modal } from "@fastform/ui/Modal";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import Image from "next/image";
@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import GoogleSheetLogo from "../images/google-sheets-small.png";
-import { TIntegrationItem } from "@formbricks/types/integration";
+import { TIntegrationItem } from "@fastform/types/integration";
 
 interface AddWebhookModalProps {
   environmentId: string;

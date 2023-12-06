@@ -4,13 +4,13 @@
 import { responses } from "@/app/lib/api/response";
 import { NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
-import { putFileToLocalStorage } from "@formbricks/lib/storage/service";
+import { putFileToLocalStorage } from "@fastform/lib/storage/service";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { UPLOADS_DIR } from "@formbricks/lib/constants";
-import { validateLocalSignedUrl } from "@formbricks/lib/crypto";
-import { env } from "@formbricks/lib/env.mjs";
+import { authOptions } from "@fastform/lib/authOptions";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { UPLOADS_DIR } from "@fastform/lib/constants";
+import { validateLocalSignedUrl } from "@fastform/lib/crypto";
+import { env } from "@fastform/lib/env.mjs";
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const accessType = "public"; // public files are accessible by anyone

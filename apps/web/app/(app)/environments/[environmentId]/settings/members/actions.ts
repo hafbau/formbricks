@@ -1,20 +1,20 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { createInviteToken } from "@formbricks/lib/jwt";
-import { AuthenticationError, AuthorizationError, ValidationError } from "@formbricks/types/errors";
-import { deleteInvite, getInvite, inviteUser, resendInvite } from "@formbricks/lib/invite/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { createInviteToken } from "@fastform/lib/jwt";
+import { AuthenticationError, AuthorizationError, ValidationError } from "@fastform/types/errors";
+import { deleteInvite, getInvite, inviteUser, resendInvite } from "@fastform/lib/invite/service";
 import {
   deleteMembership,
   getMembershipsByUserId,
   getMembershipByUserIdTeamId,
-} from "@formbricks/lib/membership/service";
-import { deleteTeam, updateTeam } from "@formbricks/lib/team/service";
-import { TMembershipRole } from "@formbricks/types/memberships";
+} from "@fastform/lib/membership/service";
+import { deleteTeam, updateTeam } from "@fastform/lib/team/service";
+import { TMembershipRole } from "@fastform/types/memberships";
 import { getServerSession } from "next-auth";
-import { hasTeamAuthority } from "@formbricks/lib/auth";
-import { INVITE_DISABLED } from "@formbricks/lib/constants";
-import { verifyUserRoleAccess } from "@formbricks/lib/team/auth";
+import { hasTeamAuthority } from "@fastform/lib/auth";
+import { INVITE_DISABLED } from "@fastform/lib/constants";
+import { verifyUserRoleAccess } from "@fastform/lib/team/auth";
 
 export const updateTeamNameAction = async (teamId: string, teamName: string) => {
   const session = await getServerSession(authOptions);

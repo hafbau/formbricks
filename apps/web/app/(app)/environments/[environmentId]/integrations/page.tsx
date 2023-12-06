@@ -5,17 +5,17 @@ import MakeLogo from "@/images/make-small.png";
 import n8nLogo from "@/images/n8n.png";
 import WebhookLogo from "@/images/webhook.png";
 import ZapierLogo from "@/images/zapier-small.png";
-import { Card } from "@formbricks/ui/Card";
+import { Card } from "@fastform/ui/Card";
 import Image from "next/image";
-import { getWebhookCountBySource } from "@formbricks/lib/webhook/service";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getIntegrations } from "@formbricks/lib/integration/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { getWebhookCountBySource } from "@fastform/lib/webhook/service";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getIntegrations } from "@fastform/lib/integration/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { getServerSession } from "next-auth";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
 
 export default async function IntegrationsPage({ params }) {
   const environmentId = params.environmentId;
@@ -59,24 +59,24 @@ export default async function IntegrationsPage({ params }) {
 
   const integrationCards = [
     {
-      docsHref: "https://formbricks.com/docs/getting-started/framework-guides#next-js",
+      docsHref: "https://fastform.com/docs/getting-started/framework-guides#next-js",
       docsText: "Docs",
       docsNewTab: true,
       label: "Javascript Widget",
-      description: "Integrate Formbricks into your Webapp",
+      description: "Integrate Fastform into your Webapp",
       icon: <Image src={JsLogo} alt="Javascript Logo" />,
       connected: environment?.widgetSetupCompleted,
       statusText: environment?.widgetSetupCompleted ? "Connected" : "Not Connected",
     },
     {
-      docsHref: "https://formbricks.com/docs/integrations/zapier",
+      docsHref: "https://fastform.com/docs/integrations/zapier",
       docsText: "Docs",
       docsNewTab: true,
-      connectHref: "https://zapier.com/apps/formbricks/integrations",
+      connectHref: "https://zapier.com/apps/fastform/integrations",
       connectText: "Connect",
       connectNewTab: true,
       label: "Zapier",
-      description: "Integrate Formbricks with 5000+ apps via Zapier",
+      description: "Integrate Fastform with 5000+ apps via Zapier",
       icon: <Image src={ZapierLogo} alt="Zapier Logo" />,
       connected: zapierWebhookCount > 0,
       statusText:
@@ -90,7 +90,7 @@ export default async function IntegrationsPage({ params }) {
       connectHref: `/environments/${params.environmentId}/integrations/webhooks`,
       connectText: "Manage Webhooks",
       connectNewTab: false,
-      docsHref: "https://formbricks.com/docs/api/management/webhooks",
+      docsHref: "https://fastform.com/docs/api/management/webhooks",
       docsText: "Docs",
       docsNewTab: true,
       label: "Webhooks",
@@ -108,7 +108,7 @@ export default async function IntegrationsPage({ params }) {
       connectHref: `/environments/${params.environmentId}/integrations/google-sheets`,
       connectText: `${containsGoogleSheetIntegration ? "Manage Sheets" : "Connect"}`,
       connectNewTab: false,
-      docsHref: "https://formbricks.com/docs/integrations/google-sheets",
+      docsHref: "https://fastform.com/docs/integrations/google-sheets",
       docsText: "Docs",
       docsNewTab: true,
       label: "Google Sheets",
@@ -121,7 +121,7 @@ export default async function IntegrationsPage({ params }) {
       connectHref: `/environments/${params.environmentId}/integrations/airtable`,
       connectText: `${containsAirtableIntegration ? "Manage Table" : "Connect"}`,
       connectNewTab: false,
-      docsHref: "https://formbricks.com/docs/integrations/airtable",
+      docsHref: "https://fastform.com/docs/integrations/airtable",
       docsText: "Docs",
       docsNewTab: true,
       label: "Airtable",
@@ -131,14 +131,14 @@ export default async function IntegrationsPage({ params }) {
       statusText: containsAirtableIntegration ? "Connected" : "Not Connected",
     },
     {
-      docsHref: "https://formbricks.com/docs/integrations/n8n",
+      docsHref: "https://fastform.com/docs/integrations/n8n",
       docsText: "Docs",
       docsNewTab: true,
       connectHref: "https://n8n.io",
       connectText: "Connect",
       connectNewTab: true,
       label: "n8n",
-      description: "Integrate Formbricks with 350+ apps via n8n",
+      description: "Integrate Fastform with 350+ apps via n8n",
       icon: <Image src={n8nLogo} alt="n8n Logo" />,
       connected: n8nwebhookCount > 0,
       statusText:
@@ -149,14 +149,14 @@ export default async function IntegrationsPage({ params }) {
           : `${n8nwebhookCount} integrations`,
     },
     {
-      docsHref: "https://formbricks.com/docs/integrations/make",
+      docsHref: "https://fastform.com/docs/integrations/make",
       docsText: "Docs",
       docsNewTab: true,
-      connectHref: "https://www.make.com/en/integrations/formbricks",
+      connectHref: "https://www.make.com/en/integrations/fastform",
       connectText: "Connect",
       connectNewTab: true,
       label: "Make.com",
-      description: "Integrate Formbricks with 1000+ apps via Make",
+      description: "Integrate Fastform with 1000+ apps via Make",
       icon: <Image src={MakeLogo} alt="Make Logo" />,
       connected: makeWebhookCount > 0,
       statusText:
@@ -173,7 +173,7 @@ export default async function IntegrationsPage({ params }) {
   return (
     <div>
       <h1 className="my-2 text-3xl font-bold text-slate-800">Integrations</h1>
-      <p className="mb-6 text-slate-500">Connect Formbricks with your favorite tools.</p>
+      <p className="mb-6 text-slate-500">Connect Fastform with your favorite tools.</p>
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {integrationCards.map((card) => (
           <Card

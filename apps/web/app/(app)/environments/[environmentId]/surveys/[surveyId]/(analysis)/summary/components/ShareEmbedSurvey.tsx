@@ -1,12 +1,12 @@
 "use client";
 
 import LinkSingleUseSurveyModal from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/LinkSingleUseSurveyModal";
-import { cn } from "@formbricks/lib/cn";
-import { TProduct } from "@formbricks/types/product";
-import { TProfile } from "@formbricks/types/profile";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
-import { Dialog, DialogContent } from "@formbricks/ui/Dialog";
+import { cn } from "@fastform/lib/cn";
+import { TProduct } from "@fastform/types/product";
+import { TProfile } from "@fastform/types/profile";
+import { TSurvey } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
+import { Dialog, DialogContent } from "@fastform/ui/Dialog";
 import { CodeBracketIcon, EnvelopeIcon, LinkIcon } from "@heroicons/react/24/outline";
 import { useMemo, useState } from "react";
 import EmailTab from "./shareEmbedTabs/EmailTab";

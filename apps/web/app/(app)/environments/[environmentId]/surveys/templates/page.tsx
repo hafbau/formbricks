@@ -1,6 +1,6 @@
-import { authOptions } from "@formbricks/lib/authOptions";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
 import { getServerSession } from "next-auth";
 import TemplateContainerWithPreview from "./TemplateContainer";
 

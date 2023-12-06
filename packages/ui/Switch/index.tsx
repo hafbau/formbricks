@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 const Switch: React.ComponentType<SwitchPrimitives.SwitchProps> = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitives.Root>,

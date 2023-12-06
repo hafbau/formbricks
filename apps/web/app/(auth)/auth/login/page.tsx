@@ -5,7 +5,7 @@ import {
   PASSWORD_RESET_DISABLED,
   SIGNUP_ENABLED,
   AZURE_OAUTH_ENABLED,
-} from "@formbricks/lib/constants";
+} from "@fastform/lib/constants";
 import { SigninForm } from "@/app/(auth)/auth/login/components/SigninForm";
 import Testimonial from "@/app/(auth)/auth/components/Testimonial";
 import FormWrapper from "@/app/(auth)/auth/components/FormWrapper";

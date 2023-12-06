@@ -1,4 +1,4 @@
-import { getTeam, updateTeam } from "@formbricks/lib/team/service";
+import { getTeam, updateTeam } from "@fastform/lib/team/service";
 import Stripe from "stripe";
 import { ProductFeatureKeys, StripeProductNames } from "../lib/constants";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {

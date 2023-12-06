@@ -1,4 +1,4 @@
-import { Skeleton } from "@formbricks/ui/Skeleton";
+import { Skeleton } from "@fastform/ui/Skeleton";
 
 function LoadingCard({
   title,

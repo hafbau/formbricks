@@ -1,10 +1,10 @@
 "use client";
 
 import { getPlacementStyle } from "@/app/lib/preview";
-import { cn } from "@formbricks/lib/cn";
-import { TPlacement } from "@formbricks/types/common";
-import { Label } from "@formbricks/ui/Label";
-import { RadioGroup, RadioGroupItem } from "@formbricks/ui/RadioGroup";
+import { cn } from "@fastform/lib/cn";
+import { TPlacement } from "@fastform/types/common";
+import { Label } from "@fastform/ui/Label";
+import { RadioGroup, RadioGroupItem } from "@fastform/ui/RadioGroup";
 const placements = [
   { name: "Bottom Right", value: "bottomRight", disabled: false },
   { name: "Top Right", value: "topRight", disabled: false },

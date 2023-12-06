@@ -1,9 +1,9 @@
 "use client";
 
-import { cn } from "@formbricks/lib/cn";
-import { timeSince } from "@formbricks/lib/time";
-import { TProfile } from "@formbricks/types/profile";
-import { TResponseNote } from "@formbricks/types/responses";
+import { cn } from "@fastform/lib/cn";
+import { timeSince } from "@fastform/lib/time";
+import { TProfile } from "@fastform/types/profile";
+import { TResponseNote } from "@fastform/types/responses";
 import { CheckIcon, PencilIcon, PlusIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import { Maximize2Icon, Minimize2Icon } from "lucide-react";

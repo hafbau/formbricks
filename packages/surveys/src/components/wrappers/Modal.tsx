@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { TPlacement } from "@formbricks/types/common";
+import { TPlacement } from "@fastform/types/common";
 import { VNode } from "preact";
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 

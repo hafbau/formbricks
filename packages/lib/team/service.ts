@@ -1,10 +1,10 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
-import { ZOptionalNumber, ZString } from "@formbricks/types/common";
-import { ZId } from "@formbricks/types/environment";
-import { DatabaseError, ResourceNotFoundError } from "@formbricks/types/errors";
-import { TTeam, TTeamBilling, TTeamUpdateInput, ZTeamUpdateInput } from "@formbricks/types/teams";
+import { prisma } from "@fastform/database";
+import { ZOptionalNumber, ZString } from "@fastform/types/common";
+import { ZId } from "@fastform/types/environment";
+import { DatabaseError, ResourceNotFoundError } from "@fastform/types/errors";
+import { TTeam, TTeamBilling, TTeamUpdateInput, ZTeamUpdateInput } from "@fastform/types/teams";
 import { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 import { ITEMS_PER_PAGE, SERVICES_REVALIDATION_INTERVAL } from "../constants";

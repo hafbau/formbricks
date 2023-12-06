@@ -1,13 +1,13 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
-import { TTagsCount, TTagsOnResponses } from "@formbricks/types/tags";
+import { prisma } from "@fastform/database";
+import { TTagsCount, TTagsOnResponses } from "@fastform/types/tags";
 import { responseCache } from "../response/cache";
 import { SERVICES_REVALIDATION_INTERVAL } from "../constants";
 import { unstable_cache } from "next/cache";
 import { tagOnResponseCache } from "./cache";
 import { validateInputs } from "../utils/validate";
-import { ZId } from "@formbricks/types/environment";
+import { ZId } from "@fastform/types/environment";
 
 const selectTagsOnResponse = {
   tag: {

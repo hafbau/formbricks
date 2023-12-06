@@ -1,6 +1,6 @@
 import { env } from "./env.mjs";
 import { verifyPassword } from "@/app/lib/auth";
-import { prisma } from "@formbricks/database";
+import { prisma } from "@fastform/database";
 import { EMAIL_VERIFICATION_DISABLED } from "./constants";
 import { verifyToken } from "./jwt";
 import { createProfile, getProfileByEmail, updateProfile } from "./profile/service";

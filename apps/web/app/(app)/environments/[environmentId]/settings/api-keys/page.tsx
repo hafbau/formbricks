@@ -1,17 +1,17 @@
 export const revalidate = REVALIDATION_INTERVAL;
 
-import { REVALIDATION_INTERVAL } from "@formbricks/lib/constants";
+import { REVALIDATION_INTERVAL } from "@fastform/lib/constants";
 import SettingsCard from "../components/SettingsCard";
 import SettingsTitle from "../components/SettingsTitle";
 import ApiKeyList from "./components/ApiKeyList";
-import EnvironmentNotice from "@formbricks/ui/EnvironmentNotice";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { authOptions } from "@formbricks/lib/authOptions";
+import EnvironmentNotice from "@fastform/ui/EnvironmentNotice";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 
 export default async function ProfileSettingsPage({ params }) {
   const environment = await getEnvironment(params.environmentId);

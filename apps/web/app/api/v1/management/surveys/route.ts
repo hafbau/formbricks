@@ -2,9 +2,9 @@ import { responses } from "@/app/lib/api/response";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { NextResponse } from "next/server";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { createSurvey, getSurveys } from "@formbricks/lib/survey/service";
-import { ZSurveyInput } from "@formbricks/types/surveys";
-import { DatabaseError } from "@formbricks/types/errors";
+import { createSurvey, getSurveys } from "@fastform/lib/survey/service";
+import { ZSurveyInput } from "@fastform/types/surveys";
+import { DatabaseError } from "@fastform/types/errors";
 
 export async function GET(request: Request) {
   try {

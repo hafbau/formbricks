@@ -1,5 +1,5 @@
-import { WEBAPP_URL } from "@formbricks/lib/constants";
-import { getEnvironment, getEnvironments } from "@formbricks/lib/environment/service";
+import { WEBAPP_URL } from "@fastform/lib/constants";
+import { getEnvironment, getEnvironments } from "@fastform/lib/environment/service";
 import { LightBulbIcon } from "@heroicons/react/24/outline";
 
 interface EnvironmentNoticeProps {

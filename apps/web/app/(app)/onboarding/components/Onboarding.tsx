@@ -1,10 +1,10 @@
 "use client";
 
 import { updateProfileAction } from "@/app/(app)/onboarding/actions";
-import { TProduct } from "@formbricks/types/product";
-import { TProfile } from "@formbricks/types/profile";
-import { Logo } from "@formbricks/ui/Logo";
-import { ProgressBar } from "@formbricks/ui/ProgressBar";
+import { TProduct } from "@fastform/types/product";
+import { TProfile } from "@fastform/types/profile";
+import { Logo } from "@fastform/ui/Logo";
+import { ProgressBar } from "@fastform/ui/ProgressBar";
 import { Session } from "next-auth";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";

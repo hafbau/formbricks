@@ -1,11 +1,11 @@
 import { sendToPipeline } from "@/app/lib/pipelines";
-import { prisma } from "@formbricks/database";
-import { INTERNAL_SECRET, WEBAPP_URL } from "@formbricks/lib/constants";
-import { transformPrismaPerson } from "@formbricks/lib/person/service";
-import { responseCache } from "@formbricks/lib/response/cache";
-import { TPipelineInput } from "@formbricks/types/pipelines";
-import { TResponse } from "@formbricks/types/responses";
-import { TTag } from "@formbricks/types/tags";
+import { prisma } from "@fastform/database";
+import { INTERNAL_SECRET, WEBAPP_URL } from "@fastform/lib/constants";
+import { transformPrismaPerson } from "@fastform/lib/person/service";
+import { responseCache } from "@fastform/lib/response/cache";
+import { TPipelineInput } from "@fastform/types/pipelines";
+import { TResponse } from "@fastform/types/responses";
+import { TTag } from "@fastform/types/tags";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {

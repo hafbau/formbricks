@@ -1,7 +1,7 @@
-import { Modal } from "@formbricks/ui/Modal";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { Modal } from "@fastform/ui/Modal";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { LinkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { useState } from "react";
@@ -46,7 +46,7 @@ export default function UrlShortenerModal({ open, setOpen, webAppUrl }: UrlShort
     const isValid = regexPattern.test(value);
     if (!isValid) {
       setUrlValidationState("invalid");
-      toast.error("Only formbricks survey links allowed.");
+      toast.error("Only fastform survey links allowed.");
     } else {
       setUrlValidationState("valid");
     }

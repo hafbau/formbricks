@@ -1,4 +1,4 @@
-import { TSurveySingleUse } from "@formbricks/types/surveys";
+import { TSurveySingleUse } from "@fastform/types/surveys";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +24,7 @@ const SurveyLinkUsed = ({ singleUseMessage }: SurveyLinkUsedProps) => {
         </p>
       </div>
       <div>
-        <Link href="https://formbricks.com">
+        <Link href="https://fastform.com">
           <Image src={footerLogo} alt="Brand logo" className="mx-auto w-40" />
         </Link>
       </div>

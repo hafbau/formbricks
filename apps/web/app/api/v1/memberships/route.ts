@@ -1,5 +1,5 @@
 import { getSessionUser } from "@/app/lib/api/apiHelper";
-import { prisma } from "@formbricks/database";
+import { prisma } from "@fastform/database";
 import { NextResponse } from "next/server";
 
 export async function GET() {

@@ -3,7 +3,7 @@ on:
   workflow_call:
 jobs:
   build:
-    name: Build Formbricks-com
+    name: Build Fastform-com
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -22,5 +22,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install --config.platform=linux --config.architecture=x64
 
-      - name: Build Formbricks-com
-        run: pnpm build --filter=formbricks-com...
+      - name: Build Fastform-com
+        run: pnpm build --filter=fastform-com...

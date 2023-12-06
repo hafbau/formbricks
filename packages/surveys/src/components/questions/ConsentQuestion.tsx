@@ -3,8 +3,8 @@ import SubmitButton from "@/components/buttons/SubmitButton";
 import Headline from "@/components/general/Headline";
 import HtmlBody from "@/components/general/HtmlBody";
 import QuestionImage from "@/components/general/QuestionImage";
-import { TResponseData, TResponseTtc } from "@formbricks/types/responses";
-import type { TSurveyConsentQuestion } from "@formbricks/types/surveys";
+import { TResponseData, TResponseTtc } from "@fastform/types/responses";
+import type { TSurveyConsentQuestion } from "@fastform/types/surveys";
 import { useState } from "preact/hooks";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 

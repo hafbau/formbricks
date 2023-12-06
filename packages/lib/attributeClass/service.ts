@@ -1,20 +1,20 @@
 "use server";
 import "server-only";
 
-import { prisma } from "@formbricks/database";
+import { prisma } from "@fastform/database";
 import {
   TAttributeClass,
   TAttributeClassUpdateInput,
   ZAttributeClassUpdateInput,
   TAttributeClassType,
   ZAttributeClassType,
-} from "@formbricks/types/attributeClasses";
-import { ZId } from "@formbricks/types/environment";
+} from "@fastform/types/attributeClasses";
+import { ZId } from "@fastform/types/environment";
 import { validateInputs } from "../utils/validate";
-import { DatabaseError } from "@formbricks/types/errors";
+import { DatabaseError } from "@fastform/types/errors";
 import { unstable_cache } from "next/cache";
 import { SERVICES_REVALIDATION_INTERVAL, ITEMS_PER_PAGE } from "../constants";
-import { ZOptionalNumber, ZString } from "@formbricks/types/common";
+import { ZOptionalNumber, ZString } from "@fastform/types/common";
 import { attributeClassCache } from "./cache";
 import { formatAttributeClassDateFields } from "./util";
 

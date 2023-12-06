@@ -1,5 +1,5 @@
-import { cn } from "@formbricks/lib/cn";
-import { Badge } from "@formbricks/ui/Badge";
+import { cn } from "@fastform/lib/cn";
+import { Badge } from "@fastform/ui/Badge";
 
 export default function SettingsCard({
   title,

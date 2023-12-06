@@ -1,6 +1,6 @@
 import { getAnalysisData } from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/data";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { getSurvey } from "@formbricks/lib/survey/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { getSurvey } from "@fastform/lib/survey/service";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 

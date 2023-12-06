@@ -1,5 +1,5 @@
 {
-  "name": "formbricks",
+  "name": "fastform",
   "version": "0.0.0",
   "private": true,
   "workspaces": [
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
-    "eslint-config-formbricks": "workspace:*",
+    "eslint-config-fastform": "workspace:*",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "rimraf": "^5.0.5",

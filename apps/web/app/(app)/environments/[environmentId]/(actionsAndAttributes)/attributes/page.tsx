@@ -4,8 +4,8 @@ import AttributeClassesTable from "@/app/(app)/environments/[environmentId]/(act
 import AttributeClassDataRow from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/components/AttributeRowData";
 import AttributeTableHeading from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/components/AttributeTableHeading";
 import HowToAddAttributesButton from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/components/HowToAddAttributesButton";
-import { REVALIDATION_INTERVAL } from "@formbricks/lib/constants";
-import { getAttributeClasses } from "@formbricks/lib/attributeClass/service";
+import { REVALIDATION_INTERVAL } from "@fastform/lib/constants";
+import { getAttributeClasses } from "@fastform/lib/attributeClass/service";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

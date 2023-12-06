@@ -1,10 +1,10 @@
-import { cn } from "@formbricks/lib/cn";
-import { TSurvey, TSurveyQuestionType } from "@formbricks/types/surveys";
+import { cn } from "@fastform/lib/cn";
+import { TSurvey, TSurveyQuestionType } from "@fastform/types/surveys";
 
 import { isLight } from "@/app/lib/utils";
-import { WEBAPP_URL } from "@formbricks/lib/constants";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { getSurvey } from "@formbricks/lib/survey/service";
+import { WEBAPP_URL } from "@fastform/lib/constants";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { getSurvey } from "@fastform/lib/survey/service";
 import {
   Column,
   Container,
@@ -311,8 +311,8 @@ const EmailTemplateWrapper = ({ children, surveyUrl, brandColor }) => {
 const EmailFooter = () => {
   return (
     <Container className="m-auto mt-8 text-center ">
-      <Link href="https://formbricks.com/" target="_blank" className="text-xs text-slate-400">
-        Powered by Formbricks
+      <Link href="https://fastform.com/" target="_blank" className="text-xs text-slate-400">
+        Powered by Fastform
       </Link>
     </Container>
   );

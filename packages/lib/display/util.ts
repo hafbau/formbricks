@@ -1,4 +1,4 @@
-import { TDisplay } from "@formbricks/types/displays";
+import { TDisplay } from "@fastform/types/displays";
 
 export const formatDisplaysDateFields = (displays: TDisplay[]): TDisplay[] => {
   return displays.map((display) => ({

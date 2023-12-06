@@ -1,9 +1,9 @@
 import { responses } from "@/app/lib/api/response";
-import { DatabaseError } from "@formbricks/types/errors";
+import { DatabaseError } from "@fastform/types/errors";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { NextResponse } from "next/server";
-import { TActionClass, ZActionClassInput } from "@formbricks/types/actionClasses";
-import { createActionClass, getActionClasses } from "@formbricks/lib/actionClass/service";
+import { TActionClass, ZActionClassInput } from "@fastform/types/actionClasses";
+import { createActionClass, getActionClasses } from "@fastform/lib/actionClass/service";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 
 export async function GET(request: Request) {

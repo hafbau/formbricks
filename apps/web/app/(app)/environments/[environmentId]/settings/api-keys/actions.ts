@@ -1,12 +1,12 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { deleteApiKey, createApiKey } from "@formbricks/lib/apiKey/service";
-import { canUserAccessApiKey } from "@formbricks/lib/apiKey/auth";
-import { TApiKeyCreateInput } from "@formbricks/types/apiKeys";
+import { authOptions } from "@fastform/lib/authOptions";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { deleteApiKey, createApiKey } from "@fastform/lib/apiKey/service";
+import { canUserAccessApiKey } from "@fastform/lib/apiKey/auth";
+import { TApiKeyCreateInput } from "@fastform/types/apiKeys";
 import { getServerSession } from "next-auth";
-import { AuthorizationError } from "@formbricks/types/errors";
+import { AuthorizationError } from "@fastform/types/errors";
 
 export async function deleteApiKeyAction(id: string) {
   const session = await getServerSession(authOptions);

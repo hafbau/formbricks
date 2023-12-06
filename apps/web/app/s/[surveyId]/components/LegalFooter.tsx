@@ -1,4 +1,4 @@
-import { IMPRINT_URL, PRIVACY_URL } from "@formbricks/lib/constants";
+import { IMPRINT_URL, PRIVACY_URL } from "@fastform/lib/constants";
 import Link from "next/link";
 
 interface LegalFooterProps {

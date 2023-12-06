@@ -1,23 +1,23 @@
 {
-  "name": "@formbricks/ee",
+  "name": "@fastform/ee",
   "private": true,
   "sideEffects": false,
-  "description": "Formbricks Enterprise Features",
-  "authors": "Formbricks",
+  "description": "Fastform Enterprise Features",
+  "authors": "Fastform",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
     "clean": "rimraf node_modules .turbo"
   },
   "devDependencies": {
-    "@formbricks/lib": "*",
-    "@formbricks/tsconfig": "*",
-    "@formbricks/types": "*",
-    "@formbricks/ui": "*",
-    "eslint-config-formbricks": "workspace:*"
+    "@fastform/lib": "*",
+    "@fastform/tsconfig": "*",
+    "@fastform/types": "*",
+    "@fastform/ui": "*",
+    "eslint-config-fastform": "workspace:*"
   },
   "dependencies": {
-    "@formbricks/lib": "workspace:*",
+    "@fastform/lib": "workspace:*",
     "stripe": "^14.6.0"
   }
 }

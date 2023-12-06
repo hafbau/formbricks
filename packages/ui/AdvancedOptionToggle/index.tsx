@@ -1,4 +1,4 @@
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 import { Label } from "../Label";
 import { Switch } from "../Switch";
 

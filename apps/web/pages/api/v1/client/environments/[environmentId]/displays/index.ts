@@ -1,5 +1,5 @@
-import { capturePosthogEvent } from "@formbricks/lib/posthogServer";
-import { prisma } from "@formbricks/database";
+import { capturePosthogEvent } from "@fastform/lib/posthogServer";
+import { prisma } from "@fastform/database";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {

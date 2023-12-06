@@ -1,17 +1,17 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
-import { ResourceNotFoundError, DatabaseError, UnknownError } from "@formbricks/types/errors";
+import { prisma } from "@fastform/database";
+import { ResourceNotFoundError, DatabaseError, UnknownError } from "@fastform/types/errors";
 import {
   TMember,
   TMembership,
   ZMembership,
   TMembershipUpdateInput,
   ZMembershipUpdateInput,
-} from "@formbricks/types/memberships";
+} from "@fastform/types/memberships";
 import { Prisma } from "@prisma/client";
 import { validateInputs } from "../utils/validate";
-import { ZString, ZOptionalNumber } from "@formbricks/types/common";
+import { ZString, ZOptionalNumber } from "@fastform/types/common";
 import { ITEMS_PER_PAGE, SERVICES_REVALIDATION_INTERVAL } from "../constants";
 import { unstable_cache } from "next/cache";
 import { membershipCache } from "./cache";

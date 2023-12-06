@@ -1,6 +1,6 @@
 import { createId } from "@paralleldrive/cuid2";
 import { withSentryConfig } from "@sentry/nextjs";
-import "@formbricks/lib/env.mjs";
+import "@fastform/lib/env.mjs";
 
 /** @type {import('next').NextConfig} */
 
@@ -10,7 +10,7 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
-  transpilePackages: ["@formbricks/database", "@formbricks/ee", "@formbricks/ui", "@formbricks/lib"],
+  transpilePackages: ["@fastform/database", "@fastform/ee", "@fastform/ui", "@fastform/lib"],
   images: {
     remotePatterns: [
       {
@@ -27,11 +27,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "app.formbricks.com",
+        hostname: "app.fastform.com",
       },
       {
         protocol: "https",
-        hostname: "formbricks-cdn.s3.eu-central-1.amazonaws.com",
+        hostname: "fastform-cdn.s3.eu-central-1.amazonaws.com",
       },
     ],
   },
@@ -116,8 +116,8 @@ const sentryOptions = {
   // Suppresses source map uploading logs during build
   silent: true,
 
-  org: "formbricks",
-  project: "formbricks-cloud",
+  org: "fastform",
+  project: "fastform-cloud",
 };
 
 const sentryConfig = {

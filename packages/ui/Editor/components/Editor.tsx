@@ -13,7 +13,7 @@ import { HeadingNode, QuoteNode } from "@lexical/rich-text";
 import { TableCellNode, TableNode, TableRowNode } from "@lexical/table";
 import type { Dispatch, SetStateAction } from "react";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 import ExampleTheme from "../lib/ExampleTheme";
 import AutoLinkPlugin from "../components/AutoLinkPlugin";

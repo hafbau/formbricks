@@ -1,6 +1,6 @@
 "use client";
 
-import { TSurvey } from "@formbricks/types/surveys";
+import { TSurvey } from "@fastform/types/surveys";
 import React from "react";
 
 interface MediaBackgroundProps {

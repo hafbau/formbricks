@@ -14,7 +14,7 @@ import { env } from "../env.mjs";
 import { IS_S3_CONFIGURED, MAX_SIZES, UPLOADS_DIR, WEBAPP_URL } from "../constants";
 import { unstable_cache } from "next/cache";
 import { storageCache } from "./cache";
-import { TAccessType } from "@formbricks/types/storage";
+import { TAccessType } from "@fastform/types/storage";
 import { generateLocalSignedUrl } from "../crypto";
 import path from "path";
 

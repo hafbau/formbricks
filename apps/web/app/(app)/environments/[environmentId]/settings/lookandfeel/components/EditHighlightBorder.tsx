@@ -1,11 +1,11 @@
 "use client";
 
-import { cn } from "@formbricks/lib/cn";
-import { TProduct } from "@formbricks/types/product";
-import { ColorPicker } from "@formbricks/ui/ColorPicker";
-import { Button } from "@formbricks/ui/Button";
-import { Switch } from "@formbricks/ui/Switch";
-import { Label } from "@formbricks/ui/Label";
+import { cn } from "@fastform/lib/cn";
+import { TProduct } from "@fastform/types/product";
+import { ColorPicker } from "@fastform/ui/ColorPicker";
+import { Button } from "@fastform/ui/Button";
+import { Switch } from "@fastform/ui/Switch";
+import { Label } from "@fastform/ui/Label";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { updateProductAction } from "../actions";

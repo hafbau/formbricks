@@ -4,22 +4,22 @@ import {
   IS_FORMBRICKS_CLOUD,
   PRICING_APPSURVEYS_FREE_RESPONSES,
   REVALIDATION_INTERVAL,
-} from "@formbricks/lib/constants";
+} from "@fastform/lib/constants";
 
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import {
   getMonthlyActiveTeamPeopleCount,
   getMonthlyTeamResponseCount,
   getTeamByEnvironmentId,
-} from "@formbricks/lib/team/service";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
+} from "@fastform/lib/team/service";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
 import { getServerSession } from "next-auth";
 import { notFound } from "next/navigation";
 import SettingsTitle from "../components/SettingsTitle";
 import PricingTable from "./components/PricingTable";
-import { PRICING_USERTARGETING_FREE_MTU } from "@formbricks/lib/constants";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { PRICING_USERTARGETING_FREE_MTU } from "@fastform/lib/constants";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 
 export default async function ProfileSettingsPage({ params }) {
   if (!IS_FORMBRICKS_CLOUD) {

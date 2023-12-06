@@ -1,10 +1,10 @@
 import { sendEmail } from "@/app/lib/email";
 import { withEmailTemplate } from "@/app/lib/email-template";
-import { WEBAPP_URL } from "@formbricks/lib/constants";
+import { WEBAPP_URL } from "@fastform/lib/constants";
 import { Insights, NotificationResponse, Survey, SurveyResponse } from "./types";
 
 const getEmailSubject = (productName: string) => {
-  return `${productName} User Insights - Last Week by Formbricks`;
+  return `${productName} User Insights - Last Week by Fastform`;
 };
 
 const notificationHeader = (
@@ -161,7 +161,7 @@ const createSurveyFields = (surveyResponses: SurveyResponse[]) => {
 const notificationFooter = () => {
   return `
   <p style="margin-bottom:0px; padding-top:1em; font-weight:500">All the best,</p>
-  <p style="margin-top:0px;">The Formbricks Team 🤍</p>
+  <p style="margin-top:0px;">The Fastform Team 🤍</p>
   <div style="margin-top:0.8em; background-color:#f1f5f9; border-radius:8px; padding:0.01em 1.6em; text-align:center; font-size:0.8em; line-height:1.2em;"><p><i>This is a Beta feature. If you experience any issues, please let us know by replying to this email 🙏</i></p></div>
  `;
 };
@@ -179,7 +179,7 @@ const createReminderNotificationBody = (notificationData: NotificationResponse, 
      
    
     <p style="margin-bottom:0px; padding-top:1em; font-weight:500">All the best,</p>
-    <p style="margin-top:0px;">The Formbricks Team</p>
+    <p style="margin-top:0px;">The Fastform Team</p>
    
     <div style="margin-top:0.8em; background-color:#f1f5f9; border-radius:99px; margin:1em; padding:0.01em 1.6em; text-align:center;"><p><i>This is a Beta feature. If you experience any issues, please let us know by replying to this email 🙏</i></p></div>
   `;

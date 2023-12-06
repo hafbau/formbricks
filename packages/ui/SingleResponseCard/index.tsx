@@ -1,12 +1,12 @@
 "use client";
 
-import { timeSince } from "@formbricks/lib/time";
-import { TSurveyQuestionType } from "@formbricks/types/surveys";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TProfile } from "@formbricks/types/profile";
-import { TResponse } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
-import { TTag } from "@formbricks/types/tags";
+import { timeSince } from "@fastform/lib/time";
+import { TSurveyQuestionType } from "@fastform/types/surveys";
+import { TEnvironment } from "@fastform/types/environment";
+import { TProfile } from "@fastform/types/profile";
+import { TResponse } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
+import { TTag } from "@fastform/types/tags";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
@@ -23,11 +23,11 @@ import { deleteResponseAction } from "./actions";
 import QuestionSkip from "./components/QuestionSkip";
 import ResponseNotes from "./components/ResponseNote";
 import ResponseTagsWrapper from "./components/ResponseTagsWrapper";
-import { getPersonIdentifier } from "@formbricks/lib/person/util";
+import { getPersonIdentifier } from "@fastform/lib/person/util";
 import { PictureSelectionResponse } from "../PictureSelectionResponse";
 import { FileUploadResponse } from "../FileUploadResponse";
-import { useMembershipRole } from "@formbricks/lib/membership/hooks/useMembershipRole";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { useMembershipRole } from "@fastform/lib/membership/hooks/useMembershipRole";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { LoadingWrapper } from "../LoadingWrapper";
 
 export interface SingleResponseCardProps {

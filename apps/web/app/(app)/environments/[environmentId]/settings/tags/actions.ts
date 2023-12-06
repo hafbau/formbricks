@@ -1,10 +1,10 @@
 "use server";
 
-import { deleteTag, getTag, mergeTags, updateTagName } from "@formbricks/lib/tag/service";
-import { canUserAccessTag, verifyUserRoleAccess } from "@formbricks/lib/tag/auth";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { deleteTag, getTag, mergeTags, updateTagName } from "@fastform/lib/tag/service";
+import { canUserAccessTag, verifyUserRoleAccess } from "@fastform/lib/tag/auth";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
-import { AuthorizationError } from "@formbricks/types/errors";
+import { AuthorizationError } from "@fastform/types/errors";
 
 export const deleteTagAction = async (tagId: string) => {
   const session = await getServerSession(authOptions);

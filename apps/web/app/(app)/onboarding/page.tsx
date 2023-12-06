@@ -1,10 +1,10 @@
 export const revalidate = REVALIDATION_INTERVAL;
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { REVALIDATION_INTERVAL } from "@formbricks/lib/constants";
-import { getFirstEnvironmentByUserId } from "@formbricks/lib/environment/service";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { getProfile } from "@formbricks/lib/profile/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { REVALIDATION_INTERVAL } from "@fastform/lib/constants";
+import { getFirstEnvironmentByUserId } from "@fastform/lib/environment/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { getProfile } from "@fastform/lib/profile/service";
 import { getServerSession } from "next-auth";
 import Onboarding from "./components/Onboarding";
 import { redirect } from "next/navigation";

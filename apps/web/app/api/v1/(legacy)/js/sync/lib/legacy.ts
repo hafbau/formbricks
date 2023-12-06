@@ -1,4 +1,4 @@
-import { TJsLegacyState, TJsState } from "@formbricks/types/js";
+import { TJsLegacyState, TJsState } from "@fastform/types/js";
 
 export const transformLegacySurveys = (state: TJsState): TJsLegacyState => {
   const updatedState: any = { ...state };

@@ -1,15 +1,15 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { WEBAPP_URL } from "@formbricks/lib/constants";
-import { canUserAccessTeam } from "@formbricks/lib/team/auth";
-import { getTeam } from "@formbricks/lib/team/service";
-import { AuthorizationError } from "@formbricks/types/errors";
+import { authOptions } from "@fastform/lib/authOptions";
+import { WEBAPP_URL } from "@fastform/lib/constants";
+import { canUserAccessTeam } from "@fastform/lib/team/auth";
+import { getTeam } from "@fastform/lib/team/service";
+import { AuthorizationError } from "@fastform/types/errors";
 import { getServerSession } from "next-auth";
-import { createSubscription } from "@formbricks/ee/billing/lib/createSubscription";
-import { createCustomerPortalSession } from "@formbricks/ee/billing/lib/createCustomerPortalSession";
-import { removeSubscription } from "@formbricks/ee/billing/lib/removeSubscription";
-import { StripePriceLookupKeys } from "@formbricks/ee/billing/lib/constants";
+import { createSubscription } from "@fastform/ee/billing/lib/createSubscription";
+import { createCustomerPortalSession } from "@fastform/ee/billing/lib/createCustomerPortalSession";
+import { removeSubscription } from "@fastform/ee/billing/lib/removeSubscription";
+import { StripePriceLookupKeys } from "@fastform/ee/billing/lib/constants";
 
 export async function upgradePlanAction(
   teamId: string,

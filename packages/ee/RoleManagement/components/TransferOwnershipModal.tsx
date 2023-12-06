@@ -1,7 +1,7 @@
 "use client";
 
-import CustomDialog from "@formbricks/ui/CustomDialog";
-import { Input } from "@formbricks/ui/Input";
+import CustomDialog from "@fastform/ui/CustomDialog";
+import { Input } from "@fastform/ui/Input";
 import { Dispatch, SetStateAction, useState } from "react";
 
 interface TransferOwnershipModalProps {

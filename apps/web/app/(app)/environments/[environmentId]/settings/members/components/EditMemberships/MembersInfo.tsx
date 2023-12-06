@@ -1,11 +1,11 @@
 import MemberActions from "@/app/(app)/environments/[environmentId]/settings/members/components/EditMemberships/MemberActions";
-import { EditMembershipRole } from "@formbricks/ee/RoleManagement/components/EditMembershipRole";
+import { EditMembershipRole } from "@fastform/ee/RoleManagement/components/EditMembershipRole";
 import { isInviteExpired } from "@/app/lib/utils";
-import { TInvite } from "@formbricks/types/invites";
-import { TMember, TMembershipRole } from "@formbricks/types/memberships";
-import { TTeam } from "@formbricks/types/teams";
-import { Badge } from "@formbricks/ui/Badge";
-import { ProfileAvatar } from "@formbricks/ui/Avatars";
+import { TInvite } from "@fastform/types/invites";
+import { TMember, TMembershipRole } from "@fastform/types/memberships";
+import { TTeam } from "@fastform/types/teams";
+import { Badge } from "@fastform/ui/Badge";
+import { ProfileAvatar } from "@fastform/ui/Avatars";
 import React from "react";
 
 type MembersInfoProps = {

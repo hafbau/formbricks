@@ -1,13 +1,13 @@
 import { responses } from "@/app/lib/api/response";
-import { reportUsageToStripe } from "@formbricks/ee/billing/lib/reportUsage";
-import { ProductFeatureKeys } from "@formbricks/ee/billing/lib/constants";
-import { CRON_SECRET, IS_FORMBRICKS_CLOUD } from "@formbricks/lib/constants";
+import { reportUsageToStripe } from "@fastform/ee/billing/lib/reportUsage";
+import { ProductFeatureKeys } from "@fastform/ee/billing/lib/constants";
+import { CRON_SECRET, IS_FORMBRICKS_CLOUD } from "@fastform/lib/constants";
 import {
   getMonthlyActiveTeamPeopleCount,
   getMonthlyTeamResponseCount,
   getTeamsWithPaidPlan,
-} from "@formbricks/lib/team/service";
-import { TTeam } from "@formbricks/types/teams";
+} from "@fastform/lib/team/service";
+import { TTeam } from "@fastform/types/teams";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 

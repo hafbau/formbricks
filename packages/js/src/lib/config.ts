@@ -1,7 +1,7 @@
-import { TJsConfig, TJsConfigUpdateInput } from "@formbricks/types/js";
+import { TJsConfig, TJsConfigUpdateInput } from "@fastform/types/js";
 import { Result, err, ok, wrapThrows } from "./errors";
 
-export const LOCAL_STORAGE_KEY = "formbricks-js";
+export const LOCAL_STORAGE_KEY = "fastform-js";
 
 export class Config {
   private static instance: Config | undefined;

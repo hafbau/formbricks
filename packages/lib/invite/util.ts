@@ -1,6 +1,6 @@
 import "server-only";
 
-import { TInvite } from "@formbricks/types/invites";
+import { TInvite } from "@fastform/types/invites";
 
 export const formatInviteDateFields = (invite: TInvite): TInvite => {
   if (typeof invite.createdAt === "string") {

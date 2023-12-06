@@ -1,15 +1,11 @@
 "use client";
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/edit/components/QuestionFormInput";
-import {
-  TSurvey,
-  TSurveyOpenTextQuestion,
-  TSurveyOpenTextQuestionInputType,
-} from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
-import { QuestionTypeSelector } from "@formbricks/ui/QuestionTypeSelector";
+import { TSurvey, TSurveyOpenTextQuestion, TSurveyOpenTextQuestionInputType } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
+import { QuestionTypeSelector } from "@fastform/ui/QuestionTypeSelector";
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 

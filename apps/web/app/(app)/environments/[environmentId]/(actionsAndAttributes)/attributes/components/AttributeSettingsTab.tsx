@@ -1,13 +1,13 @@
 "use client";
 
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import type { AttributeClass } from "@prisma/client";
 import { useForm } from "react-hook-form";
 import { ArchiveBoxArrowDownIcon, ArchiveBoxXMarkIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
-import { updateAttributeClass } from "@formbricks/lib/attributeClass/service";
+import { updateAttributeClass } from "@fastform/lib/attributeClass/service";
 import { useState } from "react";
 
 interface AttributeSettingsTabProps {
@@ -76,7 +76,7 @@ export default function AttributeSettingsTab({ attributeClass, setOpen }: Attrib
           <div className="flex items-center">
             <Button
               variant="secondary"
-              href="https://formbricks.com/docs/attributes/identify-users"
+              href="https://fastform.com/docs/attributes/identify-users"
               target="_blank">
               Read Docs
             </Button>

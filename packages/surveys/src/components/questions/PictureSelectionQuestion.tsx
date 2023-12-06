@@ -4,8 +4,8 @@ import Headline from "@/components/general/Headline";
 import QuestionImage from "@/components/general/QuestionImage";
 import Subheader from "@/components/general/Subheader";
 import { cn } from "@/lib/utils";
-import { TResponseData, TResponseTtc } from "@formbricks/types/responses";
-import type { TSurveyPictureSelectionQuestion } from "@formbricks/types/surveys";
+import { TResponseData, TResponseTtc } from "@fastform/types/responses";
+import type { TSurveyPictureSelectionQuestion } from "@fastform/types/surveys";
 import { useEffect, useState } from "preact/hooks";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 interface PictureSelectionProps {

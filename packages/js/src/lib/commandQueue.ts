@@ -40,7 +40,7 @@ export class CommandQueue {
 
       if (!currentItem) continue;
 
-      // make sure formbricks is initialized
+      // make sure fastform is initialized
       if (currentItem.checkInitialized) {
         const initResult = checkInitialized();
 

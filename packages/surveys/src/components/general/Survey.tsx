@@ -4,7 +4,7 @@ import { AutoCloseWrapper } from "@/components/wrappers/AutoCloseWrapper";
 import { evaluateCondition } from "@/lib/logicEvaluator";
 import { cn } from "@/lib/utils";
 import { SurveyBaseProps } from "@/types/props";
-import type { TResponseData, TResponseTtc } from "@formbricks/types/responses";
+import type { TResponseData, TResponseTtc } from "@fastform/types/responses";
 import { useEffect, useRef, useState } from "preact/hooks";
 import QuestionConditional from "./QuestionConditional";
 import ThankYouCard from "./ThankYouCard";

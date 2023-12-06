@@ -1,4 +1,4 @@
-import { TTeamBilling } from "@formbricks/types/teams";
+import { TTeamBilling } from "@fastform/types/teams";
 import { useState, useEffect } from "react";
 import { getTeamBillingInfoAction } from "./actions";
 

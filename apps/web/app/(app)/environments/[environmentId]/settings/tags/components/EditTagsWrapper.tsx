@@ -1,13 +1,13 @@
 "use client";
 
 import MergeTagsCombobox from "@/app/(app)/environments/[environmentId]/settings/tags/components/MergeTagsCombobox";
-import EmptySpaceFiller from "@formbricks/ui/EmptySpaceFiller";
-import LoadingSpinner from "@formbricks/ui/LoadingSpinner";
-import { cn } from "@formbricks/lib/cn";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TTag, TTagsCount } from "@formbricks/types/tags";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
+import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
+import LoadingSpinner from "@fastform/ui/LoadingSpinner";
+import { cn } from "@fastform/lib/cn";
+import { TEnvironment } from "@fastform/types/environment";
+import { TTag, TTagsCount } from "@fastform/types/tags";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";

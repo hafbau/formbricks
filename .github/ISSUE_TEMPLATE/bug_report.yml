@@ -46,8 +46,8 @@ body:
   attributes:
     label: Environment
     options:
-      - label: Formbricks Cloud (app.formbricks.com)
-      - label: Self-hosted Formbricks
+      - label: Fastform Cloud (app.fastform.com)
+      - label: Self-hosted Fastform
 - type: textarea
   id: desktop-version
   attributes:

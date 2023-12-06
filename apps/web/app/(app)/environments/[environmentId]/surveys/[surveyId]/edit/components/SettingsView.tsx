@@ -4,11 +4,11 @@ import ResponseOptionsCard from "./ResponseOptionsCard";
 import WhenToSendCard from "./WhenToSendCard";
 import WhoToSendCard from "./WhoToSendCard";
 import StylingCard from "./StylingCard";
-import { TSurvey } from "@formbricks/types/surveys";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TActionClass } from "@formbricks/types/actionClasses";
-import { TAttributeClass } from "@formbricks/types/attributeClasses";
-import { TMembershipRole } from "@formbricks/types/memberships";
+import { TSurvey } from "@fastform/types/surveys";
+import { TEnvironment } from "@fastform/types/environment";
+import { TActionClass } from "@fastform/types/actionClasses";
+import { TAttributeClass } from "@fastform/types/attributeClasses";
+import { TMembershipRole } from "@fastform/types/memberships";
 
 interface SettingsViewProps {
   environment: TEnvironment;

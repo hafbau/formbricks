@@ -1,10 +1,10 @@
-import { writeData as airtableWriteData } from "@formbricks/lib/airtable/service";
-import { TIntegration } from "@formbricks/types/integration";
-import { writeData } from "@formbricks/lib/googleSheet/service";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { TPipelineInput } from "@formbricks/types/pipelines";
-import { TIntegrationGoogleSheets } from "@formbricks/types/integration/googleSheet";
-import { TIntegrationAirtable } from "@formbricks/types/integration/airtable";
+import { writeData as airtableWriteData } from "@fastform/lib/airtable/service";
+import { TIntegration } from "@fastform/types/integration";
+import { writeData } from "@fastform/lib/googleSheet/service";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { TPipelineInput } from "@fastform/types/pipelines";
+import { TIntegrationGoogleSheets } from "@fastform/types/integration/googleSheet";
+import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
 
 export async function handleIntegrations(integrations: TIntegration[], data: TPipelineInput) {
   for (const integration of integrations) {

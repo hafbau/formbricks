@@ -1,12 +1,12 @@
 "use client";
 
-import LoadingSpinner from "@formbricks/ui/LoadingSpinner";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
-import { Label } from "@formbricks/ui/Label";
-import { convertDateTimeStringShort } from "@formbricks/lib/time";
-import { capitalizeFirstLetter } from "@formbricks/lib/strings";
+import LoadingSpinner from "@fastform/ui/LoadingSpinner";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
+import { Label } from "@fastform/ui/Label";
+import { convertDateTimeStringShort } from "@fastform/lib/time";
+import { capitalizeFirstLetter } from "@fastform/lib/strings";
 import { CodeBracketIcon, CursorArrowRaysIcon, SparklesIcon } from "@heroicons/react/24/solid";
-import { TActionClass } from "@formbricks/types/actionClasses";
+import { TActionClass } from "@fastform/types/actionClasses";
 import { useEffect, useState } from "react";
 import {
   getActionCountInLastHourAction,

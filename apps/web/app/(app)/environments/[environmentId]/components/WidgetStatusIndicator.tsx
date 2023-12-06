@@ -1,4 +1,4 @@
-import { getEnvironment } from "@formbricks/lib/environment/service";
+import { getEnvironment } from "@fastform/lib/environment/service";
 import { ArrowDownIcon, CheckIcon } from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import Link from "next/link";
@@ -19,14 +19,14 @@ export default async function WidgetStatusIndicator({ environmentId, type }: Wid
     notImplemented: {
       icon: ArrowDownIcon,
       color: "slate",
-      title: "Connect Formbricks to your app.",
-      subtitle: "You have not yet connected Formbricks to your app. Follow setup guide.",
+      title: "Connect Fastform to your app.",
+      subtitle: "You have not yet connected Fastform to your app. Follow setup guide.",
     },
     running: {
       icon: CheckIcon,
       color: "green",
       title: "Receiving data.",
-      subtitle: "You have successfully connected Formbricks to your app.",
+      subtitle: "You have successfully connected Fastform to your app.",
     },
   };
 

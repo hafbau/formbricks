@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";

@@ -1,6 +1,6 @@
 import { responses } from "@/app/lib/api/response";
-import { prisma } from "@formbricks/database";
-import { CRON_SECRET } from "@formbricks/lib/constants";
+import { prisma } from "@fastform/database";
+import { CRON_SECRET } from "@fastform/lib/constants";
 import { headers } from "next/headers";
 
 export async function POST() {

@@ -1,14 +1,14 @@
 "use client";
 
-import { Button } from "@formbricks/ui/Button";
+import { Button } from "@fastform/ui/Button";
 import { CursorArrowRaysIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import AddNoCodeActionModal from "./AddActionModal";
 import ActionDetailModal from "./ActionDetailModal";
-import { TActionClass } from "@formbricks/types/actionClasses";
-import { useMembershipRole } from "@formbricks/lib/membership/hooks/useMembershipRole";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
-import { LoadingWrapper } from "@formbricks/ui/LoadingWrapper";
+import { TActionClass } from "@fastform/types/actionClasses";
+import { useMembershipRole } from "@fastform/lib/membership/hooks/useMembershipRole";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
+import { LoadingWrapper } from "@fastform/ui/LoadingWrapper";
 
 export default function ActionClassesTable({
   environmentId,

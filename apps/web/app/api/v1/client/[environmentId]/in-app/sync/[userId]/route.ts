@@ -1,15 +1,15 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { getLatestActionByPersonId } from "@formbricks/lib/action/service";
-import { getActionClasses } from "@formbricks/lib/actionClass/service";
-import { IS_FORMBRICKS_CLOUD, PRICING_USERTARGETING_FREE_MTU } from "@formbricks/lib/constants";
-import { getEnvironment, updateEnvironment } from "@formbricks/lib/environment/service";
-import { createPerson, getPersonByUserId } from "@formbricks/lib/person/service";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { getSyncSurveys } from "@formbricks/lib/survey/service";
-import { getMonthlyActiveTeamPeopleCount, getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TJsStateSync, ZJsPeopleUserIdInput } from "@formbricks/types/js";
+import { getLatestActionByPersonId } from "@fastform/lib/action/service";
+import { getActionClasses } from "@fastform/lib/actionClass/service";
+import { IS_FORMBRICKS_CLOUD, PRICING_USERTARGETING_FREE_MTU } from "@fastform/lib/constants";
+import { getEnvironment, updateEnvironment } from "@fastform/lib/environment/service";
+import { createPerson, getPersonByUserId } from "@fastform/lib/person/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { getSyncSurveys } from "@fastform/lib/survey/service";
+import { getMonthlyActiveTeamPeopleCount, getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { TEnvironment } from "@fastform/types/environment";
+import { TJsStateSync, ZJsPeopleUserIdInput } from "@fastform/types/js";
 import { NextResponse } from "next/server";
 
 export async function OPTIONS(): Promise<NextResponse> {

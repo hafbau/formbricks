@@ -1,6 +1,6 @@
 import "server-only";
 
-import { TResponse, TResponseTtc } from "@formbricks/types/responses";
+import { TResponse, TResponseTtc } from "@fastform/types/responses";
 
 export const formatResponseDateFields = (response: TResponse): TResponse => {
   if (typeof response.createdAt === "string") {

@@ -1,14 +1,14 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
-import { TApiKey, TApiKeyCreateInput, ZApiKeyCreateInput } from "@formbricks/types/apiKeys";
+import { prisma } from "@fastform/database";
+import { TApiKey, TApiKeyCreateInput, ZApiKeyCreateInput } from "@fastform/types/apiKeys";
 import { Prisma } from "@prisma/client";
 import { getHash } from "../crypto";
 import { createHash, randomBytes } from "crypto";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@formbricks/types/errors";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@fastform/types/errors";
 import { validateInputs } from "../utils/validate";
-import { ZId } from "@formbricks/types/environment";
-import { ZString, ZOptionalNumber } from "@formbricks/types/common";
+import { ZId } from "@fastform/types/environment";
+import { ZString, ZOptionalNumber } from "@fastform/types/common";
 import { ITEMS_PER_PAGE, SERVICES_REVALIDATION_INTERVAL } from "../constants";
 import { unstable_cache } from "next/cache";
 import { apiKeyCache } from "./cache";

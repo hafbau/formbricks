@@ -1,10 +1,10 @@
 "use client";
 
 import toast from "react-hot-toast";
-import { SurveyInline } from "@formbricks/ui/Survey";
-import { cn } from "@formbricks/lib/cn";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
+import { SurveyInline } from "@fastform/ui/Survey";
+import { cn } from "@fastform/lib/cn";
+import { TSurvey } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/solid";
 import { ArrowUpRightIcon } from "lucide-react";
 import { useRef } from "react";

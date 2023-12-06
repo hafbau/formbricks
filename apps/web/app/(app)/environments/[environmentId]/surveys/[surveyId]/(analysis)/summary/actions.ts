@@ -2,10 +2,10 @@
 
 import { getEmailTemplateHtml } from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/lib/emailTemplate";
 import { generateSurveySingleUseId } from "@/app/lib/singleUseSurveys";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { sendEmbedSurveyPreviewEmail } from "@formbricks/lib/emails/emails";
-import { canUserAccessSurvey } from "@formbricks/lib/survey/auth";
-import { AuthenticationError, AuthorizationError } from "@formbricks/types/errors";
+import { authOptions } from "@fastform/lib/authOptions";
+import { sendEmbedSurveyPreviewEmail } from "@fastform/lib/emails/emails";
+import { canUserAccessSurvey } from "@fastform/lib/survey/auth";
+import { AuthenticationError, AuthorizationError } from "@fastform/types/errors";
 import { getServerSession } from "next-auth";
 
 type TSendEmailActionArgs = {

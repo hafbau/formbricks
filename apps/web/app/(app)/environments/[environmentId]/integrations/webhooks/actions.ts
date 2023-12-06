@@ -1,12 +1,12 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { createWebhook, deleteWebhook, updateWebhook } from "@formbricks/lib/webhook/service";
-import { TWebhook, TWebhookInput } from "@formbricks/types/webhooks";
+import { authOptions } from "@fastform/lib/authOptions";
+import { createWebhook, deleteWebhook, updateWebhook } from "@fastform/lib/webhook/service";
+import { TWebhook, TWebhookInput } from "@fastform/types/webhooks";
 import { getServerSession } from "next-auth";
-import { AuthorizationError } from "@formbricks/types/errors";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { canUserAccessWebhook } from "@formbricks/lib/webhook/auth";
+import { AuthorizationError } from "@fastform/types/errors";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { canUserAccessWebhook } from "@fastform/lib/webhook/auth";
 
 export const createWebhookAction = async (
   environmentId: string,

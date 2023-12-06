@@ -1,8 +1,8 @@
 "use client";
 
-import { TSurvey, TSurveyQuestion } from "@formbricks/types/surveys";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { TSurvey, TSurveyQuestion } from "@fastform/types/surveys";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { useState } from "react";
 import toast from "react-hot-toast";
 

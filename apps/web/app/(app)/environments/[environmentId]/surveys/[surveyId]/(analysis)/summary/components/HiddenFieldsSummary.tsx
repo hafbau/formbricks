@@ -1,10 +1,10 @@
 import Headline from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/Headline";
-import { getPersonIdentifier } from "@formbricks/lib/person/util";
-import { timeSince } from "@formbricks/lib/time";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TResponse } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
-import { PersonAvatar } from "@formbricks/ui/Avatars";
+import { getPersonIdentifier } from "@fastform/lib/person/util";
+import { timeSince } from "@fastform/lib/time";
+import { TEnvironment } from "@fastform/types/environment";
+import { TResponse } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
+import { PersonAvatar } from "@fastform/ui/Avatars";
 import { ChatBubbleBottomCenterTextIcon, InboxStackIcon } from "@heroicons/react/24/solid";
 import { Link } from "lucide-react";
 import { FC, useMemo } from "react";

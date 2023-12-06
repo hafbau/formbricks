@@ -1,4 +1,4 @@
-import { TTeam } from "@formbricks/types/teams";
+import { TTeam } from "@fastform/types/teams";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { Badge } from "../Badge";
 import { Button } from "../Button";

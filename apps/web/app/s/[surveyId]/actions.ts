@@ -16,9 +16,9 @@ interface TSurveyPinValidationResponse {
 
 import { TSurveyPinValidationResponseError } from "@/app/s/[surveyId]/types";
 import { sendLinkSurveyToVerifiedEmail } from "@/app/lib/email";
-import { verifyTokenForLinkSurvey } from "@formbricks/lib/jwt";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { TSurvey } from "@formbricks/types/surveys";
+import { verifyTokenForLinkSurvey } from "@fastform/lib/jwt";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { TSurvey } from "@fastform/types/surveys";
 
 export async function sendLinkSurveyEmailAction(data: LinkSurveyEmailData) {
   if (!data.surveyData) {

@@ -1,11 +1,11 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { getSpreadSheets } from "@formbricks/lib/googleSheet/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { getSpreadSheets } from "@fastform/lib/googleSheet/service";
 import { getServerSession } from "next-auth";
 
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { AuthorizationError } from "@formbricks/types/errors";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { AuthorizationError } from "@fastform/types/errors";
 
 export async function refreshSheetAction(environmentId: string) {
   const session = await getServerSession(authOptions);

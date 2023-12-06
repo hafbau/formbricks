@@ -4,7 +4,7 @@ import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { /* Check, */ ChevronDown } from "lucide-react";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 const Select: React.ComponentType<SelectPrimitive.SelectProps> = SelectPrimitive.Root;
 

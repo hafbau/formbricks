@@ -5,14 +5,14 @@ import {
   TIntegrationAirtable,
   TIntegrationAirtableConfigData,
   TIntegrationAirtableInput,
-} from "@formbricks/types/integration/airtable";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Alert, AlertDescription, AlertTitle } from "@formbricks/ui/Alert";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@formbricks/ui/Select";
-import { Button } from "@formbricks/ui/Button";
-import { Checkbox } from "@formbricks/ui/Checkbox";
-import { Label } from "@formbricks/ui/Label";
-import { Modal } from "@formbricks/ui/Modal";
+} from "@fastform/types/integration/airtable";
+import { TSurvey } from "@fastform/types/surveys";
+import { Alert, AlertDescription, AlertTitle } from "@fastform/ui/Alert";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@fastform/ui/Select";
+import { Button } from "@fastform/ui/Button";
+import { Checkbox } from "@fastform/ui/Checkbox";
+import { Label } from "@fastform/ui/Label";
+import { Modal } from "@fastform/ui/Modal";
 import AirtableLogo from "../images/airtable.svg";
 import { fetchTables } from "@/app/(app)/environments/[environmentId]/integrations/airtable/lib/airtable";
 import { createOrUpdateIntegrationAction } from "@/app/(app)/environments/[environmentId]/integrations/actions";
@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Control, Controller, UseFormSetValue, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { TIntegrationItem } from "@formbricks/types/integration";
+import { TIntegrationItem } from "@fastform/types/integration";
 
 type EditModeProps =
   | { isEditMode: false; defaultData?: never }

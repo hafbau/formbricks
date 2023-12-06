@@ -1,16 +1,16 @@
-import { FormbricksAPI } from "@formbricks/api";
-import { ResponseQueue } from "@formbricks/lib/responseQueue";
-import SurveyState from "@formbricks/lib/surveyState";
-import { renderSurveyModal } from "@formbricks/surveys";
-import { TJSStateDisplay } from "@formbricks/types/js";
-import { TResponseUpdate } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
+import { FormbricksAPI } from "@fastform/api";
+import { ResponseQueue } from "@fastform/lib/responseQueue";
+import SurveyState from "@fastform/lib/surveyState";
+import { renderSurveyModal } from "@fastform/surveys";
+import { TJSStateDisplay } from "@fastform/types/js";
+import { TResponseUpdate } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
 import { Config } from "./config";
 import { ErrorHandler } from "./errors";
 import { Logger } from "./logger";
 import { filterPublicSurveys, sync } from "./sync";
 
-const containerId = "formbricks-web-container";
+const containerId = "fastform-web-container";
 const config = Config.getInstance();
 const logger = Logger.getInstance();
 const errorHandler = ErrorHandler.getInstance();

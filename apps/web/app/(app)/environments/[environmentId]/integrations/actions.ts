@@ -1,12 +1,12 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { createOrUpdateIntegration, deleteIntegration } from "@formbricks/lib/integration/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { createOrUpdateIntegration, deleteIntegration } from "@fastform/lib/integration/service";
 import { getServerSession } from "next-auth";
 
-import { canUserAccessIntegration } from "@formbricks/lib/integration/auth";
-import { AuthorizationError } from "@formbricks/types/errors";
-import { TIntegrationInput } from "@formbricks/types/integration";
+import { canUserAccessIntegration } from "@fastform/lib/integration/auth";
+import { AuthorizationError } from "@fastform/types/errors";
+import { TIntegrationInput } from "@fastform/types/integration";
 
 export async function createOrUpdateIntegrationAction(
   environmentId: string,

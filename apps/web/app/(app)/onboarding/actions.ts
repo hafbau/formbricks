@@ -1,12 +1,12 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
-import { canUserAccessProduct, verifyUserRoleAccess } from "@formbricks/lib/product/auth";
-import { getProduct, updateProduct } from "@formbricks/lib/product/service";
-import { updateProfile } from "@formbricks/lib/profile/service";
-import { AuthorizationError } from "@formbricks/types/errors";
-import { TProductUpdateInput } from "@formbricks/types/product";
-import { TProfileUpdateInput } from "@formbricks/types/profile";
+import { authOptions } from "@fastform/lib/authOptions";
+import { canUserAccessProduct, verifyUserRoleAccess } from "@fastform/lib/product/auth";
+import { getProduct, updateProduct } from "@fastform/lib/product/service";
+import { updateProfile } from "@fastform/lib/profile/service";
+import { AuthorizationError } from "@fastform/types/errors";
+import { TProductUpdateInput } from "@fastform/types/product";
+import { TProfileUpdateInput } from "@fastform/types/profile";
 import { getServerSession } from "next-auth";
 
 export async function updateProfileAction(updatedProfile: TProfileUpdateInput) {

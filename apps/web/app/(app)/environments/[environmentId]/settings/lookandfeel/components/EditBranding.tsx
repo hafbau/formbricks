@@ -1,9 +1,9 @@
 "use client";
 
-import { TProduct, TProductUpdateInput } from "@formbricks/types/product";
-import { Alert, AlertDescription } from "@formbricks/ui/Alert";
-import { Label } from "@formbricks/ui/Label";
-import { Switch } from "@formbricks/ui/Switch";
+import { TProduct, TProductUpdateInput } from "@fastform/types/product";
+import { Alert, AlertDescription } from "@fastform/ui/Alert";
+import { Label } from "@fastform/ui/Label";
+import { Switch } from "@fastform/ui/Switch";
 import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -44,7 +44,7 @@ export function EditFormbricksBranding({
       };
       await updateProductAction(product.id, inputProduct);
       toast.success(
-        newBrandingState ? "Formbricks branding will be shown." : "Formbricks branding will now be hidden."
+        newBrandingState ? "Fastform branding will be shown." : "Fastform branding will now be hidden."
       );
     } catch (error) {
       toast.error(`Error: ${error.message}`);
@@ -59,7 +59,7 @@ export function EditFormbricksBranding({
         <div className="mb-4">
           <Alert>
             <AlertDescription>
-              To remove the Formbricks branding from the&nbsp;
+              To remove the Fastform branding from the&nbsp;
               <span className="font-semibold">{getTextFromType(type)}</span>, please&nbsp;
               {type === "linkSurvey" ? (
                 <span className="underline">
@@ -70,7 +70,7 @@ export function EditFormbricksBranding({
                   {isFormbricksCloud ? (
                     <Link href={`/environments/${environmentId}/settings/billing`}>add your creditcard.</Link>
                   ) : (
-                    <a href="mailto:hola@formbricks.com">get a self-hosted license (free to get started).</a>
+                    <a href="mailto:hola@fastform.com">get a self-hosted license (free to get started).</a>
                   )}
                 </span>
               )}
@@ -86,7 +86,7 @@ export function EditFormbricksBranding({
           disabled={!canRemoveBranding || updatingBranding}
         />
         <Label htmlFor={`branding-${type}`}>
-          Show Formbricks Branding in {type === "linkSurvey" ? "Link" : "In-App"} Surveys
+          Show Fastform Branding in {type === "linkSurvey" ? "Link" : "In-App"} Surveys
         </Label>
       </div>
     </div>

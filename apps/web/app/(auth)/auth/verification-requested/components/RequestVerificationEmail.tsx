@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@formbricks/ui/Button";
+import { Button } from "@fastform/ui/Button";
 import { resendVerificationEmail } from "@/app/lib/users/users";
 import toast from "react-hot-toast";
 

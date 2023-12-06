@@ -1,17 +1,17 @@
 "use server";
 
-import { prisma } from "@formbricks/database";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { SHORT_URL_BASE, WEBAPP_URL } from "@formbricks/lib/constants";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { createMembership } from "@formbricks/lib/membership/service";
-import { createProduct } from "@formbricks/lib/product/service";
-import { createShortUrl } from "@formbricks/lib/shortUrl/service";
-import { canUserAccessSurvey, verifyUserRoleAccess } from "@formbricks/lib/survey/auth";
-import { surveyCache } from "@formbricks/lib/survey/cache";
-import { deleteSurvey, duplicateSurvey, getSurvey } from "@formbricks/lib/survey/service";
-import { createTeam, getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { AuthenticationError, AuthorizationError, ResourceNotFoundError } from "@formbricks/types/errors";
+import { prisma } from "@fastform/database";
+import { authOptions } from "@fastform/lib/authOptions";
+import { SHORT_URL_BASE, WEBAPP_URL } from "@fastform/lib/constants";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { createMembership } from "@fastform/lib/membership/service";
+import { createProduct } from "@fastform/lib/product/service";
+import { createShortUrl } from "@fastform/lib/shortUrl/service";
+import { canUserAccessSurvey, verifyUserRoleAccess } from "@fastform/lib/survey/auth";
+import { surveyCache } from "@fastform/lib/survey/cache";
+import { deleteSurvey, duplicateSurvey, getSurvey } from "@fastform/lib/survey/service";
+import { createTeam, getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { AuthenticationError, AuthorizationError, ResourceNotFoundError } from "@fastform/types/errors";
 import { Team } from "@prisma/client";
 import { Prisma as prismaClient } from "@prisma/client/";
 import { getServerSession } from "next-auth";
@@ -23,7 +23,7 @@ export const createShortUrlAction = async (url: string) => {
   const regexPattern = new RegExp("^" + WEBAPP_URL);
   const isValidUrl = regexPattern.test(url);
 
-  if (!isValidUrl) throw new Error("Only Formbricks survey URLs are allowed");
+  if (!isValidUrl) throw new Error("Only Fastform survey URLs are allowed");
 
   const shortUrl = await createShortUrl(url);
   const fullShortUrl = SHORT_URL_BASE + "/" + shortUrl.id;

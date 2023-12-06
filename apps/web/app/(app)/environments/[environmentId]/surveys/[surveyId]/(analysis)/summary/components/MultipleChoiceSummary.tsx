@@ -1,16 +1,16 @@
-import { TSurveyQuestionType } from "@formbricks/types/surveys";
-import type { TSurveyQuestionSummary } from "@formbricks/types/surveys";
-import { ProgressBar } from "@formbricks/ui/ProgressBar";
-import { PersonAvatar } from "@formbricks/ui/Avatars";
+import { TSurveyQuestionType } from "@fastform/types/surveys";
+import type { TSurveyQuestionSummary } from "@fastform/types/surveys";
+import { ProgressBar } from "@fastform/ui/ProgressBar";
+import { PersonAvatar } from "@fastform/ui/Avatars";
 import { InboxStackIcon } from "@heroicons/react/24/solid";
 import { useMemo } from "react";
 import Link from "next/link";
-import { getPersonIdentifier } from "@formbricks/lib/person/util";
+import { getPersonIdentifier } from "@fastform/lib/person/util";
 import { useState } from "react";
 import {
   TSurveyMultipleChoiceMultiQuestion,
   TSurveyMultipleChoiceSingleQuestion,
-} from "@formbricks/types/surveys";
+} from "@fastform/types/surveys";
 import { questionTypes } from "@/app/lib/questions";
 import Headline from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/Headline";
 

@@ -12,7 +12,7 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
-      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/formbricks?schema=public"
+      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/fastform?schema=public"
     steps:
       - name: Generate Random NEXTAUTH_SECRET
         run: |
@@ -50,8 +50,8 @@ jobs:
           file: ./apps/web/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/formbricks:${{ env.RELEASE_TAG }}
-            ${{ secrets.DOCKER_USERNAME }}/formbricks:latest
+            ${{ secrets.DOCKER_USERNAME }}/fastform:${{ env.RELEASE_TAG }}
+            ${{ secrets.DOCKER_USERNAME }}/fastform:latest
           build-args: |
             NEXTAUTH_SECRET=${{ env.NEXTAUTH_SECRET }}
             DATABASE_URL=${{ env.DATABASE_URL }}

@@ -1,10 +1,10 @@
-import { renderSurveyInline, renderSurveyModal } from "@formbricks/surveys";
-import { TResponseData, TResponseUpdate } from "@formbricks/types/responses";
-import { TUploadFileConfig } from "@formbricks/types/storage";
-import { TSurvey } from "@formbricks/types/surveys";
+import { renderSurveyInline, renderSurveyModal } from "@fastform/surveys";
+import { TResponseData, TResponseUpdate } from "@fastform/types/responses";
+import { TUploadFileConfig } from "@fastform/types/storage";
+import { TSurvey } from "@fastform/types/surveys";
 import { useEffect, useMemo } from "react";
 
-const createContainerId = () => `formbricks-survey-container`;
+const createContainerId = () => `fastform-survey-container`;
 
 interface SurveyProps {
   survey: TSurvey;
@@ -137,5 +137,5 @@ export const SurveyModal = ({
     onFileUpload,
     responseCount,
   ]);
-  return <div id="formbricks-survey"></div>;
+  return <div id="fastform-survey"></div>;
 };

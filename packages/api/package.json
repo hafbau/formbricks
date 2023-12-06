@@ -1,10 +1,10 @@
 {
-  "name": "@formbricks/api",
+  "name": "@fastform/api",
   "license": "MIT",
   "version": "1.1.0",
-  "description": "Formbricks-api is an api wrapper for the Formbricks client API",
+  "description": "Fastform-api is an api wrapper for the Fastform client API",
   "keywords": [
-    "Formbricks",
+    "Fastform",
     "surveys",
     "experience management",
     "api"
@@ -31,8 +31,8 @@
     "clean": "rimraf .turbo node_modules dist"
   },
   "devDependencies": {
-    "@formbricks/types": "workspace:*",
-    "@formbricks/tsconfig": "workspace:*",
+    "@fastform/types": "workspace:*",
+    "@fastform/tsconfig": "workspace:*",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-turbo": "latest",
     "terser": "^5.24.0",

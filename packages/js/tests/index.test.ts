@@ -1,8 +1,8 @@
 /**
  * @jest-environment jsdom
  */
-import { TPersonAttributes } from "@formbricks/types/people";
-import formbricks from "../src/index";
+import { TPersonAttributes } from "@fastform/types/people";
+import fastform from "../src/index";
 import {
   mockEventTrackResponse,
   mockInitResponse,
@@ -35,16 +35,16 @@ beforeEach(() => {
   fetchMock.resetMocks();
 });
 
-/* test("Formbricks should Initialise", async () => {
+/* test("Fastform should Initialise", async () => {
   mockInitResponse();
 
-  await formbricks.init({
+  await fastform.init({
     environmentId,
     apiHost,
     userId: initialUserId,
   });
 
-  const configFromBrowser = localStorage.getItem("formbricks-js");
+  const configFromBrowser = localStorage.getItem("fastform-js");
   expect(configFromBrowser).toBeTruthy();
 
   if (configFromBrowser) {
@@ -54,11 +54,11 @@ beforeEach(() => {
   }
 });
 
-test("Formbricks should set email", async () => {
+test("Fastform should set email", async () => {
   mockSetEmailIdResponse();
-  await formbricks.setEmail(initialUserEmail);
+  await fastform.setEmail(initialUserEmail);
 
-  const currentStatePerson = formbricks.getPerson();
+  const currentStatePerson = fastform.getPerson();
 
   const currentStatePersonAttributes = currentStatePerson.attributes;
   const numberOfUserAttributes = Object.keys(currentStatePersonAttributes).length;
@@ -70,11 +70,11 @@ test("Formbricks should set email", async () => {
   expect(email).toStrictEqual(initialUserEmail);
 });
 
-test("Formbricks should set custom attribute", async () => {
+test("Fastform should set custom attribute", async () => {
   mockSetCustomAttributeResponse();
-  await formbricks.setAttribute(customAttributeKey, customAttributeValue);
+  await fastform.setAttribute(customAttributeKey, customAttributeValue);
 
-  const currentStatePerson = formbricks.getPerson();
+  const currentStatePerson = fastform.getPerson();
 
   const currentStatePersonAttributes = currentStatePerson.attributes;
   const numberOfUserAttributes = Object.keys(currentStatePersonAttributes).length;
@@ -88,11 +88,11 @@ test("Formbricks should set custom attribute", async () => {
   expect(customAttribute).toStrictEqual(customAttributeValue);
 });
 
-test("Formbricks should update attribute", async () => {
+test("Fastform should update attribute", async () => {
   mockUpdateEmailResponse();
-  await formbricks.setEmail(updatedUserEmail);
+  await fastform.setEmail(updatedUserEmail);
 
-  const currentStatePerson = formbricks.getPerson();
+  const currentStatePerson = fastform.getPerson();
 
   const currentStatePersonAttributes = currentStatePerson.attributes;
 
@@ -107,28 +107,28 @@ test("Formbricks should update attribute", async () => {
   expect(customAttribute).toStrictEqual(customAttributeValue);
 });
 
-test("Formbricks should track event", async () => {
+test("Fastform should track event", async () => {
   mockEventTrackResponse();
   const mockButton = document.createElement("button");
   mockButton.addEventListener("click", async () => {
-    await formbricks.track("Button Clicked");
+    await fastform.track("Button Clicked");
   });
   await mockButton.click();
   expect(consoleLogMock).toHaveBeenCalledWith(
-    expect.stringMatching(/Formbricks: Event "Button Clicked" tracked/)
+    expect.stringMatching(/Fastform: Event "Button Clicked" tracked/)
   );
 }); 
 
-test("Formbricks should register for route change", async () => {
+test("Fastform should register for route change", async () => {
   mockRegisterRouteChangeResponse();
-  await formbricks.registerRouteChange();
+  await fastform.registerRouteChange();
   expect(consoleLogMock).toHaveBeenCalledWith(expect.stringMatching(/Checking page url/));
 });
 
-test("Formbricks should reset", async () => {
+test("Fastform should reset", async () => {
   mockResetResponse();
-  await formbricks.reset();
-  const currentStatePerson = formbricks.getPerson();
+  await fastform.reset();
+  const currentStatePerson = fastform.getPerson();
   const currentStatePersonAttributes = currentStatePerson.attributes;
 
   expect(Object.keys(currentStatePersonAttributes).length).toBe(0);

@@ -1,12 +1,12 @@
 import "server-only";
 
-import { TWebhook, TWebhookInput, ZWebhookInput } from "@formbricks/types/webhooks";
-import { prisma } from "@formbricks/database";
+import { TWebhook, TWebhookInput, ZWebhookInput } from "@fastform/types/webhooks";
+import { prisma } from "@fastform/database";
 import { Prisma } from "@prisma/client";
 import { validateInputs } from "../utils/validate";
-import { ZId } from "@formbricks/types/environment";
-import { ResourceNotFoundError, DatabaseError, InvalidInputError } from "@formbricks/types/errors";
-import { ZOptionalNumber } from "@formbricks/types/common";
+import { ZId } from "@fastform/types/environment";
+import { ResourceNotFoundError, DatabaseError, InvalidInputError } from "@fastform/types/errors";
+import { ZOptionalNumber } from "@fastform/types/common";
 import { ITEMS_PER_PAGE, SERVICES_REVALIDATION_INTERVAL } from "../constants";
 import { webhookCache } from "./cache";
 import { unstable_cache } from "next/cache";

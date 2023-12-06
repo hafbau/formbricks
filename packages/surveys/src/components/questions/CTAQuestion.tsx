@@ -3,10 +3,10 @@ import SubmitButton from "@/components/buttons/SubmitButton";
 import QuestionImage from "@/components/general/QuestionImage";
 import Headline from "@/components/general/Headline";
 import HtmlBody from "@/components/general/HtmlBody";
-import { TResponseData } from "@formbricks/types/responses";
-import type { TSurveyCTAQuestion } from "@formbricks/types/surveys";
+import { TResponseData } from "@fastform/types/responses";
+import type { TSurveyCTAQuestion } from "@fastform/types/surveys";
 import { useState } from "react";
-import { TResponseTtc } from "@formbricks/types/responses";
+import { TResponseTtc } from "@fastform/types/responses";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 interface CTAQuestionProps {
   question: TSurveyCTAQuestion;

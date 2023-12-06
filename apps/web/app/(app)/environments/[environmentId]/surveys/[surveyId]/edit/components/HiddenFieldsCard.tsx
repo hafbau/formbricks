@@ -1,11 +1,11 @@
 "use client";
 
-import { cn } from "@formbricks/lib/cn";
-import { TSurvey, TSurveyHiddenFields, TSurveyQuestions } from "@formbricks/types/surveys";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
-import { Switch } from "@formbricks/ui/Switch";
-import { Tag } from "@formbricks/ui/Tag";
+import { cn } from "@fastform/lib/cn";
+import { TSurvey, TSurveyHiddenFields, TSurveyQuestions } from "@fastform/types/surveys";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
+import { Switch } from "@fastform/ui/Switch";
+import { Tag } from "@fastform/ui/Tag";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { FC, useState } from "react";
 import toast from "react-hot-toast";

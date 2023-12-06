@@ -1,4 +1,4 @@
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@formbricks/ui/Tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { QuestionMarkCircleIcon, UsersIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { NotificationSwitch } from "./NotificationSwitch";

@@ -4,10 +4,10 @@ import QuestionImage from "@/components/general/QuestionImage";
 import Headline from "@/components/general/Headline";
 import Subheader from "@/components/general/Subheader";
 import { cn, shuffleQuestions } from "@/lib/utils";
-import { TResponseData } from "@formbricks/types/responses";
-import type { TSurveyMultipleChoiceMultiQuestion } from "@formbricks/types/surveys";
+import { TResponseData } from "@fastform/types/responses";
+import type { TSurveyMultipleChoiceMultiQuestion } from "@fastform/types/surveys";
 import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks";
-import { TResponseTtc } from "@formbricks/types/responses";
+import { TResponseTtc } from "@fastform/types/responses";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 interface MultipleChoiceMultiProps {
   question: TSurveyMultipleChoiceMultiQuestion;

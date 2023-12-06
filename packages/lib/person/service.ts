@@ -1,10 +1,10 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
-import { ZOptionalNumber, ZString } from "@formbricks/types/common";
-import { ZId } from "@formbricks/types/environment";
-import { DatabaseError } from "@formbricks/types/errors";
-import { TPerson, TPersonUpdateInput, ZPersonUpdateInput } from "@formbricks/types/people";
+import { prisma } from "@fastform/database";
+import { ZOptionalNumber, ZString } from "@fastform/types/common";
+import { ZId } from "@fastform/types/environment";
+import { DatabaseError } from "@fastform/types/errors";
+import { TPerson, TPersonUpdateInput, ZPersonUpdateInput } from "@fastform/types/people";
 import { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 import { ITEMS_PER_PAGE, SERVICES_REVALIDATION_INTERVAL } from "../constants";
@@ -190,7 +190,7 @@ export const createPerson = async (environmentId: string, userId: string): Promi
     if (error instanceof Prisma.PrismaClientKnownRequestError) {
       // If the person already exists, return it
       if (error.code === "P2002") {
-        // HOTFIX to handle formbricks-js failing because of caching issue
+        // HOTFIX to handle fastform-js failing because of caching issue
         // Handle the case where the person record already exists
         const existingPerson = await prisma.person.findFirst({
           where: {

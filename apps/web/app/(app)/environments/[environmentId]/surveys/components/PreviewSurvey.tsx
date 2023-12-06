@@ -3,12 +3,12 @@
 import Modal from "@/app/(app)/environments/[environmentId]/surveys/components/Modal";
 import TabOption from "@/app/(app)/environments/[environmentId]/surveys/components/TabOption";
 import { MediaBackground } from "@/app/s/[surveyId]/components/MediaBackground";
-import type { TEnvironment } from "@formbricks/types/environment";
-import type { TProduct } from "@formbricks/types/product";
-import { TUploadFileConfig } from "@formbricks/types/storage";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
-import { SurveyInline } from "@formbricks/ui/Survey";
+import type { TEnvironment } from "@fastform/types/environment";
+import type { TProduct } from "@fastform/types/product";
+import { TUploadFileConfig } from "@fastform/types/storage";
+import { TSurvey } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
+import { SurveyInline } from "@fastform/ui/Survey";
 import { ArrowPathRoundedSquareIcon } from "@heroicons/react/24/outline";
 import {
   ArrowsPointingInIcon,

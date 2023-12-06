@@ -5,11 +5,11 @@ import {
   inviteUserAction,
   leaveTeamAction,
 } from "@/app/(app)/environments/[environmentId]/settings/members/actions";
-import CustomDialog from "@formbricks/ui/CustomDialog";
-import CreateTeamModal from "@formbricks/ui/CreateTeamModal";
-import { TMembershipRole } from "@formbricks/types/memberships";
-import { TTeam } from "@formbricks/types/teams";
-import { Button } from "@formbricks/ui/Button";
+import CustomDialog from "@fastform/ui/CustomDialog";
+import CreateTeamModal from "@fastform/ui/CreateTeamModal";
+import { TMembershipRole } from "@fastform/types/memberships";
+import { TTeam } from "@fastform/types/teams";
+import { Button } from "@fastform/ui/Button";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import toast from "react-hot-toast";

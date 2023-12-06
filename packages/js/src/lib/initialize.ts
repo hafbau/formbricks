@@ -1,4 +1,4 @@
-import type { TJsConfigInput } from "@formbricks/types/js";
+import type { TJsConfigInput } from "@fastform/types/js";
 import { Config } from "./config";
 import {
   ErrorHandler,
@@ -119,7 +119,7 @@ export const checkInitialized = (): Result<void, NotInitializedError> => {
   if (!isInitialized || !ErrorHandler.initialized) {
     return err({
       code: "not_initialized",
-      message: "Formbricks not initialized. Call initialize() first.",
+      message: "Fastform not initialized. Call initialize() first.",
     });
   }
 

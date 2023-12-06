@@ -1,5 +1,5 @@
 {
-  "name": "@formbricks/tsconfig",
+  "name": "@fastform/tsconfig",
   "version": "1.0.0",
   "private": true,
   "sideEffects": false,

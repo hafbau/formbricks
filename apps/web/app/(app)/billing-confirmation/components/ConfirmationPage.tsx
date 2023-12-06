@@ -1,8 +1,8 @@
 "use client";
 
-import ContentWrapper from "@formbricks/ui/ContentWrapper";
-import { Button } from "@formbricks/ui/Button";
-import { Confetti } from "@formbricks/ui/Confetti";
+import ContentWrapper from "@fastform/ui/ContentWrapper";
+import { Button } from "@fastform/ui/Button";
+import { Confetti } from "@fastform/ui/Confetti";
 import { useEffect, useState } from "react";
 
 interface ConfirmationPageProps {
@@ -22,7 +22,7 @@ export default function ConfirmationPage({ environmentId }: ConfirmationPageProp
           <div className="my-6 sm:flex-auto">
             <h1 className="text-center text-xl font-semibold text-slate-900">Upgrade successful</h1>
             <p className="mt-2 text-center text-sm text-slate-700">
-              Thanks a lot for upgrading your Formbricks subscription.
+              Thanks a lot for upgrading your Fastform subscription.
             </p>
           </div>
           <Button

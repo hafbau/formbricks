@@ -30,7 +30,7 @@ export function SurveyModal({
   };
 
   return (
-    <div id="fbjs" className="formbricks-form">
+    <div id="fbjs" className="fastform-form">
       <Modal
         placement={placement}
         clickOutside={clickOutside}

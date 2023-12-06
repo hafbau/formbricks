@@ -1,6 +1,6 @@
 import "server-only";
 
-import { ZId } from "@formbricks/types/environment";
+import { ZId } from "@fastform/types/environment";
 import { validateInputs } from "../utils/validate";
 import { hasUserEnvironmentAccess } from "../environment/auth";
 import { getPerson } from "./service";

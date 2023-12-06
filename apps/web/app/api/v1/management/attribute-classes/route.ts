@@ -1,10 +1,10 @@
 import { responses } from "@/app/lib/api/response";
-import { DatabaseError } from "@formbricks/types/errors";
+import { DatabaseError } from "@fastform/types/errors";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { NextResponse } from "next/server";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { TAttributeClass, ZAttributeClassInput } from "@formbricks/types/attributeClasses";
-import { createAttributeClass, getAttributeClasses } from "@formbricks/lib/attributeClass/service";
+import { TAttributeClass, ZAttributeClassInput } from "@fastform/types/attributeClasses";
+import { createAttributeClass, getAttributeClasses } from "@fastform/lib/attributeClass/service";
 
 export async function GET(request: Request) {
   try {

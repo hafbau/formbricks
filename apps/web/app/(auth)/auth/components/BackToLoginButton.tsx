@@ -1,4 +1,4 @@
-import { Button } from "@formbricks/ui/Button";
+import { Button } from "@fastform/ui/Button";
 
 export default function BackToLoginButton() {
   return (

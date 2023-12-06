@@ -1,4 +1,4 @@
-import { verifyTokenForLinkSurvey } from "@formbricks/lib/jwt";
+import { verifyTokenForLinkSurvey } from "@fastform/lib/jwt";
 
 export const getEmailVerificationStatus = async (
   surveyId: string,

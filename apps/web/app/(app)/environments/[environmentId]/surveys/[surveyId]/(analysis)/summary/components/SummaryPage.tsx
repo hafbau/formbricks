@@ -9,15 +9,15 @@ import SummaryHeader from "@/app/(app)/environments/[environmentId]/surveys/[sur
 import { getFilterResponses } from "@/app/lib/surveys/surveys";
 import { useEffect, useMemo, useState } from "react";
 import SummaryDropOffs from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/SummaryDropOffs";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TProduct } from "@formbricks/types/product";
-import { TProfile } from "@formbricks/types/profile";
-import { TResponse } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
-import { TTag } from "@formbricks/types/tags";
-import ContentWrapper from "@formbricks/ui/ContentWrapper";
+import { TEnvironment } from "@fastform/types/environment";
+import { TProduct } from "@fastform/types/product";
+import { TProfile } from "@fastform/types/profile";
+import { TResponse } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
+import { TTag } from "@fastform/types/tags";
+import ContentWrapper from "@fastform/ui/ContentWrapper";
 import { useSearchParams } from "next/navigation";
-import { TMembershipRole } from "@formbricks/types/memberships";
+import { TMembershipRole } from "@fastform/types/memberships";
 
 interface SummaryPageProps {
   environment: TEnvironment;

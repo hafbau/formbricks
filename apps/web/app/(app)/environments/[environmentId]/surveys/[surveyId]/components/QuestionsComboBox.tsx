@@ -1,11 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { Command, CommandGroup, CommandItem, CommandInput, CommandEmpty } from "@formbricks/ui/Command";
-import { NetPromoterScoreIcon } from "@formbricks/ui/icons";
-import useClickOutside from "@formbricks/lib/useClickOutside";
+import { Command, CommandGroup, CommandItem, CommandInput, CommandEmpty } from "@fastform/ui/Command";
+import { NetPromoterScoreIcon } from "@fastform/ui/icons";
+import useClickOutside from "@fastform/lib/useClickOutside";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { TSurveyQuestionType } from "@formbricks/types/surveys";
+import { TSurveyQuestionType } from "@fastform/types/surveys";
 import {
   StarIcon,
   HashtagIcon,

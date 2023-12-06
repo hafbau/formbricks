@@ -7,12 +7,12 @@ import QuestionsAudienceTabs from "./QuestionsSettingsTabs";
 import QuestionsView from "./QuestionsView";
 import SettingsView from "./SettingsView";
 import SurveyMenuBar from "./SurveyMenuBar";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TSurvey } from "@formbricks/types/surveys";
-import { TProduct } from "@formbricks/types/product";
-import { TAttributeClass } from "@formbricks/types/attributeClasses";
-import { TActionClass } from "@formbricks/types/actionClasses";
-import { TMembershipRole } from "@formbricks/types/memberships";
+import { TEnvironment } from "@fastform/types/environment";
+import { TSurvey } from "@fastform/types/surveys";
+import { TProduct } from "@fastform/types/product";
+import { TAttributeClass } from "@fastform/types/attributeClasses";
+import { TActionClass } from "@fastform/types/actionClasses";
+import { TMembershipRole } from "@fastform/types/memberships";
 import Loading from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/edit/loading";
 
 interface SurveyEditorProps {

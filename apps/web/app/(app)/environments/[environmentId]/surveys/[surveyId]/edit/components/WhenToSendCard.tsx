@@ -1,13 +1,13 @@
 "use client";
 
 import AddNoCodeActionModal from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/actions/components/AddActionModal";
-import { cn } from "@formbricks/lib/cn";
-import { TActionClass } from "@formbricks/types/actionClasses";
-import { TSurvey } from "@formbricks/types/surveys";
-import { AdvancedOptionToggle } from "@formbricks/ui/AdvancedOptionToggle";
-import { Badge } from "@formbricks/ui/Badge";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
+import { cn } from "@fastform/lib/cn";
+import { TActionClass } from "@fastform/types/actionClasses";
+import { TSurvey } from "@fastform/types/surveys";
+import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
+import { Badge } from "@fastform/ui/Badge";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
 import {
   Select,
   SelectContent,
@@ -15,12 +15,12 @@ import {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from "@formbricks/ui/Select";
+} from "@fastform/ui/Select";
 import { CheckCircleIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { useCallback, useEffect, useState } from "react";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
-import { TMembershipRole } from "@formbricks/types/memberships";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
+import { TMembershipRole } from "@fastform/types/memberships";
 interface WhenToSendCardProps {
   localSurvey: TSurvey;
   setLocalSurvey: (survey: TSurvey) => void;

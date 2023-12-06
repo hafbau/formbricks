@@ -1,19 +1,19 @@
 "use client";
 
-import { timeSince } from "@formbricks/lib/time";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
+import { timeSince } from "@fastform/lib/time";
+import { TEnvironment } from "@fastform/types/environment";
+import { TSurvey } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
 import AddIntegrationModal, {
   IntegrationModalInputs,
 } from "@/app/(app)/environments/[environmentId]/integrations/airtable/components/AddIntegrationModal";
 import { deleteIntegrationAction } from "@/app/(app)/environments/[environmentId]/integrations/actions";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
-import EmptySpaceFiller from "@formbricks/ui/EmptySpaceFiller";
-import { TIntegrationAirtable } from "@formbricks/types/integration/airtable";
-import { TIntegrationItem } from "@formbricks/types/integration";
+import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
+import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
+import { TIntegrationItem } from "@fastform/types/integration";
 interface handleModalProps {
   airtableIntegration: TIntegrationAirtable;
   environment: TEnvironment;

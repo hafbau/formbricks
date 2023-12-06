@@ -1,6 +1,6 @@
-import { TDisplayCreateInput, TDisplayUpdateInput } from "@formbricks/types/displays";
-import { Result } from "@formbricks/types/errorHandlers";
-import { NetworkError } from "@formbricks/types/errors";
+import { TDisplayCreateInput, TDisplayUpdateInput } from "@fastform/types/displays";
+import { Result } from "@fastform/types/errorHandlers";
+import { NetworkError } from "@fastform/types/errors";
 import { makeRequest } from "../../utils/makeRequest";
 
 export class DisplayAPI {

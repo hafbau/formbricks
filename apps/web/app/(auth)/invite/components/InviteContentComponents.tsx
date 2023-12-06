@@ -1,4 +1,4 @@
-import { Button } from "@formbricks/ui/Button";
+import { Button } from "@fastform/ui/Button";
 
 const ContentLayout = ({ headline, description, children }) => {
   return (

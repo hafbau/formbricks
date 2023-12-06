@@ -1,6 +1,6 @@
 import { responses } from "@/app/lib/api/response";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { NextRequest, NextResponse } from "next/server";
 import uploadPrivateFile from "./lib/uploadPrivateFile";
 

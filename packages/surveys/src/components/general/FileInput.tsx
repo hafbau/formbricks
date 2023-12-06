@@ -1,8 +1,8 @@
-import { TAllowedFileExtension } from "@formbricks/types/common";
+import { TAllowedFileExtension } from "@fastform/types/common";
 import { useMemo } from "preact/hooks";
 import { JSXInternal } from "preact/src/jsx";
 import { useState } from "react";
-import { TUploadFileConfig } from "@formbricks/types/storage";
+import { TUploadFileConfig } from "@fastform/types/storage";
 
 interface MultipleFileInputProps {
   allowedFileExtensions?: TAllowedFileExtension[];

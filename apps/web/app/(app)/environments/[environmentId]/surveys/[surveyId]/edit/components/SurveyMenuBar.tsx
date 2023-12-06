@@ -1,13 +1,13 @@
 "use client";
 
-import AlertDialog from "@formbricks/ui/AlertDialog";
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
-import { TSurveyQuestionType } from "@formbricks/types/surveys";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TProduct } from "@formbricks/types/product";
-import { TSurvey } from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
+import AlertDialog from "@fastform/ui/AlertDialog";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
+import { TSurveyQuestionType } from "@fastform/types/surveys";
+import { TEnvironment } from "@fastform/types/environment";
+import { TProduct } from "@fastform/types/product";
+import { TSurvey } from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
 import { ArrowLeftIcon, Cog8ToothIcon, ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 import { isEqual } from "lodash";
 import { useRouter } from "next/navigation";

@@ -1,6 +1,6 @@
-import ClientLogout from "@formbricks/ui/ClientLogout";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { getFirstEnvironmentByUserId } from "@formbricks/lib/environment/service";
+import ClientLogout from "@fastform/ui/ClientLogout";
+import { authOptions } from "@fastform/lib/authOptions";
+import { getFirstEnvironmentByUserId } from "@fastform/lib/environment/service";
 import type { Session } from "next-auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

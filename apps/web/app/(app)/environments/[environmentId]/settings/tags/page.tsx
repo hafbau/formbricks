@@ -1,14 +1,14 @@
 import EditTagsWrapper from "./components/EditTagsWrapper";
 import SettingsTitle from "../components/SettingsTitle";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getTagsByEnvironmentId } from "@formbricks/lib/tag/service";
-import { getTagsOnResponsesCount } from "@formbricks/lib/tagOnResponse/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getTagsByEnvironmentId } from "@fastform/lib/tag/service";
+import { getTagsOnResponsesCount } from "@fastform/lib/tagOnResponse/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
 
 export default async function MembersSettingsPage({ params }) {
   const environment = await getEnvironment(params.environmentId);

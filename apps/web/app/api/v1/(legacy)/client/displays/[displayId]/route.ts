@@ -1,7 +1,7 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { updateDisplayLegacy } from "@formbricks/lib/display/service";
-import { ZDisplayLegacyUpdateInput } from "@formbricks/types/displays";
+import { updateDisplayLegacy } from "@fastform/lib/display/service";
+import { ZDisplayLegacyUpdateInput } from "@fastform/types/displays";
 import { NextResponse } from "next/server";
 
 export async function OPTIONS(): Promise<NextResponse> {

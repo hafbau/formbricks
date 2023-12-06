@@ -1,7 +1,7 @@
 "use client";
 
-import { PasswordInput } from "@formbricks/ui/PasswordInput";
-import { Button } from "@formbricks/ui/Button";
+import { PasswordInput } from "@fastform/ui/PasswordInput";
+import { Button } from "@fastform/ui/Button";
 import { XCircleIcon } from "@heroicons/react/24/solid";
 import { signIn } from "next-auth/react";
 import Link from "next/dist/client/link";
@@ -9,7 +9,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useRef, useState, useEffect } from "react";
 import { Controller, SubmitHandler, useForm, FormProvider } from "react-hook-form";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 import { GithubButton } from "@/app/(auth)/auth/components/GithubButton";
 import { GoogleButton } from "@/app/(auth)/auth/components/GoogleButton";
 import { AzureButton } from "@/app/(auth)/auth/components/AzureButton";
@@ -223,7 +223,7 @@ export const SigninForm = ({
 
         {publicSignUpEnabled && !totpLogin && (
           <div className="mt-9 text-center text-xs ">
-            <span className="leading-5 text-slate-500">New to Formbricks?</span>
+            <span className="leading-5 text-slate-500">New to Fastform?</span>
             <br />
             <Link
               href={callbackUrl ? `/auth/signup?inviteToken=${inviteToken}` : "/auth/signup"}

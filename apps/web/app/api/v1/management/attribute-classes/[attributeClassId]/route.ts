@@ -5,11 +5,11 @@ import {
   deleteAttributeClass,
   getAttributeClass,
   updateAttributeClass,
-} from "@formbricks/lib/attributeClass/service";
-import { TAttributeClass, ZAttributeClassUpdateInput } from "@formbricks/types/attributeClasses";
+} from "@fastform/lib/attributeClass/service";
+import { TAttributeClass, ZAttributeClassUpdateInput } from "@fastform/types/attributeClasses";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { authenticateRequest } from "@/app/api/v1/auth";
-import { TAuthenticationApiKey } from "@formbricks/types/auth";
+import { TAuthenticationApiKey } from "@fastform/types/auth";
 
 async function fetchAndAuthorizeAttributeClass(
   authentication: TAuthenticationApiKey,

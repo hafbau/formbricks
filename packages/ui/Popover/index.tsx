@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 const Popover: React.FC<React.ComponentProps<typeof PopoverPrimitive.Root>> = PopoverPrimitive.Root;
 

@@ -1,10 +1,10 @@
 "use client";
 
-import { TPlacement } from "@formbricks/types/common";
-import { TSurvey, TSurveyBackgroundBgType } from "@formbricks/types/surveys";
-import { ColorPicker } from "@formbricks/ui/ColorPicker";
-import { Label } from "@formbricks/ui/Label";
-import { Switch } from "@formbricks/ui/Switch";
+import { TPlacement } from "@fastform/types/common";
+import { TSurvey, TSurveyBackgroundBgType } from "@fastform/types/surveys";
+import { ColorPicker } from "@fastform/ui/ColorPicker";
+import { Label } from "@fastform/ui/Label";
+import { Switch } from "@fastform/ui/Switch";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { useState } from "react";

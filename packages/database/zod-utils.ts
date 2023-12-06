@@ -1,15 +1,15 @@
 import z from "zod";
 
 export const ZActionProperties = z.record(z.string());
-export { ZActionClassNoCodeConfig } from "@formbricks/types/actionClasses";
-export { ZIntegrationConfig } from "@formbricks/types/integration";
+export { ZActionClassNoCodeConfig } from "@fastform/types/actionClasses";
+export { ZIntegrationConfig } from "@fastform/types/integration";
 
 export {
   ZResponseData,
   ZResponsePersonAttributes,
   ZResponseMeta,
   ZResponseTtc,
-} from "@formbricks/types/responses";
+} from "@fastform/types/responses";
 
 export {
   ZSurveyWelcomeCard,
@@ -21,7 +21,7 @@ export {
   ZSurveyStyling,
   ZSurveyVerifyEmail,
   ZSurveySingleUse,
-} from "@formbricks/types/surveys";
+} from "@fastform/types/surveys";
 
-export { ZTeamBilling } from "@formbricks/types/teams";
-export { ZUserNotificationSettings } from "@formbricks/types/users";
+export { ZTeamBilling } from "@fastform/types/teams";
+export { ZUserNotificationSettings } from "@fastform/types/users";

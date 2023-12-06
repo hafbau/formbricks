@@ -1,12 +1,12 @@
 export const revalidate = REVALIDATION_INTERVAL;
 
 import Navigation from "@/app/(app)/environments/[environmentId]/components/Navigation";
-import { IS_FORMBRICKS_CLOUD, REVALIDATION_INTERVAL, WEBAPP_URL } from "@formbricks/lib/constants";
-import { getEnvironment, getEnvironments } from "@formbricks/lib/environment/service";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { getProducts } from "@formbricks/lib/product/service";
-import { getTeamByEnvironmentId, getTeamsByUserId } from "@formbricks/lib/team/service";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
+import { IS_FORMBRICKS_CLOUD, REVALIDATION_INTERVAL, WEBAPP_URL } from "@fastform/lib/constants";
+import { getEnvironment, getEnvironments } from "@fastform/lib/environment/service";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { getProducts } from "@fastform/lib/product/service";
+import { getTeamByEnvironmentId, getTeamsByUserId } from "@fastform/lib/team/service";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
 import type { Session } from "next-auth";
 
 interface EnvironmentsNavbarProps {

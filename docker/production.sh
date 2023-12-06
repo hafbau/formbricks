@@ -5,9 +5,9 @@ ubuntu_version=$(lsb_release -a 2>/dev/null | grep -v "No LSB modules are availa
 
 install_formbricks() {
   # Friendly welcome
-  echo "🧱 Welcome to the Formbricks Setup Script"
+  echo "🧱 Welcome to the Fastform Setup Script"
   echo ""
-  echo "🛸 Fasten your seatbelts! We're setting up your Formbricks environment on your $ubuntu_version server."
+  echo "🛸 Fasten your seatbelts! We're setting up your Fastform environment on your $ubuntu_version server."
   echo ""
 
   # Remove any old Docker installations, without stopping the script if they're not found
@@ -56,12 +56,12 @@ install_formbricks() {
   sudo groupadd docker >/dev/null 2>&1 || true
   sudo usermod -aG docker $USER >/dev/null 2>&1
 
-  echo "🎉 Hooray! Docker is all set and ready to go. You're now ready to run your Formbricks instance!"
+  echo "🎉 Hooray! Docker is all set and ready to go. You're now ready to run your Fastform instance!"
 
   # Installing Traefik
   echo "🚗 Installing Traefik..."
-  mkdir -p formbricks && cd formbricks
-  echo "📁 Created Formbricks Quickstart directory at ./formbricks."
+  mkdir -p fastform && cd fastform
+  echo "📁 Created Fastform Quickstart directory at ./fastform."
 
   # Ask the user for their email address
   echo "💡 Please enter your email address for the SSL certificate:"
@@ -137,8 +137,8 @@ EOT
     smtp_secure_enabled=0
   fi
 
-  echo "📥 Downloading docker-compose.yml from Formbricks GitHub repository..."
-  curl -o docker-compose.yml https://raw.githubusercontent.com/formbricks/formbricks/main/docker/docker-compose.yml
+  echo "📥 Downloading docker-compose.yml from Fastform GitHub repository..."
+  curl -o docker-compose.yml https://raw.githubusercontent.com/fastform/fastform/main/docker/docker-compose.yml
 
   echo "🚙 Updating docker-compose.yml with your custom inputs..."
   sed -i "/WEBAPP_URL:/s|WEBAPP_URL:.*|WEBAPP_URL: \"https://$domain_name\"|" docker-compose.yml
@@ -160,16 +160,16 @@ EOT
   fi
 
   awk -v domain_name="$domain_name" '
-/formbricks:/,/^ *$/ {
+/fastform:/,/^ *$/ {
     if ($0 ~ /depends_on:/) {
         inserting_labels=1
     }
     if (inserting_labels && ($0 ~ /ports:/)) {
         print "    labels:"
         print "      - \"traefik.enable=true\"  # Enable Traefik for this service"
-        print "      - \"traefik.http.routers.formbricks.rule=Host(\`" domain_name "\`)\"  # Use your actual domain or IP"
-        print "      - \"traefik.http.routers.formbricks.entrypoints=websecure\"  # Use the websecure entrypoint (port 443 with TLS)"
-        print "      - \"traefik.http.services.formbricks.loadbalancer.server.port=3000\"  # Forward traffic to Formbricks on port 3000"
+        print "      - \"traefik.http.routers.fastform.rule=Host(\`" domain_name "\`)\"  # Use your actual domain or IP"
+        print "      - \"traefik.http.routers.fastform.entrypoints=websecure\"  # Use the websecure entrypoint (port 443 with TLS)"
+        print "      - \"traefik.http.services.fastform.loadbalancer.server.port=3000\"  # Forward traffic to Fastform on port 3000"
         inserting_labels=0
     }
     print
@@ -181,7 +181,7 @@ EOT
     print "    restart: always"
     print "    container_name: \"traefik\""
     print "    depends_on:"
-    print "      - formbricks"
+    print "      - fastform"
     print "    ports:"
     print "      - \"80:80\""
     print "      - \"443:443\""
@@ -199,52 +199,52 @@ EOT
 
 docker compose up -d
 
-echo "🔗 To edit more variables and deeper config, go to the formbricks/docker-compose.yml, edit the file, and restart the container!"
+echo "🔗 To edit more variables and deeper config, go to the fastform/docker-compose.yml, edit the file, and restart the container!"
 
 echo "🚨 Make sure you have set up the DNS records as well as inbound rules for the domain name and IP address of this instance."
 echo ""
-echo "🎉 All done! Check the status of Formbricks & Traefik with 'cd formbricks && sudo docker compose ps.'"
+echo "🎉 All done! Check the status of Fastform & Traefik with 'cd fastform && sudo docker compose ps.'"
 
 END
 
 }
 
 uninstall_formbricks() {
-  echo "🗑️ Preparing to Uninstalling Formbricks..."
-  read -p "Are you sure you want to uninstall Formbricks? This will delete all the data associated with it! (yes/no): " uninstall_confirmation
+  echo "🗑️ Preparing to Uninstalling Fastform..."
+  read -p "Are you sure you want to uninstall Fastform? This will delete all the data associated with it! (yes/no): " uninstall_confirmation
   if [[ $uninstall_confirmation == "yes" ]]; then
-    cd formbricks
+    cd fastform
     sudo docker compose down
     cd ..
-    sudo rm -rf formbricks
-    echo "🛑 Formbricks uninstalled successfully!"
+    sudo rm -rf fastform
+    echo "🛑 Fastform uninstalled successfully!"
   else
-    echo "❌ Uninstalling Formbricks has been cancelled."
+    echo "❌ Uninstalling Fastform has been cancelled."
   fi
 }
 
 stop_formbricks() {
-  echo "🛑 Stopping Formbricks..."
-  cd formbricks
+  echo "🛑 Stopping Fastform..."
+  cd fastform
   sudo docker compose down
-  echo "🎉 Formbricks instance stopped successfully!"
+  echo "🎉 Fastform instance stopped successfully!"
 }
 
 update_formbricks() {
-  echo "🔄 Updating Formbricks..."
-  cd formbricks
+  echo "🔄 Updating Fastform..."
+  cd fastform
   sudo docker compose pull
   sudo docker compose down
   sudo docker compose up -d
-  echo "🎉 Formbricks updated successfully!"
-  echo "🎉 Check the status of Formbricks & Traefik with 'cd formbricks && sudo docker compose logs.'"
+  echo "🎉 Fastform updated successfully!"
+  echo "🎉 Check the status of Fastform & Traefik with 'cd fastform && sudo docker compose logs.'"
 }
 
 restart_formbricks() {
-  echo "🔄 Restarting Formbricks..."
-  cd formbricks
+  echo "🔄 Restarting Fastform..."
+  cd fastform
   sudo docker compose restart
-  echo "🎉 Formbricks restarted successfully!"
+  echo "🎉 Fastform restarted successfully!"
 }
 
 case "$1" in
@@ -264,7 +264,7 @@ uninstall)
   uninstall_formbricks
   ;;
 *)
-  echo "🚀 Executing default step of installing Formbricks"
+  echo "🚀 Executing default step of installing Fastform"
   install_formbricks
   ;;
 esac

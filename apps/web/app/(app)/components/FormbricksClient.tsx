@@ -1,8 +1,8 @@
 "use client";
 
-import { env } from "@formbricks/lib/env.mjs";
-import { formbricksEnabled } from "@/app/lib/formbricks";
-import formbricks from "@formbricks/js";
+import { env } from "@fastform/lib/env.mjs";
+import { formbricksEnabled } from "@/app/lib/fastform";
+import fastform from "@fastform/js";
 import { useEffect } from "react";
 
 type UsageAttributesUpdaterProps = {
@@ -11,13 +11,13 @@ type UsageAttributesUpdaterProps = {
 
 export default function FormbricksClient({ session }) {
   useEffect(() => {
-    if (formbricksEnabled && session?.user && formbricks) {
-      formbricks.init({
+    if (formbricksEnabled && session?.user && fastform) {
+      fastform.init({
         environmentId: env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID || "",
         apiHost: env.NEXT_PUBLIC_FORMBRICKS_API_HOST || "",
         userId: session.user.id,
       });
-      formbricks.setEmail(session.user.email);
+      fastform.setEmail(session.user.email);
     }
   }, [session]);
   return null;
@@ -27,7 +27,7 @@ const updateUsageAttributes = (numSurveys) => {
   if (!formbricksEnabled) return;
 
   if (numSurveys >= 3) {
-    formbricks.setAttribute("HasThreeSurveys", "true");
+    fastform.setAttribute("HasThreeSurveys", "true");
   }
 };
 

@@ -1,10 +1,10 @@
 "use server";
 
 import { getServerSession } from "next-auth";
-import { AuthorizationError } from "@formbricks/types/errors";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { getSurveysByAttributeClassId } from "@formbricks/lib/survey/service";
-import { canUserAccessAttributeClass } from "@formbricks/lib/attributeClass/auth";
+import { AuthorizationError } from "@fastform/types/errors";
+import { authOptions } from "@fastform/lib/authOptions";
+import { getSurveysByAttributeClassId } from "@fastform/lib/survey/service";
+import { canUserAccessAttributeClass } from "@fastform/lib/attributeClass/auth";
 
 export const GetActiveInactiveSurveysAction = async (
   attributeClassId: string

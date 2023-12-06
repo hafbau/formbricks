@@ -5,8 +5,8 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@formbricks/ui/DropdownMenu";
-import { Calendar } from "@formbricks/ui/Calendar";
+} from "@fastform/ui/DropdownMenu";
+import { Calendar } from "@fastform/ui/Calendar";
 import { format, subDays, differenceInDays } from "date-fns";
 import { useEffect, useMemo, useState, useCallback, useRef } from "react";
 import { ChevronDown, ChevronUp, DownloadIcon } from "lucide-react";
@@ -16,18 +16,18 @@ import {
   getTodayDate,
 } from "@/app/lib/surveys/surveys";
 import toast from "react-hot-toast";
-import { getTodaysDateFormatted } from "@formbricks/lib/time";
+import { getTodaysDateFormatted } from "@fastform/lib/time";
 import { fetchFile } from "@/app/lib/fetchFile";
-import useClickOutside from "@formbricks/lib/useClickOutside";
-import { TResponse } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
+import useClickOutside from "@fastform/lib/useClickOutside";
+import { TResponse } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
 import { createId } from "@paralleldrive/cuid2";
 import ResponseFilter from "./ResponseFilter";
 import {
   DateRange,
   useResponseFilter,
 } from "@/app/(app)/environments/[environmentId]/components/ResponseFilterContext";
-import { TTag } from "@formbricks/types/tags";
+import { TTag } from "@fastform/types/tags";
 
 enum DateSelected {
   FROM = "from",
@@ -154,7 +154,7 @@ const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: Cu
           Timestamp: response.createdAt,
           Finished: response.finished,
           "Survey ID": response.surveyId,
-          "Formbricks User ID": response.person?.id ?? "",
+          "Fastform User ID": response.person?.id ?? "",
         };
 
         // Map each question name to its corresponding answer
@@ -180,7 +180,7 @@ const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: Cu
         const attributeValues = attributeMap[attributeName];
         Object.keys(attributeValues).forEach((personId) => {
           const value = attributeValues[personId];
-          const matchingResponse = jsonData.find((response) => response["Formbricks User ID"] === personId);
+          const matchingResponse = jsonData.find((response) => response["Fastform User ID"] === personId);
           if (matchingResponse) {
             matchingResponse[attributeName] = value;
           }
@@ -193,7 +193,7 @@ const CustomFilter = ({ environmentTags, responses, survey, totalResponses }: Cu
         "Timestamp",
         "Finished",
         "Survey ID",
-        "Formbricks User ID",
+        "Fastform User ID",
         ...Object.keys(attributeMap),
         ...questionNames,
       ];

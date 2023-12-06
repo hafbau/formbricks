@@ -1,5 +1,5 @@
 {
-  "extends": "@formbricks/tsconfig/react-library.json",
+  "extends": "@fastform/tsconfig/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

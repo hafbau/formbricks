@@ -1,10 +1,10 @@
 export const revalidate = REVALIDATION_INTERVAL;
 
-import { REVALIDATION_INTERVAL } from "@formbricks/lib/constants";
+import { REVALIDATION_INTERVAL } from "@fastform/lib/constants";
 
-import { capitalizeFirstLetter } from "@formbricks/lib/strings";
-import { getPerson } from "@formbricks/lib/person/service";
-import { getResponsesByPersonId } from "@formbricks/lib/response/service";
+import { capitalizeFirstLetter } from "@fastform/lib/strings";
+import { getPerson } from "@fastform/lib/person/service";
+import { getResponsesByPersonId } from "@fastform/lib/response/service";
 
 export default async function AttributesSection({ personId }: { personId: string }) {
   const person = await getPerson(personId);
@@ -42,7 +42,7 @@ export default async function AttributesSection({ personId }: { personId: string
         </dd>
       </div>
       <div>
-        <dt className="text-sm font-medium text-slate-500">Formbricks Id (internal)</dt>
+        <dt className="text-sm font-medium text-slate-500">Fastform Id (internal)</dt>
         <dd className="ph-no-capture mt-1 text-sm text-slate-900">{person.id}</dd>
       </div>
 

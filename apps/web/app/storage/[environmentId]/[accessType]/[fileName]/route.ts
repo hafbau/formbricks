@@ -1,8 +1,8 @@
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { ZStorageRetrievalParams } from "@formbricks/types/storage";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { ZStorageRetrievalParams } from "@fastform/types/storage";
 import { getServerSession } from "next-auth";
 import { NextRequest } from "next/server";
 import getFile from "./lib/getFile";

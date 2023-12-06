@@ -2,8 +2,8 @@ import {
   ActivityItemIcon,
   ActivityItemPopover,
 } from "@/app/(app)/environments/[environmentId]/people/[personId]/components/ActivityItemComponents";
-import { TAction } from "@formbricks/types/actions";
-import { BackIcon } from "@formbricks/ui/icons";
+import { TAction } from "@fastform/types/actions";
+import { BackIcon } from "@fastform/ui/icons";
 import { ArrowsUpDownIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "lucide-react";
 
@@ -80,7 +80,7 @@ export default function Loading() {
                 </dd>
               </div>
               <div>
-                <dt className="text-sm font-medium text-slate-500">Formbricks Id (internal)</dt>
+                <dt className="text-sm font-medium text-slate-500">Fastform Id (internal)</dt>
                 <dd className="mt-1 animate-pulse text-sm text-slate-300">Loading</dd>
               </div>
 

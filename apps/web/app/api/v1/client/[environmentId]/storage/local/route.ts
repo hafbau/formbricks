@@ -4,12 +4,12 @@
 import { responses } from "@/app/lib/api/response";
 import { NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
-import { putFileToLocalStorage } from "@formbricks/lib/storage/service";
-import { UPLOADS_DIR } from "@formbricks/lib/constants";
-import { env } from "@formbricks/lib/env.mjs";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { validateLocalSignedUrl } from "@formbricks/lib/crypto";
+import { putFileToLocalStorage } from "@fastform/lib/storage/service";
+import { UPLOADS_DIR } from "@fastform/lib/constants";
+import { env } from "@fastform/lib/env.mjs";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { validateLocalSignedUrl } from "@fastform/lib/crypto";
 
 interface Context {
   params: {

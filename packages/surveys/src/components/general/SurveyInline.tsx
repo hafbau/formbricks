@@ -15,7 +15,7 @@ export function SurveyInline({
   responseCount,
 }: SurveyBaseProps) {
   return (
-    <div id="fbjs" className="formbricks-form h-full w-full">
+    <div id="fbjs" className="fastform-form h-full w-full">
       <Survey
         survey={survey}
         isBrandingEnabled={isBrandingEnabled}

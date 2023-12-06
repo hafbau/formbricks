@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { AsyncParser } from "@json2csv/node";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import { responses } from "@/app/lib/api/response";
 
 export async function POST(request: NextRequest) {

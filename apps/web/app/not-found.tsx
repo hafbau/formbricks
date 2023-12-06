@@ -1,4 +1,4 @@
-import { Button } from "@formbricks/ui/Button";
+import { Button } from "@fastform/ui/Button";
 import Link from "next/link";
 export default function NotFound() {
   return (

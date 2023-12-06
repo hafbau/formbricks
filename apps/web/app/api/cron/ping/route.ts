@@ -1,6 +1,6 @@
 import { responses } from "@/app/lib/api/response";
-import { CRON_SECRET } from "@formbricks/lib/constants";
-import { captureTelemetry } from "@formbricks/lib/telemetry";
+import { CRON_SECRET } from "@fastform/lib/constants";
+import { captureTelemetry } from "@fastform/lib/telemetry";
 import { headers } from "next/headers";
 
 export async function POST() {

@@ -1,5 +1,5 @@
-import { timeSinceConditionally } from "@formbricks/lib/time";
-import { Badge } from "@formbricks/ui/Badge";
+import { timeSinceConditionally } from "@fastform/lib/time";
+import { Badge } from "@fastform/ui/Badge";
 import { TagIcon } from "@heroicons/react/24/solid";
 
 export default function AttributeClassDataRow({ attributeClass }) {

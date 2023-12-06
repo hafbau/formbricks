@@ -1,5 +1,5 @@
 {
-  "name": "@formbricks/surveys",
+  "name": "@fastform/surveys",
   "private": true,
   "license": "MIT",
   "version": "0.0.0",
@@ -23,9 +23,9 @@
     "clean": "rimraf .turbo node_modules dist"
   },
   "devDependencies": {
-    "@formbricks/lib": "workspace:*",
-    "@formbricks/tsconfig": "workspace:*",
-    "@formbricks/types": "workspace:*",
+    "@fastform/lib": "workspace:*",
+    "@fastform/tsconfig": "workspace:*",
+    "@fastform/types": "workspace:*",
     "@preact/preset-vite": "^2.7.0",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",

@@ -1,13 +1,13 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { sendToPipeline } from "@/app/lib/pipelines";
-import { capturePosthogEvent } from "@formbricks/lib/posthogServer";
-import { createResponseLegacy } from "@formbricks/lib/response/service";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { getTeamDetails } from "@formbricks/lib/teamDetail/service";
-import { InvalidInputError } from "@formbricks/types/errors";
-import { TResponse, ZResponseLegacyInput } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
+import { capturePosthogEvent } from "@fastform/lib/posthogServer";
+import { createResponseLegacy } from "@fastform/lib/response/service";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { getTeamDetails } from "@fastform/lib/teamDetail/service";
+import { InvalidInputError } from "@fastform/types/errors";
+import { TResponse, ZResponseLegacyInput } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
 import { NextResponse } from "next/server";
 import { UAParser } from "ua-parser-js";
 

@@ -1,4 +1,4 @@
-import { TSurveyQuestionType as QuestionId } from "@formbricks/types/surveys";
+import { TSurveyQuestionType as QuestionId } from "@fastform/types/surveys";
 import {
   ArrowUpTrayIcon,
   ChatBubbleBottomCenterTextIcon,
@@ -76,11 +76,11 @@ export const questionTypes: TSurveyQuestionType[] = [
       choices: [
         {
           id: createId(),
-          imageUrl: "https://formbricks-cdn.s3.eu-central-1.amazonaws.com/puppy-1-small.jpg",
+          imageUrl: "https://fastform-cdn.s3.eu-central-1.amazonaws.com/puppy-1-small.jpg",
         },
         {
           id: createId(),
-          imageUrl: "https://formbricks-cdn.s3.eu-central-1.amazonaws.com/puppy-2-small.jpg",
+          imageUrl: "https://fastform-cdn.s3.eu-central-1.amazonaws.com/puppy-2-small.jpg",
         },
       ],
     },

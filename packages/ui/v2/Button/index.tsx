@@ -1,4 +1,4 @@
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 import { LucideIcon } from "lucide-react";
 import Link, { LinkProps } from "next/link";
 import React, { AnchorHTMLAttributes, ButtonHTMLAttributes, forwardRef } from "react";

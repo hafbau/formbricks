@@ -1,5 +1,5 @@
 import { sendVerificationEmail } from "@/app/lib/email";
-import { prisma } from "@formbricks/database";
+import { prisma } from "@fastform/database";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {

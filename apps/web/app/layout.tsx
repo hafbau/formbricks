@@ -3,8 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Formbricks",
-    default: "Formbricks",
+    template: "%s | Fastform",
+    default: "Fastform",
   },
   description: "Open-Source Survey Suite",
 };

@@ -1,7 +1,7 @@
-import { authOptions } from "@formbricks/lib/authOptions";
-import { connectAirtable, fetchAirtableAuthToken } from "@formbricks/lib/airtable/service";
-import { AIRTABLE_CLIENT_ID, WEBAPP_URL } from "@formbricks/lib/constants";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
+import { authOptions } from "@fastform/lib/authOptions";
+import { connectAirtable, fetchAirtableAuthToken } from "@fastform/lib/airtable/service";
+import { AIRTABLE_CLIENT_ID, WEBAPP_URL } from "@fastform/lib/constants";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { responses } from "@/app/lib/api/response";

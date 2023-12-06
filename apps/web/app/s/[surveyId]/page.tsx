@@ -7,18 +7,18 @@ import { MediaBackground } from "@/app/s/[surveyId]/components/MediaBackground";
 import PinScreen from "@/app/s/[surveyId]/components/PinScreen";
 import SurveyInactive from "@/app/s/[surveyId]/components/SurveyInactive";
 import { checkValidity } from "@/app/s/[surveyId]/lib/prefilling";
-import { REVALIDATION_INTERVAL, WEBAPP_URL } from "@formbricks/lib/constants";
-import { createPerson, getPersonByUserId } from "@formbricks/lib/person/service";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { getResponseBySingleUseId } from "@formbricks/lib/response/service";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { TResponse } from "@formbricks/types/responses";
+import { REVALIDATION_INTERVAL, WEBAPP_URL } from "@fastform/lib/constants";
+import { createPerson, getPersonByUserId } from "@fastform/lib/person/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { getResponseBySingleUseId } from "@fastform/lib/response/service";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { TResponse } from "@fastform/types/responses";
 import type { Metadata } from "next";
 
 import { notFound } from "next/navigation";
 import { getEmailVerificationStatus } from "./lib/helpers";
-import { ZId } from "@formbricks/types/environment";
-import { getResponseCountBySurveyId } from "@formbricks/lib/response/service";
+import { ZId } from "@fastform/types/environment";
+import { getResponseCountBySurveyId } from "@fastform/lib/response/service";
 
 interface LinkSurveyPageProps {
   params: {
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: LinkSurveyPageProps): Promise
     metadataBase: new URL(WEBAPP_URL),
     openGraph: {
       title: survey.name,
-      description: "Create your own survey like this with Formbricks' open source survey suite.",
+      description: "Create your own survey like this with Fastform' open source survey suite.",
       url: `/s/${survey.id}`,
       siteName: "",
       images: [ogImgURL],
@@ -77,7 +77,7 @@ export async function generateMetadata({ params }: LinkSurveyPageProps): Promise
     twitter: {
       card: "summary_large_image",
       title: survey.name,
-      description: "Create your own survey like this with Formbricks' open source survey suite.",
+      description: "Create your own survey like this with Fastform' open source survey suite.",
       images: [ogImgURL],
     },
   };

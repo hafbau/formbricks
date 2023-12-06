@@ -1,10 +1,10 @@
 "use client";
 
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
-import { capitalizeFirstLetter } from "@formbricks/lib/strings";
-import { timeSince } from "@formbricks/lib/time";
-import { TApiKey } from "@formbricks/types/apiKeys";
-import { Button } from "@formbricks/ui/Button";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
+import { capitalizeFirstLetter } from "@fastform/lib/strings";
+import { timeSince } from "@fastform/lib/time";
+import { TApiKey } from "@fastform/types/apiKeys";
+import { Button } from "@fastform/ui/Button";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import toast from "react-hot-toast";

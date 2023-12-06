@@ -1,5 +1,5 @@
 import { responses } from "@/app/lib/api/response";
-import { createPerson } from "@formbricks/lib/person/service";
+import { createPerson } from "@fastform/lib/person/service";
 import { NextRequest } from "next/server";
 
 export async function OPTIONS() {

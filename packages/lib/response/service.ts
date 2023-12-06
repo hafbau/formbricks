@@ -1,10 +1,10 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
-import { ZOptionalNumber, ZString } from "@formbricks/types/common";
-import { ZId } from "@formbricks/types/environment";
-import { DatabaseError, ResourceNotFoundError } from "@formbricks/types/errors";
-import { TPerson } from "@formbricks/types/people";
+import { prisma } from "@fastform/database";
+import { ZOptionalNumber, ZString } from "@fastform/types/common";
+import { ZId } from "@fastform/types/environment";
+import { DatabaseError, ResourceNotFoundError } from "@fastform/types/errors";
+import { TPerson } from "@fastform/types/people";
 import {
   TResponse,
   TResponseInput,
@@ -13,8 +13,8 @@ import {
   ZResponseInput,
   ZResponseLegacyInput,
   ZResponseUpdateInput,
-} from "@formbricks/types/responses";
-import { TTag } from "@formbricks/types/tags";
+} from "@fastform/types/responses";
+import { TTag } from "@fastform/types/tags";
 import { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 import { ITEMS_PER_PAGE, SERVICES_REVALIDATION_INTERVAL } from "../constants";

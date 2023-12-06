@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { getPersonIdentifier } from "@formbricks/lib/person/util";
+import { getPersonIdentifier } from "@fastform/lib/person/util";
 import Headline from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/Headline";
-import { timeSince } from "@formbricks/lib/time";
-import type { TSurveyQuestionSummary } from "@formbricks/types/surveys";
-import { TSurveyOpenTextQuestion } from "@formbricks/types/surveys";
-import { PersonAvatar } from "@formbricks/ui/Avatars";
+import { timeSince } from "@fastform/lib/time";
+import type { TSurveyQuestionSummary } from "@fastform/types/surveys";
+import { TSurveyOpenTextQuestion } from "@fastform/types/surveys";
+import { PersonAvatar } from "@fastform/ui/Avatars";
 import { InboxStackIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { questionTypes } from "@/app/lib/questions";

@@ -1,11 +1,11 @@
 "use server";
-import { createTag } from "@formbricks/lib/tag/service";
-import { addTagToRespone, deleteTagOnResponse } from "@formbricks/lib/tagOnResponse/service";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { createTag } from "@fastform/lib/tag/service";
+import { addTagToRespone, deleteTagOnResponse } from "@fastform/lib/tagOnResponse/service";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
-import { AuthorizationError } from "@formbricks/types/errors";
-import { canUserAccessTagOnResponse } from "@formbricks/lib/tagOnResponse/auth";
+import { AuthorizationError } from "@fastform/types/errors";
+import { canUserAccessTagOnResponse } from "@fastform/lib/tagOnResponse/auth";
 
 export const createTagAction = async (environmentId: string, tagName: string) => {
   const session = await getServerSession(authOptions);

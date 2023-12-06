@@ -1,10 +1,10 @@
 {
-  "name": "@formbricks/js",
+  "name": "@fastform/js",
   "license": "MIT",
   "version": "1.2.6",
-  "description": "Formbricks-js allows you to connect your app to Formbricks, display surveys and trigger events.",
+  "description": "Fastform-js allows you to connect your app to Fastform, display surveys and trigger events.",
   "keywords": [
-    "Formbricks",
+    "Fastform",
     "surveys",
     "experience management"
   ],
@@ -32,16 +32,16 @@
     "clean": "rimraf .turbo node_modules dist coverage",
     "test": "jest"
   },
-  "author": "Formbricks <hola@formbricks.com>",
+  "author": "Fastform <hola@fastform.com>",
   "devDependencies": {
     "@babel/core": "^7.23.5",
     "@babel/preset-env": "^7.23.5",
     "@babel/preset-typescript": "^7.23.3",
-    "@formbricks/api": "workspace:*",
-    "@formbricks/lib": "workspace:*",
-    "@formbricks/surveys": "workspace:*",
-    "@formbricks/tsconfig": "workspace:*",
-    "@formbricks/types": "workspace:*",
+    "@fastform/api": "workspace:*",
+    "@fastform/lib": "workspace:*",
+    "@fastform/surveys": "workspace:*",
+    "@fastform/tsconfig": "workspace:*",
+    "@fastform/types": "workspace:*",
     "@types/jest": "^29.5.10",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",

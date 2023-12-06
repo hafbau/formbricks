@@ -1,12 +1,12 @@
 "use client";
 
 import { updateTeamNameAction } from "@/app/(app)/environments/[environmentId]/settings/members/actions";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
-import { TMembershipRole } from "@formbricks/types/memberships";
-import { TTeam } from "@formbricks/types/teams";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
+import { TMembershipRole } from "@fastform/types/memberships";
+import { TTeam } from "@fastform/types/teams";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SubmitHandler, useForm, useWatch } from "react-hook-form";

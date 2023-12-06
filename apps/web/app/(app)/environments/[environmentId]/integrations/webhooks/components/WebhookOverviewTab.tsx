@@ -1,8 +1,8 @@
-import { Label } from "@formbricks/ui/Label";
-import { convertDateTimeStringShort } from "@formbricks/lib/time";
-import { TWebhook } from "@formbricks/types/webhooks";
-import { TSurvey } from "@formbricks/types/surveys";
-import { capitalizeFirstLetter } from "@formbricks/lib/strings";
+import { Label } from "@fastform/ui/Label";
+import { convertDateTimeStringShort } from "@fastform/lib/time";
+import { TWebhook } from "@fastform/types/webhooks";
+import { TSurvey } from "@fastform/types/surveys";
+import { capitalizeFirstLetter } from "@fastform/lib/strings";
 
 interface ActivityTabProps {
   webhook: TWebhook;

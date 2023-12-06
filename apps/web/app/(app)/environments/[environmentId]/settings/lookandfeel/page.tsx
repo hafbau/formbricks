@@ -1,13 +1,13 @@
 export const revalidate = REVALIDATION_INTERVAL;
 
-import { getIsEnterpriseEdition } from "@formbricks/ee/lib/service";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { DEFAULT_BRAND_COLOR, IS_FORMBRICKS_CLOUD, REVALIDATION_INTERVAL } from "@formbricks/lib/constants";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
+import { getIsEnterpriseEdition } from "@fastform/ee/lib/service";
+import { authOptions } from "@fastform/lib/authOptions";
+import { DEFAULT_BRAND_COLOR, IS_FORMBRICKS_CLOUD, REVALIDATION_INTERVAL } from "@fastform/lib/constants";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
 import { getServerSession } from "next-auth";
 import SettingsCard from "../components/SettingsCard";
 import SettingsTitle from "../components/SettingsTitle";
@@ -74,7 +74,7 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
         />
       </SettingsCard>
       <SettingsCard
-        title="Formbricks Branding"
+        title="Fastform Branding"
         description="We love your support but understand if you toggle it off.">
         <EditFormbricksBranding
           type="linkSurvey"

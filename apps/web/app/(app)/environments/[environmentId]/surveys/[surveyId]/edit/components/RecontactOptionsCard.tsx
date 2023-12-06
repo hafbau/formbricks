@@ -1,12 +1,12 @@
 "use client";
 
-import { cn } from "@formbricks/lib/cn";
-import { TSurvey } from "@formbricks/types/surveys";
-import { AdvancedOptionToggle } from "@formbricks/ui/AdvancedOptionToggle";
-import { Badge } from "@formbricks/ui/Badge";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
-import { RadioGroup, RadioGroupItem } from "@formbricks/ui/RadioGroup";
+import { cn } from "@fastform/lib/cn";
+import { TSurvey } from "@fastform/types/surveys";
+import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
+import { Badge } from "@fastform/ui/Badge";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
+import { RadioGroup, RadioGroupItem } from "@fastform/ui/RadioGroup";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import Link from "next/link";

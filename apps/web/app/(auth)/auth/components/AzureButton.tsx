@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@formbricks/ui/Button";
+import { Button } from "@fastform/ui/Button";
 import { signIn } from "next-auth/react";
 import { FaMicrosoft } from "react-icons/fa";
 import { useEffect } from "react";

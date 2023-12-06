@@ -1,5 +1,5 @@
 import NextAuth from "next-auth";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 
 const handler = NextAuth(authOptions);
 

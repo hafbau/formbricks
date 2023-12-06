@@ -1,5 +1,5 @@
-import formbricks from "@formbricks/js";
-import { env } from "@formbricks/lib/env.mjs";
+import fastform from "@fastform/js";
+import { env } from "@fastform/lib/env.mjs";
 
 export const formbricksEnabled =
   typeof env.NEXT_PUBLIC_FORMBRICKS_API_HOST && env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID;
@@ -11,7 +11,7 @@ export const createResponse = async (
   data: { [questionId: string]: any },
   finished: boolean = false
 ): Promise<any> => {
-  const api = formbricks.getApi();
+  const api = fastform.getApi();
   return await api.client.response.create({
     surveyId,
     userId,
@@ -26,7 +26,7 @@ export const updateResponse = async (
   data: { [questionId: string]: any },
   finished: boolean = false
 ): Promise<any> => {
-  const api = formbricks.getApi();
+  const api = fastform.getApi();
   return await api.client.response.update({
     responseId,
     finished,
@@ -36,5 +36,5 @@ export const updateResponse = async (
 };
 
 export const formbricksLogout = async () => {
-  return await formbricks.logout();
+  return await fastform.logout();
 };

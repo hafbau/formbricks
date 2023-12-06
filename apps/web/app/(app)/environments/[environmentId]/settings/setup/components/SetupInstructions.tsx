@@ -1,7 +1,7 @@
 "use client";
 
-import CodeBlock from "@formbricks/ui/CodeBlock";
-import { TabBar } from "@formbricks/ui/TabBar";
+import CodeBlock from "@fastform/ui/CodeBlock";
+import { TabBar } from "@fastform/ui/TabBar";
 import Link from "next/link";
 import "prismjs/themes/prism.css";
 import { useState } from "react";
@@ -31,13 +31,13 @@ export default function SetupInstructions({
         {activeTab === "npm" ? (
           <div className="prose prose-slate">
             <p className="text-lg font-semibold text-slate-800">Step 1: NPM Install</p>
-            <CodeBlock language="sh">npm install @formbricks/js --save</CodeBlock>
+            <CodeBlock language="sh">npm install @fastform/js --save</CodeBlock>
             <p className="pt-4 text-lg font-semibold text-slate-800">Step 2: Initialize widget</p>
-            <p>Import Formbricks and initialize the widget in your Component (e.g. App.tsx):</p>
-            <CodeBlock language="js">{`import formbricks from "@formbricks/js";
+            <p>Import Fastform and initialize the widget in your Component (e.g. App.tsx):</p>
+            <CodeBlock language="js">{`import fastform from "@fastform/js";
 
 if (typeof window !== "undefined") {
-  formbricks.init({
+  fastform.init({
     environmentId: "${environmentId}",
     apiHost: "${webAppUrl}",
     debug: true, // remove when in production 
@@ -50,12 +50,12 @@ if (typeof window !== "undefined") {
                 environment: {environmentId} is yours.
               </li>
               <li>
-                <span className="font-semibold">apiHost:</span> This is the URL of your Formbricks backend.
+                <span className="font-semibold">apiHost:</span> This is the URL of your Fastform backend.
               </li>
             </ul>
             <p className="text-lg font-semibold text-slate-800">You&apos;re done 🎉</p>
             <p>
-              Your app now communicates with Formbricks - sending events, and loading surveys automatically!
+              Your app now communicates with Fastform - sending events, and loading surveys automatically!
             </p>
 
             <ul className="list-disc text-slate-700">
@@ -69,7 +69,7 @@ if (typeof window !== "undefined") {
                 </span>{" "}
                 <Link
                   className="decoration-brand-dark"
-                  href="https://formbricks.com/docs/getting-started/quickstart-in-app-survey"
+                  href="https://fastform.com/docs/getting-started/quickstart-in-app-survey"
                   target="_blank">
                   Check out the docs.
                 </Link>
@@ -79,11 +79,11 @@ if (typeof window !== "undefined") {
                 <Link
                   className="decoration-brand-dark"
                   target="_blank"
-                  href="https://github.com/formbricks/formbricks/issues">
+                  href="https://github.com/fastform/fastform/issues">
                   Open an issue on GitHub
                 </Link>{" "}
                 or{" "}
-                <Link className="decoration-brand-dark" href="https://formbricks.com/discord" target="_blank">
+                <Link className="decoration-brand-dark" href="https://fastform.com/discord" target="_blank">
                   join Discord.
                 </Link>
               </li>
@@ -93,7 +93,7 @@ if (typeof window !== "undefined") {
                 </span>{" "}
                 <Link
                   className="decoration-brand-dark"
-                  href="https://formbricks.com/docs/attributes/why"
+                  href="https://fastform.com/docs/attributes/why"
                   target="_blank">
                   Dive into the docs.
                 </Link>
@@ -106,14 +106,14 @@ if (typeof window !== "undefined") {
             <p>
               Insert this code into the <code>{`<head>`}</code> tag of your website:
             </p>
-            <CodeBlock language="js">{`<!-- START Formbricks Surveys -->
+            <CodeBlock language="js">{`<!-- START Fastform Surveys -->
 <script type="text/javascript">
-!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://unpkg.com/@formbricks/js@^1.2.0/dist/index.umd.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.formbricks.init({environmentId: "${environmentId}", apiHost: "${window.location.protocol}//${window.location.host}"})},500)}();
+!function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://unpkg.com/@fastform/js@^1.2.0/dist/index.umd.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.fastform.init({environmentId: "${environmentId}", apiHost: "${window.location.protocol}//${window.location.host}"})},500)}();
 </script>
-<!-- END Formbricks Surveys -->`}</CodeBlock>
+<!-- END Fastform Surveys -->`}</CodeBlock>
             <p className="text-lg font-semibold text-slate-800">You&apos;re done 🎉</p>
             <p>
-              Your app now communicates with Formbricks - sending events, and loading surveys automatically!
+              Your app now communicates with Fastform - sending events, and loading surveys automatically!
             </p>
 
             <ul className="list-disc text-slate-700">
@@ -126,11 +126,11 @@ if (typeof window !== "undefined") {
                 <Link
                   className="decoration-brand-dark"
                   target="_blank"
-                  href="https://github.com/formbricks/formbricks/issues">
+                  href="https://github.com/fastform/fastform/issues">
                   Open an issue on GitHub
                 </Link>{" "}
                 or{" "}
-                <Link className="decoration-brand-dark" href="https://formbricks.com/discord" target="_blank">
+                <Link className="decoration-brand-dark" href="https://fastform.com/discord" target="_blank">
                   join Discord.
                 </Link>
               </li>
@@ -140,7 +140,7 @@ if (typeof window !== "undefined") {
                 </span>{" "}
                 <Link
                   className="decoration-brand-dark"
-                  href="https://formbricks.com/docs/attributes/why"
+                  href="https://fastform.com/docs/attributes/why"
                   target="_blank">
                   Dive into the docs.
                 </Link>
@@ -152,7 +152,7 @@ if (typeof window !== "undefined") {
           <div>
             <hr className="my-3" />
             <p className="flex w-full justify-end text-sm text-slate-700">
-              Formbricks version: {packageJson.version}
+              Fastform version: {packageJson.version}
             </p>
           </div>
         )}

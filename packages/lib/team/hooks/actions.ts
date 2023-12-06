@@ -1,7 +1,7 @@
 "use server";
 import "server-only";
 
-import { AuthenticationError, ResourceNotFoundError } from "@formbricks/types/errors";
+import { AuthenticationError, ResourceNotFoundError } from "@fastform/types/errors";
 import { authOptions } from "../../authOptions";
 import { getServerSession } from "next-auth";
 import { getTeam, getTeamBillingInfo } from "../service";

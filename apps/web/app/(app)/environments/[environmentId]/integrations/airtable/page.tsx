@@ -1,12 +1,12 @@
 import AirtableWrapper from "@/app/(app)/environments/[environmentId]/integrations/airtable/components/AirtableWrapper";
-import { getAirtableTables } from "@formbricks/lib/airtable/service";
-import { AIRTABLE_CLIENT_ID, WEBAPP_URL } from "@formbricks/lib/constants";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { getIntegrations } from "@formbricks/lib/integration/service";
-import { getSurveys } from "@formbricks/lib/survey/service";
-import { TIntegrationItem } from "@formbricks/types/integration";
-import { TIntegrationAirtable } from "@formbricks/types/integration/airtable";
-import GoBackButton from "@formbricks/ui/GoBackButton";
+import { getAirtableTables } from "@fastform/lib/airtable/service";
+import { AIRTABLE_CLIENT_ID, WEBAPP_URL } from "@fastform/lib/constants";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { getIntegrations } from "@fastform/lib/integration/service";
+import { getSurveys } from "@fastform/lib/survey/service";
+import { TIntegrationItem } from "@fastform/types/integration";
+import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
+import GoBackButton from "@fastform/ui/GoBackButton";
 
 export default async function Airtable({ params }) {
   const enabled = !!AIRTABLE_CLIENT_ID;

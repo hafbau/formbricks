@@ -1,10 +1,10 @@
 "use server";
 
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
-import { AuthorizationError } from "@formbricks/types/errors";
-import { deletePerson } from "@formbricks/lib/person/service";
-import { canUserAccessPerson } from "@formbricks/lib/person/auth";
+import { AuthorizationError } from "@fastform/types/errors";
+import { deletePerson } from "@fastform/lib/person/service";
+import { canUserAccessPerson } from "@fastform/lib/person/auth";
 
 export const deletePersonAction = async (personId: string) => {
   const session = await getServerSession(authOptions);

@@ -1,9 +1,9 @@
 "use client";
 
-import { Modal } from "@formbricks/ui/Modal";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { Modal } from "@fastform/ui/Modal";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/solid";
 import { useForm } from "react-hook-form";
 

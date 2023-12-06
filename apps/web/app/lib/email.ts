@@ -7,10 +7,10 @@ import {
   SMTP_SECURE_ENABLED,
   SMTP_USER,
   WEBAPP_URL,
-} from "@formbricks/lib/constants";
-import { createInviteToken, createToken, createTokenForLinkSurvey } from "@formbricks/lib/jwt";
-import { TSurveyQuestion } from "@formbricks/types/surveys";
-import { TResponse } from "@formbricks/types/responses";
+} from "@fastform/lib/constants";
+import { createInviteToken, createToken, createTokenForLinkSurvey } from "@fastform/lib/jwt";
+import { TSurveyQuestion } from "@fastform/types/surveys";
+import { TResponse } from "@fastform/types/responses";
 import { withEmailTemplate } from "./email-template";
 
 const nodemailer = require("nodemailer");
@@ -36,7 +36,7 @@ export const sendEmail = async (emailData: sendEmailData) => {
     // debug: true,
   });
   const emailDefaults = {
-    from: `Formbricks <${MAIL_FROM || "noreply@formbricks.com"}>`,
+    from: `Fastform <${MAIL_FROM || "noreply@fastform.com"}>`,
   };
   await transporter.sendMail({ ...emailDefaults, ...emailData });
 };
@@ -51,15 +51,15 @@ export const sendVerificationEmail = async (user) => {
   )}`;
   await sendEmail({
     to: user.email,
-    subject: "Welcome to Formbricks 🤍",
+    subject: "Welcome to Fastform 🤍",
     html: withEmailTemplate(`<h1>Welcome!</h1>
-    To start using Formbricks please verify your email by clicking the button below:<br/><br/>
+    To start using Fastform please verify your email by clicking the button below:<br/><br/>
     <a class="button" href="${verifyLink}">Confirm email</a><br/>
     <br/>
     <strong>The link is valid for 24h.</strong><br/><br/>If it has expired please request a new token here:
     <a href="${verificationRequestLink}">Request new verification</a><br/>
     <br/>
-    Your Formbricks Team`),
+    Your Fastform Team`),
   });
 };
 
@@ -71,7 +71,7 @@ export const sendLinkSurveyToVerifiedEmail = async (data) => {
   const surveyLink = `${WEBAPP_URL}/s/${surveyId}?verify=${encodeURIComponent(token)}`;
   await sendEmail({
     to: data.email,
-    subject: "Your Formbricks Survey",
+    subject: "Your Fastform Survey",
     html: withEmailTemplate(`<h1>Hey 👋</h1>
     Thanks for validating your email. Here is your Survey.<br/><br/>
     <strong>${surveyData.name}</strong>
@@ -79,7 +79,7 @@ export const sendLinkSurveyToVerifiedEmail = async (data) => {
     <a class="button" href="${surveyLink}">Take survey</a><br/>
     <br/>
     All the best,<br/>
-    Your Formbricks Team 🤍`),
+    Your Fastform Team 🤍`),
   });
 };
 
@@ -90,24 +90,24 @@ export const sendForgotPasswordEmail = async (user) => {
   const verifyLink = `${WEBAPP_URL}/auth/forgot-password/reset?token=${encodeURIComponent(token)}`;
   await sendEmail({
     to: user.email,
-    subject: "Reset your Formbricks password",
+    subject: "Reset your Fastform password",
     html: withEmailTemplate(`<h1>Change password</h1>
     You have requested a link to change your password. You can do this by clicking the link below:<br/><br/>
     <a class="button" href="${verifyLink}">Change password</a><br/>
     <br/>
     <strong>The link is valid for 24 hours.</strong><br/><br/>If you didn't request this, please ignore this email.<br/>
-    Your Formbricks Team`),
+    Your Fastform Team`),
   });
 };
 
 export const sendPasswordResetNotifyEmail = async (user) => {
   await sendEmail({
     to: user.email,
-    subject: "Your Formbricks password has been changed",
+    subject: "Your Fastform password has been changed",
     html: withEmailTemplate(`<h1>Password changed</h1>
     Your password has been changed successfully.<br/>
     <br/>
-    Your Formbricks Team`),
+    Your Fastform Team`),
   });
 };
 
@@ -119,13 +119,13 @@ export const sendInviteMemberEmail = async (inviteId, inviterName, inviteeName, 
 
   await sendEmail({
     to: email,
-    subject: `You're invited to collaborate on Formbricks!`,
+    subject: `You're invited to collaborate on Fastform!`,
     html: withEmailTemplate(`Hey ${inviteeName},<br/><br/>
-    Your colleague ${inviterName} invited you to join them at Formbricks. To accept the invitation, please click the link below:<br/><br/>
+    Your colleague ${inviterName} invited you to join them at Fastform. To accept the invitation, please click the link below:<br/><br/>
     <a class="button" href="${verifyLink}">Join team</a><br/>
     <br/>
     Have a great day!<br/>
-    The Formbricks Team!`),
+    The Fastform Team!`),
   });
 };
 
@@ -138,7 +138,7 @@ export const sendInviteAcceptedEmail = async (inviterName, inviteeName, email) =
     Just letting you know that ${inviteeName} accepted your invitation. Have fun collaborating!
     <br/><br/>
     Have a great day!<br/>
-    The Formbricks Team!`),
+    The Fastform Team!`),
   });
 };
 

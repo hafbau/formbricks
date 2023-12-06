@@ -1,4 +1,4 @@
-import ContentWrapper from "@formbricks/ui/ContentWrapper";
+import ContentWrapper from "@fastform/ui/ContentWrapper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

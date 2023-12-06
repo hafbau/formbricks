@@ -1,15 +1,15 @@
 "use server";
 
-import { deleteProduct, getProducts, updateProduct } from "@formbricks/lib/product/service";
-import { TProduct, TProductUpdateInput } from "@formbricks/types/product";
+import { deleteProduct, getProducts, updateProduct } from "@fastform/lib/product/service";
+import { TProduct, TProductUpdateInput } from "@fastform/types/product";
 import { getServerSession } from "next-auth";
-import { AuthenticationError, AuthorizationError, ResourceNotFoundError } from "@formbricks/types/errors";
-import { getEnvironment } from "@formbricks/lib/environment/service";
-import { TEnvironment } from "@formbricks/types/environment";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { AuthenticationError, AuthorizationError, ResourceNotFoundError } from "@fastform/types/errors";
+import { getEnvironment } from "@fastform/lib/environment/service";
+import { TEnvironment } from "@fastform/types/environment";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { authOptions } from "@fastform/lib/authOptions";
 
 export const updateProductAction = async (
   environmentId: string,

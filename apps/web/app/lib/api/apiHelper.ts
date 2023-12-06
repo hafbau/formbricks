@@ -1,6 +1,6 @@
-import { prisma } from "@formbricks/database";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
+import { prisma } from "@fastform/database";
+import { authOptions } from "@fastform/lib/authOptions";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
 import { createHash } from "crypto";
 import { NextApiRequest, NextApiResponse } from "next";
 import type { Session } from "next-auth";

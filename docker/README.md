@@ -1,6 +1,6 @@
-# Self Host Formbricks Production Instance
+# Self Host Fastform Production Instance
 
-Follow this guide to get your Formbricks instance up and running with a Postgres DB and SSL certificate using a single script:
+Follow this guide to get your Fastform instance up and running with a Postgres DB and SSL certificate using a single script:
 
 ## Requirements
 
@@ -8,14 +8,14 @@ Before you proceed, make sure you have the following:
 
 - A Linux Ubuntu Virtual Machine deployed with SSH access.
 
-- An A record set up to connect a custom domain to your instance. Formbricks will automatically create an SSL certificate for your domain using Let's Encrypt.
+- An A record set up to connect a custom domain to your instance. Fastform will automatically create an SSL certificate for your domain using Let's Encrypt.
 
 ## Single Command Setup
 
 Copy and paste the following command into your terminal:
 
 ```bash
-/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/formbricks/formbricks/main/docker/production.sh)"
+/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/fastform/fastform/main/docker/production.sh)"
 ```
 
 The script will prompt you for the following information:
@@ -24,6 +24,6 @@ The script will prompt you for the following information:
 
 2. **Email Address**: Provide your email address for SSL certificate registration with Let's Encrypt.
 
-3. **Domain Name**: Enter the domain name that Traefik will use to create the SSL certificate and forward requests to Formbricks.
+3. **Domain Name**: Enter the domain name that Traefik will use to create the SSL certificate and forward requests to Fastform.
 
-That's it! After running the command and providing the required information, visit the domain name you entered, and you should see the Formbricks home wizard!
+That's it! After running the command and providing the required information, visit the domain name you entered, and you should see the Fastform home wizard!

@@ -1,14 +1,14 @@
 "use client";
 import { deleteIntegrationAction } from "@/app/(app)/environments/[environmentId]/integrations/actions";
-import { timeSince } from "@formbricks/lib/time";
-import { TEnvironment } from "@formbricks/types/environment";
+import { timeSince } from "@fastform/lib/time";
+import { TEnvironment } from "@fastform/types/environment";
 import {
   TIntegrationGoogleSheets,
   TIntegrationGoogleSheetsConfigData,
-} from "@formbricks/types/integration/googleSheet";
-import { Button } from "@formbricks/ui/Button";
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
-import EmptySpaceFiller from "@formbricks/ui/EmptySpaceFiller";
+} from "@fastform/types/integration/googleSheet";
+import { Button } from "@fastform/ui/Button";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
+import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
 import { useState } from "react";
 import toast from "react-hot-toast";
 

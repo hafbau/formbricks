@@ -1,6 +1,6 @@
-import { getApiKeyFromKey } from "@formbricks/lib/apiKey/service";
-import { TAuthenticationApiKey } from "@formbricks/types/auth";
-import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@formbricks/types/errors";
+import { getApiKeyFromKey } from "@fastform/lib/apiKey/service";
+import { TAuthenticationApiKey } from "@fastform/types/auth";
+import { DatabaseError, InvalidInputError, ResourceNotFoundError } from "@fastform/types/errors";
 import { responses } from "@/app/lib/api/response";
 import { NextResponse } from "next/server";
 

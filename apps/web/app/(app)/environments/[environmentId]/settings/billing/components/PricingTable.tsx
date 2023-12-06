@@ -1,9 +1,9 @@
 "use client";
 
-import { TTeam } from "@formbricks/types/teams";
-import { Button } from "@formbricks/ui/Button";
-import LoadingSpinner from "@formbricks/ui/LoadingSpinner";
-import { PricingCard } from "@formbricks/ui/PricingCard";
+import { TTeam } from "@fastform/types/teams";
+import { Button } from "@fastform/ui/Button";
+import LoadingSpinner from "@fastform/ui/LoadingSpinner";
+import { PricingCard } from "@fastform/ui/PricingCard";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -13,9 +13,9 @@ import {
   upgradePlanAction,
 } from "@/app/(app)/environments/[environmentId]/settings/billing/actions";
 
-import { StripePriceLookupKeys, ProductFeatureKeys } from "@formbricks/ee/billing/lib/constants";
+import { StripePriceLookupKeys, ProductFeatureKeys } from "@fastform/ee/billing/lib/constants";
 import toast from "react-hot-toast";
-import AlertDialog from "@formbricks/ui/AlertDialog";
+import AlertDialog from "@fastform/ui/AlertDialog";
 
 interface PricingTableProps {
   team: TTeam;
@@ -146,7 +146,7 @@ export default function PricingTableComponent({
 
   const linkSurveysFeatures = [
     {
-      title: "Remove Formbricks Branding",
+      title: "Remove Fastform Branding",
       comingSoon: false,
     },
     {
@@ -249,7 +249,7 @@ export default function PricingTableComponent({
                 </defs>
               </svg>
               <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-16 lg:text-left">
-                <h2 className="text-2xl font-bold text-white sm:text-3xl">Get the most out of Formbricks</h2>
+                <h2 className="text-2xl font-bold text-white sm:text-3xl">Get the most out of Fastform</h2>
                 <p className="text-md mt-6 leading-8 text-gray-300">
                   Get access to all features by upgrading to a paid plan.
                   <br />

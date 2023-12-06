@@ -1,9 +1,9 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { getApiKeyFromKey } from "@formbricks/lib/apiKey/service";
-import { DatabaseError, InvalidInputError } from "@formbricks/types/errors";
-import { createWebhook, getWebhooks } from "@formbricks/lib/webhook/service";
-import { ZWebhookInput } from "@formbricks/types/webhooks";
+import { getApiKeyFromKey } from "@fastform/lib/apiKey/service";
+import { DatabaseError, InvalidInputError } from "@fastform/types/errors";
+import { createWebhook, getWebhooks } from "@fastform/lib/webhook/service";
+import { ZWebhookInput } from "@fastform/types/webhooks";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 

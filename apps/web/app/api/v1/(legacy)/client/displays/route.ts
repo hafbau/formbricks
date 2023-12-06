@@ -1,11 +1,11 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { createDisplayLegacy } from "@formbricks/lib/display/service";
-import { capturePosthogEvent } from "@formbricks/lib/posthogServer";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { getTeamDetails } from "@formbricks/lib/teamDetail/service";
-import { TDisplay, ZDisplayLegacyCreateInput } from "@formbricks/types/displays";
-import { InvalidInputError } from "@formbricks/types/errors";
+import { createDisplayLegacy } from "@fastform/lib/display/service";
+import { capturePosthogEvent } from "@fastform/lib/posthogServer";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { getTeamDetails } from "@fastform/lib/teamDetail/service";
+import { TDisplay, ZDisplayLegacyCreateInput } from "@fastform/types/displays";
+import { InvalidInputError } from "@fastform/types/errors";
 import { NextResponse } from "next/server";
 
 export async function OPTIONS(): Promise<NextResponse> {

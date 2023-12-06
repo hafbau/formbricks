@@ -4,50 +4,50 @@
 
 :root {
   /* Brand Colors */
-  --formbricks-brand: #038178;
+  --fastform-brand: #038178;
 
   /* Fill Colors */
-  --formbricks-fill-primary: #fefefe;
-  --formbricks-fill-secondary: #0f172a;
-  --formbricks-fill-disabled: #e0e0e0;
+  --fastform-fill-primary: #fefefe;
+  --fastform-fill-secondary: #0f172a;
+  --fastform-fill-disabled: #e0e0e0;
 
   /* Label Colors */
-  --formbricks-label-primary: #0f172a;
-  --formbricks-label-secondary: #384258;
-  --formbricks-label-disabled: #bdbdbd;
+  --fastform-label-primary: #0f172a;
+  --fastform-label-secondary: #384258;
+  --fastform-label-disabled: #bdbdbd;
 
   /* Border Colors */
-  --formbricks-border-primary: #e0e0e0;
-  --formbricks-border-secondary: #0f172a;
-  --formbricks-border-disabled: #ececec;
+  --fastform-border-primary: #e0e0e0;
+  --fastform-border-secondary: #0f172a;
+  --fastform-border-disabled: #ececec;
 
   /* Functional Colors */
-  --formbricks-focus: #1982fc;
-  --formbricks-error: #d13a3a;
+  --fastform-focus: #1982fc;
+  --fastform-error: #d13a3a;
 }
 
 .dark {
   /* Brand Colors */
-  --formbricks-brand: #038178; 
+  --fastform-brand: #038178; 
 
   /* Fill Colors */
-  --formbricks-fill-primary: #0f172a;
-  --formbricks-fill-secondary: #e0e0e0;
-  --formbricks-fill-disabled: #394258;
+  --fastform-fill-primary: #0f172a;
+  --fastform-fill-secondary: #e0e0e0;
+  --fastform-fill-disabled: #394258;
 
   /* Label Colors */
-  --formbricks-label-primary: #fefefe;
-  --formbricks-label-secondary: #f2f2f2;
-  --formbricks-label-disabled: #bdbdbd;
+  --fastform-label-primary: #fefefe;
+  --fastform-label-secondary: #f2f2f2;
+  --fastform-label-disabled: #bdbdbd;
 
   /* Border Colors */
-  --formbricks-border-primary: #394258;
-  --formbricks-border-secondary: #e0e0e0;
-  --formbricks-border-disabled: #394258;
+  --fastform-border-primary: #394258;
+  --fastform-border-secondary: #e0e0e0;
+  --fastform-border-disabled: #394258;
 
   /* Functional Colors */
-  --formbricks-focus: #1982fc;
-  --formbricks-error: #d13a3a;
+  --fastform-focus: #1982fc;
+  --fastform-error: #d13a3a;
 }
 
 

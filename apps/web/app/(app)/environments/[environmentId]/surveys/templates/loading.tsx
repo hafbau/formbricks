@@ -1,4 +1,4 @@
-import LoadingSpinner from "@formbricks/ui/LoadingSpinner";
+import LoadingSpinner from "@fastform/ui/LoadingSpinner";
 
 export default function LoadingPage() {
   return <LoadingSpinner />;

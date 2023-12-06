@@ -1,4 +1,4 @@
-import { FormbricksAPI } from "@formbricks/api";
+import { FormbricksAPI } from "@fastform/api";
 import { Config } from "./config";
 
 export const getApi = (): FormbricksAPI => {
@@ -6,7 +6,7 @@ export const getApi = (): FormbricksAPI => {
   const { environmentId, apiHost } = config.get();
 
   if (!environmentId || !apiHost) {
-    throw new Error("formbricks.init() must be called before getApi()");
+    throw new Error("fastform.init() must be called before getApi()");
   }
 
   return new FormbricksAPI({

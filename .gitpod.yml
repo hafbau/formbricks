@@ -8,16 +8,16 @@ tasks:
       cp .env.example .env &&
       sed -i -r "s#^(NEXT_PUBLIC_FORMBRICKS_API_HOST=).*#\1 $(gp url 3000)#" .env &&
       gp sync-await init && 
-      turbo --filter "@formbricks/demo" go
+      turbo --filter "@fastform/demo" go
 
   - name: website
-    command: gp sync-await init && turbo --filter "@formbricks/formbricks-com" dev
+    command: gp sync-await init && turbo --filter "@fastform/fastform-com" dev
 
-  - name: Init Formbricks
+  - name: Init Fastform
     init: |
       cp .env.example .env &&
       bash .gitpod/init.bash && 
-      turbo --filter "@formbricks/js" build && 
+      turbo --filter "@fastform/js" build && 
       gp sync-done init-install
     command: |
       gp sync-done init && 
@@ -28,7 +28,7 @@ tasks:
     init: |
       gp sync-await init-install && 
       bash .gitpod/setup-web.bash &&
-      turbo --filter "@formbricks/database" db:down
+      turbo --filter "@fastform/database" db:down
     command: |
       gp sync-await init &&
       cp .env.example .env &&
@@ -36,7 +36,7 @@ tasks:
       sed -i -r "s#^(NEXTAUTH_URL=).*#\1 $(gp url 3000)#" .env &&
       RANDOM_ENCRYPTION_KEY=$(openssl rand -hex 32)
       sed -i 's/^ENCRYPTION_KEY=.*/ENCRYPTION_KEY='"$RANDOM_ENCRYPTION_KEY"'/' .env
-      turbo --filter "@formbricks/web" go
+      turbo --filter "@fastform/web" go
 
 image:
   file: .gitpod.Dockerfile

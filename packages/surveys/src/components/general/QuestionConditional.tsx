@@ -7,9 +7,9 @@ import NPSQuestion from "@/components/questions/NPSQuestion";
 import OpenTextQuestion from "@/components/questions/OpenTextQuestion";
 import PictureSelectionQuestion from "@/components/questions/PictureSelectionQuestion";
 import RatingQuestion from "@/components/questions/RatingQuestion";
-import { TResponseData, TResponseTtc } from "@formbricks/types/responses";
-import { TUploadFileConfig } from "@formbricks/types/storage";
-import { TSurveyQuestion, TSurveyQuestionType } from "@formbricks/types/surveys";
+import { TResponseData, TResponseTtc } from "@fastform/types/responses";
+import { TUploadFileConfig } from "@fastform/types/storage";
+import { TSurveyQuestion, TSurveyQuestionType } from "@fastform/types/surveys";
 
 interface QuestionConditionalProps {
   question: TSurveyQuestion;

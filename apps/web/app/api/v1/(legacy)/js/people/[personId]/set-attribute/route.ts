@@ -1,12 +1,12 @@
 import { getUpdatedState } from "@/app/api/v1/(legacy)/js/sync/lib/sync";
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { createAttributeClass, getAttributeClassByName } from "@formbricks/lib/attributeClass/service";
-import { personCache } from "@formbricks/lib/person/cache";
-import { getPerson, updatePersonAttribute } from "@formbricks/lib/person/service";
-import { surveyCache } from "@formbricks/lib/survey/cache";
-import { ZJsPeopleLegacyAttributeInput } from "@formbricks/types/js";
-import { TPersonClient } from "@formbricks/types/people";
+import { createAttributeClass, getAttributeClassByName } from "@fastform/lib/attributeClass/service";
+import { personCache } from "@fastform/lib/person/cache";
+import { getPerson, updatePersonAttribute } from "@fastform/lib/person/service";
+import { surveyCache } from "@fastform/lib/survey/cache";
+import { ZJsPeopleLegacyAttributeInput } from "@fastform/types/js";
+import { TPersonClient } from "@fastform/types/people";
 import { NextResponse } from "next/server";
 
 export async function OPTIONS(): Promise<NextResponse> {

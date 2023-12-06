@@ -1,8 +1,8 @@
-import ModalWithTabs from "@formbricks/ui/ModalWithTabs";
-import { TWebhook } from "@formbricks/types/webhooks";
+import ModalWithTabs from "@fastform/ui/ModalWithTabs";
+import { TWebhook } from "@fastform/types/webhooks";
 import WebhookOverviewTab from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookOverviewTab";
 import WebhookSettingsTab from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookSettingsTab";
-import { TSurvey } from "@formbricks/types/surveys";
+import { TSurvey } from "@fastform/types/surveys";
 import { Webhook } from "lucide-react";
 
 interface WebhookModalProps {

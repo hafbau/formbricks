@@ -1,4 +1,4 @@
-import { TInvite } from "@formbricks/types/invites";
+import { TInvite } from "@fastform/types/invites";
 
 export function isLight(color) {
   let r, g, b;

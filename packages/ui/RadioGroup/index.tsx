@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Circle } from "lucide-react";
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 const RadioGroup: React.FC<React.ComponentProps<typeof RadioGroupPrimitive.Root>> = React.forwardRef(
   ({ className, ...props }, ref) => {

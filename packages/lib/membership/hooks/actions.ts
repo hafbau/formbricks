@@ -4,9 +4,9 @@ import "server-only";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../authOptions";
 import { getTeamByEnvironmentId } from "../../team/service";
-import { AuthenticationError } from "@formbricks/types/errors";
+import { AuthenticationError } from "@fastform/types/errors";
 import { getMembershipByUserIdTeamId } from "../service";
-import { TProfile } from "@formbricks/types/profile";
+import { TProfile } from "@fastform/types/profile";
 
 export const getMembershipByUserIdTeamIdAction = async (environmentId: string) => {
   const session = await getServerSession(authOptions);

@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import SettingsNavbar from "./components/SettingsNavbar";
-import { IS_FORMBRICKS_CLOUD } from "@formbricks/lib/constants";
-import { getTeamByEnvironmentId } from "@formbricks/lib/team/service";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { authOptions } from "@formbricks/lib/authOptions";
+import { IS_FORMBRICKS_CLOUD } from "@fastform/lib/constants";
+import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
-import { getMembershipByUserIdTeamId } from "@formbricks/lib/membership/service";
+import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
 
 export const metadata: Metadata = {
   title: "Settings",

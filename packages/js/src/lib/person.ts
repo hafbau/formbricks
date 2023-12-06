@@ -1,5 +1,5 @@
-import { FormbricksAPI } from "@formbricks/api";
-import { TPersonUpdateInput } from "@formbricks/types/people";
+import { FormbricksAPI } from "@fastform/api";
+import { TPersonUpdateInput } from "@fastform/types/people";
 import { Config } from "./config";
 import { AttributeAlreadyExistsError, MissingPersonError, NetworkError, Result, err, okVoid } from "./errors";
 import { deinitalize, initialize } from "./initialize";

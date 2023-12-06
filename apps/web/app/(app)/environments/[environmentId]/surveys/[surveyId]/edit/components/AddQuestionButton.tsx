@@ -1,8 +1,8 @@
 "use client";
 
 import { getQuestionDefaults, questionTypes, universalQuestionPresets } from "@/app/lib/questions";
-import { cn } from "@formbricks/lib/cn";
-import { TProduct } from "@formbricks/types/product";
+import { cn } from "@fastform/lib/cn";
+import { TProduct } from "@fastform/types/product";
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { createId } from "@paralleldrive/cuid2";
 import * as Collapsible from "@radix-ui/react-collapsible";

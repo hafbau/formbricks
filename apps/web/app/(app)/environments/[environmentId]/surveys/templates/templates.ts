@@ -3,8 +3,8 @@ import {
   TSurveyHiddenFields,
   TSurveyQuestionType,
   TSurveyWelcomeCard,
-} from "@formbricks/types/surveys";
-import { TTemplate } from "@formbricks/types/templates";
+} from "@fastform/types/surveys";
+import { TTemplate } from "@fastform/types/templates";
 import { createId } from "@paralleldrive/cuid2";
 
 const thankYouCardDefault = {
@@ -250,7 +250,7 @@ export const testTemplate: TTemplate = {
         headline: "This is a CTA question",
         html: "This is a test CTA",
         buttonLabel: "Click",
-        buttonUrl: "https://formbricks.com",
+        buttonUrl: "https://fastform.com",
         buttonExternal: true,
         required: true,
         dismissButtonLabel: "Maybe later",
@@ -261,7 +261,7 @@ export const testTemplate: TTemplate = {
         headline: "This is a CTA question",
         html: "This is a test CTA",
         buttonLabel: "Click",
-        buttonUrl: "https://formbricks.com",
+        buttonUrl: "https://fastform.com",
         buttonExternal: true,
         required: false,
         dismissButtonLabel: "Maybe later",
@@ -275,11 +275,11 @@ export const testTemplate: TTemplate = {
         choices: [
           {
             id: createId(),
-            imageUrl: "https://formbricks-cdn.s3.eu-central-1.amazonaws.com/puppy-1-small.jpg",
+            imageUrl: "https://fastform-cdn.s3.eu-central-1.amazonaws.com/puppy-1-small.jpg",
           },
           {
             id: createId(),
-            imageUrl: "https://formbricks-cdn.s3.eu-central-1.amazonaws.com/puppy-2-small.jpg",
+            imageUrl: "https://fastform-cdn.s3.eu-central-1.amazonaws.com/puppy-2-small.jpg",
           },
         ],
       },
@@ -292,11 +292,11 @@ export const testTemplate: TTemplate = {
         choices: [
           {
             id: createId(),
-            imageUrl: "https://formbricks-cdn.s3.eu-central-1.amazonaws.com/puppy-1-small.jpg",
+            imageUrl: "https://fastform-cdn.s3.eu-central-1.amazonaws.com/puppy-1-small.jpg",
           },
           {
             id: createId(),
-            imageUrl: "https://formbricks-cdn.s3.eu-central-1.amazonaws.com/puppy-2-small.jpg",
+            imageUrl: "https://fastform-cdn.s3.eu-central-1.amazonaws.com/puppy-2-small.jpg",
           },
         ],
       },
@@ -590,7 +590,7 @@ export const templates: TTemplate[] = [
           logic: [{ condition: "clicked", destination: "end" }],
           headline: "Get 30% off for the next year!",
           required: true,
-          buttonUrl: "https://formbricks.com",
+          buttonUrl: "https://fastform.com",
           buttonLabel: "Get 30% off",
           buttonExternal: true,
           dismissButtonLabel: "Skip",
@@ -760,7 +760,7 @@ export const templates: TTemplate[] = [
           logic: [{ condition: "clicked", destination: "end" }],
           headline: "Sorry to hear! Get 20% off the first year.",
           required: true,
-          buttonUrl: "https://formbricks.com/github",
+          buttonUrl: "https://fastform.com/github",
           buttonLabel: "Get 20% off",
           buttonExternal: true,
           dismissButtonLabel: "Skip",
@@ -821,7 +821,7 @@ export const templates: TTemplate[] = [
           logic: [{ condition: "clicked", destination: "end" }],
           headline: "Happy to hear 🙏 Please write a review for us!",
           required: true,
-          buttonUrl: "https://formbricks.com/github",
+          buttonUrl: "https://fastform.com/github",
           buttonLabel: "Write review",
           buttonExternal: true,
         },
@@ -1734,7 +1734,7 @@ export const templates: TTemplate[] = [
           headline: "Thanks for your answer! Get 25% off your first 6 months:",
           required: false,
           buttonLabel: "Get discount",
-          buttonUrl: "https://app.formbricks.com/auth/signup",
+          buttonUrl: "https://app.fastform.com/auth/signup",
           buttonExternal: true,
         },
       ],
@@ -2098,7 +2098,7 @@ export const templates: TTemplate[] = [
           type: TSurveyQuestionType.CTA,
           headline: "Thanks! Here is your code: SIGNUPNOW10",
           required: false,
-          buttonUrl: "https://app.formbricks.com/auth/signup",
+          buttonUrl: "https://app.fastform.com/auth/signup",
           buttonLabel: "Sign Up",
           buttonExternal: true,
           dismissButtonLabel: "Skip for now",
@@ -2238,7 +2238,7 @@ export const templates: TTemplate[] = [
           type: TSurveyQuestionType.CTA,
           headline: "Thanks! ❤️ Spread the love with ONE friend.",
           required: false,
-          buttonUrl: "https://formbricks.com",
+          buttonUrl: "https://fastform.com",
           buttonLabel: "Happy to help!",
           buttonExternal: true,
           dismissButtonLabel: "Find your own friends",

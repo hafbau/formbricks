@@ -1,5 +1,5 @@
 {
-  "name": "@formbricks/ui",
+  "name": "@fastform/ui",
   "private": true,
   "sideEffects": false,
   "version": "1.0.0",
@@ -8,16 +8,16 @@
     "clean": "rimraf .turbo node_modules dist"
   },
   "devDependencies": {
-    "@formbricks/tsconfig": "workspace:*",
-    "@formbricks/types": "workspace:*",
+    "@fastform/tsconfig": "workspace:*",
+    "@fastform/types": "workspace:*",
     "concurrently": "^8.2.2",
-    "eslint-config-formbricks": "workspace:*",
+    "eslint-config-fastform": "workspace:*",
     "postcss": "^8.4.31",
     "react": "18.2.0"
   },
   "dependencies": {
-    "@formbricks/surveys": "workspace:*",
-    "@formbricks/lib": "workspace:*",
+    "@fastform/surveys": "workspace:*",
+    "@fastform/lib": "workspace:*",
     "@heroicons/react": "^2.0.18",
     "@lexical/code": "^0.12.4",
     "@lexical/link": "^0.12.4",

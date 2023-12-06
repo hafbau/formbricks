@@ -1,18 +1,18 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
+import { prisma } from "@fastform/database";
 import type {
   TEnvironment,
   TEnvironmentCreateInput,
   TEnvironmentUpdateInput,
-} from "@formbricks/types/environment";
+} from "@fastform/types/environment";
 import {
   ZEnvironment,
   ZEnvironmentCreateInput,
   ZEnvironmentUpdateInput,
   ZId,
-} from "@formbricks/types/environment";
-import { DatabaseError, ResourceNotFoundError, ValidationError } from "@formbricks/types/errors";
+} from "@fastform/types/environment";
+import { DatabaseError, ResourceNotFoundError, ValidationError } from "@fastform/types/errors";
 import { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 import "server-only";

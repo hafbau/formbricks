@@ -1,4 +1,4 @@
-import { TProfile } from "@formbricks/types/profile";
+import { TProfile } from "@fastform/types/profile";
 
 export const formatProfileDateFields = (profile: TProfile): TProfile => {
   if (typeof profile.createdAt === "string") {

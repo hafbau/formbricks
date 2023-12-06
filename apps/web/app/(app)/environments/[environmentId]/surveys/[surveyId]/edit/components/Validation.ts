@@ -6,7 +6,7 @@ import {
   TSurveyMultipleChoiceSingleQuestion,
   TSurveyPictureSelectionQuestion,
   TSurveyQuestion,
-} from "@formbricks/types/surveys";
+} from "@fastform/types/surveys";
 
 const validationRules = {
   multipleChoiceMulti: (question: TSurveyMultipleChoiceMultiQuestion) => {

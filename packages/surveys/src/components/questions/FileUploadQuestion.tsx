@@ -1,11 +1,11 @@
-import { TResponseData, TResponseTtc } from "@formbricks/types/responses";
-import type { TSurveyFileUploadQuestion } from "@formbricks/types/surveys";
+import { TResponseData, TResponseTtc } from "@fastform/types/responses";
+import type { TSurveyFileUploadQuestion } from "@fastform/types/surveys";
 import { BackButton } from "../buttons/BackButton";
 import SubmitButton from "../buttons/SubmitButton";
 import FileInput from "../general/FileInput";
 import Headline from "../general/Headline";
 import Subheader from "../general/Subheader";
-import { TUploadFileConfig } from "@formbricks/types/storage";
+import { TUploadFileConfig } from "@fastform/types/storage";
 import { useState } from "preact/hooks";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 

@@ -1,19 +1,19 @@
 "use client";
 
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { TWebhook, TWebhookInput } from "@formbricks/types/webhooks";
+import { TWebhook, TWebhookInput } from "@fastform/types/webhooks";
 import { deleteWebhookAction, updateWebhookAction } from "../actions";
-import { TPipelineTrigger } from "@formbricks/types/pipelines";
-import { TSurvey } from "@formbricks/types/surveys";
+import { TPipelineTrigger } from "@fastform/types/pipelines";
+import { TSurvey } from "@fastform/types/surveys";
 import { testEndpoint } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/testEndpoint";
 import { triggers } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/HardcodedTriggers";
 import TriggerCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/TriggerCheckboxGroup";
@@ -213,7 +213,7 @@ export default function WebhookSettingsTab({
 
             <Button
               variant="secondary"
-              href="https://formbricks.com/docs/api/management/webhooks"
+              href="https://fastform.com/docs/api/management/webhooks"
               target="_blank">
               Read Docs
             </Button>

@@ -4,13 +4,13 @@ import { createActionClassAction } from "@/app/(app)/environments/[environmentId
 import { CssSelector } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/actions/components/CssSelector";
 import { InnerHtmlSelector } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/actions/components/InnerHtmlSelector";
 import { PageUrlSelector } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/actions/components/PageUrlSelector";
-import { TActionClass, TActionClassInput, TActionClassNoCodeConfig } from "@formbricks/types/actionClasses";
-import { Alert, AlertDescription, AlertTitle } from "@formbricks/ui/Alert";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
-import { Modal } from "@formbricks/ui/Modal";
-import { TabBar } from "@formbricks/ui/TabBar";
+import { TActionClass, TActionClassInput, TActionClassNoCodeConfig } from "@fastform/types/actionClasses";
+import { Alert, AlertDescription, AlertTitle } from "@fastform/ui/Alert";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
+import { Modal } from "@fastform/ui/Modal";
+import { TabBar } from "@fastform/ui/TabBar";
 import { CursorArrowRaysIcon } from "@heroicons/react/24/solid";
 import { Terminal } from "lucide-react";
 import { useState } from "react";
@@ -241,10 +241,10 @@ export default function AddNoCodeActionModal({
                   <AlertDescription>
                     You can track code action anywhere in your app using{" "}
                     <span className="rounded bg-gray-100 px-2 py-1 text-xs">
-                      formbricks.track(&quot;{watch("name")}&quot;)
+                      fastform.track(&quot;{watch("name")}&quot;)
                     </span>{" "}
                     in your code. Read more in our{" "}
-                    <a href="https://formbricks.com/docs/actions/code" target="_blank" className="underline">
+                    <a href="https://fastform.com/docs/actions/code" target="_blank" className="underline">
                       docs
                     </a>
                     .

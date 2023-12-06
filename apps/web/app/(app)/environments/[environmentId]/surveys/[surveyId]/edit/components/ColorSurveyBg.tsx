@@ -1,5 +1,5 @@
-import { TSurvey } from "@formbricks/types/surveys";
-import { ColorPicker } from "@formbricks/ui/ColorPicker";
+import { TSurvey } from "@fastform/types/surveys";
+import { ColorPicker } from "@fastform/ui/ColorPicker";
 import { useState } from "react";
 
 interface ColorSurveyBgBgProps {

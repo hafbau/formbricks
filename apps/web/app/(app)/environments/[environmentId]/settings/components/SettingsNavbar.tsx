@@ -1,9 +1,9 @@
 "use client";
 
-import { truncate } from "@formbricks/lib/strings";
-import { TProduct } from "@formbricks/types/product";
-import { TTeam } from "@formbricks/types/teams";
-import { Popover, PopoverContent, PopoverTrigger } from "@formbricks/ui/Popover";
+import { truncate } from "@fastform/lib/strings";
+import { TProduct } from "@fastform/types/product";
+import { TTeam } from "@fastform/types/teams";
+import { Popover, PopoverContent, PopoverTrigger } from "@fastform/ui/Popover";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { FaDiscord } from "react-icons/fa6";
 import {
@@ -23,8 +23,8 @@ import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo, useState } from "react";
-import { getAccessFlags } from "@formbricks/lib/membership/utils";
-import { TMembershipRole } from "@formbricks/types/memberships";
+import { getAccessFlags } from "@fastform/lib/membership/utils";
+import { TMembershipRole } from "@fastform/types/memberships";
 
 export default function SettingsNavbar({
   environmentId,
@@ -147,14 +147,14 @@ export default function SettingsNavbar({
           },
           {
             name: "Documentation",
-            href: "https://formbricks.com/docs",
+            href: "https://fastform.com/docs",
             icon: DocumentMagnifyingGlassIcon,
             target: "_blank",
             hidden: false,
           },
           {
             name: "Join Discord",
-            href: "https://formbricks.com/discord",
+            href: "https://fastform.com/discord",
             icon: FaDiscord,
             target: "_blank",
             hidden: false,
@@ -167,28 +167,28 @@ export default function SettingsNavbar({
         links: [
           {
             name: "GDPR & CCPA",
-            href: "https://formbricks.com/gdpr",
+            href: "https://fastform.com/gdpr",
             icon: LinkIcon,
             target: "_blank",
             hidden: !isFormbricksCloud,
           },
           {
             name: "Privacy",
-            href: "https://formbricks.com/privacy",
+            href: "https://fastform.com/privacy",
             icon: LinkIcon,
             target: "_blank",
             hidden: !isFormbricksCloud,
           },
           {
             name: "Terms",
-            href: "https://formbricks.com/terms",
+            href: "https://fastform.com/terms",
             icon: LinkIcon,
             target: "_blank",
             hidden: !isFormbricksCloud,
           },
           {
             name: "License",
-            href: "https://github.com/formbricks/formbricks/blob/main/LICENSE",
+            href: "https://github.com/fastform/fastform/blob/main/LICENSE",
             icon: LinkIcon,
             target: "_blank",
             hidden: false,

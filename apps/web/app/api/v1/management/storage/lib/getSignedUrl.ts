@@ -1,4 +1,4 @@
-import { getUploadSignedUrl } from "@formbricks/lib/storage/service";
+import { getUploadSignedUrl } from "@fastform/lib/storage/service";
 import { responses } from "@/app/lib/api/response";
 
 const getSignedUrlForPublicFile = async (fileName: string, environmentId: string, fileType: string) => {

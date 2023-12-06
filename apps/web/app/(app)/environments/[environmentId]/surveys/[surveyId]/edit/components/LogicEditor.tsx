@@ -4,17 +4,17 @@ import {
   TSurveyQuestion,
   TSurveyQuestionType,
   TSurveyLogicCondition,
-} from "@formbricks/types/surveys";
-import { Button } from "@formbricks/ui/Button";
+} from "@fastform/types/surveys";
+import { Button } from "@fastform/ui/Button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@formbricks/ui/DropdownMenu";
-import { Label } from "@formbricks/ui/Label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@formbricks/ui/Select";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@formbricks/ui/Tooltip";
+} from "@fastform/ui/DropdownMenu";
+import { Label } from "@fastform/ui/Label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@fastform/ui/Select";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { QuestionMarkCircleIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { ChevronDown, SplitIcon } from "lucide-react";
 import { useMemo } from "react";

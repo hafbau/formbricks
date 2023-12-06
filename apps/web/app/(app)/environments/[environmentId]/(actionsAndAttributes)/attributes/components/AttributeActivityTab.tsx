@@ -1,12 +1,12 @@
 "use client";
 
 import { GetActiveInactiveSurveysAction } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/actions";
-import LoadingSpinner from "@formbricks/ui/LoadingSpinner";
-import { capitalizeFirstLetter } from "@formbricks/lib/strings";
-import { convertDateTimeStringShort } from "@formbricks/lib/time";
-import { TAttributeClass } from "@formbricks/types/attributeClasses";
-import { ErrorComponent } from "@formbricks/ui/ErrorComponent";
-import { Label } from "@formbricks/ui/Label";
+import LoadingSpinner from "@fastform/ui/LoadingSpinner";
+import { capitalizeFirstLetter } from "@fastform/lib/strings";
+import { convertDateTimeStringShort } from "@fastform/lib/time";
+import { TAttributeClass } from "@fastform/types/attributeClasses";
+import { ErrorComponent } from "@fastform/ui/ErrorComponent";
+import { Label } from "@fastform/ui/Label";
 import { TagIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 

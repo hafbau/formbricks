@@ -2,8 +2,8 @@
 
 import DisableTwoFactorModal from "@/app/(app)/environments/[environmentId]/settings/profile/components/DisableTwoFactorModal";
 import EnableTwoFactorModal from "@/app/(app)/environments/[environmentId]/settings/profile/components/EnableTwoFactorModal";
-import { TProfile } from "@formbricks/types/profile";
-import { Switch } from "@formbricks/ui/Switch";
+import { TProfile } from "@fastform/types/profile";
+import { Switch } from "@fastform/ui/Switch";
 import React, { useState } from "react";
 
 const AccountSecurity = ({ profile }: { profile: TProfile }) => {

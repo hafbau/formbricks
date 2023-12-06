@@ -1,10 +1,10 @@
 "use client";
 
 import { deleteTeamAction } from "@/app/(app)/environments/[environmentId]/settings/members/actions";
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
-import { TTeam } from "@formbricks/types/teams";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
+import { TTeam } from "@fastform/types/teams";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
 import { useRouter } from "next/navigation";
 import { Dispatch, SetStateAction, useState } from "react";
 import toast from "react-hot-toast";

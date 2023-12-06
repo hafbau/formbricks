@@ -7,11 +7,11 @@ import {
   deleteMembershipAction,
   resendInviteAction,
 } from "@/app/(app)/environments/[environmentId]/settings/members/actions";
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
-import { TInvite } from "@formbricks/types/invites";
-import { TMember } from "@formbricks/types/memberships";
-import { TTeam } from "@formbricks/types/teams";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@formbricks/ui/Tooltip";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
+import { TInvite } from "@fastform/types/invites";
+import { TMember } from "@fastform/types/memberships";
+import { TTeam } from "@fastform/types/teams";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { PaperAirplaneIcon, ShareIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import React, { useMemo, useState } from "react";

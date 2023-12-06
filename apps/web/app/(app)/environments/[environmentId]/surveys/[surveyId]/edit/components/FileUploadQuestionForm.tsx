@@ -1,13 +1,13 @@
 "use client";
 
-import { useGetBillingInfo } from "@formbricks/lib/team/hooks/useGetBillingInfo";
-import { TAllowedFileExtension, ZAllowedFileExtension } from "@formbricks/types/common";
-import { TProduct } from "@formbricks/types/product";
-import { TSurvey, TSurveyFileUploadQuestion } from "@formbricks/types/surveys";
-import { AdvancedOptionToggle } from "@formbricks/ui/AdvancedOptionToggle";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { useGetBillingInfo } from "@fastform/lib/team/hooks/useGetBillingInfo";
+import { TAllowedFileExtension, ZAllowedFileExtension } from "@fastform/types/common";
+import { TProduct } from "@fastform/types/product";
+import { TSurvey, TSurveyFileUploadQuestion } from "@fastform/types/surveys";
+import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { PlusIcon, TrashIcon, XCircleIcon } from "@heroicons/react/24/solid";
 import { useMemo, useState } from "react";
 import { toast } from "react-hot-toast";

@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 
-import { cn } from "@formbricks/lib/cn";
+import { cn } from "@fastform/lib/cn";
 
 const TooltipProvider: React.ComponentType<TooltipPrimitive.TooltipProviderProps> = TooltipPrimitive.Provider;
 

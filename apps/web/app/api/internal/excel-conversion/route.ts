@@ -1,4 +1,4 @@
-import { authOptions } from "@formbricks/lib/authOptions";
+import { authOptions } from "@fastform/lib/authOptions";
 import { responses } from "@/app/lib/api/response";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";

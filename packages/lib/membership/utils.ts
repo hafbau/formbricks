@@ -1,4 +1,4 @@
-import { TMembershipRole } from "@formbricks/types/memberships";
+import { TMembershipRole } from "@fastform/types/memberships";
 
 export const getAccessFlags = (role?: TMembershipRole) => {
   const isAdmin = role === "admin";

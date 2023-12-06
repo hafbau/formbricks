@@ -1,14 +1,14 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { sendToPipeline } from "@/app/lib/pipelines";
-import { getPerson } from "@formbricks/lib/person/service";
-import { capturePosthogEvent } from "@formbricks/lib/posthogServer";
-import { createResponse } from "@formbricks/lib/response/service";
-import { getSurvey } from "@formbricks/lib/survey/service";
-import { getTeamDetails } from "@formbricks/lib/teamDetail/service";
-import { ZId } from "@formbricks/types/environment";
-import { InvalidInputError } from "@formbricks/types/errors";
-import { TResponse, ZResponseInput } from "@formbricks/types/responses";
+import { getPerson } from "@fastform/lib/person/service";
+import { capturePosthogEvent } from "@fastform/lib/posthogServer";
+import { createResponse } from "@fastform/lib/response/service";
+import { getSurvey } from "@fastform/lib/survey/service";
+import { getTeamDetails } from "@fastform/lib/teamDetail/service";
+import { ZId } from "@fastform/types/environment";
+import { InvalidInputError } from "@fastform/types/errors";
+import { TResponse, ZResponseInput } from "@fastform/types/responses";
 import { NextResponse } from "next/server";
 import { UAParser } from "ua-parser-js";
 
@@ -36,7 +36,7 @@ export async function POST(request: Request, context: Context): Promise<NextResp
 
   const responseInput = await request.json();
 
-  // legacy workaround for formbricks-js 1.2.0 & 1.2.1
+  // legacy workaround for fastform-js 1.2.0 & 1.2.1
   if (responseInput.personId && typeof responseInput.personId === "string") {
     const person = await getPerson(responseInput.personId);
     responseInput.userId = person?.userId;

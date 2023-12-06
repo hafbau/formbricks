@@ -1,14 +1,14 @@
 import "server-only";
 
-import { prisma } from "@formbricks/database";
+import { prisma } from "@fastform/database";
 
-import { DatabaseError } from "@formbricks/types/errors";
-import { TResponseNote } from "@formbricks/types/responses";
+import { DatabaseError } from "@fastform/types/errors";
+import { TResponseNote } from "@fastform/types/responses";
 import { Prisma } from "@prisma/client";
 import { responseCache } from "../response/cache";
 import { validateInputs } from "../utils/validate";
-import { ZId } from "@formbricks/types/environment";
-import { ZString } from "@formbricks/types/common";
+import { ZId } from "@fastform/types/environment";
+import { ZString } from "@fastform/types/common";
 import { SERVICES_REVALIDATION_INTERVAL } from "../constants";
 import { unstable_cache } from "next/cache";
 import { responseNoteCache } from "./cache";

@@ -1,15 +1,15 @@
 "use client";
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/edit/components/QuestionFormInput";
-import { cn } from "@formbricks/lib/cn";
-import { Button } from "@formbricks/ui/Button";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@formbricks/ui/Select";
+import { cn } from "@fastform/lib/cn";
+import { Button } from "@fastform/ui/Button";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@fastform/ui/Select";
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { createId } from "@paralleldrive/cuid2";
 import { useEffect, useRef, useState } from "react";
-import { TSurveyMultipleChoiceMultiQuestion, TSurvey } from "@formbricks/types/surveys";
+import { TSurveyMultipleChoiceMultiQuestion, TSurvey } from "@fastform/types/surveys";
 
 interface OpenQuestionFormProps {
   localSurvey: TSurvey;

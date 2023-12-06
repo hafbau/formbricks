@@ -1,10 +1,10 @@
-import { TTeam } from "@formbricks/types/teams";
+import { TTeam } from "@fastform/types/teams";
 import React from "react";
 import MembersInfo from "@/app/(app)/environments/[environmentId]/settings/members/components/EditMemberships/MembersInfo";
-import { getMembersByTeamId } from "@formbricks/lib/membership/service";
-import { getInvitesByTeamId } from "@formbricks/lib/invite/service";
-import { TMembership } from "@formbricks/types/memberships";
-import { getIsEnterpriseEdition } from "@formbricks/ee/lib/service";
+import { getMembersByTeamId } from "@fastform/lib/membership/service";
+import { getInvitesByTeamId } from "@fastform/lib/invite/service";
+import { TMembership } from "@fastform/types/memberships";
+import { getIsEnterpriseEdition } from "@fastform/ee/lib/service";
 
 type EditMembershipsProps = {
   team: TTeam;

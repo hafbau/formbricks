@@ -7,10 +7,10 @@ import {
   QuestionOptions,
 } from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/components/QuestionsComboBox";
 import { QuestionFilterOptions } from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/components/ResponseFilter";
-import { TSurveyQuestionType } from "@formbricks/types/surveys";
-import { TResponse } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
-import { TTag } from "@formbricks/types/tags";
+import { TSurveyQuestionType } from "@fastform/types/surveys";
+import { TResponse } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
+import { TTag } from "@fastform/types/tags";
 import { isWithinInterval } from "date-fns";
 
 export const generateQuestionsAndAttributes = (survey: TSurvey, responses: TResponse[]) => {

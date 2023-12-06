@@ -5,8 +5,8 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@formbricks/ui/Select";
-import { Label } from "@formbricks/ui/Label";
+} from "@fastform/ui/Select";
+import { Label } from "@fastform/ui/Label";
 import { Controller, Control } from "react-hook-form";
 
 enum MembershipRole {

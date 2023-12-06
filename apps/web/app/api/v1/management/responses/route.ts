@@ -1,7 +1,7 @@
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { responses } from "@/app/lib/api/response";
-import { getResponsesByEnvironmentId } from "@formbricks/lib/response/service";
-import { DatabaseError } from "@formbricks/types/errors";
+import { getResponsesByEnvironmentId } from "@fastform/lib/response/service";
+import { DatabaseError } from "@fastform/types/errors";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {

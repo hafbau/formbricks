@@ -1,7 +1,7 @@
 import "server-only";
 
 import { unstable_cache } from "next/cache";
-import { ENTERPRISE_LICENSE_KEY } from "@formbricks/lib/constants";
+import { ENTERPRISE_LICENSE_KEY } from "@fastform/lib/constants";
 
 export const getIsEnterpriseEdition = () =>
   unstable_cache(

@@ -1,13 +1,13 @@
 import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
-import { getActionClasses } from "@formbricks/lib/actionClass/service";
-import { createAttributeClass, getAttributeClassByName } from "@formbricks/lib/attributeClass/service";
-import { personCache } from "@formbricks/lib/person/cache";
-import { getPerson, updatePersonAttribute } from "@formbricks/lib/person/service";
-import { getProductByEnvironmentId } from "@formbricks/lib/product/service";
-import { surveyCache } from "@formbricks/lib/survey/cache";
-import { getSyncSurveys } from "@formbricks/lib/survey/service";
-import { TJsStateSync, ZJsPeopleAttributeInput } from "@formbricks/types/js";
+import { getActionClasses } from "@fastform/lib/actionClass/service";
+import { createAttributeClass, getAttributeClassByName } from "@fastform/lib/attributeClass/service";
+import { personCache } from "@fastform/lib/person/cache";
+import { getPerson, updatePersonAttribute } from "@fastform/lib/person/service";
+import { getProductByEnvironmentId } from "@fastform/lib/product/service";
+import { surveyCache } from "@fastform/lib/survey/cache";
+import { getSyncSurveys } from "@fastform/lib/survey/service";
+import { TJsStateSync, ZJsPeopleAttributeInput } from "@fastform/types/js";
 import { NextResponse } from "next/server";
 
 interface Context {
@@ -24,7 +24,7 @@ export async function OPTIONS(): Promise<NextResponse> {
 export async function POST(req: Request, context: Context): Promise<NextResponse> {
   try {
     const { userId, environmentId } = context.params;
-    const personId = userId; // legacy workaround for formbricks-js 1.2.0 & 1.2.1
+    const personId = userId; // legacy workaround for fastform-js 1.2.0 & 1.2.1
     const jsonInput = await req.json();
 
     // validate using zod

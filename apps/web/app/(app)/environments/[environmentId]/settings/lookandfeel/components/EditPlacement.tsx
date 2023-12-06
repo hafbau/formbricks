@@ -1,12 +1,12 @@
 "use client";
 
-import { cn } from "@formbricks/lib/cn";
-import { RadioGroup, RadioGroupItem } from "@formbricks/ui/RadioGroup";
-import { Button } from "@formbricks/ui/Button";
-import { Label } from "@formbricks/ui/Label";
+import { cn } from "@fastform/lib/cn";
+import { RadioGroup, RadioGroupItem } from "@fastform/ui/RadioGroup";
+import { Button } from "@fastform/ui/Button";
+import { Label } from "@fastform/ui/Label";
 import { getPlacementStyle } from "@/app/lib/preview";
-import { TPlacement } from "@formbricks/types/common";
-import { TProduct, TProductUpdateInput } from "@formbricks/types/product";
+import { TPlacement } from "@fastform/types/common";
+import { TProduct, TProductUpdateInput } from "@fastform/types/product";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { updateProductAction } from "../actions";

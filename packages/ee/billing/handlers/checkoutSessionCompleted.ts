@@ -3,7 +3,7 @@ import {
   getMonthlyTeamResponseCount,
   getTeam,
   updateTeam,
-} from "@formbricks/lib/team/service";
+} from "@fastform/lib/team/service";
 
 import Stripe from "stripe";
 import { StripePriceLookupKeys, ProductFeatureKeys, StripeProductNames } from "../lib/constants";

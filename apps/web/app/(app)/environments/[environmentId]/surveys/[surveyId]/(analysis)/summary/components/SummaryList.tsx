@@ -1,15 +1,15 @@
 import EmptyInAppSurveys from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/components/EmptyInAppSurveys";
 import ConsentSummary from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/ConsentSummary";
 import HiddenFieldsSummary from "@/app/(app)/environments/[environmentId]/surveys/[surveyId]/(analysis)/summary/components/HiddenFieldsSummary";
-import EmptySpaceFiller from "@formbricks/ui/EmptySpaceFiller";
-import { TSurveyQuestionType } from "@formbricks/types/surveys";
+import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
+import { TSurveyQuestionType } from "@fastform/types/surveys";
 import type {
   TSurveyFileUploadQuestion,
   TSurveyPictureSelectionQuestion,
   TSurveyQuestionSummary,
-} from "@formbricks/types/surveys";
-import { TEnvironment } from "@formbricks/types/environment";
-import { TResponse } from "@formbricks/types/responses";
+} from "@fastform/types/surveys";
+import { TEnvironment } from "@fastform/types/environment";
+import { TResponse } from "@fastform/types/responses";
 import {
   TSurvey,
   TSurveyCTAQuestion,
@@ -20,7 +20,7 @@ import {
   TSurveyOpenTextQuestion,
   TSurveyQuestion,
   TSurveyRatingQuestion,
-} from "@formbricks/types/surveys";
+} from "@fastform/types/surveys";
 import CTASummary from "./CTASummary";
 import MultipleChoiceSummary from "./MultipleChoiceSummary";
 import NPSSummary from "./NPSSummary";

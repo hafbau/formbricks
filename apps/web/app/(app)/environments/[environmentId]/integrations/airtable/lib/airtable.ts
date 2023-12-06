@@ -1,4 +1,4 @@
-import { TIntegrationAirtableTables } from "@formbricks/types/integration/airtable";
+import { TIntegrationAirtableTables } from "@fastform/types/integration/airtable";
 
 export const fetchTables = async (environmentId: string, baseId: string) => {
   const res = await fetch(`/api/v1/integrations/airtable/tables?baseId=${baseId}`, {

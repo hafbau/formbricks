@@ -1,6 +1,6 @@
-import { TResponseData, TResponseUpdate } from "@formbricks/types/responses";
-import { TSurvey } from "@formbricks/types/surveys";
-import { TUploadFileConfig } from "@formbricks/types/storage";
+import { TResponseData, TResponseUpdate } from "@fastform/types/responses";
+import { TSurvey } from "@fastform/types/surveys";
+import { TUploadFileConfig } from "@fastform/types/storage";
 
 export interface SurveyBaseProps {
   survey: TSurvey;

@@ -1,0 +1,391 @@
+import { Libraries } from "@/components/docs/Libraries";
+import Image from "next/image";
+import SetupChecklist from "./env-id.webp";
+import WidgetNotConnected from "./widget-not-connected.webp";
+import WidgetConnected from "./widget-connected.webp";
+import ReactApp from "./react-in-app-survey-app-popup-form.webp";
+
+export const metadata = {
+  title: "Integrate Fastform: Comprehensive Framework Guide & Integration Tutorial",
+  description:
+    "Master the integration of Fastform into your application with our detailed guides. From HTML to ReactJS, NextJS, and VueJS, get step-by-step instructions and ensure seamless setup.",
+};
+
+# Framework Guides
+
+One can integrate Fastform into their app using multiple options! Checkout the options below that we provide! If you are looking
+for something else, please [join our Discord!](https://fastform.com/discord) and we would be glad to help. {{ className: 'lead' }}
+
+<Libraries />
+
+---
+
+## Prerequisites
+
+Before getting started, make sure you have:
+
+1. A web application in your desired framework is set up and running.
+2. A Fastform account with access to your environment ID and API host. You can find these in the **Setup Checklist** in the Settings:
+
+<Image
+  src={SetupChecklist}
+  alt="Step 2 - Setup Checklist"
+  quality="100"
+  className="max-w-full rounded-lg sm:max-w-3xl"
+/>
+
+---
+
+## HTML
+
+All you need to do is copy a `<script>` tag to your HTML head, and that’s about it!
+
+<Col>
+<CodeGroup title="HTML">
+```html {{ title: 'index.html' }}
+<!-- START Fastform Surveys -->
+<script type="text/javascript">
+    !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://unpkg.com/@fastform/js@^1.2.0/dist/index.umd.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.fastform.init({environmentId: "<your-environment-id>", apiHost: "<api-host>"})},500)}();
+    </script>
+<!-- END Fastform Surveys -->
+```
+</CodeGroup>
+</Col>
+### Required Customizations to be Made
+
+<Properties>
+  <Property name="environment-id" type="string">
+    Fastform Environment ID.
+  </Property>
+</Properties>
+<Properties>
+  <Property name="api-host" type="string">
+    URL of the hosted Fastform instance.
+  </Property>
+</Properties>
+
+Refer to our [Example HTML project](https://github.com/fastform/examples/tree/main/html) for more help! Now visit the [Validate your Setup](#validate-your-setup) section to verify your setup!
+
+---
+
+## ReactJS
+
+Install the Fastform SDK using one of the package managers ie `npm`,`pnpm`,`yarn`.
+
+<Col>
+<CodeGroup title="Install Fastform JS library">
+```shell {{ title: 'npm' }}
+npm install --save @fastform/js
+```
+```shell {{ title: 'pnpm' }}
+pnpm add @fastform/js
+```
+```shell {{ title: 'yarn' }}
+yarn add @fastform/js
+```
+
+</CodeGroup>
+</Col>
+Now, update your App.js/ts file to initialise Fastform.
+<Col>
+<CodeGroup title="src/App.js">
+
+```js
+// other imports
+import fastform from "@fastform/js";
+
+if (typeof window !== "undefined") {
+  fastform.init({
+    environmentId: "<environment-id>",
+    apiHost: "<api-host>",
+    debug: true, // remove when in production
+  });
+}
+
+function App() {
+  // your own app
+}
+
+export default App;
+```
+
+</CodeGroup>
+</Col>
+### Required Customizations to be Made
+
+<Properties>
+  <Property name="environment-id" type="string">
+    Fastform Environment ID.
+  </Property>
+</Properties>
+<Properties>
+  <Property name="api-host" type="string">
+    URL of the hosted Fastform instance.
+  </Property>
+</Properties>
+
+### What are we doing here?
+
+The app initializes 'fastform' when it's loaded in a browser environment (due to the typeof window !== "undefined" check) and then renders your components or content.
+
+<Image
+  src={ReactApp}
+  alt="In app survey in React app for micro surveys"
+  quality="100"
+  className="max-w-full rounded-lg sm:max-w-3xl"
+/>
+
+Refer to our [Example ReactJs project](https://github.com/fastform/examples/tree/main/reactjs) for more help! Now visit the [Validate your Setup](#validate-your-setup) section to verify your setup!
+
+---
+
+## NextJS
+
+NextJs projects typically follow two main conventions: the App Directory and the Pages Directory.
+To ensure smooth integration with the Fastform SDK, which operates solely on the client side, follow the
+guidelines for each convention below:
+
+- App directory: You will have to define a new component in `app/fastform.tsx` file and call it in your `app/layout.tsx` file.
+- Pages directory: You will have to visit your `_app.tsx` and just initialise Fastform there.
+
+Code snippets for the integration for both conventions are provided to further assist you.
+
+<Col>
+<CodeGroup title="Install Fastform JS library">
+```shell {{ title: 'npm' }}
+npm install --save @fastform/js
+```
+```shell {{ title: 'pnpm' }}
+pnpm add @fastform/js
+```
+```shell {{ title: 'yarn' }}
+yarn add @fastform/js
+```
+
+</CodeGroup>
+</Col>
+### App Directory
+<Col>
+<CodeGroup title="app/fastform.tsx">
+```tsx {{title: 'Typescript'}}
+"use client";
+import fastform from "@fastform/js";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+
+export default function FormbricksProvider() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+useEffect(() => {
+fastform.init({
+environmentId: "<environment-id>",
+apiHost: "<api-host>",
+debug: true, // remove when in production
+});
+}, []);
+
+useEffect(() => {
+fastform?.registerRouteChange();
+}, [pathname, searchParams]);
+
+return null;
+}
+
+````
+</CodeGroup>
+
+<CodeGroup title="app/layout.tsx">
+```tsx {{title: 'Typescript'}}
+// other imports
+import FormbricksProvider from "./fastform";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <FormbricksProvider />
+      <body>{children}</body>
+    </html>
+  );
+}
+````
+
+</CodeGroup>
+</Col>
+
+Refer to our [Example NextJS App Directory project](https://github.com/fastform/examples/tree/main/nextjs-app) for more help!
+
+### Pages Directory
+
+<Col>
+<CodeGroup title="src/pages/_app.tsx">
+
+```tsx {{ title: 'Typescript' }}
+// other import
+import fastform from "@fastform/js";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+
+if (typeof window !== "undefined") {
+  fastform.init({
+    environmentId: "<environment-id>",
+    apiHost: "<api-host>",
+    debug: true, // remove when in production
+  });
+}
+
+export default function App({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    // Connect next.js router to Fastform
+    const handleRouteChange = fastform?.registerRouteChange;
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, []);
+  return <Component {...pageProps} />;
+}
+```
+
+</CodeGroup>
+</Col>
+Refer to our [Example NextJS Pages Directory project](https://github.com/fastform/examples/tree/main/nextjs-pages) for more help!
+
+### Required Customizations to be Made
+
+<Properties>
+  <Property name="environment-id" type="string">
+    Fastform Environment ID.
+  </Property>
+</Properties>
+<Properties>
+  <Property name="api-host" type="string">
+    URL of the hosted Fastform instance.
+  </Property>
+</Properties>
+
+### Optional Customizations to be Made
+
+<Properties>
+  <Property name="debug" type="boolean">
+    Whether you want to see debug messages from Fastform on your client-side console.
+  </Property>
+</Properties>
+
+### What are we doing here?
+
+First we need to initialize the Fastform SDK, making sure it only runs on the client side.
+To connect the Next.js router to Fastform and ensure the SDK can keep track of every page change, we are registering the route change event.
+
+Now visit the [Validate your Setup](#validate-your-setup) section to verify your setup!
+
+---
+
+## VueJs
+
+Integrating the Fastform SDK with Vue.js is a straightforward process.
+We will make sure the SDK is only loaded and used on the client side, as it's not intended for server-side usage.
+
+<Col>
+<CodeGroup title="Install Fastform JS library">
+```shell {{ title: 'npm' }}
+npm install --save @fastform/js
+````
+
+```shell {{ title: 'pnpm' }}
+pnpm add @fastform/js
+```
+
+```shell {{ title: 'yarn' }}
+yarn add @fastform/js
+```
+
+</CodeGroup>
+
+<CodeGroup title="src/fastform.js">
+
+```js
+import fastform from "@fastform/js";
+
+if (typeof window !== "undefined") {
+  fastform.init({
+    environmentId: "<environment-id>",
+    apiHost: "<api-host>",
+  });
+}
+
+export default fastform;
+```
+
+</CodeGroup>
+
+<CodeGroup title="src/main.js">
+
+```js
+// other imports
+import fastform from "@/fastform";
+
+const app = createApp(App);
+
+app.use(router);
+
+app.mount("#app");
+
+router.afterEach((to, from) => {
+  if (typeof fastform !== "undefined") {
+    fastform.registerRouteChange();
+  }
+});
+```
+
+</CodeGroup>
+</Col>
+### Required Customizations to be Made
+
+<Properties>
+  <Property name="environment-id" type="string">
+    Fastform Environment ID.
+  </Property>
+</Properties>
+<Properties>
+  <Property name="api-host" type="string">
+    URL of the hosted Fastform instance.
+  </Property>
+</Properties>
+
+### Optional Customizations to be Made
+
+<Properties>
+  <Property name="debug" type="boolean">
+    Whether you want to see debug messages from Fastform on your client-side console.
+  </Property>
+</Properties>
+
+Refer to our [Example VueJs project](https://github.com/fastform/examples/tree/main/vuejs) for more help! Now visit the [Validate your Setup](#validate-your-setup) section to verify your setup!
+
+## Validate your setup
+
+Once you have completed the steps above, you can validate your setup by checking the **Setup Checklist** in the Settings. Your widget status indicator should go from this:
+
+<Image
+  src={WidgetNotConnected}
+  alt="Widget isnt connected"
+  quality="100"
+  className="max-w-full rounded-lg sm:max-w-3xl"
+/>
+
+To this:
+
+<Image
+  src={WidgetConnected}
+  alt="Widget is connected"
+  quality="100"
+  className="max-w-full rounded-lg sm:max-w-3xl"
+/>
+
+**Can’t figure it out? [Join our Discord!](https://fastform.com/discord)**
+
+---

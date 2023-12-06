@@ -5,17 +5,17 @@ import {
   deleteSurveyAction,
   duplicateSurveyAction,
 } from "@/app/(app)/environments/[environmentId]/actions";
-import { DeleteDialog } from "@formbricks/ui/DeleteDialog";
+import { DeleteDialog } from "@fastform/ui/DeleteDialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@formbricks/ui/DropdownMenu";
-import LoadingSpinner from "@formbricks/ui/LoadingSpinner";
-import type { TEnvironment } from "@formbricks/types/environment";
-import type { TSurvey } from "@formbricks/types/surveys";
+} from "@fastform/ui/DropdownMenu";
+import LoadingSpinner from "@fastform/ui/LoadingSpinner";
+import type { TEnvironment } from "@fastform/types/environment";
+import type { TSurvey } from "@fastform/types/surveys";
 import {
   ArrowUpOnSquareStackIcon,
   DocumentDuplicateIcon,

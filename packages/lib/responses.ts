@@ -1,5 +1,5 @@
-import { TSurveyQuestion } from "@formbricks/types/surveys";
-import { TResponse } from "@formbricks/types/responses";
+import { TSurveyQuestion } from "@fastform/types/surveys";
+import { TResponse } from "@fastform/types/responses";
 
 export const getQuestionResponseMapping = (
   survey: { questions: TSurveyQuestion[] },

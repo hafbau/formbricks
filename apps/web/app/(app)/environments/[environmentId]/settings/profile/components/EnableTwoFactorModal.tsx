@@ -4,10 +4,10 @@ import {
   enableTwoFactorAuthAction,
   setupTwoFactorAuthAction,
 } from "@/app/(app)/environments/[environmentId]/settings/profile/actions";
-import { PasswordInput } from "@formbricks/ui/PasswordInput";
-import { Button } from "@formbricks/ui/Button";
-import { OTPInput } from "@formbricks/ui/OTPInput";
-import { Modal } from "@formbricks/ui/Modal";
+import { PasswordInput } from "@fastform/ui/PasswordInput";
+import { Button } from "@fastform/ui/Button";
+import { OTPInput } from "@fastform/ui/OTPInput";
+import { Modal } from "@fastform/ui/Modal";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -231,7 +231,7 @@ const DisplayBackupCodes = ({ backupCodes, setOpen }: TDisplayBackupCodesProps) 
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "formbricks-backup-codes.txt";
+    a.download = "fastform-backup-codes.txt";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

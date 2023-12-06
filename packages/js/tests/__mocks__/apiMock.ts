@@ -53,14 +53,14 @@ export const mockInitResponse = () => {
                     label: "Very disappointed",
                   },
                 ],
-                headline: "How disappointed would you be if you could no longer use Test-Formbricks?",
+                headline: "How disappointed would you be if you could no longer use Test-Fastform?",
                 required: true,
                 subheader: "Please select one of the following options:",
               },
               {
                 id: questionTwoId,
                 type: "openText",
-                headline: "How can we improve Test-Formbricks for you?",
+                headline: "How can we improve Test-Fastform for you?",
                 required: true,
                 subheader: "Please be as specific as possible.",
               },
@@ -162,7 +162,7 @@ export const mockEventTrackResponse = () => {
       id: eventIdForEventTracking,
     })
   );
-  console.log('Formbricks: Event "Button Clicked" tracked');
+  console.log('Fastform: Event "Button Clicked" tracked');
 };
 
 export const mockRefreshResponse = () => {

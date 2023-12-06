@@ -1,9 +1,9 @@
 "use client";
 
-import { TSurveyQuestion } from "@formbricks/types/surveys";
-import FileInput from "@formbricks/ui/FileInput";
-import { Input } from "@formbricks/ui/Input";
-import { Label } from "@formbricks/ui/Label";
+import { TSurveyQuestion } from "@fastform/types/surveys";
+import FileInput from "@fastform/ui/FileInput";
+import { Input } from "@fastform/ui/Input";
+import { Label } from "@fastform/ui/Label";
 import { ImagePlusIcon } from "lucide-react";
 import { RefObject, useState } from "react";
 

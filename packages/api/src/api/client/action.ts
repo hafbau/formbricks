@@ -1,6 +1,6 @@
-import { Result } from "@formbricks/types/errorHandlers";
-import { NetworkError } from "@formbricks/types/errors";
-import { TActionInput } from "@formbricks/types/actions";
+import { Result } from "@fastform/types/errorHandlers";
+import { NetworkError } from "@fastform/types/errors";
+import { TActionInput } from "@fastform/types/actions";
 import { makeRequest } from "../../utils/makeRequest";
 
 export class ActionAPI {

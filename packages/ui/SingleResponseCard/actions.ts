@@ -1,21 +1,21 @@
 "use server";
 
 import { getServerSession } from "next-auth";
-import { AuthorizationError } from "@formbricks/types/errors";
-import { authOptions } from "@formbricks/lib/authOptions";
-import { deleteResponse } from "@formbricks/lib/response/service";
-import { canUserAccessResponse } from "@formbricks/lib/response/auth";
-import { canUserModifyResponseNote, canUserResolveResponseNote } from "@formbricks/lib/responseNote/auth";
+import { AuthorizationError } from "@fastform/types/errors";
+import { authOptions } from "@fastform/lib/authOptions";
+import { deleteResponse } from "@fastform/lib/response/service";
+import { canUserAccessResponse } from "@fastform/lib/response/auth";
+import { canUserModifyResponseNote, canUserResolveResponseNote } from "@fastform/lib/responseNote/auth";
 import {
   updateResponseNote,
   resolveResponseNote,
   createResponseNote,
-} from "@formbricks/lib/responseNote/service";
+} from "@fastform/lib/responseNote/service";
 
-import { createTag, getTag } from "@formbricks/lib/tag/service";
-import { addTagToRespone, deleteTagOnResponse } from "@formbricks/lib/tagOnResponse/service";
-import { hasUserEnvironmentAccess } from "@formbricks/lib/environment/auth";
-import { canUserAccessTagOnResponse, verifyUserRoleAccess } from "@formbricks/lib/tagOnResponse/auth";
+import { createTag, getTag } from "@fastform/lib/tag/service";
+import { addTagToRespone, deleteTagOnResponse } from "@fastform/lib/tagOnResponse/service";
+import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
+import { canUserAccessTagOnResponse, verifyUserRoleAccess } from "@fastform/lib/tagOnResponse/auth";
 
 export const createTagAction = async (environmentId: string, tagName: string) => {
   const session = await getServerSession(authOptions);
