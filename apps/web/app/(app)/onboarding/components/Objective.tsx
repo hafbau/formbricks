@@ -1,7 +1,7 @@
 "use client";
 
 import { updateProfileAction } from "@/app/(app)/onboarding/actions";
-import { formbricksEnabled, updateResponse } from "@/app/lib/fastform";
+import { fastformEnabled, updateResponse } from "@/app/lib/fastform";
 import { cn } from "@fastform/lib/cn";
 import { env } from "@fastform/lib/env.mjs";
 import { TProfile, TProfileObjective } from "@fastform/types/profile";
@@ -13,7 +13,7 @@ import { handleTabNavigation } from "../utils";
 type ObjectiveProps = {
   next: () => void;
   skip: () => void;
-  formbricksResponseId?: string;
+  fastformResponseId?: string;
   profile: TProfile;
 };
 
@@ -22,7 +22,7 @@ type ObjectiveChoice = {
   id: TProfileObjective;
 };
 
-const Objective: React.FC<ObjectiveProps> = ({ next, skip, formbricksResponseId, profile }) => {
+const Objective: React.FC<ObjectiveProps> = ({ next, skip, fastformResponseId, profile }) => {
   const objectives: Array<ObjectiveChoice> = [
     { label: "Increase conversion", id: "increase_conversion" },
     { label: "Improve user retention", id: "improve_user_retention" },
@@ -61,9 +61,9 @@ const Objective: React.FC<ObjectiveProps> = ({ next, skip, formbricksResponseId,
           console.error(e);
           toast.error("An error occured saving your settings");
         }
-        if (formbricksEnabled && env.NEXT_PUBLIC_FORMBRICKS_ONBOARDING_SURVEY_ID && formbricksResponseId) {
+        if (fastformEnabled && env.NEXT_PUBLIC_fastform_ONBOARDING_SURVEY_ID && fastformResponseId) {
           const res = await updateResponse(
-            formbricksResponseId,
+            fastformResponseId,
             {
               objective: selectedObjective.label,
             },

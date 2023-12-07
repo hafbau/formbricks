@@ -2,13 +2,13 @@
 CREATE TYPE "AttributeType" AS ENUM ('code', 'noCode', 'automatic');
 
 -- CreateEnum
-CREATE TYPE "SurveyStatus" AS ENUM ('draft', 'inProgress', 'paused', 'completed', 'archived');
+CREATE TYPE "formStatus" AS ENUM ('draft', 'inProgress', 'paused', 'completed', 'archived');
 
 -- CreateEnum
 CREATE TYPE "DisplayStatus" AS ENUM ('seen', 'responded');
 
 -- CreateEnum
-CREATE TYPE "SurveyType" AS ENUM ('email', 'link', 'mobile', 'web');
+CREATE TYPE "formType" AS ENUM ('email', 'link', 'mobile', 'web');
 
 -- CreateEnum
 CREATE TYPE "displayOptions" AS ENUM ('displayOnce', 'displayMultiple', 'respondMultiple');
@@ -69,7 +69,7 @@ CREATE TABLE "Response" (
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "finished" BOOLEAN NOT NULL DEFAULT false,
-    "surveyId" TEXT NOT NULL,
+    "formId" TEXT NOT NULL,
     "personId" TEXT NOT NULL,
     "data" JSONB NOT NULL DEFAULT '{}',
     "meta" JSONB NOT NULL DEFAULT '{}',
@@ -84,7 +84,7 @@ CREATE TABLE "Display" (
     "id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
-    "surveyId" TEXT NOT NULL,
+    "formId" TEXT NOT NULL,
     "personId" TEXT NOT NULL,
     "status" "DisplayStatus" NOT NULL DEFAULT 'seen',
 
@@ -92,14 +92,14 @@ CREATE TABLE "Display" (
 );
 
 -- CreateTable
-CREATE TABLE "SurveyTrigger" (
+CREATE TABLE "formTrigger" (
     "id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
-    "surveyId" TEXT NOT NULL,
+    "formId" TEXT NOT NULL,
     "eventClassId" TEXT NOT NULL,
 
-    CONSTRAINT "SurveyTrigger_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "formTrigger_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -110,12 +110,12 @@ CREATE TABLE "Form" (
     "name" TEXT NOT NULL,
     "type" TEXT NOT NULL DEFAULT 'web',
     "environmentId" TEXT NOT NULL,
-    "status" "SurveyStatus" NOT NULL DEFAULT 'draft',
+    "status" "formStatus" NOT NULL DEFAULT 'draft',
     "questions" JSONB NOT NULL DEFAULT '[]',
     "displayOption" "displayOptions" NOT NULL DEFAULT 'displayOnce',
     "recontactDays" INTEGER,
 
-    CONSTRAINT "Survey_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "form_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -271,7 +271,7 @@ CREATE UNIQUE INDEX "Attribute_attributeClassId_personId_key" ON "Attribute"("at
 CREATE UNIQUE INDEX "AttributeClass_name_environmentId_key" ON "AttributeClass"("name", "environmentId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "SurveyTrigger_surveyId_eventClassId_key" ON "SurveyTrigger"("surveyId", "eventClassId");
+CREATE UNIQUE INDEX "formTrigger_formId_eventClassId_key" ON "formTrigger"("formId", "eventClassId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "EventClass_name_environmentId_key" ON "EventClass"("name", "environmentId");
@@ -304,25 +304,25 @@ ALTER TABLE "AttributeClass" ADD CONSTRAINT "AttributeClass_environmentId_fkey" 
 ALTER TABLE "Person" ADD CONSTRAINT "Person_environmentId_fkey" FOREIGN KEY ("environmentId") REFERENCES "Environment"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Response" ADD CONSTRAINT "Response_surveyId_fkey" FOREIGN KEY ("surveyId") REFERENCES "Form"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Response" ADD CONSTRAINT "Response_formId_fkey" FOREIGN KEY ("formId") REFERENCES "Form"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Response" ADD CONSTRAINT "Response_personId_fkey" FOREIGN KEY ("personId") REFERENCES "Person"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Display" ADD CONSTRAINT "Display_surveyId_fkey" FOREIGN KEY ("surveyId") REFERENCES "Form"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Display" ADD CONSTRAINT "Display_formId_fkey" FOREIGN KEY ("formId") REFERENCES "Form"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Display" ADD CONSTRAINT "Display_personId_fkey" FOREIGN KEY ("personId") REFERENCES "Person"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "SurveyTrigger" ADD CONSTRAINT "SurveyTrigger_surveyId_fkey" FOREIGN KEY ("surveyId") REFERENCES "Form"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "formTrigger" ADD CONSTRAINT "formTrigger_formId_fkey" FOREIGN KEY ("formId") REFERENCES "Form"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "SurveyTrigger" ADD CONSTRAINT "SurveyTrigger_eventClassId_fkey" FOREIGN KEY ("eventClassId") REFERENCES "EventClass"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "formTrigger" ADD CONSTRAINT "formTrigger_eventClassId_fkey" FOREIGN KEY ("eventClassId") REFERENCES "EventClass"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Form" ADD CONSTRAINT "Survey_environmentId_fkey" FOREIGN KEY ("environmentId") REFERENCES "Environment"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "Form" ADD CONSTRAINT "form_environmentId_fkey" FOREIGN KEY ("environmentId") REFERENCES "Environment"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Event" ADD CONSTRAINT "Event_eventClassId_fkey" FOREIGN KEY ("eventClassId") REFERENCES "EventClass"("id") ON DELETE SET NULL ON UPDATE CASCADE;

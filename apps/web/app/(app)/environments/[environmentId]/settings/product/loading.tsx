@@ -27,13 +27,13 @@ export default function Loading() {
     },
     {
       title: "Recontact Waiting Time",
-      description: "Control how frequently users can be surveyed across all surveys.",
+      description: "Control how frequently users can be formed across all forms.",
       skeletonLines: [{ classes: "h-4 w-28" }, { classes: "h-6 w-64" }, { classes: "h-8 w-24" }],
     },
     {
       title: "Delete Product",
       description:
-        "Delete product with all surveys, responses, people, actions and attributes. This cannot be undone.",
+        "Delete product with all forms, responses, people, actions and attributes. This cannot be undone.",
       skeletonLines: [{ classes: "h-4 w-96" }, { classes: "h-8 w-24" }],
     },
   ];

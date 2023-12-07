@@ -3,7 +3,7 @@
 set -e
 ubuntu_version=$(lsb_release -a 2>/dev/null | grep -v "No LSB modules are available." | grep "Description:" | awk -F "Description:\t" '{print $2}')
 
-install_formbricks() {
+install_fastform() {
   # Friendly welcome
   echo "🧱 Welcome to the Fastform Setup Script"
   echo ""
@@ -209,7 +209,7 @@ END
 
 }
 
-uninstall_formbricks() {
+uninstall_fastform() {
   echo "🗑️ Preparing to Uninstalling Fastform..."
   read -p "Are you sure you want to uninstall Fastform? This will delete all the data associated with it! (yes/no): " uninstall_confirmation
   if [[ $uninstall_confirmation == "yes" ]]; then
@@ -223,14 +223,14 @@ uninstall_formbricks() {
   fi
 }
 
-stop_formbricks() {
+stop_fastform() {
   echo "🛑 Stopping Fastform..."
   cd fastform
   sudo docker compose down
   echo "🎉 Fastform instance stopped successfully!"
 }
 
-update_formbricks() {
+update_fastform() {
   echo "🔄 Updating Fastform..."
   cd fastform
   sudo docker compose pull
@@ -240,7 +240,7 @@ update_formbricks() {
   echo "🎉 Check the status of Fastform & Traefik with 'cd fastform && sudo docker compose logs.'"
 }
 
-restart_formbricks() {
+restart_fastform() {
   echo "🔄 Restarting Fastform..."
   cd fastform
   sudo docker compose restart
@@ -249,22 +249,22 @@ restart_formbricks() {
 
 case "$1" in
 install)
-  install_formbricks
+  install_fastform
   ;;
 update)
-  update_formbricks
+  update_fastform
   ;;
 stop)
-  stop_formbricks
+  stop_fastform
   ;;
 restart)
-  restart_formbricks
+  restart_fastform
   ;;
 uninstall)
-  uninstall_formbricks
+  uninstall_fastform
   ;;
 *)
   echo "🚀 Executing default step of installing Fastform"
-  install_formbricks
+  install_fastform
   ;;
 esac

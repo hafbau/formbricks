@@ -1,10 +1,10 @@
-import { TSurveyOpenTextQuestion } from "@fastform/types/surveys";
+import { TformOpenTextQuestion } from "@fastform/types/forms";
 import { useState } from "react";
 import Headline from "./Headline";
 import Subheader from "./Subheader";
 
 interface OpenTextQuestionProps {
-  question: TSurveyOpenTextQuestion;
+  question: TformOpenTextQuestion;
   onSubmit: (data: { [x: string]: any }) => void;
   lastQuestion: boolean;
   brandColor: string;

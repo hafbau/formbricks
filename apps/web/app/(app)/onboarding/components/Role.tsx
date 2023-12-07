@@ -1,7 +1,7 @@
 "use client";
 
 import { updateProfileAction } from "@/app/(app)/onboarding/actions";
-import { createResponse, formbricksEnabled } from "@/app/lib/fastform";
+import { createResponse, fastformEnabled } from "@/app/lib/fastform";
 import { cn } from "@fastform/lib/cn";
 import { env } from "@fastform/lib/env.mjs";
 import { Button } from "@fastform/ui/Button";
@@ -13,7 +13,7 @@ import { handleTabNavigation } from "../utils";
 type RoleProps = {
   next: () => void;
   skip: () => void;
-  setFormbricksResponseId: (id: string) => void;
+  setfastformResponseId: (id: string) => void;
   session: Session;
 };
 
@@ -22,7 +22,7 @@ type RoleChoice = {
   id: "project_manager" | "engineer" | "founder" | "marketing_specialist" | "other";
 };
 
-const Role: React.FC<RoleProps> = ({ next, skip, setFormbricksResponseId, session }) => {
+const Role: React.FC<RoleProps> = ({ next, skip, setfastformResponseId, session }) => {
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isUpdating, setIsUpdating] = useState(false);
   const fieldsetRef = useRef<HTMLFieldSetElement>(null);
@@ -56,13 +56,13 @@ const Role: React.FC<RoleProps> = ({ next, skip, setFormbricksResponseId, sessio
           toast.error("An error occured saving your settings");
           console.error(e);
         }
-        if (formbricksEnabled && env.NEXT_PUBLIC_FORMBRICKS_ONBOARDING_SURVEY_ID) {
-          const res = await createResponse(env.NEXT_PUBLIC_FORMBRICKS_ONBOARDING_SURVEY_ID, session.user.id, {
+        if (fastformEnabled && env.NEXT_PUBLIC_fastform_ONBOARDING_SURVEY_ID) {
+          const res = await createResponse(env.NEXT_PUBLIC_fastform_ONBOARDING_SURVEY_ID, session.user.id, {
             role: selectedRole.label,
           });
           if (res.ok) {
             const response = res.data;
-            setFormbricksResponseId(response.id);
+            setfastformResponseId(response.id);
           } else {
             console.error("Error sending response to Fastform", res.error);
           }

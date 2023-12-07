@@ -1,11 +1,11 @@
 import { TJsLegacyState, TJsState } from "@fastform/types/js";
 
-export const transformLegacySurveys = (state: TJsState): TJsLegacyState => {
+export const transformLegacyforms = (state: TJsState): TJsLegacyState => {
   const updatedState: any = { ...state };
-  updatedState.surveys = updatedState.surveys.map((form) => {
-    const updatedSurvey = { ...form };
-    updatedSurvey.triggers = updatedSurvey.triggers.map((trigger) => ({ name: trigger }));
-    return updatedSurvey;
+  updatedState.forms = updatedState.forms.map((form) => {
+    const updatedform = { ...form };
+    updatedform.triggers = updatedform.triggers.map((trigger) => ({ name: trigger }));
+    return updatedform;
   });
   return { ...updatedState, session: {} };
 };

@@ -24,7 +24,7 @@ interface OnboardingProps {
 }
 
 export default function Onboarding({ session, environmentId, profile, product }: OnboardingProps) {
-  const [formbricksResponseId, setFormbricksResponseId] = useState<string | undefined>();
+  const [fastformResponseId, setfastformResponseId] = useState<string | undefined>();
   const [currentStep, setCurrentStep] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -57,7 +57,7 @@ export default function Onboarding({ session, environmentId, profile, product }:
       await updateProfileAction(updatedProfile);
 
       if (environmentId) {
-        router.push(`/environments/${environmentId}/surveys`);
+        router.push(`/environments/${environmentId}/forms`);
         return;
       }
     } catch (e) {
@@ -91,7 +91,7 @@ export default function Onboarding({ session, environmentId, profile, product }:
           <Role
             next={next}
             skip={skipStep}
-            setFormbricksResponseId={setFormbricksResponseId}
+            setfastformResponseId={setfastformResponseId}
             session={session}
           />
         )}
@@ -99,7 +99,7 @@ export default function Onboarding({ session, environmentId, profile, product }:
           <Objective
             next={next}
             skip={skipStep}
-            formbricksResponseId={formbricksResponseId}
+            fastformResponseId={fastformResponseId}
             profile={profile}
           />
         )}

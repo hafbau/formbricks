@@ -2,7 +2,7 @@
 
 import { timeSince } from "@fastform/lib/time";
 import { TEnvironment } from "@fastform/types/environment";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { DeleteDialog } from "@fastform/ui/DeleteDialog";
 import AddIntegrationModal, {
@@ -19,14 +19,14 @@ interface handleModalProps {
   environment: TEnvironment;
   environmentId: string;
   setIsConnected: (data: boolean) => void;
-  surveys: TSurvey[];
+  forms: Tform[];
   airtableArray: TIntegrationItem[];
 }
 
 const tableHeaders = ["Form", "Table Name", "Questions", "Updated At"];
 
 export default function Home(props: handleModalProps) {
-  const { airtableIntegration, environment, environmentId, setIsConnected, surveys, airtableArray } = props;
+  const { airtableIntegration, environment, environmentId, setIsConnected, forms, airtableArray } = props;
   const [isDeleting, setisDeleting] = useState(false);
   const [isDeleteIntegrationModalOpen, setIsDeleteIntegrationModalOpen] = useState(false);
   const [defaultValues, setDefaultValues] = useState<(IntegrationModalInputs & { index: number }) | null>(
@@ -98,13 +98,13 @@ export default function Home(props: handleModalProps) {
                 setDefaultValues({
                   base: data.baseId,
                   questions: data.questionIds,
-                  form: data.surveyId,
+                  form: data.formId,
                   table: data.tableId,
                   index,
                 });
                 setIsModalOpen(true);
               }}>
-              <div className="col-span-2 text-center">{data.surveyName}</div>
+              <div className="col-span-2 text-center">{data.formName}</div>
               <div className="col-span-2 text-center">{data.tableName}</div>
               <div className="col-span-2 text-center">{data.questions}</div>
               <div className="col-span-2 text-center">{timeSince(data.createdAt.toString())}</div>
@@ -137,7 +137,7 @@ export default function Home(props: handleModalProps) {
           open={isModalOpen}
           setOpenWithStates={handleModal}
           environmentId={environmentId}
-          surveys={surveys}
+          forms={forms}
           airtableIntegration={airtableIntegration}
           {...data}
         />

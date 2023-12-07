@@ -2,7 +2,7 @@ import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { createDisplayLegacy } from "@fastform/lib/display/service";
 import { capturePosthogEvent } from "@fastform/lib/posthogServer";
-import { getSurvey } from "@fastform/lib/form/service";
+import { getform } from "@fastform/lib/form/service";
 import { getTeamDetails } from "@fastform/lib/teamDetail/service";
 import { TDisplay, ZDisplayLegacyCreateInput } from "@fastform/types/displays";
 import { InvalidInputError } from "@fastform/types/errors";
@@ -27,14 +27,14 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
   }
 
-  const { surveyId, responseId } = inputValidation.data;
+  const { formId, responseId } = inputValidation.data;
   let { personId } = inputValidation.data;
 
-  // find environmentId from surveyId
+  // find environmentId from formId
   let form;
 
   try {
-    form = await getSurvey(surveyId);
+    form = await getform(formId);
   } catch (error) {
     if (error instanceof InvalidInputError) {
       return responses.badRequestResponse(error.message);
@@ -51,7 +51,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   let display: TDisplay;
   try {
     display = await createDisplayLegacy({
-      surveyId,
+      formId,
       personId,
       responseId,
     });
@@ -66,7 +66,7 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   if (teamDetails?.teamOwnerId) {
     await capturePosthogEvent(teamDetails.teamOwnerId, "display created", teamDetails.teamId, {
-      surveyId,
+      formId,
     });
   } else {
     console.warn("Posthog capture not possible. No team owner found");

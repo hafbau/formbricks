@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { cn } from "@fastform/lib/cn";
-import { TSurveyNPSQuestion } from "@fastform/types/surveys";
+import { TformNPSQuestion } from "@fastform/types/forms";
 import Headline from "./Headline";
 import Subheader from "./Subheader";
 
 interface NPSQuestionProps {
-  question: TSurveyNPSQuestion;
+  question: TformNPSQuestion;
   onSubmit: (data: { [x: string]: any }) => void;
   lastQuestion: boolean;
   brandColor: string;

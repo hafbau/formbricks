@@ -52,12 +52,12 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
       </SettingsCard>
       <SettingsCard
         title="Recontact Waiting Time"
-        description="Control how frequently users can be surveyed across all surveys.">
+        description="Control how frequently users can be formed across all forms.">
         <EditWaitingTime environmentId={params.environmentId} product={product} />
       </SettingsCard>
       <SettingsCard
         title="Delete Product"
-        description="Delete product with all surveys, responses, people, actions and attributes. This cannot be undone.">
+        description="Delete product with all forms, responses, people, actions and attributes. This cannot be undone.">
         <DeleteProduct environmentId={params.environmentId} product={product} />
       </SettingsCard>
     </div>

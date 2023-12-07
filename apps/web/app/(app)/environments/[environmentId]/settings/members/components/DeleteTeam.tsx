@@ -98,7 +98,7 @@ function DeleteTeamModal({ setOpen, open, teamData, deleteTeam, isDeleting }: De
       <div className="py-5">
         <ul className="list-disc pb-6 pl-6">
           <li>
-            Permanent removal of all <b>products linked to this team</b>. This includes all surveys,
+            Permanent removal of all <b>products linked to this team</b>. This includes all forms,
             responses, user actions and attributes associated with these products.
           </li>
           <li>This action cannot be undone. If it&apos;s gone, it&apos;s gone.</li>

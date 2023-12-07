@@ -55,7 +55,7 @@ const FAQ_DATA = [
     question: "How does Fastform pricing work?",
     answer: () => (
       <>
-        Fastform offers a Free forever plan on the cloud that includes unlimited surveys, in-product surveys,
+        Fastform offers a Free forever plan on the cloud that includes unlimited forms, in-product forms,
         and more. We also provide a self-hosting option which includes all free features and more, available
         at no cost. If you require additional features or responses, check out our pricing section above for
         more details.

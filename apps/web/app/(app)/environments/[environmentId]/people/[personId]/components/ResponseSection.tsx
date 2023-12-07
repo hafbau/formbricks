@@ -1,9 +1,9 @@
 import ResponseTimeline from "@/app/(app)/environments/[environmentId]/people/[personId]/components/ResponseTimeline";
 import { authOptions } from "@fastform/lib/authOptions";
 import { getResponsesByPersonId } from "@fastform/lib/response/service";
-import { getSurveys } from "@fastform/lib/form/service";
+import { getforms } from "@fastform/lib/form/service";
 import { TEnvironment } from "@fastform/types/environment";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { TTag } from "@fastform/types/tags";
 import { getServerSession } from "next-auth";
 
@@ -17,8 +17,8 @@ export default async function ResponseSection({
   environmentTags: TTag[];
 }) {
   const responses = await getResponsesByPersonId(personId);
-  const surveyIds = responses?.map((response) => response.surveyId) || [];
-  const surveys: TSurvey[] = surveyIds.length === 0 ? [] : (await getSurveys(environment.id)) ?? [];
+  const formIds = responses?.map((response) => response.formId) || [];
+  const forms: Tform[] = formIds.length === 0 ? [] : (await getforms(environment.id)) ?? [];
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -30,7 +30,7 @@ export default async function ResponseSection({
       {responses && (
         <ResponseTimeline
           profile={session.user}
-          surveys={surveys}
+          forms={forms}
           responses={responses}
           environment={environment}
           environmentTags={environmentTags}

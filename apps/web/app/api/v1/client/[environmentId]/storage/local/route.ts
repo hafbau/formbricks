@@ -7,7 +7,7 @@ import { headers } from "next/headers";
 import { putFileToLocalStorage } from "@fastform/lib/storage/service";
 import { UPLOADS_DIR } from "@fastform/lib/constants";
 import { env } from "@fastform/lib/env.mjs";
-import { getSurvey } from "@fastform/lib/form/service";
+import { getform } from "@fastform/lib/form/service";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { validateLocalSignedUrl } from "@fastform/lib/crypto";
 
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest, context: Context): Promise<NextResp
 
   const fileType = headersList.get("X-File-Type");
   const encodedFileName = headersList.get("X-File-Name");
-  const surveyId = headersList.get("X-Form-ID");
+  const formId = headersList.get("X-Form-ID");
 
   const signedSignature = headersList.get("X-Signature");
   const signedUuid = headersList.get("X-UUID");
@@ -53,8 +53,8 @@ export async function POST(req: NextRequest, context: Context): Promise<NextResp
     return responses.badRequestResponse("fileName is required");
   }
 
-  if (!surveyId) {
-    return responses.badRequestResponse("surveyId is required");
+  if (!formId) {
+    return responses.badRequestResponse("formId is required");
   }
 
   if (!signedSignature) {
@@ -69,10 +69,10 @@ export async function POST(req: NextRequest, context: Context): Promise<NextResp
     return responses.unauthorizedResponse();
   }
 
-  const [form, team] = await Promise.all([getSurvey(surveyId), getTeamByEnvironmentId(environmentId)]);
+  const [form, team] = await Promise.all([getform(formId), getTeamByEnvironmentId(environmentId)]);
 
   if (!form) {
-    return responses.notFoundResponse("Form", surveyId);
+    return responses.notFoundResponse("Form", formId);
   }
 
   if (!team) {
@@ -105,7 +105,7 @@ export async function POST(req: NextRequest, context: Context): Promise<NextResp
   }
 
   try {
-    const plan = team.billing.features.linkSurvey.status in ["active", "canceled"] ? "pro" : "free";
+    const plan = team.billing.features.linkform.status in ["active", "canceled"] ? "pro" : "free";
     const bytes = await file.arrayBuffer();
     const fileBuffer = Buffer.from(bytes);
 

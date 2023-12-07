@@ -5,8 +5,8 @@ import { createAttributeClass, getAttributeClassByName } from "@fastform/lib/att
 import { personCache } from "@fastform/lib/person/cache";
 import { getPerson, updatePersonAttribute } from "@fastform/lib/person/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { surveyCache } from "@fastform/lib/form/cache";
-import { getSyncSurveys } from "@fastform/lib/form/service";
+import { formCache } from "@fastform/lib/form/cache";
+import { getSyncforms } from "@fastform/lib/form/service";
 import { TJsStateSync, ZJsPeopleAttributeInput } from "@fastform/types/js";
 import { NextResponse } from "next/server";
 
@@ -65,12 +65,12 @@ export async function POST(req: Request, context: Context): Promise<NextResponse
       environmentId,
     });
 
-    surveyCache.revalidate({
+    formCache.revalidate({
       environmentId,
     });
 
-    const [surveys, noCodeActionClasses, product] = await Promise.all([
-      getSyncSurveys(environmentId, person),
+    const [forms, noCodeActionClasses, product] = await Promise.all([
+      getSyncforms(environmentId, person),
       getActionClasses(environmentId),
       getProductByEnvironmentId(environmentId),
     ]);
@@ -82,7 +82,7 @@ export async function POST(req: Request, context: Context): Promise<NextResponse
     // return state
     const state: TJsStateSync = {
       person: { id: person.id, userId: person.userId },
-      surveys,
+      forms,
       noCodeActionClasses: noCodeActionClasses.filter((actionClass) => actionClass.type === "noCode"),
       product,
     };

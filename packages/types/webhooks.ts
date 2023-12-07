@@ -12,7 +12,7 @@ export const ZWebhook = z.object({
   source: ZWebhookSource,
   environmentId: z.string().cuid2(),
   triggers: z.array(ZPipelineTrigger),
-  surveyIds: z.array(z.string().cuid2()),
+  formIds: z.array(z.string().cuid2()),
 });
 
 export type TWebhook = z.infer<typeof ZWebhook>;
@@ -22,7 +22,7 @@ export const ZWebhookInput = z.object({
   name: z.string().nullish(),
   triggers: z.array(ZPipelineTrigger),
   source: ZWebhookSource.optional(),
-  surveyIds: z.array(z.string().cuid2()).optional(),
+  formIds: z.array(z.string().cuid2()).optional(),
 });
 
 export type TWebhookInput = z.infer<typeof ZWebhookInput>;

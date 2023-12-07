@@ -12,7 +12,7 @@ import {
   getActionCountInLast7Days,
   getActionCountInLastHour,
 } from "@fastform/lib/action/service";
-import { getSurveysByActionClassId } from "@fastform/lib/form/service";
+import { getformsByActionClassId } from "@fastform/lib/form/service";
 import { AuthorizationError } from "@fastform/types/errors";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 
@@ -116,10 +116,10 @@ export const getActionCountInLast7DaysAction = async (actionClassId: string, env
   return await getActionCountInLast7Days(actionClassId);
 };
 
-export const GetActiveInactiveSurveysAction = async (
+export const GetActiveInactiveformsAction = async (
   actionClassId: string,
   environmentId: string
-): Promise<{ activeSurveys: string[]; inactiveSurveys: string[] }> => {
+): Promise<{ activeforms: string[]; inactiveforms: string[] }> => {
   const session = await getServerSession(authOptions);
   if (!session) throw new AuthorizationError("Not authorized");
 
@@ -132,10 +132,10 @@ export const GetActiveInactiveSurveysAction = async (
   const isAuthorized = await canUserUpdateActionClass(session.user.id, actionClassId);
   if (!isAuthorized) throw new AuthorizationError("Not authorized");
 
-  const surveys = await getSurveysByActionClassId(actionClassId);
+  const forms = await getformsByActionClassId(actionClassId);
   const response = {
-    activeSurveys: surveys.filter((s) => s.status === "inProgress").map((form) => form.name),
-    inactiveSurveys: surveys.filter((s) => s.status !== "inProgress").map((form) => form.name),
+    activeforms: forms.filter((s) => s.status === "inProgress").map((form) => form.name),
+    inactiveforms: forms.filter((s) => s.status !== "inProgress").map((form) => form.name),
   };
   return response;
 };

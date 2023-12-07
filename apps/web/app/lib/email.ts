@@ -8,8 +8,8 @@ import {
   SMTP_USER,
   WEBAPP_URL,
 } from "@fastform/lib/constants";
-import { createInviteToken, createToken, createTokenForLinkSurvey } from "@fastform/lib/jwt";
-import { TSurveyQuestion } from "@fastform/types/surveys";
+import { createInviteToken, createToken, createTokenForLinkform } from "@fastform/lib/jwt";
+import { TformQuestion } from "@fastform/types/forms";
 import { TResponse } from "@fastform/types/responses";
 import { withEmailTemplate } from "./email-template";
 
@@ -63,20 +63,20 @@ export const sendVerificationEmail = async (user) => {
   });
 };
 
-export const sendLinkSurveyToVerifiedEmail = async (data) => {
-  const surveyId = data.surveyId;
+export const sendLinkformToVerifiedEmail = async (data) => {
+  const formId = data.formId;
   const email = data.email;
-  const surveyData = data.surveyData;
-  const token = createTokenForLinkSurvey(surveyId, email);
-  const surveyLink = `${WEBAPP_URL}/s/${surveyId}?verify=${encodeURIComponent(token)}`;
+  const formData = data.formData;
+  const token = createTokenForLinkform(formId, email);
+  const formLink = `${WEBAPP_URL}/s/${formId}?verify=${encodeURIComponent(token)}`;
   await sendEmail({
     to: data.email,
     subject: "Your Fastform Form",
     html: withEmailTemplate(`<h1>Hey 👋</h1>
     Thanks for validating your email. Here is your Form.<br/><br/>
-    <strong>${surveyData.name}</strong>
-    <p>${surveyData.subheading}</p>
-    <a class="button" href="${surveyLink}">Take form</a><br/>
+    <strong>${formData.name}</strong>
+    <p>${formData.subheading}</p>
+    <a class="button" href="${formLink}">Take form</a><br/>
     <br/>
     All the best,<br/>
     Your Fastform Team 🤍`),
@@ -145,7 +145,7 @@ export const sendInviteAcceptedEmail = async (inviterName, inviteeName, email) =
 export const sendResponseFinishedEmail = async (
   email: string,
   environmentId: string,
-  form: { id: string; name: string; questions: TSurveyQuestion[] },
+  form: { id: string; name: string; questions: TformQuestion[] },
   response: TResponse
 ) => {
   const personEmail = response.person?.attributes["email"];
@@ -173,7 +173,7 @@ export const sendResponseFinishedEmail = async (
       .join("")} 
    
    
-    <a class="button" href="${WEBAPP_URL}/environments/${environmentId}/surveys/${
+    <a class="button" href="${WEBAPP_URL}/environments/${environmentId}/forms/${
       form.id
     }/responses?utm_source=emailnotification&utm_medium=email&utm_content=ViewResponsesCTA">View all responses</a>
 
@@ -182,7 +182,7 @@ export const sendResponseFinishedEmail = async (
     ${
       personEmail
         ? `<p>Hit 'Reply' or reach out manually: ${personEmail}</p>`
-        : "<p>If you set the email address as an attribute in in-app surveys, you can reply directly to the respondent.</p>"
+        : "<p>If you set the email address as an attribute in in-app forms, you can reply directly to the respondent.</p>"
     }
     </div>
     `),

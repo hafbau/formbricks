@@ -155,7 +155,7 @@ export default function AddNoCodeActionModal({
               <div>
                 <div className="text-xl font-medium text-slate-700">Track New User Action</div>
                 <div className="text-sm text-slate-500">
-                  Track a user action to display surveys or create user segment.
+                  Track a user action to display forms or create user segment.
                 </div>
               </div>
             </div>

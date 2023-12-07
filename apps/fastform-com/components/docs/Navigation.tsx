@@ -213,11 +213,11 @@ export const navigation: Array<NavGroup> = [
     ],
   },
   {
-    title: "Link Surveys",
+    title: "Link forms",
     links: [
-      { title: "Data Prefilling", href: "/docs/link-surveys/data-prefilling" },
-      { title: "Identify Users", href: "/docs/link-surveys/user-identification" },
-      { title: "Single Use Links", href: "/docs/link-surveys/single-use-links" },
+      { title: "Data Prefilling", href: "/docs/link-forms/data-prefilling" },
+      { title: "Identify Users", href: "/docs/link-forms/user-identification" },
+      { title: "Single Use Links", href: "/docs/link-forms/single-use-links" },
     ],
   },
   {
@@ -282,7 +282,7 @@ export const navigation: Array<NavGroup> = [
       { title: "Attribute Classes", href: "/docs/api/management/attribute-classes" },
       { title: "Me", href: "/docs/api/management/me" },
       { title: "People", href: "/docs/api/management/people" },
-      { title: "Surveys", href: "/docs/api/management/surveys" },
+      { title: "forms", href: "/docs/api/management/forms" },
       { title: "Webhooks", href: "/docs/api/management/webhooks" },
     ],
   },

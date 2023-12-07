@@ -48,7 +48,7 @@ model Webhook {
   environment   Environment        @relation(fields: [environmentId], references: [id], onDelete: Cascade)
   environmentId String
   triggers      PipelineTriggers[]
-  surveyIds     String[]
+  formIds     String[]
 
   @@index([environmentId])
 }
@@ -83,7 +83,7 @@ model AttributeClass {
   environment      Environment             @relation(fields: [environmentId], references: [id], onDelete: Cascade)
   environmentId    String
   attributes       Attribute[]
-  attributeFilters SurveyAttributeFilter[]
+  attributeFilters formAttributeFilter[]
 
   @@unique([name, environmentId])
   @@index([environmentId])
@@ -110,8 +110,8 @@ model Response {
   createdAt        DateTime          @default(now()) @map(name: "created_at")
   updatedAt        DateTime          @updatedAt @map(name: "updated_at")
   finished         Boolean           @default(false)
-  form             Form              @relation(fields: [surveyId], references: [id], onDelete: Cascade)
-  surveyId         String
+  form             Form              @relation(fields: [formId], references: [id], onDelete: Cascade)
+  formId         String
   person           Person?           @relation(fields: [personId], references: [id], onDelete: Cascade)
   personId         String?
   notes            ResponseNote[]
@@ -131,9 +131,9 @@ model Response {
   // singleUseId, used to prevent multiple responses
   singleUseId      String?
 
-  @@unique([surveyId, singleUseId])
-  @@index([surveyId, createdAt]) // to determine monthly response count
-  @@index([surveyId])
+  @@unique([formId, singleUseId])
+  @@index([formId, createdAt]) // to determine monthly response count
+  @@index([formId])
 }
 
 model ResponseNote {
@@ -174,7 +174,7 @@ model TagsOnResponses {
   @@index([responseId])
 }
 
-enum SurveyStatus {
+enum formStatus {
   draft
   inProgress
   paused
@@ -190,52 +190,52 @@ model Display {
   id         String         @id @default(cuid())
   createdAt  DateTime       @default(now()) @map(name: "created_at")
   updatedAt  DateTime       @updatedAt @map(name: "updated_at")
-  form       Form           @relation(fields: [surveyId], references: [id], onDelete: Cascade)
-  surveyId   String
+  form       Form           @relation(fields: [formId], references: [id], onDelete: Cascade)
+  formId   String
   person     Person?        @relation(fields: [personId], references: [id], onDelete: Cascade)
   personId   String?
   responseId String?        @unique
   status     DisplayStatus?
 
-  @@index([surveyId])
+  @@index([formId])
   @@index([personId])
 }
 
-model SurveyTrigger {
+model formTrigger {
   id            String      @id @default(cuid())
   createdAt     DateTime    @default(now()) @map(name: "created_at")
   updatedAt     DateTime    @updatedAt @map(name: "updated_at")
-  form          Form        @relation(fields: [surveyId], references: [id], onDelete: Cascade)
-  surveyId      String
+  form          Form        @relation(fields: [formId], references: [id], onDelete: Cascade)
+  formId      String
   actionClass   ActionClass @relation(fields: [actionClassId], references: [id], onDelete: Cascade)
   actionClassId String
 
-  @@unique([surveyId, actionClassId])
-  @@index([surveyId])
+  @@unique([formId, actionClassId])
+  @@index([formId])
 }
 
-enum SurveyAttributeFilterCondition {
+enum formAttributeFilterCondition {
   equals
   notEquals
 }
 
-model SurveyAttributeFilter {
+model formAttributeFilter {
   id               String                         @id @default(cuid())
   createdAt        DateTime                       @default(now()) @map(name: "created_at")
   updatedAt        DateTime                       @updatedAt @map(name: "updated_at")
   attributeClass   AttributeClass                 @relation(fields: [attributeClassId], references: [id], onDelete: Cascade)
   attributeClassId String
-  form             Form                           @relation(fields: [surveyId], references: [id], onDelete: Cascade)
-  surveyId         String
-  condition        SurveyAttributeFilterCondition
+  form             Form                           @relation(fields: [formId], references: [id], onDelete: Cascade)
+  formId         String
+  condition        formAttributeFilterCondition
   value            String
 
-  @@unique([surveyId, attributeClassId])
-  @@index([surveyId])
+  @@unique([formId, attributeClassId])
+  @@index([formId])
   @@index([attributeClassId])
 }
 
-enum SurveyType {
+enum formType {
   email
   link
   mobile
@@ -254,49 +254,49 @@ model Form {
   updatedAt           DateTime                @updatedAt @map(name: "updated_at")
   name                String
   redirectUrl         String?
-  type                SurveyType              @default(web)
+  type                formType              @default(web)
   environment         Environment             @relation(fields: [environmentId], references: [id], onDelete: Cascade)
   environmentId       String
-  status              SurveyStatus            @default(draft)
-  /// @zod.custom(imports.ZSurveyWelcomeCard)
-  /// [SurveyWelcomeCard]
+  status              formStatus            @default(draft)
+  /// @zod.custom(imports.ZformWelcomeCard)
+  /// [formWelcomeCard]
   welcomeCard         Json                    @default("{\"enabled\": false}")
-  /// @zod.custom(imports.ZSurveyQuestions)
-  /// [SurveyQuestions]
+  /// @zod.custom(imports.ZformQuestions)
+  /// [formQuestions]
   questions           Json                    @default("[]")
-  /// @zod.custom(imports.ZSurveyThankYouCard)
-  /// [SurveyThankYouCard]
+  /// @zod.custom(imports.ZformThankYouCard)
+  /// [formThankYouCard]
   thankYouCard        Json                    @default("{\"enabled\": false}")
-  /// @zod.custom(imports.ZSurveyHiddenFields)
-  /// [SurveyHiddenFields]
+  /// @zod.custom(imports.ZformHiddenFields)
+  /// [formHiddenFields]
   hiddenFields        Json                    @default("{\"enabled\": false}")
   responses           Response[]
   displayOption       displayOptions          @default(displayOnce)
   recontactDays       Int?
-  triggers            SurveyTrigger[]
-  attributeFilters    SurveyAttributeFilter[]
+  triggers            formTrigger[]
+  attributeFilters    formAttributeFilter[]
   displays            Display[]
   autoClose           Int?
   delay               Int                     @default(0)
   autoComplete        Int?
   closeOnDate         DateTime?
-  /// @zod.custom(imports.ZSurveyClosedMessage)
-  /// [SurveyClosedMessage]
-  surveyClosedMessage Json?
-  /// @zod.custom(imports.ZSurveySingleUse)
-  /// [SurveySingleUse]
+  /// @zod.custom(imports.ZformClosedMessage)
+  /// [formClosedMessage]
+  formClosedMessage Json?
+  /// @zod.custom(imports.ZformSingleUse)
+  /// [formSingleUse]
 
-  /// @zod.custom(imports.ZSurveyProductOverwrites)
-  /// [SurveyProductOverwrites]
+  /// @zod.custom(imports.ZformProductOverwrites)
+  /// [formProductOverwrites]
   productOverwrites Json?
-  /// @zod.custom(imports.ZSurveyStyling)
-  /// [SurveyStyling]
+  /// @zod.custom(imports.ZformStyling)
+  /// [formStyling]
   styling           Json?
-  /// @zod.custom(imports.ZSurveySingleUse)
-  /// [SurveySingleUse]
+  /// @zod.custom(imports.ZformSingleUse)
+  /// [formSingleUse]
   singleUse         Json?   @default("{\"enabled\": false, \"isEncrypted\": true}")
-  /// @zod.custom(imports.ZSurveyVerifyEmail)
-  /// [SurveyVerifyEmail]
+  /// @zod.custom(imports.ZformVerifyEmail)
+  /// [formVerifyEmail]
   verifyEmail       Json?
   pin               String?
 
@@ -321,7 +321,7 @@ model ActionClass {
   noCodeConfig  Json?
   environment   Environment     @relation(fields: [environmentId], references: [id], onDelete: Cascade)
   environmentId String
-  surveys       SurveyTrigger[]
+  forms       formTrigger[]
   actions       Action[]
 
   @@unique([name, environmentId])
@@ -374,7 +374,7 @@ model Environment {
   product              Product          @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId            String
   widgetSetupCompleted Boolean          @default(false)
-  surveys              Form[]
+  forms              Form[]
   people               Person[]
   actionClasses        ActionClass[]
   attributeClasses     AttributeClass[]
@@ -405,8 +405,8 @@ model Product {
   brandColor           String          @default("#64748b")
   highlightBorderColor String?
   recontactDays        Int             @default(7)
-  linkSurveyBranding   Boolean         @default(true) // Determines if the form branding should be displayed in link surveys
-  inAppSurveyBranding  Boolean         @default(true) // Determines if the form branding should be displayed in in-app surveys
+  linkformBranding   Boolean         @default(true) // Determines if the form branding should be displayed in link forms
+  inAppformBranding  Boolean         @default(true) // Determines if the form branding should be displayed in in-app forms
   placement            WidgetPlacement @default(bottomRight)
   clickOutsideClose    Boolean         @default(true)
   darkOverlay          Boolean         @default(false)
@@ -424,7 +424,7 @@ model Team {
   products    Product[]
   /// @zod.custom(imports.ZTeamBilling)
   /// [TeamBilling]
-  billing     Json         @default("{\"stripeCustomerId\": null, \"features\": {\"inAppSurvey\": {\"status\": \"inactive\", \"unlimited\": false}, \"linkSurvey\": {\"status\": \"inactive\", \"unlimited\": false}, \"userTargeting\": {\"status\": \"inactive\", \"unlimited\": false}}}")
+  billing     Json         @default("{\"stripeCustomerId\": null, \"features\": {\"inAppform\": {\"status\": \"inactive\", \"unlimited\": false}, \"linkform\": {\"status\": \"inactive\", \"unlimited\": false}, \"userTargeting\": {\"status\": \"inactive\", \"unlimited\": false}}}")
   invites     Invite[]
 }
 
@@ -527,8 +527,8 @@ enum Objective {
 }
 
 enum Intention {
-  survey_user_segments
-  survey_at_specific_point_in_user_journey
+  form_user_segments
+  form_at_specific_point_in_user_journey
   enrich_customer_profiles
   collect_all_user_feedback_on_one_platform
   other

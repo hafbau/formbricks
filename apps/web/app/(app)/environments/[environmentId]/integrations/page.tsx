@@ -94,7 +94,7 @@ export default async function IntegrationsPage({ params }) {
       docsText: "Docs",
       docsNewTab: true,
       label: "Webhooks",
-      description: "Trigger Webhooks based on actions in your surveys",
+      description: "Trigger Webhooks based on actions in your forms",
       icon: <Image src={WebhookLogo} alt="Webhook Logo" />,
       connected: userWebhookCount > 0,
       statusText:

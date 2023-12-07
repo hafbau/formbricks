@@ -4,19 +4,19 @@ import editorCss from "../../../ui/Editor/stylesEditorFrontend.css?inline";
 import { isLight } from "@/lib/utils";
 
 export const addStylesToDom = () => {
-  if (document.getElementById("formbricks__css") === null) {
+  if (document.getElementById("fastform__css") === null) {
     const styleElement = document.createElement("style");
-    styleElement.id = "formbricks__css";
+    styleElement.id = "fastform__css";
     styleElement.innerHTML = preflight + global + editorCss;
     document.head.appendChild(styleElement);
   }
 };
 
 export const addCustomThemeToDom = ({ brandColor }: { brandColor: string }) => {
-  if (document.getElementById("formbricks__css") === null) return;
+  if (document.getElementById("fastform__css") === null) return;
 
   const styleElement = document.createElement("style");
-  styleElement.id = "formbricks__css__custom";
+  styleElement.id = "fastform__css__custom";
   styleElement.innerHTML = `
     :root {
       --fb-brand-color: ${brandColor};

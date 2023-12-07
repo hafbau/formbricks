@@ -10,7 +10,7 @@ Fastform' Webhook API offers a powerful interface for interacting with webhooks.
 
 The behavior of the webhooks is determined by their trigger settings. The trigger determines which updates the webhook sends. Current available triggers include "responseCreated", "responseUpdated", and "responseFinished". This allows you to customize your webhooks to only send notifications for the events that are relevant to your application.
 
-Webhooks are tied to a specific Fastform environment. Once set, a webhook will receive updates from all surveys within this environment. This makes it easy to manage your data flow and ensure that all relevant updates are caught by the webhook.
+Webhooks are tied to a specific Fastform environment. Once set, a webhook will receive updates from all forms within this environment. This makes it easy to manage your data flow and ensure that all relevant updates are caught by the webhook.
 
 This set of API can be used to
 - [List All Webhooks](#list-webhooks)
@@ -176,8 +176,8 @@ Add a webhook to your product.
       <Property name="triggers" type="string[]" required>
         List of events that will trigger the webhook.
       </Property>
-      <Property name="surveyIds" type="string[]">
-        List of form IDs that will trigger the webhook. If not provided, the webhook will be triggered for all surveys.
+      <Property name="formIds" type="string[]">
+        List of form IDs that will trigger the webhook. If not provided, the webhook will be triggered for all forms.
       </Property>
     </Properties>
 
@@ -185,7 +185,7 @@ Add a webhook to your product.
 | ---------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------------- |
 | url        | yes      | -       | The endpoint that the webhook will send data to                                                                   |
 | trigger    | yes      | -       | The event that will trigger the webhook ("responseCreated" or "responseUpdated" or "responseFinished")            |
-| surveyIds  | no       | -       | List of form IDs that will trigger the webhook. If not provided, the webhook will be triggered for all surveys. |
+| formIds  | no       | -       | List of form IDs that will trigger the webhook. If not provided, the webhook will be triggered for all forms. |
 
   </Col>
   <Col sticky>
@@ -222,7 +222,7 @@ Add a webhook to your product.
         "url": "https://mysystem.com/myendpoint",
         "environmentId": "clisypjy4000319t4imm289uo",
         "triggers": ["responseFinished"],
-        "surveyIds": ["clisypjy4000319t4imm289uo"]
+        "formIds": ["clisypjy4000319t4imm289uo"]
       }
     }
     ```
@@ -336,7 +336,7 @@ This documentation helps understand the payload structure that will be received 
 | data.id               | String  | Fastform Response ID.                                                                                                                        |
 | data.createdAt        | String  | The timestamp when the response was created.                                                                                                   |
 | data.updatedAt        | String  | The timestamp when the response was last updated.                                                                                              |
-| data.surveyId         | String  | The identifier of the form associated with this response.                                                                                    |
+| data.formId         | String  | The identifier of the form associated with this response.                                                                                    |
 | data.finished         | Boolean | A boolean value indicating whether the form response is marked as finished.                                                                  |
 | data.data             | Object  | An object containing the response data, where keys are question identifiers, and values are the corresponding answers given by the respondent. |
 | data.meta             | Object  | Additional metadata related to the response, such as the user's operating system and browser information.                                      |
@@ -360,7 +360,7 @@ This documentation helps understand the payload structure that will be received 
             "id": "cljwy2m8r0001qhclco1godnu",
             "createdAt": "2023-07-10T14:14:17.115Z",
             "updatedAt": "2023-07-10T14:14:17.115Z",
-            "surveyId": "cljsf3d7a000019cv9apt2t27",
+            "formId": "cljsf3d7a000019cv9apt2t27",
             "finished": false,
             "data": {
                 "qumbk3fkr6cky8850bvvq5z1": "Executive"

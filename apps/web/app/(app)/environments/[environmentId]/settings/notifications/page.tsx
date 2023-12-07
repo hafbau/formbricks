@@ -43,7 +43,7 @@ function cleanNotificationSettings(
         (notificationSettings.weeklySummary && notificationSettings.weeklySummary[product.id]) || false;
       // set default values for alerts
       for (const environment of product.environments) {
-        for (const form of environment.surveys) {
+        for (const form of environment.forms) {
           newNotificationSettings.alert[form.id] =
             notificationSettings[form.id]?.responseFinished ||
             (notificationSettings.alert && notificationSettings.alert[form.id]) ||
@@ -75,7 +75,7 @@ async function getMemberships(userId: string): Promise<Membership[]> {
                 },
                 select: {
                   id: true,
-                  surveys: {
+                  forms: {
                     select: {
                       id: true,
                       name: true,
@@ -104,7 +104,7 @@ export default async function ProfileSettingsPage({ params }) {
     <div>
       <SettingsTitle title="Notifications" />
       <SettingsCard
-        title="Email alerts (Surveys)"
+        title="Email alerts (forms)"
         description="Set up an alert to get an email on new responses.">
         <EditAlerts memberships={memberships} user={user} environmentId={params.environmentId} />
       </SettingsCard>

@@ -4,7 +4,7 @@ import { sendToPipeline } from "@/app/lib/pipelines";
 import { getPerson } from "@fastform/lib/person/service";
 import { capturePosthogEvent } from "@fastform/lib/posthogServer";
 import { createResponse } from "@fastform/lib/response/service";
-import { getSurvey } from "@fastform/lib/form/service";
+import { getform } from "@fastform/lib/form/service";
 import { getTeamDetails } from "@fastform/lib/teamDetail/service";
 import { ZId } from "@fastform/types/environment";
 import { InvalidInputError } from "@fastform/types/errors";
@@ -55,9 +55,9 @@ export async function POST(request: Request, context: Context): Promise<NextResp
   }
 
   // get and check form
-  const form = await getSurvey(responseInput.surveyId);
+  const form = await getform(responseInput.formId);
   if (!form) {
-    return responses.notFoundResponse("Form", responseInput.surveyId, true);
+    return responses.notFoundResponse("Form", responseInput.formId, true);
   }
   if (form.environmentId !== environmentId) {
     return responses.badRequestResponse(
@@ -100,7 +100,7 @@ export async function POST(request: Request, context: Context): Promise<NextResp
   sendToPipeline({
     event: "responseCreated",
     environmentId: form.environmentId,
-    surveyId: response.surveyId,
+    formId: response.formId,
     response: response,
   });
 
@@ -108,15 +108,15 @@ export async function POST(request: Request, context: Context): Promise<NextResp
     sendToPipeline({
       event: "responseFinished",
       environmentId: form.environmentId,
-      surveyId: response.surveyId,
+      formId: response.formId,
       response: response,
     });
   }
 
   if (teamDetails?.teamOwnerId) {
     await capturePosthogEvent(teamDetails.teamOwnerId, "response created", teamDetails.teamId, {
-      surveyId: response.surveyId,
-      surveyType: form.type,
+      formId: response.formId,
+      formType: form.type,
     });
   } else {
     console.warn("Posthog capture not possible. No team owner found");

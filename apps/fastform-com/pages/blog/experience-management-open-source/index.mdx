@@ -14,7 +14,7 @@ import MattiJojo from "./matti-jojo.jpg";
 export const meta = {
   title: "Fastform v1 - How we got here 🤸",
   description:
-    "A lot has happened since Matti and I had a chat about open-source surveys in May last year. The release of Fastform v1.0 is a perfect opportunity to look back on how it all started.",
+    "A lot has happened since Matti and I had a chat about open-source forms in May last year. The release of Fastform v1.0 is a perfect opportunity to look back on how it all started.",
   date: "2023-07-14",
   publishedTime: "2023-07-14T08:10:33",
   authors: ["Johannes"],
@@ -24,7 +24,7 @@ export const meta = {
 
 <AuthorBox name="Johannes" title="Co-Founder" date="April 7th, 2023" duration="4" />
 
-_A lot has happened since Matti and I had a chat about open-source surveys in May last year. The release of Fastform v1.0 is a perfect opportunity to look back on how it all started._
+_A lot has happened since Matti and I had a chat about open-source forms in May last year. The release of Fastform v1.0 is a perfect opportunity to look back on how it all started._
 
 Funnily enough, it started with a tweet:
 
@@ -52,15 +52,15 @@ We shipped a first version of the product and the landing page and shared it on 
 
 Well no, it is not. Apart from the Early Birds (🤍) we attracted a looooooooot of people who liked Typeform, but didn’t want to pay the high price tag. Generally, it's not the best idea to build a product with high competition (100s of form tools) for a price-sensitive target group. Even data privacy isn’t a good selling point when Jotform offers self-hosting and Typeform is an EU-based company (GDPR). We’ve written **[in-depth](https://fastform.com/blog/open-source-qualtrics-beats-typeform)** about why we eventually decided to shift our focus away from open-source Typeform.
 
-Nonetheless, we were hooked on open-source surveys; we just hadn't found the right application yet.
+Nonetheless, we were hooked on open-source forms; we just hadn't found the right application yet.
 
 ### **snoopForms → Fastform, a detour, and going full-time**
 
-We decided to wrap up our freelance gigs and go in full-time, to find the right angle quicker. We built a MVP for _Building Bricks for Forms and Surveys_, but while the idea made sense, we struggled to build an easy, opionated solution which can be used for several use cases. To help engineers build form and form applications faster, it needed to pack form creation, form analytics, graphs, data handling, data storage, analysis, integrations, and ways to act on the insights for a variety of use cases 🤷 There's a reason why successful dev tools focus on one of these aspects and do them well. So we kept looking…
+We decided to wrap up our freelance gigs and go in full-time, to find the right angle quicker. We built a MVP for _Building Bricks for Forms and forms_, but while the idea made sense, we struggled to build an easy, opionated solution which can be used for several use cases. To help engineers build form and form applications faster, it needed to pack form creation, form analytics, graphs, data handling, data storage, analysis, integrations, and ways to act on the insights for a variety of use cases 🤷 There's a reason why successful dev tools focus on one of these aspects and do them well. So we kept looking…
 
 ### **Data Processing vs. Experience Management**
 
-We had talked to and surveyed a lot of people. Zooming out, we saw that there are two applications for forms: data processing and experience management.
+We had talked to and formed a lot of people. Zooming out, we saw that there are two applications for forms: data processing and experience management.
 
 **Data processing** is essentially getting information out of a human brain into a digital system. The focus here lies on high integrability with (legacy) systems, versatility, and a great developer experience. Libraries like React Hook Forms or the more productized form.io fall into this category. While there certainly is a need here, it was a less inspiring field for us, especially after reading how [tedious](https://medium.com/@jgee/what-i-learned-in-two-years-of-moving-government-forms-online-1edc4c2aa089) it can be to bring [legacy](https://medium.com/san-francisco-digital-services/how-to-make-a-form-d1d1b67d95d7) form systems up to speed.
 
@@ -97,13 +97,13 @@ After the rather disappointing launch of the PMF form tool, we hit a low. The ex
 
 It was quite a journey since Matti wrote the first line of code in July last year. Even though it didn’t _feel_ like much progress, we had learned a lot. Most importantly, we knew what **not** to build.
 
-With snoopForms, we learned that there is a latent need for an open-source standalone form tool, with a Typeform-like feature set: It’s a great opportunity to build a community and **not** a great business opportunity. The PMF form tool taught us about the needs of early-stage teams and that surveys are **not** the best solution to their problems. However, they do need some form to gather qualitative feedback and a smooth way to work with it 😏
+With snoopForms, we learned that there is a latent need for an open-source standalone form tool, with a Typeform-like feature set: It’s a great opportunity to build a community and **not** a great business opportunity. The PMF form tool taught us about the needs of early-stage teams and that forms are **not** the best solution to their problems. However, they do need some form to gather qualitative feedback and a smooth way to work with it 😏
 
 We took everything we knew and wrote a Masterplan. And then we sat down coded.
 
-### **Open-source in-product surveys**
+### **Open-source in-product forms**
 
-March and the first half of April flew by as we hacked together the MVP of what Fastform is today: A tool which enables teams to target specific segments of their user base with versatile micro-surveys. Matti solved some tricky technical challenges around the Fastform Widget and shipped the backend. ChatGPT and I warmed up with next.js and built frontend. Seeing the product come together was fun and felt like progress - exactly what we needed!
+March and the first half of April flew by as we hacked together the MVP of what Fastform is today: A tool which enables teams to target specific segments of their user base with versatile micro-forms. Matti solved some tricky technical challenges around the Fastform Widget and shipped the backend. ChatGPT and I warmed up with next.js and built frontend. Seeing the product come together was fun and felt like progress - exactly what we needed!
 
 <Image
   src={TitleImage}
@@ -134,14 +134,14 @@ We wanted to compare how the publicly asked form (Twitter) compared to a form am
 />
 _Anything above 40% is considered PMF, 60% is 🔥🔥🔥_
 
-For us, this was not only a good test for our system but it was a great example that Experience Management does not only happen within apps, but on several touch points right from the start. If we want to offer a solution which can comprehensively measure and evaluate experiences, it cannot be confined to in-product surveys for too long.
+For us, this was not only a good test for our system but it was a great example that Experience Management does not only happen within apps, but on several touch points right from the start. If we want to offer a solution which can comprehensively measure and evaluate experiences, it cannot be confined to in-product forms for too long.
 
 ### **Typeform sneaking back in?**
 
-Given our early traction with snoopForms, it’s not a big surprise that community requests for a Typeform-like standalone form popped up more and more. Since we had all the pieces in place, we shipped standalone surveys in a day. However, it’s not our focus right now, so we hand over most of the feature requests to the community. And the community ships! Just in the past couple of weeks, we got:
+Given our early traction with snoopForms, it’s not a big surprise that community requests for a Typeform-like standalone form popped up more and more. Since we had all the pieces in place, we shipped standalone forms in a day. However, it’s not our focus right now, so we hand over most of the feature requests to the community. And the community ships! Just in the past couple of weeks, we got:
 
-- **Prefill Data in Link Surveys** by Piyush - [Docs](https://fastform.com/docs/link-surveys/data-prefilling)
-- **Identify Users Link identification** by Zorig - [Docs](https://fastform.com/docs/link-surveys/user-identification)
+- **Prefill Data in Link forms** by Piyush - [Docs](https://fastform.com/docs/link-forms/data-prefilling)
+- **Identify Users Link identification** by Zorig - [Docs](https://fastform.com/docs/link-forms/user-identification)
 - **Close Form on Date** by Piyush
 - **Close Form after x Responses** by Pradumn
 - **Redirect on Link Form Completion** by Dhruwang

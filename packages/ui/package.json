@@ -16,7 +16,7 @@
     "react": "18.2.0"
   },
   "dependencies": {
-    "@fastform/surveys": "workspace:*",
+    "@fastform/forms": "workspace:*",
     "@fastform/lib": "workspace:*",
     "@heroicons/react": "^2.0.18",
     "@lexical/code": "^0.12.4",

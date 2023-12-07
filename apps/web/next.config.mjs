@@ -43,8 +43,8 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: "/api/v1/surveys",
-        destination: "/api/v1/management/surveys",
+        source: "/api/v1/forms",
+        destination: "/api/v1/management/forms",
         permanent: true,
       },
       {

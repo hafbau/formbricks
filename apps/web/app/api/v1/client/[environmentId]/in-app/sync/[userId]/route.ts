@@ -6,7 +6,7 @@ import { IS_FORMBRICKS_CLOUD, PRICING_USERTARGETING_FREE_MTU } from "@fastform/l
 import { getEnvironment, updateEnvironment } from "@fastform/lib/environment/service";
 import { createPerson, getPersonByUserId } from "@fastform/lib/person/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSyncSurveys } from "@fastform/lib/form/service";
+import { getSyncforms } from "@fastform/lib/form/service";
 import { getMonthlyActiveTeamPeopleCount, getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { TEnvironment } from "@fastform/types/environment";
 import { TJsStateSync, ZJsPeopleUserIdInput } from "@fastform/types/js";
@@ -90,8 +90,8 @@ export async function GET(
       }
     }
 
-    const [surveys, noCodeActionClasses, product] = await Promise.all([
-      getSyncSurveys(environmentId, person),
+    const [forms, noCodeActionClasses, product] = await Promise.all([
+      getSyncforms(environmentId, person),
       getActionClasses(environmentId),
       getProductByEnvironmentId(environmentId),
     ]);
@@ -103,7 +103,7 @@ export async function GET(
     // return state
     const state: TJsStateSync = {
       person: { id: person.id, userId: person.userId },
-      surveys,
+      forms,
       noCodeActionClasses: noCodeActionClasses.filter((actionClass) => actionClass.type === "noCode"),
       product,
     };

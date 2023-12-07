@@ -1,9 +1,9 @@
-import { TSurveyCTAQuestion } from "@fastform/types/surveys";
+import { TformCTAQuestion } from "@fastform/types/forms";
 import Headline from "./Headline";
 import HtmlBody from "./HtmlBody";
 
 interface CTAQuestionProps {
-  question: TSurveyCTAQuestion;
+  question: TformCTAQuestion;
   onSubmit: (data: { [x: string]: any }) => void;
   lastQuestion: boolean;
   brandColor: string;

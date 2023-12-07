@@ -5,13 +5,13 @@ import { DatabaseError } from "@fastform/types/errors";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-  const surveyId = request.nextUrl.searchParams.get("surveyId");
+  const formId = request.nextUrl.searchParams.get("formId");
   try {
     const authentication = await authenticateRequest(request);
     if (!authentication) return responses.notAuthenticatedResponse();
     let environmentResponses = await getResponsesByEnvironmentId(authentication.environmentId!);
-    if (surveyId) {
-      environmentResponses = environmentResponses.filter((response) => response.surveyId === surveyId);
+    if (formId) {
+      environmentResponses = environmentResponses.filter((response) => response.formId === formId);
     }
     return responses.successResponse(environmentResponses);
   } catch (error) {

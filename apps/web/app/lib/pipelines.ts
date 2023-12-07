@@ -1,7 +1,7 @@
 import { INTERNAL_SECRET, WEBAPP_URL } from "@fastform/lib/constants";
 import { TPipelineInput } from "@fastform/types/pipelines";
 
-export async function sendToPipeline({ event, surveyId, environmentId, response }: TPipelineInput) {
+export async function sendToPipeline({ event, formId, environmentId, response }: TPipelineInput) {
   return fetch(`${WEBAPP_URL}/api/pipeline`, {
     method: "POST",
     headers: {
@@ -10,7 +10,7 @@ export async function sendToPipeline({ event, surveyId, environmentId, response 
     },
     body: JSON.stringify({
       environmentId: environmentId,
-      surveyId: surveyId,
+      formId: formId,
       event,
       response,
     }),

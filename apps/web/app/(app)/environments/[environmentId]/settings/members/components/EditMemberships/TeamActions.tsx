@@ -100,7 +100,7 @@ export default function TeamActions({
         open={isLeaveTeamModalOpen}
         setOpen={setLeaveTeamModalOpen}
         title="Are you sure?"
-        text="You wil leave this team and loose access to all surveys and responses. You can only rejoin if you are invited again."
+        text="You wil leave this team and loose access to all forms and responses. You can only rejoin if you are invited again."
         onOk={handleLeaveTeam}
         okBtnText="Yes, leave team"
         disabled={isLeaveTeamDisabled}

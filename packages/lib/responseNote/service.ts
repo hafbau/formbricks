@@ -29,7 +29,7 @@ const select = {
   response: {
     select: {
       id: true,
-      surveyId: true,
+      formId: true,
     },
   },
 };
@@ -53,7 +53,7 @@ export const createResponseNote = async (
 
     responseCache.revalidate({
       id: responseNote.response.id,
-      surveyId: responseNote.response.surveyId,
+      formId: responseNote.response.formId,
     });
 
     responseNoteCache.revalidate({
@@ -140,7 +140,7 @@ export const updateResponseNote = async (responseNoteId: string, text: string): 
 
     responseCache.revalidate({
       id: updatedResponseNote.response.id,
-      surveyId: updatedResponseNote.response.surveyId,
+      formId: updatedResponseNote.response.formId,
     });
 
     responseNoteCache.revalidate({
@@ -176,7 +176,7 @@ export const resolveResponseNote = async (responseNoteId: string): Promise<TResp
 
     responseCache.revalidate({
       id: responseNote.response.id,
-      surveyId: responseNote.response.surveyId,
+      formId: responseNote.response.formId,
     });
 
     responseNoteCache.revalidate({

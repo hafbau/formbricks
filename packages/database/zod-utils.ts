@@ -12,16 +12,16 @@ export {
 } from "@fastform/types/responses";
 
 export {
-  ZSurveyWelcomeCard,
-  ZSurveyQuestions,
-  ZSurveyThankYouCard,
-  ZSurveyHiddenFields,
-  ZSurveyClosedMessage,
-  ZSurveyProductOverwrites,
-  ZSurveyStyling,
-  ZSurveyVerifyEmail,
-  ZSurveySingleUse,
-} from "@fastform/types/surveys";
+  ZformWelcomeCard,
+  ZformQuestions,
+  ZformThankYouCard,
+  ZformHiddenFields,
+  ZformClosedMessage,
+  ZformProductOverwrites,
+  ZformStyling,
+  ZformVerifyEmail,
+  ZformSingleUse,
+} from "@fastform/types/forms";
 
 export { ZTeamBilling } from "@fastform/types/teams";
 export { ZUserNotificationSettings } from "@fastform/types/users";

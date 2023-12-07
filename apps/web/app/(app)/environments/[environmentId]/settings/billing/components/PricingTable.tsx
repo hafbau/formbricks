@@ -23,7 +23,7 @@ interface PricingTableProps {
   peopleCount: number;
   responseCount: number;
   userTargetingFreeMtu: number;
-  inAppSurveyFreeResponses: number;
+  inAppformFreeResponses: number;
 }
 
 export default function PricingTableComponent({
@@ -32,7 +32,7 @@ export default function PricingTableComponent({
   peopleCount,
   responseCount,
   userTargetingFreeMtu,
-  inAppSurveyFreeResponses: appSurveyFreeResponses,
+  inAppformFreeResponses: appformFreeResponses,
 }: PricingTableProps) {
   const router = useRouter();
   const [loadingCustomerPortal, setLoadingCustomerPortal] = useState(false);
@@ -93,7 +93,7 @@ export default function PricingTableComponent({
     }
   };
 
-  const coreAndWebAppSurveyFeatures = [
+  const coreAndWebAppformFeatures = [
     {
       title: "Team Roles",
       comingSoon: false,
@@ -109,7 +109,7 @@ export default function PricingTableComponent({
       unlimited: false,
     },
     {
-      title: "Multi Language Surveys",
+      title: "Multi Language forms",
       comingSoon: true,
     },
     {
@@ -144,7 +144,7 @@ export default function PricingTableComponent({
     },
   ];
 
-  const linkSurveysFeatures = [
+  const linkformsFeatures = [
     {
       title: "Remove Fastform Branding",
       comingSoon: false,
@@ -154,7 +154,7 @@ export default function PricingTableComponent({
       comingSoon: true,
     },
     {
-      title: "Multi Language Surveys",
+      title: "Multi Language forms",
       comingSoon: true,
     },
   ];
@@ -174,7 +174,7 @@ export default function PricingTableComponent({
               className="justify-center py-2 shadow-sm"
               loading={loadingCustomerPortal}
               onClick={openCustomerPortal}>
-              {team.billing.features.inAppSurvey.unlimited ? "Manage Subscription" : "Manage Card details"}
+              {team.billing.features.inAppform.unlimited ? "Manage Subscription" : "Manage Card details"}
             </Button>
           </div>
         ) : (
@@ -219,8 +219,8 @@ export default function PricingTableComponent({
                   loading={upgradingPlan}
                   onClick={() =>
                     upgradePlan([
-                      StripePriceLookupKeys.inAppSurveyUnlimited,
-                      StripePriceLookupKeys.linkSurveyUnlimited,
+                      StripePriceLookupKeys.inAppformUnlimited,
+                      StripePriceLookupKeys.linkformUnlimited,
                       StripePriceLookupKeys.userTargetingUnlimited,
                     ])
                   }>
@@ -261,18 +261,18 @@ export default function PricingTableComponent({
         )}
 
         <PricingCard
-          title={"Core & App Surveys"}
+          title={"Core & App forms"}
           subtitle={"Get up to 250 free responses every month"}
-          featureName={ProductFeatureKeys[ProductFeatureKeys.inAppSurvey]}
+          featureName={ProductFeatureKeys[ProductFeatureKeys.inAppform]}
           monthlyPrice={0}
           actionText={"Starting at"}
           team={team}
           metric="responses"
           sliderValue={responseCount}
           sliderLimit={350}
-          freeTierLimit={appSurveyFreeResponses}
-          paidFeatures={coreAndWebAppSurveyFeatures.filter((feature) => {
-            if (team.billing.features.inAppSurvey.unlimited) {
+          freeTierLimit={appformFreeResponses}
+          paidFeatures={coreAndWebAppformFeatures.filter((feature) => {
+            if (team.billing.features.inAppform.unlimited) {
               return feature.unlimited !== false;
             } else {
               return feature.unlimited !== true;
@@ -280,21 +280,21 @@ export default function PricingTableComponent({
           })}
           perMetricCharge={0.15}
           loading={upgradingPlan}
-          onUpgrade={() => upgradePlan([StripePriceLookupKeys.inAppSurvey])}
-          onUbsubscribe={(e) => handleUnsubscribe(e, ProductFeatureKeys[ProductFeatureKeys.inAppSurvey])}
+          onUpgrade={() => upgradePlan([StripePriceLookupKeys.inAppform])}
+          onUbsubscribe={(e) => handleUnsubscribe(e, ProductFeatureKeys[ProductFeatureKeys.inAppform])}
         />
 
         <PricingCard
           title={"Link Form"}
-          subtitle={"Link Surveys include unlimited surveys and responses for free."}
-          featureName={ProductFeatureKeys[ProductFeatureKeys.linkSurvey]}
+          subtitle={"Link forms include unlimited forms and responses for free."}
+          featureName={ProductFeatureKeys[ProductFeatureKeys.linkform]}
           monthlyPrice={30}
           actionText={""}
           team={team}
-          paidFeatures={linkSurveysFeatures}
+          paidFeatures={linkformsFeatures}
           loading={upgradingPlan}
-          onUpgrade={() => upgradePlan([StripePriceLookupKeys.linkSurvey])}
-          onUbsubscribe={(e) => handleUnsubscribe(e, ProductFeatureKeys[ProductFeatureKeys.linkSurvey])}
+          onUpgrade={() => upgradePlan([StripePriceLookupKeys.linkform])}
+          onUbsubscribe={(e) => handleUnsubscribe(e, ProductFeatureKeys[ProductFeatureKeys.linkform])}
         />
 
         <PricingCard

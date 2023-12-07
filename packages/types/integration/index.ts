@@ -21,12 +21,12 @@ export const ZIntegration = ZIntegrationBase.extend({
 
 export type TIntegration = z.infer<typeof ZIntegration>;
 
-export const ZIntegrationBaseSurveyData = z.object({
+export const ZIntegrationBaseformData = z.object({
   createdAt: z.date(),
   questionIds: z.array(z.string()),
   questions: z.string(),
-  surveyId: z.string(),
-  surveyName: z.string(),
+  formId: z.string(),
+  formName: z.string(),
 });
 
 export const ZIntegrationInput = z.union([ZIntegrationGoogleSheetsInput, ZIntegrationAirtableInput]);

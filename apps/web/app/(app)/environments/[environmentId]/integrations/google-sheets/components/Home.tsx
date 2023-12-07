@@ -109,7 +109,7 @@ export default function Home({
                     onClick={() => {
                       editIntegration(index);
                     }}>
-                    <div className="col-span-2 text-center">{data.surveyName}</div>
+                    <div className="col-span-2 text-center">{data.formName}</div>
                     <div className="col-span-2 text-center">{data.spreadsheetName}</div>
                     <div className="col-span-2 text-center">{data.questions}</div>
                     <div className="col-span-2 text-center">{timeSince(data.createdAt.toString())}</div>

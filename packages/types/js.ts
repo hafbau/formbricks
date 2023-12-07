@@ -2,17 +2,17 @@ import z from "zod";
 import { ZActionClass } from "./actionClasses";
 import { ZPerson, ZPersonAttributes, ZPersonClient } from "./people";
 import { ZProduct } from "./product";
-import { ZSurvey } from "./surveys";
+import { Zform } from "./forms";
 
-const ZSurveyWithTriggers = ZSurvey.extend({
+const ZformWithTriggers = Zform.extend({
   triggers: z.array(ZActionClass).or(z.array(z.string())),
 });
 
-export type TSurveyWithTriggers = z.infer<typeof ZSurveyWithTriggers>;
+export type TformWithTriggers = z.infer<typeof ZformWithTriggers>;
 
 export const ZJSStateDisplay = z.object({
   createdAt: z.date(),
-  surveyId: z.string().cuid(),
+  formId: z.string().cuid(),
   responded: z.boolean(),
 });
 
@@ -20,7 +20,7 @@ export type TJSStateDisplay = z.infer<typeof ZJSStateDisplay>;
 
 export const ZJsStateSync = z.object({
   person: ZPersonClient.nullish(),
-  surveys: z.array(ZSurvey),
+  forms: z.array(Zform),
   noCodeActionClasses: z.array(ZActionClass),
   product: ZProduct,
 });
@@ -29,7 +29,7 @@ export type TJsStateSync = z.infer<typeof ZJsStateSync>;
 
 export const ZJsState = z.object({
   attributes: ZPersonAttributes,
-  surveys: z.array(ZSurvey),
+  forms: z.array(Zform),
   noCodeActionClasses: z.array(ZActionClass),
   product: ZProduct,
   displays: z.array(ZJSStateDisplay).optional(),
@@ -40,7 +40,7 @@ export type TJsState = z.infer<typeof ZJsState>;
 export const ZJsLegacyState = z.object({
   person: ZPerson.nullable().or(z.object({})),
   session: z.object({}),
-  surveys: z.array(ZSurveyWithTriggers),
+  forms: z.array(ZformWithTriggers),
   noCodeActionClasses: z.array(ZActionClass),
   product: ZProduct,
   displays: z.array(ZJSStateDisplay).optional(),
@@ -139,7 +139,7 @@ export const ZJsSyncParams = z.object({
 
 export type TJsSyncParams = z.infer<typeof ZJsSyncParams>;
 
-const ZJsSettingsSurvey = ZSurvey.pick({
+const ZJsSettingsform = Zform.pick({
   id: true,
   welcomeCard: true,
   questions: true,
@@ -150,10 +150,10 @@ const ZJsSettingsSurvey = ZSurvey.pick({
 });
 
 export const ZJsSettings = z.object({
-  surveys: z.optional(z.array(ZJsSettingsSurvey)),
+  forms: z.optional(z.array(ZJsSettingsform)),
   noCodeEvents: z.optional(z.array(z.any())), // You might want to further refine this.
   brandColor: z.optional(z.string()),
-  formbricksSignature: z.optional(z.boolean()),
+  fastformSignature: z.optional(z.boolean()),
   placement: z.optional(
     z.union([
       z.literal("bottomLeft"),

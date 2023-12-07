@@ -13,23 +13,23 @@ import { toast } from "react-hot-toast";
 import { TWebhook, TWebhookInput } from "@fastform/types/webhooks";
 import { deleteWebhookAction, updateWebhookAction } from "../actions";
 import { TPipelineTrigger } from "@fastform/types/pipelines";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { testEndpoint } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/testEndpoint";
 import { triggers } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/HardcodedTriggers";
 import TriggerCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/TriggerCheckboxGroup";
-import SurveyCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/SurveyCheckboxGroup";
+import formCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/formCheckboxGroup";
 
 interface ActionSettingsTabProps {
   environmentId: string;
   webhook: TWebhook;
-  surveys: TSurvey[];
+  forms: Tform[];
   setOpen: (v: boolean) => void;
 }
 
 export default function WebhookSettingsTab({
   environmentId,
   webhook,
-  surveys,
+  forms,
   setOpen,
 }: ActionSettingsTabProps) {
   const router = useRouter();
@@ -38,18 +38,18 @@ export default function WebhookSettingsTab({
       name: webhook.name,
       url: webhook.url,
       triggers: webhook.triggers,
-      surveyIds: webhook.surveyIds,
+      formIds: webhook.formIds,
     },
   });
 
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [isUpdatingWebhook, setIsUpdatingWebhook] = useState(false);
   const [selectedTriggers, setSelectedTriggers] = useState<TPipelineTrigger[]>(webhook.triggers);
-  const [selectedSurveys, setSelectedSurveys] = useState<string[]>(webhook.surveyIds);
+  const [selectedforms, setSelectedforms] = useState<string[]>(webhook.formIds);
   const [testEndpointInput, setTestEndpointInput] = useState(webhook.url);
   const [endpointAccessible, setEndpointAccessible] = useState<boolean>();
   const [hittingEndpoint, setHittingEndpoint] = useState<boolean>(false);
-  const [selectedAllSurveys, setSelectedAllSurveys] = useState(webhook.surveyIds.length === 0);
+  const [selectedAllforms, setSelectedAllforms] = useState(webhook.formIds.length === 0);
 
   const handleTestEndpoint = async (sendSuccessToast: boolean) => {
     try {
@@ -67,17 +67,17 @@ export default function WebhookSettingsTab({
     }
   };
 
-  const handleSelectAllSurveys = () => {
-    setSelectedAllSurveys(!selectedAllSurveys);
-    setSelectedSurveys([]);
+  const handleSelectAllforms = () => {
+    setSelectedAllforms(!selectedAllforms);
+    setSelectedforms([]);
   };
 
-  const handleSelectedSurveyChange = (surveyId) => {
-    setSelectedSurveys((prevSelectedSurveys) => {
-      if (prevSelectedSurveys.includes(surveyId)) {
-        return prevSelectedSurveys.filter((id) => id !== surveyId);
+  const handleSelectedformChange = (formId) => {
+    setSelectedforms((prevSelectedforms) => {
+      if (prevSelectedforms.includes(formId)) {
+        return prevSelectedforms.filter((id) => id !== formId);
       } else {
-        return [...prevSelectedSurveys, surveyId];
+        return [...prevSelectedforms, formId];
       }
     });
   };
@@ -98,7 +98,7 @@ export default function WebhookSettingsTab({
       return;
     }
 
-    if (!selectedAllSurveys && selectedSurveys.length === 0) {
+    if (!selectedAllforms && selectedforms.length === 0) {
       toast.error("Please select at least one form");
       return;
     }
@@ -112,7 +112,7 @@ export default function WebhookSettingsTab({
       url: data.url as string,
       source: data.source,
       triggers: selectedTriggers,
-      surveyIds: selectedSurveys,
+      formIds: selectedforms,
     };
     setIsUpdatingWebhook(true);
     await updateWebhookAction(environmentId, webhook.id, updatedData);
@@ -187,13 +187,13 @@ export default function WebhookSettingsTab({
         </div>
 
         <div>
-          <Label htmlFor="Surveys">Surveys</Label>
-          <SurveyCheckboxGroup
-            surveys={surveys}
-            selectedSurveys={selectedSurveys}
-            selectedAllSurveys={selectedAllSurveys}
-            onSelectAllSurveys={handleSelectAllSurveys}
-            onSelectedSurveyChange={handleSelectedSurveyChange}
+          <Label htmlFor="forms">forms</Label>
+          <formCheckboxGroup
+            forms={forms}
+            selectedforms={selectedforms}
+            selectedAllforms={selectedAllforms}
+            onSelectAllforms={handleSelectAllforms}
+            onSelectedformChange={handleSelectedformChange}
             allowChanges={webhook.source === "user"}
           />
         </div>

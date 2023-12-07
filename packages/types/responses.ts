@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { ZPerson, ZPersonAttributes } from "./people";
-import { ZSurvey } from "./surveys";
+import { Zform } from "./forms";
 import { ZTag } from "./tags";
 
 export const ZResponseData = z.record(z.union([z.string(), z.number(), z.array(z.string())]));
@@ -52,7 +52,7 @@ export const ZResponse = z.object({
   id: z.string().cuid2(),
   createdAt: z.date(),
   updatedAt: z.date(),
-  surveyId: z.string().cuid2(),
+  formId: z.string().cuid2(),
   person: ZPerson.nullable(),
   personAttributes: ZResponsePersonAttributes,
   finished: z.boolean(),
@@ -68,7 +68,7 @@ export type TResponse = z.infer<typeof ZResponse>;
 
 export const ZResponseInput = z.object({
   environmentId: z.string().cuid2(),
-  surveyId: z.string().cuid2(),
+  formId: z.string().cuid2(),
   userId: z.string().nullish(),
   singleUseId: z.string().nullable().optional(),
   finished: z.boolean(),
@@ -105,11 +105,11 @@ export const ZResponseUpdateInput = z.object({
 
 export type TResponseUpdateInput = z.infer<typeof ZResponseUpdateInput>;
 
-export const ZResponseWithSurvey = ZResponse.extend({
-  form: ZSurvey,
+export const ZResponseWithform = ZResponse.extend({
+  form: Zform,
 });
 
-export type TResponseWithSurvey = z.infer<typeof ZResponseWithSurvey>;
+export type TResponseWithform = z.infer<typeof ZResponseWithform>;
 
 export const ZResponseUpdate = z.object({
   finished: z.boolean(),

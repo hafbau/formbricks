@@ -38,13 +38,13 @@
 
 <img width="1527" alt="fastform-sneak" src="https://github-production-user-asset-6210df.s3.amazonaws.com/675065/249441967-ccb89ea3-82b4-4bf2-8d2c-528721ec313b.png">
 
-Fastform is your go-to solution for in-product micro-surveys that will supercharge your product experience. Use micro-surveys to target the right users at the right time without making surveys annoying.
+Fastform is your go-to solution for in-product micro-forms that will supercharge your product experience. Use micro-forms to target the right users at the right time without making forms annoying.
 
 **Try it out in the cloud at [fastform.com](https://fastform.com)**
 
 ## 💪 Mission: Make customer-centric decisions based on data.
 
-Fastform is a powerful tool for creating in-product micro-surveys - and leverage a significantly higher conversion rate. It allows you to gather valuable insights from your users, enabling you to make data-driven decisions that enhance your product's user experience. With Fastform, you can create surveys with our no-code editor, choose from a variety of templates, target specific user groups, and much more.
+Fastform is a powerful tool for creating in-product micro-forms - and leverage a significantly higher conversion rate. It allows you to gather valuable insights from your users, enabling you to make data-driven decisions that enhance your product's user experience. With Fastform, you can create forms with our no-code editor, choose from a variety of templates, target specific user groups, and much more.
 
 ### Table of Contents
 
@@ -62,11 +62,11 @@ Fastform is a powerful tool for creating in-product micro-surveys - and leverage
 
 ### Features
 
-- 📲 Create **in-product surveys** with our no-code editor with multiple question types.
+- 📲 Create **in-product forms** with our no-code editor with multiple question types.
 - 📚 Choose from a variety of best-practice **templates**.
-- 👩🏻 Launch and **target your surveys to specific user groups** without changing your application code.
-- 🔗 Create shareable **link surveys**.
-- 👨‍👩‍👦 Invite your team members to **collaborate** on your surveys.
+- 👩🏻 Launch and **target your forms to specific user groups** without changing your application code.
+- 🔗 Create shareable **link forms**.
+- 👨‍👩‍👦 Invite your team members to **collaborate** on your forms.
 - 🔌 Integrate Fastform with **Slack, Posthog, Zapier, n8n and more**.
 - 🔒 All **open source**, transparent and self-hostable.
 

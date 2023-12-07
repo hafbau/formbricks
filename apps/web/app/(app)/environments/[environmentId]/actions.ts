@@ -7,9 +7,9 @@ import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
 import { createMembership } from "@fastform/lib/membership/service";
 import { createProduct } from "@fastform/lib/product/service";
 import { createShortUrl } from "@fastform/lib/shortUrl/service";
-import { canUserAccessSurvey, verifyUserRoleAccess } from "@fastform/lib/form/auth";
-import { surveyCache } from "@fastform/lib/form/cache";
-import { deleteSurvey, duplicateSurvey, getSurvey } from "@fastform/lib/form/service";
+import { canUserAccessform, verifyUserRoleAccess } from "@fastform/lib/form/auth";
+import { formCache } from "@fastform/lib/form/cache";
+import { deleteform, duplicateform, getform } from "@fastform/lib/form/service";
 import { createTeam, getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { AuthenticationError, AuthorizationError, ResourceNotFoundError } from "@fastform/types/errors";
 import { Team } from "@prisma/client";
@@ -50,20 +50,20 @@ export async function createTeamAction(teamName: string): Promise<Team> {
   return newTeam;
 }
 
-export async function duplicateSurveyAction(environmentId: string, surveyId: string) {
+export async function duplicateformAction(environmentId: string, formId: string) {
   const session = await getServerSession(authOptions);
   if (!session) throw new AuthorizationError("Not authorized");
 
-  const isAuthorized = await canUserAccessSurvey(session.user.id, surveyId);
+  const isAuthorized = await canUserAccessform(session.user.id, formId);
   if (!isAuthorized) throw new AuthorizationError("Not authorized");
 
-  const duplicatedSurvey = await duplicateSurvey(environmentId, surveyId);
-  return duplicatedSurvey;
+  const duplicatedform = await duplicateform(environmentId, formId);
+  return duplicatedform;
 }
 
 export async function copyToOtherEnvironmentAction(
   environmentId: string,
-  surveyId: string,
+  formId: string,
   targetEnvironmentId: string
 ) {
   const session = await getServerSession(authOptions);
@@ -81,12 +81,12 @@ export async function copyToOtherEnvironmentAction(
   );
   if (!isAuthorizedToAccessTargetEnvironment) throw new AuthorizationError("Not authorized");
 
-  const isAuthorized = await canUserAccessSurvey(session.user.id, surveyId);
+  const isAuthorized = await canUserAccessform(session.user.id, formId);
   if (!isAuthorized) throw new AuthorizationError("Not authorized");
 
-  const existingSurvey = await prisma.form.findFirst({
+  const existingform = await prisma.form.findFirst({
     where: {
-      id: surveyId,
+      id: formId,
       environmentId,
     },
     include: {
@@ -103,13 +103,13 @@ export async function copyToOtherEnvironmentAction(
     },
   });
 
-  if (!existingSurvey) {
-    throw new ResourceNotFoundError("Form", surveyId);
+  if (!existingform) {
+    throw new ResourceNotFoundError("Form", formId);
   }
 
   let targetEnvironmentTriggers: string[] = [];
   // map the local triggers to the target environment
-  for (const trigger of existingSurvey.triggers) {
+  for (const trigger of existingform.triggers) {
     const targetEnvironmentTrigger = await prisma.actionClass.findFirst({
       where: {
         name: trigger.actionClass.name,
@@ -143,7 +143,7 @@ export async function copyToOtherEnvironmentAction(
 
   let targetEnvironmentAttributeFilters: string[] = [];
   // map the local attributeFilters to the target env
-  for (const attributeFilter of existingSurvey.attributeFilters) {
+  for (const attributeFilter of existingform.attributeFilters) {
     // check if attributeClass exists in target env.
     // if not, create it
     const targetEnvironmentAttributeClass = await prisma.attributeClass.findFirst({
@@ -174,22 +174,22 @@ export async function copyToOtherEnvironmentAction(
   }
 
   // create new form with the data of the existing form
-  const newSurvey = await prisma.form.create({
+  const newform = await prisma.form.create({
     data: {
-      ...existingSurvey,
+      ...existingform,
       id: undefined, // id is auto-generated
       environmentId: undefined, // environmentId is set below
-      name: `${existingSurvey.name} (copy)`,
+      name: `${existingform.name} (copy)`,
       status: "draft",
-      questions: JSON.parse(JSON.stringify(existingSurvey.questions)),
-      thankYouCard: JSON.parse(JSON.stringify(existingSurvey.thankYouCard)),
+      questions: JSON.parse(JSON.stringify(existingform.questions)),
+      thankYouCard: JSON.parse(JSON.stringify(existingform.thankYouCard)),
       triggers: {
         create: targetEnvironmentTriggers.map((actionClassId) => ({
           actionClassId: actionClassId,
         })),
       },
       attributeFilters: {
-        create: existingSurvey.attributeFilters.map((attributeFilter, idx) => ({
+        create: existingform.attributeFilters.map((attributeFilter, idx) => ({
           attributeClassId: targetEnvironmentAttributeFilters[idx],
           condition: attributeFilter.condition,
           value: attributeFilter.value,
@@ -200,34 +200,34 @@ export async function copyToOtherEnvironmentAction(
           id: targetEnvironmentId,
         },
       },
-      surveyClosedMessage: existingSurvey.surveyClosedMessage ?? prismaClient.JsonNull,
-      singleUse: existingSurvey.singleUse ?? prismaClient.JsonNull,
-      productOverwrites: existingSurvey.productOverwrites ?? prismaClient.JsonNull,
-      verifyEmail: existingSurvey.verifyEmail ?? prismaClient.JsonNull,
-      styling: existingSurvey.styling ?? prismaClient.JsonNull,
+      formClosedMessage: existingform.formClosedMessage ?? prismaClient.JsonNull,
+      singleUse: existingform.singleUse ?? prismaClient.JsonNull,
+      productOverwrites: existingform.productOverwrites ?? prismaClient.JsonNull,
+      verifyEmail: existingform.verifyEmail ?? prismaClient.JsonNull,
+      styling: existingform.styling ?? prismaClient.JsonNull,
     },
   });
 
-  surveyCache.revalidate({
-    id: newSurvey.id,
+  formCache.revalidate({
+    id: newform.id,
     environmentId: targetEnvironmentId,
   });
-  return newSurvey;
+  return newform;
 }
 
-export const deleteSurveyAction = async (surveyId: string) => {
+export const deleteformAction = async (formId: string) => {
   const session = await getServerSession(authOptions);
   if (!session) throw new AuthorizationError("Not authorized");
 
-  const isAuthorized = await canUserAccessSurvey(session.user.id, surveyId);
+  const isAuthorized = await canUserAccessform(session.user.id, formId);
   if (!isAuthorized) throw new AuthorizationError("Not authorized");
 
-  const form = await getSurvey(surveyId);
+  const form = await getform(formId);
 
   const { hasDeleteAccess } = await verifyUserRoleAccess(form!.environmentId, session.user.id);
   if (!hasDeleteAccess) throw new AuthorizationError("Not authorized");
 
-  await deleteSurvey(surveyId);
+  await deleteform(formId);
 };
 
 export const createProductAction = async (environmentId: string, productName: string) => {

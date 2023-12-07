@@ -8,13 +8,13 @@ import { TUserNotificationSettings } from "@fastform/types/users";
 import { useState } from "react";
 
 interface NotificationSwitchProps {
-  surveyOrProductId: string;
+  formOrProductId: string;
   notificationSettings: TUserNotificationSettings;
   notificationType: "alert" | "weeklySummary";
 }
 
 export function NotificationSwitch({
-  surveyOrProductId,
+  formOrProductId,
   notificationSettings,
   notificationType,
 }: NotificationSwitchProps) {
@@ -25,14 +25,14 @@ export function NotificationSwitch({
     <Switch
       id="notification-switch"
       aria-label="toggle notification settings"
-      checked={notificationSettings[notificationType][surveyOrProductId]}
+      checked={notificationSettings[notificationType][formOrProductId]}
       disabled={isLoading}
       onCheckedChange={async () => {
         setIsLoading(true);
         // update notificiation settings
         const updatedNotificationSettings = { ...notificationSettings };
-        updatedNotificationSettings[notificationType][surveyOrProductId] =
-          !updatedNotificationSettings[notificationType][surveyOrProductId];
+        updatedNotificationSettings[notificationType][formOrProductId] =
+          !updatedNotificationSettings[notificationType][formOrProductId];
         await updateNotificationSettingsAction(notificationSettings);
         setIsLoading(false);
         toast.success(`Notification settings updated`, { id: "notification-switch" });

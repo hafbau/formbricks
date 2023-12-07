@@ -1,4 +1,4 @@
-import { TSurveyQuestion } from "@fastform/types/surveys";
+import { TformQuestion } from "@fastform/types/forms";
 import { TResponse } from "@fastform/types/responses";
 import { WEBAPP_URL } from "../constants";
 import { createInviteToken, createToken } from "../jwt";
@@ -128,7 +128,7 @@ export const sendInviteAcceptedEmail = async (inviterName: string, inviteeName: 
 export const sendResponseFinishedEmail = async (
   email: string,
   environmentId: string,
-  form: { id: string; name: string; questions: TSurveyQuestion[] },
+  form: { id: string; name: string; questions: TformQuestion[] },
   response: TResponse
 ) => {
   const personEmail = response.person?.attributes["email"];
@@ -155,7 +155,7 @@ export const sendResponseFinishedEmail = async (
       )
       .join("")}
 
-    <a class="button" href="${WEBAPP_URL}/environments/${environmentId}/surveys/${
+    <a class="button" href="${WEBAPP_URL}/environments/${environmentId}/forms/${
       form.id
     }/responses?utm_source=emailnotification&utm_medium=email&utm_content=ViewResponsesCTA">View all responses</a>
 
@@ -164,14 +164,14 @@ export const sendResponseFinishedEmail = async (
     ${
       personEmail
         ? "<p>Hit 'Reply' or reach out manually: ${personEmail}</p>"
-        : "<p>If you set the email address as an attribute in in-app surveys, you can reply directly to the respondent.</p>"
+        : "<p>If you set the email address as an attribute in in-app forms, you can reply directly to the respondent.</p>"
     }
     </div>
     `),
   });
 };
 
-export const sendEmbedSurveyPreviewEmail = async (to: string, subject: string, html: string) => {
+export const sendEmbedformPreviewEmail = async (to: string, subject: string, html: string) => {
   await sendEmail({
     to: to,
     subject: subject,

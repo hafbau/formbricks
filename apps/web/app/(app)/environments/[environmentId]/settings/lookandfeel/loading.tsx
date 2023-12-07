@@ -18,7 +18,7 @@ export default function Loading() {
   return (
     <div>
       <SettingsTitle title="Look & Feel" />
-      <SettingsCard title="Brand Color" description="Match the surveys with your user interface.">
+      <SettingsCard title="Brand Color" description="Match the forms with your user interface.">
         <div className="w-full max-w-sm items-center">
           <Label htmlFor="brandcolor">Color (HEX)</Label>
           <div className="my-2">
@@ -35,7 +35,7 @@ export default function Loading() {
       </SettingsCard>
       <SettingsCard
         title="In-app Form Placement"
-        description="Change where surveys will be shown in your web app.">
+        description="Change where forms will be shown in your web app.">
         <div className="w-full items-center">
           <div className="flex cursor-not-allowed select-none">
             <RadioGroup>

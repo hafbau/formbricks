@@ -1,11 +1,11 @@
-import SurveyCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/SurveyCheckboxGroup";
+import formCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/formCheckboxGroup";
 import TriggerCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/TriggerCheckboxGroup";
 import { triggers } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/HardcodedTriggers";
 import { testEndpoint } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/testEndpoint";
 import { Modal } from "@fastform/ui/Modal";
 import { createWebhookAction } from "../actions";
 import { TPipelineTrigger } from "@fastform/types/pipelines";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { TWebhookInput } from "@fastform/types/webhooks";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
@@ -20,11 +20,11 @@ import toast from "react-hot-toast";
 interface AddWebhookModalProps {
   environmentId: string;
   open: boolean;
-  surveys: TSurvey[];
+  forms: Tform[];
   setOpen: (v: boolean) => void;
 }
 
-export default function AddWebhookModal({ environmentId, surveys, open, setOpen }: AddWebhookModalProps) {
+export default function AddWebhookModal({ environmentId, forms, open, setOpen }: AddWebhookModalProps) {
   const router = useRouter();
   const {
     handleSubmit,
@@ -37,8 +37,8 @@ export default function AddWebhookModal({ environmentId, surveys, open, setOpen 
   const [hittingEndpoint, setHittingEndpoint] = useState<boolean>(false);
   const [endpointAccessible, setEndpointAccessible] = useState<boolean>();
   const [selectedTriggers, setSelectedTriggers] = useState<TPipelineTrigger[]>([]);
-  const [selectedSurveys, setSelectedSurveys] = useState<string[]>([]);
-  const [selectedAllSurveys, setSelectedAllSurveys] = useState(false);
+  const [selectedforms, setSelectedforms] = useState<string[]>([]);
+  const [selectedAllforms, setSelectedAllforms] = useState(false);
   const [creatingWebhook, setCreatingWebhook] = useState(false);
 
   const handleTestEndpoint = async (sendSuccessToast: boolean) => {
@@ -57,16 +57,16 @@ export default function AddWebhookModal({ environmentId, surveys, open, setOpen 
     }
   };
 
-  const handleSelectAllSurveys = () => {
-    setSelectedAllSurveys(!selectedAllSurveys);
-    setSelectedSurveys([]);
+  const handleSelectAllforms = () => {
+    setSelectedAllforms(!selectedAllforms);
+    setSelectedforms([]);
   };
 
-  const handleSelectedSurveyChange = (surveyId: string) => {
-    setSelectedSurveys((prevSelectedSurveys: string[]) =>
-      prevSelectedSurveys.includes(surveyId)
-        ? prevSelectedSurveys.filter((id) => id !== surveyId)
-        : [...prevSelectedSurveys, surveyId]
+  const handleSelectedformChange = (formId: string) => {
+    setSelectedforms((prevSelectedforms: string[]) =>
+      prevSelectedforms.includes(formId)
+        ? prevSelectedforms.filter((id) => id !== formId)
+        : [...prevSelectedforms, formId]
     );
   };
 
@@ -89,7 +89,7 @@ export default function AddWebhookModal({ environmentId, surveys, open, setOpen 
           throw new Error("Please select at least one trigger");
         }
 
-        if (!selectedAllSurveys && selectedSurveys.length === 0) {
+        if (!selectedAllforms && selectedforms.length === 0) {
           throw new Error("Please select at least one form");
         }
 
@@ -101,7 +101,7 @@ export default function AddWebhookModal({ environmentId, surveys, open, setOpen 
           url: testEndpointInput,
           source: "user",
           triggers: selectedTriggers,
-          surveyIds: selectedSurveys,
+          formIds: selectedforms,
         };
 
         await createWebhookAction(environmentId, updatedData);
@@ -121,9 +121,9 @@ export default function AddWebhookModal({ environmentId, surveys, open, setOpen 
     reset();
     setTestEndpointInput("");
     setEndpointAccessible(undefined);
-    setSelectedSurveys([]);
+    setSelectedforms([]);
     setSelectedTriggers([]);
-    setSelectedAllSurveys(false);
+    setSelectedAllforms(false);
   };
 
   return (
@@ -202,13 +202,13 @@ export default function AddWebhookModal({ environmentId, surveys, open, setOpen 
               </div>
 
               <div>
-                <Label htmlFor="Surveys">Surveys</Label>
-                <SurveyCheckboxGroup
-                  surveys={surveys}
-                  selectedSurveys={selectedSurveys}
-                  selectedAllSurveys={selectedAllSurveys}
-                  onSelectAllSurveys={handleSelectAllSurveys}
-                  onSelectedSurveyChange={handleSelectedSurveyChange}
+                <Label htmlFor="forms">forms</Label>
+                <formCheckboxGroup
+                  forms={forms}
+                  selectedforms={selectedforms}
+                  selectedAllforms={selectedAllforms}
+                  onSelectAllforms={handleSelectAllforms}
+                  onSelectedformChange={handleSelectedformChange}
                   allowChanges={true}
                 />
               </div>

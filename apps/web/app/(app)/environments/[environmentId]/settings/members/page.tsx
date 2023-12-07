@@ -96,7 +96,7 @@ export default async function MembersSettingsPage({ params }: { params: { enviro
       </SettingsCard>
       <SettingsCard
         title="Delete Team"
-        description="Delete team with all its products including all surveys, responses, people, actions and attributes">
+        description="Delete team with all its products including all forms, responses, people, actions and attributes">
         <DeleteTeam
           team={team}
           isDeleteDisabled={isDeleteDisabled}

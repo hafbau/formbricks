@@ -1,6 +1,6 @@
-import { TSurveyLogic } from "@fastform/types/surveys";
+import { TformLogic } from "@fastform/types/forms";
 
-export function evaluateCondition(logic: TSurveyLogic, responseValue: any): boolean {
+export function evaluateCondition(logic: TformLogic, responseValue: any): boolean {
   switch (logic.condition) {
     case "equals":
       return (

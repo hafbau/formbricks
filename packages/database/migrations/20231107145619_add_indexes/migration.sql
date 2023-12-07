@@ -8,7 +8,7 @@ CREATE INDEX "ApiKey_environmentId_idx" ON "ApiKey"("environmentId");
 CREATE INDEX "AttributeClass_environmentId_idx" ON "AttributeClass"("environmentId");
 
 -- CreateIndex
-CREATE INDEX "Display_surveyId_idx" ON "Display"("surveyId");
+CREATE INDEX "Display_formId_idx" ON "Display"("formId");
 
 -- CreateIndex
 CREATE INDEX "Display_personId_idx" ON "Display"("personId");
@@ -35,25 +35,25 @@ CREATE INDEX "Person_environmentId_idx" ON "Person"("environmentId");
 CREATE INDEX "Product_teamId_idx" ON "Product"("teamId");
 
 -- CreateIndex
-CREATE INDEX "Response_surveyId_created_at_idx" ON "Response"("surveyId", "created_at");
+CREATE INDEX "Response_formId_created_at_idx" ON "Response"("formId", "created_at");
 
 -- CreateIndex
-CREATE INDEX "Response_surveyId_idx" ON "Response"("surveyId");
+CREATE INDEX "Response_formId_idx" ON "Response"("formId");
 
 -- CreateIndex
 CREATE INDEX "ResponseNote_responseId_idx" ON "ResponseNote"("responseId");
 
 -- CreateIndex
-CREATE INDEX "Survey_environmentId_idx" ON "Form"("environmentId");
+CREATE INDEX "form_environmentId_idx" ON "Form"("environmentId");
 
 -- CreateIndex
-CREATE INDEX "SurveyAttributeFilter_surveyId_idx" ON "SurveyAttributeFilter"("surveyId");
+CREATE INDEX "formAttributeFilter_formId_idx" ON "formAttributeFilter"("formId");
 
 -- CreateIndex
-CREATE INDEX "SurveyAttributeFilter_attributeClassId_idx" ON "SurveyAttributeFilter"("attributeClassId");
+CREATE INDEX "formAttributeFilter_attributeClassId_idx" ON "formAttributeFilter"("attributeClassId");
 
 -- CreateIndex
-CREATE INDEX "SurveyTrigger_surveyId_idx" ON "SurveyTrigger"("surveyId");
+CREATE INDEX "formTrigger_formId_idx" ON "formTrigger"("formId");
 
 -- CreateIndex
 CREATE INDEX "Tag_environmentId_idx" ON "Tag"("environmentId");

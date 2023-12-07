@@ -23,14 +23,14 @@
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
-    "@fastform/surveys#build": {
+    "@fastform/forms#build": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build"]
     },
-    "@fastform/surveys#go": {
+    "@fastform/forms#go": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@fastform/surveys#build"]
+      "dependsOn": ["@fastform/forms#build"]
     },
     "@fastform/js#go": {
       "cache": false,
@@ -92,7 +92,7 @@
         "NEXT_PUBLIC_FORMBRICKS_FORM_ID",
         "NEXT_PUBLIC_FORMBRICKS_FEEDBACK_FORM_ID",
         "NEXT_PUBLIC_FORMBRICKS_FEEDBACK_CUSTOM_FORM_ID",
-        "NEXT_PUBLIC_FORMBRICKS_ONBOARDING_SURVEY_ID",
+        "NEXT_PUBLIC_FORMBRICKS_ONBOARDING_form_ID",
         "NEXT_PUBLIC_FORMBRICKS_PMF_FORM_ID",
         "NEXT_PUBLIC_FORMBRICKS_URL",
         "IMPRINT_URL",
@@ -103,7 +103,7 @@
         "NEXT_PUBLIC_POSTHOG_API_KEY",
         "NEXT_PUBLIC_FORMBRICKS_COM_API_HOST",
         "NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID",
-        "NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_SURVEY_ID",
+        "NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID",
         "WEBAPP_URL",
         "SENTRY_DSN",
         "STRAPI_API_KEY",

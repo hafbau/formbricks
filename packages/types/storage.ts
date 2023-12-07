@@ -11,7 +11,7 @@ export const ZStorageRetrievalParams = z.object({
 
 export const ZUploadFileConfig = z.object({
   allowedFileExtensions: z.array(z.string()).optional(),
-  surveyId: z.string().optional(),
+  formId: z.string().optional(),
 });
 
 export type TUploadFileConfig = z.infer<typeof ZUploadFileConfig>;

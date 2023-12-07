@@ -16,7 +16,7 @@
     "@fastform/ee": "workspace:*",
     "@fastform/js": "workspace:*",
     "@fastform/lib": "workspace:*",
-    "@fastform/surveys": "workspace:*",
+    "@fastform/forms": "workspace:*",
     "@fastform/types": "workspace:*",
     "@fastform/ui": "workspace:*",
     "@headlessui/react": "^1.7.17",

@@ -1,5 +1,5 @@
 import { TResponseData } from "@fastform/types/responses";
-import { TSurveyQuestion, TSurveyStatus } from "@fastform/types/surveys";
+import { TformQuestion, TformStatus } from "@fastform/types/forms";
 import { TUserNotificationSettings } from "@fastform/types/users";
 
 export interface Insights {
@@ -7,17 +7,17 @@ export interface Insights {
   totalDisplays: number;
   totalResponses: number;
   completionRate: number;
-  numLiveSurvey: number;
+  numLiveform: number;
 }
 
-export interface SurveyResponse {
+export interface formResponse {
   [headline: string]: string | number | boolean | Date | string[];
 }
 
 export interface Form {
   id: string;
   name: string;
-  responses: SurveyResponse[];
+  responses: formResponse[];
   responseCount: number;
   status: string;
 }
@@ -27,7 +27,7 @@ export interface NotificationResponse {
   currentDate: Date;
   lastWeekDate: Date;
   productName: string;
-  surveys: Form[];
+  forms: Form[];
   insights: Insights;
 }
 
@@ -45,18 +45,18 @@ type DisplayData = {
   id: string;
 };
 
-type SurveyData = {
+type formData = {
   id: string;
   name: string;
-  questions: TSurveyQuestion[];
-  status: TSurveyStatus;
+  questions: TformQuestion[];
+  status: TformStatus;
   responses: ResponseData[];
   displays: DisplayData[];
 };
 
 export type EnvironmentData = {
   id: string;
-  surveys: SurveyData[];
+  forms: formData[];
 };
 
 type UserData = {

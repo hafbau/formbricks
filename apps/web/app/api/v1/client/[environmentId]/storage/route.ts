@@ -1,5 +1,5 @@
 import { responses } from "@/app/lib/api/response";
-import { getSurvey } from "@fastform/lib/form/service";
+import { getform } from "@fastform/lib/form/service";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { NextRequest, NextResponse } from "next/server";
 import uploadPrivateFile from "./lib/uploadPrivateFile";
@@ -23,10 +23,10 @@ export async function OPTIONS(): Promise<NextResponse> {
 export async function POST(req: NextRequest, context: Context): Promise<NextResponse> {
   const environmentId = context.params.environmentId;
 
-  const { fileName, fileType, surveyId } = await req.json();
+  const { fileName, fileType, formId } = await req.json();
 
-  if (!surveyId) {
-    return responses.badRequestResponse("surveyId ID is required");
+  if (!formId) {
+    return responses.badRequestResponse("formId ID is required");
   }
 
   if (!fileName) {
@@ -37,17 +37,17 @@ export async function POST(req: NextRequest, context: Context): Promise<NextResp
     return responses.badRequestResponse("contentType is required");
   }
 
-  const [form, team] = await Promise.all([getSurvey(surveyId), getTeamByEnvironmentId(environmentId)]);
+  const [form, team] = await Promise.all([getform(formId), getTeamByEnvironmentId(environmentId)]);
 
   if (!form) {
-    return responses.notFoundResponse("Form", surveyId);
+    return responses.notFoundResponse("Form", formId);
   }
 
   if (!team) {
     return responses.notFoundResponse("TeamByEnvironmentId", environmentId);
   }
 
-  const plan = team.billing.features.linkSurvey.status in ["active", "canceled"] ? "pro" : "free";
+  const plan = team.billing.features.linkform.status in ["active", "canceled"] ? "pro" : "free";
 
   return await uploadPrivateFile(fileName, environmentId, fileType, plan);
 }

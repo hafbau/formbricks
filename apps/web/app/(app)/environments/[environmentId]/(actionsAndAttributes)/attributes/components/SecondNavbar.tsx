@@ -2,20 +2,20 @@ import { cn } from "@fastform/lib/cn";
 
 import Link from "next/link";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSurvey } from "@fastform/lib/form/service";
-import SurveyNavBarName from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/components/SurveyNavBarName";
+import { getform } from "@fastform/lib/form/service";
+import formNavBarName from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/components/formNavBarName";
 
 interface SecondNavbarProps {
   tabs: { id: string; label: string; href: string; icon?: React.ReactNode }[];
   activeId: string;
-  surveyId?: string;
+  formId?: string;
   environmentId: string;
 }
 
 export default async function SecondNavbar({
   tabs,
   activeId,
-  surveyId,
+  formId,
   environmentId,
   ...props
 }: SecondNavbarProps) {
@@ -25,15 +25,15 @@ export default async function SecondNavbar({
   }
 
   let form;
-  if (surveyId) {
-    form = await getSurvey(surveyId);
+  if (formId) {
+    form = await getform(formId);
   }
 
   return (
     <div {...props}>
       <div className="grid h-14 w-full grid-cols-3 items-center justify-items-stretch border-b bg-white px-4">
         <div className="justify-self-start">
-          {form && environmentId && <SurveyNavBarName surveyName={form.name} productName={product.name} />}
+          {form && environmentId && <formNavBarName formName={form.name} productName={product.name} />}
         </div>{" "}
         <nav className="flex h-full items-center space-x-4 justify-self-center" aria-label="Tabs">
           {tabs.map((tab) => (

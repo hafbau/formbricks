@@ -1,5 +1,5 @@
 import { TJsActionInput } from "@fastform/types/js";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { Config } from "./config";
 import { NetworkError, Result, err, okVoid } from "./errors";
 import { Logger } from "./logger";
@@ -48,20 +48,20 @@ export const trackAction = async (
 
   logger.debug(`Fastform: Action "${name}" tracked`);
 
-  // get a list of surveys that are collecting insights
-  const activeSurveys = config.get().state?.surveys;
+  // get a list of forms that are collecting insights
+  const activeforms = config.get().state?.forms;
 
-  if (!!activeSurveys && activeSurveys.length > 0) {
-    triggerSurvey(name, activeSurveys);
+  if (!!activeforms && activeforms.length > 0) {
+    triggerform(name, activeforms);
   } else {
-    logger.debug("No active surveys to display");
+    logger.debug("No active forms to display");
   }
 
   return okVoid();
 };
 
-export const triggerSurvey = (actionName: string, activeSurveys: TSurvey[]): void => {
-  for (const form of activeSurveys) {
+export const triggerform = (actionName: string, activeforms: Tform[]): void => {
+  for (const form of activeforms) {
     for (const trigger of form.triggers) {
       if (trigger === actionName) {
         logger.debug(`Fastform: form ${form.id} triggered by action "${actionName}"`);

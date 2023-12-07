@@ -4,7 +4,7 @@ import { Button } from "@fastform/ui/Button";
 import { useState } from "react";
 import { TWebhook } from "@fastform/types/webhooks";
 import AddWebhookModal from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/AddWebhookModal";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import WebhookModal from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookDetailModal";
 import { Webhook } from "lucide-react";
 import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
@@ -13,12 +13,12 @@ import { TEnvironment } from "@fastform/types/environment";
 export default function WebhookTable({
   environment,
   webhooks,
-  surveys,
+  forms,
   children: [TableHeading, webhookRows],
 }: {
   environment: TEnvironment;
   webhooks: TWebhook[];
-  surveys: TSurvey[];
+  forms: Tform[];
   children: [JSX.Element, JSX.Element[]];
 }) {
   const [isWebhookDetailModalOpen, setWebhookDetailModalOpen] = useState(false);
@@ -31,7 +31,7 @@ export default function WebhookTable({
     url: "",
     source: "user",
     triggers: [],
-    surveyIds: [],
+    formIds: [],
     createdAt: new Date(),
     updatedAt: new Date(),
   });
@@ -85,11 +85,11 @@ export default function WebhookTable({
         open={isWebhookDetailModalOpen}
         setOpen={setWebhookDetailModalOpen}
         webhook={activeWebhook}
-        surveys={surveys}
+        forms={forms}
       />
       <AddWebhookModal
         environmentId={environment.id}
-        surveys={surveys}
+        forms={forms}
         open={isAddWebhookModalOpen}
         setOpen={setAddWebhookModalOpen}
       />

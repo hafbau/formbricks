@@ -4,7 +4,7 @@ import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { createAttributeClass, getAttributeClassByName } from "@fastform/lib/attributeClass/service";
 import { personCache } from "@fastform/lib/person/cache";
 import { getPerson, updatePersonAttribute } from "@fastform/lib/person/service";
-import { surveyCache } from "@fastform/lib/form/cache";
+import { formCache } from "@fastform/lib/form/cache";
 import { ZJsPeopleLegacyAttributeInput } from "@fastform/types/js";
 import { TPersonClient } from "@fastform/types/people";
 import { NextResponse } from "next/server";
@@ -61,7 +61,7 @@ export async function POST(req: Request, { params }): Promise<NextResponse> {
       environmentId,
     });
 
-    surveyCache.revalidate({
+    formCache.revalidate({
       environmentId,
     });
 

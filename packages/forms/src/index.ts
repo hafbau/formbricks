@@ -1,22 +1,22 @@
-import { SurveyInline } from "@/components/general/SurveyInline";
-import { SurveyModal } from "@/components/general/SurveyModal";
+import { formInline } from "@/components/general/formInline";
+import { formModal } from "@/components/general/formModal";
 import { addCustomThemeToDom, addStylesToDom } from "@/lib/styles";
-import { SurveyInlineProps, SurveyModalProps } from "@/types/props";
+import { formInlineProps, formModalProps } from "@/types/props";
 import { h, render } from "preact";
 
-export const renderSurveyInline = (props: SurveyInlineProps & { brandColor: string }) => {
+export const renderformInline = (props: formInlineProps & { brandColor: string }) => {
   addStylesToDom();
   addCustomThemeToDom({ brandColor: props.brandColor });
 
-  const { containerId, ...surveyProps } = props;
+  const { containerId, ...formProps } = props;
   const element = document.getElementById(containerId);
   if (!element) {
-    throw new Error(`renderSurvey: Element with id ${containerId} not found.`);
+    throw new Error(`renderform: Element with id ${containerId} not found.`);
   }
-  render(h(SurveyInline, surveyProps), element);
+  render(h(formInline, formProps), element);
 };
 
-export const renderSurveyModal = (props: SurveyModalProps & { brandColor: string }) => {
+export const renderformModal = (props: formModalProps & { brandColor: string }) => {
   addStylesToDom();
   addCustomThemeToDom({ brandColor: props.brandColor });
 
@@ -24,5 +24,5 @@ export const renderSurveyModal = (props: SurveyModalProps & { brandColor: string
   const element = document.createElement("div");
   element.id = "fastform-modal-container";
   document.body.appendChild(element);
-  render(h(SurveyModal, props), element);
+  render(h(formModal, props), element);
 };

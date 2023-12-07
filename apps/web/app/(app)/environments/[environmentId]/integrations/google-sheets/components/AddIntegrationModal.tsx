@@ -4,7 +4,7 @@ import {
   TIntegrationGoogleSheetsConfigData,
   TIntegrationGoogleSheetsInput,
 } from "@fastform/types/integration/googleSheet";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Checkbox } from "@fastform/ui/Checkbox";
 import { Label } from "@fastform/ui/Label";
@@ -21,7 +21,7 @@ import { TIntegrationItem } from "@fastform/types/integration";
 interface AddWebhookModalProps {
   environmentId: string;
   open: boolean;
-  surveys: TSurvey[];
+  forms: Tform[];
   setOpen: (v: boolean) => void;
   spreadsheets: TIntegrationItem[];
   googleSheetIntegration: TIntegrationGoogleSheets;
@@ -30,7 +30,7 @@ interface AddWebhookModalProps {
 
 export default function AddIntegrationModal({
   environmentId,
-  surveys,
+  forms,
   open,
   setOpen,
   spreadsheets,
@@ -42,8 +42,8 @@ export default function AddIntegrationModal({
   const integrationData = {
     spreadsheetId: "",
     spreadsheetName: "",
-    surveyId: "",
-    surveyName: "",
+    formId: "",
+    formName: "",
     questionIds: [""],
     questions: "",
     createdAt: new Date(),
@@ -51,7 +51,7 @@ export default function AddIntegrationModal({
 
   const [selectedQuestions, setSelectedQuestions] = useState<string[]>([]);
   const [isLinkingSheet, setIsLinkingSheet] = useState(false);
-  const [selectedSurvey, setSelectedSurvey] = useState<TSurvey | null>(null);
+  const [selectedform, setSelectedform] = useState<Tform | null>(null);
   const [selectedSpreadsheet, setSelectedSpreadsheet] = useState<any>(null);
   const [isDeleting, setIsDeleting] = useState<any>(null);
   const existingIntegrationData = googleSheetIntegration?.config?.data;
@@ -65,13 +65,13 @@ export default function AddIntegrationModal({
   };
 
   useEffect(() => {
-    if (selectedSurvey) {
-      const questionIds = selectedSurvey.questions.map((question) => question.id);
+    if (selectedform) {
+      const questionIds = selectedform.questions.map((question) => question.id);
       if (!selectedIntegration) {
         setSelectedQuestions(questionIds);
       }
     }
-  }, [selectedIntegration, selectedSurvey]);
+  }, [selectedIntegration, selectedform]);
 
   useEffect(() => {
     if (selectedIntegration) {
@@ -79,23 +79,23 @@ export default function AddIntegrationModal({
         id: selectedIntegration.spreadsheetId,
         name: selectedIntegration.spreadsheetName,
       });
-      setSelectedSurvey(
-        surveys.find((form) => {
-          return form.id === selectedIntegration.surveyId;
+      setSelectedform(
+        forms.find((form) => {
+          return form.id === selectedIntegration.formId;
         })!
       );
       setSelectedQuestions(selectedIntegration.questionIds);
       return;
     }
     resetForm();
-  }, [selectedIntegration, surveys]);
+  }, [selectedIntegration, forms]);
 
   const linkSheet = async () => {
     try {
       if (!selectedSpreadsheet) {
         throw new Error("Please select a spreadsheet");
       }
-      if (!selectedSurvey) {
+      if (!selectedform) {
         throw new Error("Please select a form");
       }
 
@@ -105,11 +105,11 @@ export default function AddIntegrationModal({
       setIsLinkingSheet(true);
       integrationData.spreadsheetId = selectedSpreadsheet.id;
       integrationData.spreadsheetName = selectedSpreadsheet.name;
-      integrationData.surveyId = selectedSurvey.id;
-      integrationData.surveyName = selectedSurvey.name;
+      integrationData.formId = selectedform.id;
+      integrationData.formName = selectedform.name;
       integrationData.questionIds = selectedQuestions;
       integrationData.questions =
-        selectedQuestions.length === selectedSurvey?.questions.length
+        selectedQuestions.length === selectedform?.questions.length
           ? "All questions"
           : "Selected questions";
       integrationData.createdAt = new Date();
@@ -146,7 +146,7 @@ export default function AddIntegrationModal({
   const resetForm = () => {
     setIsLinkingSheet(false);
     setSelectedSpreadsheet("");
-    setSelectedSurvey(null);
+    setSelectedform(null);
   };
 
   const deleteLink = async () => {
@@ -255,22 +255,22 @@ export default function AddIntegrationModal({
                 <div>
                   <DropdownSelector
                     label="Select Form"
-                    items={surveys}
-                    selectedItem={selectedSurvey}
-                    setSelectedItem={setSelectedSurvey}
-                    disabled={surveys.length === 0}
+                    items={forms}
+                    selectedItem={selectedform}
+                    setSelectedItem={setSelectedform}
+                    disabled={forms.length === 0}
                   />
                   <p className="m-1 text-xs text-slate-500">
-                    {surveys.length === 0 && "You have to create a form to be able to setup this integration"}
+                    {forms.length === 0 && "You have to create a form to be able to setup this integration"}
                   </p>
                 </div>
               </div>
-              {selectedSurvey && (
+              {selectedform && (
                 <div>
-                  <Label htmlFor="Surveys">Questions</Label>
+                  <Label htmlFor="forms">Questions</Label>
                   <div className="mt-1 rounded-lg border border-slate-200">
                     <div className="grid content-center rounded-lg bg-slate-50 p-3 text-left text-sm text-slate-900">
-                      {selectedSurvey?.questions.map((question) => (
+                      {selectedform?.questions.map((question) => (
                         <div key={question.id} className="my-1 flex items-center space-x-2">
                           <label htmlFor={question.id} className="flex cursor-pointer items-center">
                             <Checkbox

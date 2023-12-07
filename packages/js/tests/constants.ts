@@ -36,7 +36,7 @@ export const constants = {
   apiHost: "mockedApiHost",
   sessionId: generateRandomString(),
   expiryTime: getOneDayExpiryTime(),
-  surveyId: generateRandomString(),
+  formId: generateRandomString(),
   questionOneId: generateRandomString(),
   questionTwoId: generateRandomString(),
   choiceOneId: generateRandomString(),

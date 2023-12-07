@@ -1,27 +1,27 @@
 import { FormbricksAPI } from "@fastform/api";
 import { ResponseQueue } from "@fastform/lib/responseQueue";
-import SurveyState from "@fastform/lib/surveyState";
-import { renderSurveyModal } from "@fastform/surveys";
+import formState from "@fastform/lib/formState";
+import { renderformModal } from "@fastform/forms";
 import { TJSStateDisplay } from "@fastform/types/js";
 import { TResponseUpdate } from "@fastform/types/responses";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { Config } from "./config";
 import { ErrorHandler } from "./errors";
 import { Logger } from "./logger";
-import { filterPublicSurveys, sync } from "./sync";
+import { filterPublicforms, sync } from "./sync";
 
 const containerId = "fastform-web-container";
 const config = Config.getInstance();
 const logger = Logger.getInstance();
 const errorHandler = ErrorHandler.getInstance();
-let surveyRunning = false;
+let formRunning = false;
 
-export const renderWidget = (form: TSurvey) => {
-  if (surveyRunning) {
+export const renderWidget = (form: Tform) => {
+  if (formRunning) {
     logger.debug("A form is already running. Skipping.");
     return;
   }
-  surveyRunning = true;
+  formRunning = true;
 
   if (form.delay) {
     logger.debug(`Delaying form by ${form.delay} seconds.`);
@@ -29,7 +29,7 @@ export const renderWidget = (form: TSurvey) => {
 
   const product = config.get().state.product;
 
-  const surveyState = new SurveyState(form.id, null, null, config.get().userId);
+  const formState = new formState(form.id, null, null, config.get().userId);
 
   const responseQueue = new ResponseQueue(
     {
@@ -40,7 +40,7 @@ export const renderWidget = (form: TSurvey) => {
         alert(`Failed to send response: ${JSON.stringify(response, null, 2)}`);
       },
     },
-    surveyState
+    formState
   );
 
   const productOverwrites = form.productOverwrites ?? {};
@@ -49,10 +49,10 @@ export const renderWidget = (form: TSurvey) => {
   const clickOutside = productOverwrites.clickOutsideClose ?? product.clickOutsideClose;
   const darkOverlay = productOverwrites.darkOverlay ?? product.darkOverlay;
   const placement = productOverwrites.placement ?? product.placement;
-  const isBrandingEnabled = product.inAppSurveyBranding;
+  const isBrandingEnabled = product.inAppformBranding;
 
   setTimeout(() => {
-    renderSurveyModal({
+    renderformModal({
       form: form,
       brandColor,
       isBrandingEnabled: isBrandingEnabled,
@@ -66,14 +66,14 @@ export const renderWidget = (form: TSurvey) => {
         if (!userId) {
           const localDisplay: TJSStateDisplay = {
             createdAt: new Date(),
-            surveyId: form.id,
+            formId: form.id,
             responded: false,
           };
 
           const existingDisplays = config.get().state.displays;
           const displays = existingDisplays ? [...existingDisplays, localDisplay] : [localDisplay];
           const previousConfig = config.get();
-          let state = filterPublicSurveys({
+          let state = filterPublicforms({
             ...previousConfig.state,
             displays,
           });
@@ -88,7 +88,7 @@ export const renderWidget = (form: TSurvey) => {
           environmentId: config.get().environmentId,
         });
         const res = await api.client.display.create({
-          surveyId: form.id,
+          formId: form.id,
           userId,
         });
         if (!res.ok) {
@@ -96,8 +96,8 @@ export const renderWidget = (form: TSurvey) => {
         }
         const { id } = res.data;
 
-        surveyState.updateDisplayId(id);
-        responseQueue.updateSurveyState(surveyState);
+        formState.updateDisplayId(id);
+        responseQueue.updateformState(formState);
       },
       onResponse: (responseUpdate: TResponseUpdate) => {
         const { userId } = config.get();
@@ -111,7 +111,7 @@ export const renderWidget = (form: TSurvey) => {
           if (!lastDisplay.responded) {
             lastDisplay.responded = true;
             const previousConfig = config.get();
-            let state = filterPublicSurveys({
+            let state = filterPublicforms({
               ...previousConfig.state,
               displays,
             });
@@ -123,16 +123,16 @@ export const renderWidget = (form: TSurvey) => {
         }
 
         if (userId) {
-          surveyState.updateUserId(userId);
+          formState.updateUserId(userId);
         }
-        responseQueue.updateSurveyState(surveyState);
+        responseQueue.updateformState(formState);
         responseQueue.add({
           data: responseUpdate.data,
           ttc: responseUpdate.ttc,
           finished: responseUpdate.finished,
         });
       },
-      onClose: closeSurvey,
+      onClose: closeform,
       onFileUpload: async (file: File, params) => {
         const api = new FormbricksAPI({
           apiHost: config.get().apiHost,
@@ -145,31 +145,31 @@ export const renderWidget = (form: TSurvey) => {
   }, form.delay * 1000);
 };
 
-export const closeSurvey = async (): Promise<void> => {
+export const closeform = async (): Promise<void> => {
   // remove container element from DOM
   document.getElementById(containerId)?.remove();
   addWidgetContainer();
 
-  // if unidentified user, refilter the surveys
+  // if unidentified user, refilter the forms
   if (!config.get().userId) {
     const state = config.get().state;
-    const updatedState = filterPublicSurveys(state);
+    const updatedState = filterPublicforms(state);
     config.update({
       ...config.get(),
       state: updatedState,
     });
-    surveyRunning = false;
+    formRunning = false;
     return;
   }
 
-  // for identified users we sync to get the latest surveys
+  // for identified users we sync to get the latest forms
   try {
     await sync({
       apiHost: config.get().apiHost,
       environmentId: config.get().environmentId,
       userId: config.get().userId,
     });
-    surveyRunning = false;
+    formRunning = false;
   } catch (e) {
     errorHandler.handle(e);
   }

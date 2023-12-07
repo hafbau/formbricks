@@ -6,7 +6,7 @@ import {
   TIntegrationAirtableConfigData,
   TIntegrationAirtableInput,
 } from "@fastform/types/integration/airtable";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { Alert, AlertDescription, AlertTitle } from "@fastform/ui/Alert";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@fastform/ui/Select";
 import { Button } from "@fastform/ui/Button";
@@ -32,7 +32,7 @@ type AddIntegrationModalProps = {
   setOpenWithStates: (v: boolean) => void;
   environmentId: string;
   airtableArray: TIntegrationItem[];
-  surveys: TSurvey[];
+  forms: Tform[];
   airtableIntegration: TIntegrationAirtable;
 } & EditModeProps;
 
@@ -110,7 +110,7 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
     setOpenWithStates,
     environmentId,
     airtableArray,
-    surveys,
+    forms,
     airtableIntegration,
     isEditMode,
     defaultData,
@@ -132,7 +132,7 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
   }, [isEditMode]);
 
   const form = watch("form");
-  const selectedSurvey = surveys.find((item) => item.id === form);
+  const selectedform = forms.find((item) => item.id === form);
   const submitHandler = async (data: IntegrationModalInputs) => {
     try {
       if (!data.base || data.base === "") {
@@ -143,7 +143,7 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
         throw new Error("Please select a table");
       }
 
-      if (!selectedSurvey) {
+      if (!selectedform) {
         throw new Error("Please select a form");
       }
 
@@ -162,11 +162,11 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
 
       const currentTable = tables.find((item) => item.id === data.table);
       const integrationData: TIntegrationAirtableConfigData = {
-        surveyId: selectedSurvey.id,
-        surveyName: selectedSurvey.name,
+        formId: selectedform.id,
+        formName: selectedform.name,
         questionIds: data.questions,
         questions:
-          data.questions.length === selectedSurvey.questions.length ? "All questions" : "Selected questions",
+          data.questions.length === selectedform.questions.length ? "All questions" : "Selected questions",
         createdAt: new Date(),
         baseId: data.base,
         tableId: data.table,
@@ -288,7 +288,7 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
               </div>
             </div>
 
-            {surveys.length ? (
+            {forms.length ? (
               <div className="flex w-full flex-col">
                 <Label htmlFor="form">Select Form</Label>
                 <div className="mt-1 flex">
@@ -307,7 +307,7 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          {surveys.map((item) => (
+                          {forms.map((item) => (
                             <SelectItem key={item.id} value={item.id}>
                               {item.name}
                             </SelectItem>
@@ -320,18 +320,18 @@ export default function AddIntegrationModal(props: AddIntegrationModalProps) {
               </div>
             ) : null}
 
-            {!surveys.length ? (
+            {!forms.length ? (
               <p className="m-1 text-xs text-slate-500">
                 You have to create a form to be able to setup this integration
               </p>
             ) : null}
 
-            {form && selectedSurvey && (
+            {form && selectedform && (
               <div>
-                <Label htmlFor="Surveys">Questions</Label>
+                <Label htmlFor="forms">Questions</Label>
                 <div className="mt-1 rounded-lg border border-slate-200">
                   <div className="grid content-center rounded-lg bg-slate-50 p-3 text-left text-sm text-slate-900">
-                    {selectedSurvey?.questions.map((question) => (
+                    {selectedform?.questions.map((question) => (
                       <Controller
                         key={question.id}
                         control={control}

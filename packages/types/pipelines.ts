@@ -9,7 +9,7 @@ export const ZPipelineInput = z.object({
   event: ZPipelineTrigger,
   response: ZResponse,
   environmentId: z.string(),
-  surveyId: z.string(),
+  formId: z.string(),
 });
 
 export type TPipelineInput = z.infer<typeof ZPipelineInput>;

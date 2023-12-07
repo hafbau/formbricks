@@ -118,7 +118,7 @@ const LevelsData = [
 const TheDeal = [
   {
     os: "100% free",
-    free: "Unlimited Surveys",
+    free: "Unlimited forms",
     pro: "Custom URL",
   },
   {
@@ -196,12 +196,12 @@ const FAQ = [
   {
     question: "Why is there a Commercial plan?",
     answer:
-      "The commercial plan is for features who break the OSS WIN-WIN Loop or incur additional cost. We charge 29$ if you want a custom domain, remove Fastform branding, collect large files in surveys or collect payments. We think that’s fair :)",
+      "The commercial plan is for features who break the OSS WIN-WIN Loop or incur additional cost. We charge 29$ if you want a custom domain, remove Fastform branding, collect large files in forms or collect payments. We think that’s fair :)",
   },
   {
-    question: "Are your in app surveys also free forever?",
+    question: "Are your in app forms also free forever?",
     answer:
-      "The in app surveys you can run with Fastform are not part of this Deal. We offer a generous free plan but keep full control over the pricing in the long run. In app surveys are really powerful for products with thousands of users and something has to bring in the dollars.",
+      "The in app forms you can run with Fastform are not part of this Deal. We offer a generous free plan but keep full control over the pricing in the long run. In app forms are really powerful for products with thousands of users and something has to bring in the dollars.",
   },
 
   {
@@ -221,7 +221,7 @@ const roadmapDates = [
     id: "earlywork",
     description: "Previously at Fastform",
     period: "February until September 2023",
-    events: [{ name: "Fastform team building out surveying infrastructure" }],
+    events: [{ name: "Fastform team building out forming infrastructure" }],
   },
   {
     id: "hackathon",
@@ -238,7 +238,7 @@ const roadmapDates = [
       { name: "✅ Add Image to Question", link: "https://github.com/fastform/fastform/pull/1305" },
       { name: "✅ Dynamic Link Previews", link: "https://github.com/fastform/fastform/pull/1093" },
       { name: "✅ Fullscreen Previews", link: "https://github.com/fastform/fastform/pull/898" },
-      { name: "✅ PIN protected surveys", link: "https://github.com/fastform/fastform/pull/1142" },
+      { name: "✅ PIN protected forms", link: "https://github.com/fastform/fastform/pull/1142" },
       { name: "✅ Source Tracking", link: "https://github.com/fastform/fastform/pull/1486" },
       { name: "✅ Time To Complete Indicator", link: "https://github.com/fastform/fastform/pull/1461" },
     ],
@@ -448,14 +448,14 @@ export default function FormTribeHackathon() {
         <div className="py-16 md:py-24">
           <h1 className="mt-10 px-6 text-3xl font-bold text-slate-100 sm:text-4xl md:text-5xl">
             <span className="xl:inline">
-              Beautiful Open Source Surveys. <br className="hidden md:block"></br>Built as a community, free
+              Beautiful Open Source forms. <br className="hidden md:block"></br>Built as a community, free
               forever.
             </span>
           </h1>
 
           <p className="xs:max-w-none mx-auto mt-3 max-w-xs text-base text-slate-300 sm:text-lg md:mt-6 md:text-xl">
             The time is ripe, this is needed. So we ship it as a community - and give it back to the world!
-            <br></br>Join us and build surveying infrastructure for millions - free and open source.
+            <br></br>Join us and build forming infrastructure for millions - free and open source.
           </p>
         </div>
         <ContributorGrid contributors={members} />
@@ -472,7 +472,7 @@ export default function FormTribeHackathon() {
             </span>
           </h2>
           <p className="xs:max-w-none mx-auto mt-3 max-w-xs text-base text-slate-600 sm:text-lg md:mt-6 md:text-xl">
-            It&apos;s been requested many times over, so Typeform-like surveys is where we start.
+            It&apos;s been requested many times over, so Typeform-like forms is where we start.
             <br></br>In October, we kicked it off in style with a 30-day hackathon.
           </p>
         </div>
@@ -649,10 +649,10 @@ export default function FormTribeHackathon() {
             </div>
             <div className="col-span-5 px-8 text-left sm:px-0">
               <h3 className="mt-4 text-lg font-semibold text-slate-700 sm:mt-0">
-                Are Fastform in-app surveys also free?
+                Are Fastform in-app forms also free?
               </h3>
               <p className="text-slate-500 sm:pr-16">
-                Just a heads-up: this deal doesn&apos;t cover Fastform&apos; in-app surveys. We&apos;ve got a
+                Just a heads-up: this deal doesn&apos;t cover Fastform&apos; in-app forms. We&apos;ve got a
                 solid free plan, but we&apos;ve gotta keep some control over pricing to keep things running
                 long-term.
               </p>

@@ -4,7 +4,7 @@ import { ZId } from "@fastform/types/environment";
 import { unstable_cache } from "next/cache";
 import { SERVICES_REVALIDATION_INTERVAL } from "../constants";
 import { hasUserEnvironmentAccess } from "../environment/auth";
-import { getSurvey } from "../form/service";
+import { getform } from "../form/service";
 import { validateInputs } from "../utils/validate";
 import { getResponse } from "./service";
 import { responseCache } from "./cache";
@@ -19,7 +19,7 @@ export const canUserAccessResponse = async (userId: string, responseId: string):
       const response = await getResponse(responseId);
       if (!response) return false;
 
-      const form = await getSurvey(response.surveyId);
+      const form = await getform(response.formId);
       if (!form) return false;
 
       const hasAccessToEnvironment = await hasUserEnvironmentAccess(userId, form.environmentId);

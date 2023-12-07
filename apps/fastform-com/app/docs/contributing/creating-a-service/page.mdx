@@ -22,7 +22,7 @@ Let’s break down some of the jargon in that definition:
 
 **Abstraction of database calls**
 
-From our guide on [How we Code at Fastform](https://fastform.com/docs/contributing/how-we-code), we mention that database calls should not be made directly from components or other places other than a **service**. This means that if you need to make a request to the database to fetch some data, let’s say “get the **surveys** of the current user in the current **environment**”, you would need a function in the surveys service like `getSurveysByEnvironmentId`. It is also worth mentioning that we use [Prisma](https://prisma.io/) as a database abstraction layer to perform database calls.
+From our guide on [How we Code at Fastform](https://fastform.com/docs/contributing/how-we-code), we mention that database calls should not be made directly from components or other places other than a **service**. This means that if you need to make a request to the database to fetch some data, let’s say “get the **forms** of the current user in the current **environment**”, you would need a function in the forms service like `getformsByEnvironmentId`. It is also worth mentioning that we use [Prisma](https://prisma.io/) as a database abstraction layer to perform database calls.
 
 **Comprises of cached functions**
 
@@ -30,7 +30,7 @@ A service consists of multiple functions that can be easily reused in server act
 
 **Generic database level functionalities**
 
-By generic we mean that if in the `form` service there is a function that only gets a form and now you want a function to get both form and all its responses, you should not create another function specifically for that. Instead use the `getSurvey` function and then a `getResponsesBySurveyId` function in the `response` service to get this data. The functions need to be generic so that they can be reused for cases like this where you need to combine multiple cached functions to get what you need.
+By generic we mean that if in the `form` service there is a function that only gets a form and now you want a function to get both form and all its responses, you should not create another function specifically for that. Instead use the `getform` function and then a `getResponsesByformId` function in the `response` service to get this data. The functions need to be generic so that they can be reused for cases like this where you need to combine multiple cached functions to get what you need.
 
 ## Do you need a new service?
 

@@ -2,7 +2,7 @@
 
 import { DeleteDialog } from "@fastform/ui/DeleteDialog";
 import AvatarPlaceholder from "@/images/avatar-placeholder.png";
-import { formbricksLogout } from "@/app/lib/fastform";
+import { fastformLogout } from "@/app/lib/fastform";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
 import { ProfileAvatar } from "@fastform/ui/Avatars";
@@ -54,7 +54,7 @@ function DeleteAccountModal({ setOpen, open, session }: DeleteAccountModalProps)
       setDeleting(true);
       await deleteProfileAction();
       await signOut();
-      await formbricksLogout();
+      await fastformLogout();
     } catch (error) {
       toast.error("Something went wrong");
     } finally {

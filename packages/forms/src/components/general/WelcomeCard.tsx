@@ -1,7 +1,7 @@
 import SubmitButton from "@/components/buttons/SubmitButton";
 import { calculateElementIdx } from "@/lib/utils";
 import { TResponseData, TResponseTtc } from "@fastform/types/responses";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import Headline from "./Headline";
 import HtmlBody from "./HtmlBody";
 
@@ -11,7 +11,7 @@ interface WelcomeCardProps {
   fileUrl?: string;
   buttonLabel?: string;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;
-  form: TSurvey;
+  form: Tform;
   responseCount?: number;
 }
 

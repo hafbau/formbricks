@@ -1,9 +1,9 @@
 import { TResponseData, TResponseUpdate } from "@fastform/types/responses";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { TUploadFileConfig } from "@fastform/types/storage";
 
-export interface SurveyBaseProps {
-  form: TSurvey;
+export interface formBaseProps {
+  form: Tform;
   isBrandingEnabled: boolean;
   activeQuestionId?: string;
   onDisplay?: () => void;
@@ -18,11 +18,11 @@ export interface SurveyBaseProps {
   responseCount?: number;
 }
 
-export interface SurveyInlineProps extends SurveyBaseProps {
+export interface formInlineProps extends formBaseProps {
   containerId: string;
 }
 
-export interface SurveyModalProps extends SurveyBaseProps {
+export interface formModalProps extends formBaseProps {
   clickOutside: boolean;
   darkOverlay: boolean;
   highlightBorderColor: string | null;

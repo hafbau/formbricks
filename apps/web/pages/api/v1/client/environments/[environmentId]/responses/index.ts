@@ -21,20 +21,20 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
   // POST
   else if (req.method === "POST") {
-    const { surveyId, personId, response } = req.body;
+    const { formId, personId, response } = req.body;
 
-    if (!surveyId) {
-      return res.status(400).json({ message: "Missing surveyId" });
+    if (!formId) {
+      return res.status(400).json({ message: "Missing formId" });
     }
     if (!response) {
       return res.status(400).json({ message: "Missing data" });
     }
-    // personId can be null, e.g. for link surveys
+    // personId can be null, e.g. for link forms
 
     // check if form exists
     const form = await prisma.form.findUnique({
       where: {
-        id: surveyId,
+        id: formId,
       },
       select: {
         id: true,
@@ -81,7 +81,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     const responseInput = {
       form: {
         connect: {
-          id: surveyId,
+          id: formId,
         },
       },
       ...response,
@@ -104,7 +104,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         id: true,
         createdAt: true,
         updatedAt: true,
-        surveyId: true,
+        formId: true,
         finished: true,
         data: true,
         ttc: true,
@@ -172,7 +172,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     // don't await to not block the response
     sendToPipeline({
       environmentId,
-      surveyId,
+      formId,
       event: "responseCreated",
       response: responseData,
     });
@@ -182,7 +182,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       // don't await to not block the response
       sendToPipeline({
         environmentId,
-        surveyId,
+        formId,
         event: "responseFinished",
         response: responseData,
       });
@@ -191,8 +191,8 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     captureTelemetry("response created");
     if (teamOwnerId) {
       await capturePosthogEvent(teamOwnerId, "response created", teamId, {
-        surveyId,
-        surveyType: form.type,
+        formId,
+        formType: form.type,
       });
     } else {
       console.warn("Posthog capture not possible. No team owner found");

@@ -16,10 +16,10 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
   // POST
   else if (req.method === "POST") {
-    const { surveyId, personId } = req.body;
+    const { formId, personId } = req.body;
 
-    if (!surveyId) {
-      return res.status(400).json({ message: "Missing surveyId" });
+    if (!formId) {
+      return res.status(400).json({ message: "Missing formId" });
     }
 
     // get teamId from environment
@@ -61,7 +61,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       data: {
         form: {
           connect: {
-            id: surveyId,
+            id: formId,
           },
         },
       },
@@ -80,7 +80,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
     if (teamOwnerId) {
       await capturePosthogEvent(teamOwnerId, "display created", teamId, {
-        surveyId,
+        formId,
       });
     } else {
       console.warn("Posthog capture not possible. No team owner found");

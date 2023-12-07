@@ -4,7 +4,7 @@ import { sendResponseFinishedEmail } from "@/app/lib/email";
 import { prisma } from "@fastform/database";
 import { INTERNAL_SECRET } from "@fastform/lib/constants";
 import { convertDatesInObject } from "@fastform/lib/time";
-import { TSurveyQuestion } from "@fastform/types/surveys";
+import { TformQuestion } from "@fastform/types/forms";
 import { TUserNotificationSettings } from "@fastform/types/users";
 import { ZPipelineInput } from "@fastform/types/pipelines";
 import { headers } from "next/headers";
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const { environmentId, surveyId, event, response } = inputValidation.data;
+  const { environmentId, formId, event, response } = inputValidation.data;
 
   // get all webhooks of this environment where event in triggers
   const webhooks = await prisma.webhook.findMany({
@@ -42,12 +42,12 @@ export async function POST(request: Request) {
       },
       OR: [
         {
-          surveyIds: {
-            has: surveyId,
+          formIds: {
+            has: formId,
           },
         },
         {
-          surveyIds: {
+          formIds: {
             isEmpty: true,
           },
         },
@@ -106,7 +106,7 @@ export async function POST(request: Request) {
     // filter all users that have email notifications enabled for this form
     const usersWithNotifications = users.filter((user) => {
       const notificationSettings: TUserNotificationSettings | null = user.notificationSettings;
-      if (notificationSettings?.alert && notificationSettings.alert[surveyId]) {
+      if (notificationSettings?.alert && notificationSettings.alert[formId]) {
         return true;
       }
       return false;
@@ -114,9 +114,9 @@ export async function POST(request: Request) {
 
     if (usersWithNotifications.length > 0) {
       // get form
-      const surveyData = await prisma.form.findUnique({
+      const formData = await prisma.form.findUnique({
         where: {
-          id: surveyId,
+          id: formId,
         },
         select: {
           id: true,
@@ -124,17 +124,17 @@ export async function POST(request: Request) {
           questions: true,
         },
       });
-      if (!surveyData) {
-        console.error(`Pipeline: Form with id ${surveyId} not found`);
+      if (!formData) {
+        console.error(`Pipeline: Form with id ${formId} not found`);
         return new Response("Form not found", {
           status: 404,
         });
       }
       // create form object
       const form = {
-        id: surveyData.id,
-        name: surveyData.name,
-        questions: JSON.parse(JSON.stringify(surveyData.questions)) as TSurveyQuestion[],
+        id: formData.id,
+        name: formData.name,
+        questions: JSON.parse(JSON.stringify(formData.questions)) as TformQuestion[],
       };
       // send email to all users
       await Promise.all(
@@ -144,11 +144,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const updateSurveyStatus = async (surveyId: string) => {
-      // Get the form instance by surveyId
+    const updateformStatus = async (formId: string) => {
+      // Get the form instance by formId
       const form = await prisma.form.findUnique({
         where: {
-          id: surveyId,
+          id: formId,
         },
         select: {
           autoComplete: true,
@@ -159,13 +159,13 @@ export async function POST(request: Request) {
         // Get the number of responses to a form
         const responseCount = await prisma.response.count({
           where: {
-            surveyId: surveyId,
+            formId: formId,
           },
         });
         if (responseCount === form.autoComplete) {
           await prisma.form.update({
             where: {
-              id: surveyId,
+              id: formId,
             },
             data: {
               status: "completed",
@@ -174,7 +174,7 @@ export async function POST(request: Request) {
         }
       }
     };
-    await updateSurveyStatus(surveyId);
+    await updateformStatus(formId);
   }
 
   return NextResponse.json({ data: {} });

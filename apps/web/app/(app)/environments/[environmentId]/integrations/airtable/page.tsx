@@ -3,15 +3,15 @@ import { getAirtableTables } from "@fastform/lib/airtable/service";
 import { AIRTABLE_CLIENT_ID, WEBAPP_URL } from "@fastform/lib/constants";
 import { getEnvironment } from "@fastform/lib/environment/service";
 import { getIntegrations } from "@fastform/lib/integration/service";
-import { getSurveys } from "@fastform/lib/form/service";
+import { getforms } from "@fastform/lib/form/service";
 import { TIntegrationItem } from "@fastform/types/integration";
 import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
 import GoBackButton from "@fastform/ui/GoBackButton";
 
 export default async function Airtable({ params }) {
   const enabled = !!AIRTABLE_CLIENT_ID;
-  const [surveys, integrations, environment] = await Promise.all([
-    getSurveys(params.environmentId),
+  const [forms, integrations, environment] = await Promise.all([
+    getforms(params.environmentId),
     getIntegrations(params.environmentId),
     getEnvironment(params.environmentId),
   ]);
@@ -37,7 +37,7 @@ export default async function Airtable({ params }) {
           airtableIntegration={airtableIntegration}
           airtableArray={airtableArray}
           environmentId={environment.id}
-          surveys={surveys}
+          forms={forms}
           environment={environment}
           webAppUrl={WEBAPP_URL}
         />

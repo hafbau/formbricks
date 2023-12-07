@@ -157,7 +157,7 @@ export default function DocsFeedback() {
   const [freeText, setFreeText] = useState("");
 
   if (
-    !process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_SURVEY_ID ||
+    !process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID ||
     !process.env.NEXT_PUBLIC_FORMBRICKS_COM_API_HOST ||
     !process.env.NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID
   ) {
@@ -240,7 +240,7 @@ Disabling feedback if config environment variables are not set properly:
 
 ```tsx
 if (
-  !process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_SURVEY_ID ||
+  !process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID ||
   !process.env.NEXT_PUBLIC_FORMBRICKS_COM_API_HOST ||
   !process.env.NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID
 ) {
@@ -328,7 +328,7 @@ export const handleFeedbackSubmit = async (YesNo, pageUrl) => {
 
   const payload = {
     response: response_data,
-    surveyId: process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_SURVEY_ID, // For testing, replace this with the form ID of your form (more info below)
+    formId: process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID, // For testing, replace this with the form ID of your form (more info below)
   };
 
   try {
@@ -421,7 +421,7 @@ Now, you have to replace the IDs and the API host accordingly in your `handleFee
 ```tsx
   const payload = {
     response: response_data,
-    surveyId: clgwfv4a7002el50ihyuss38x, // This is an example, replace with yours
+    formId: clgwfv4a7002el50ihyuss38x, // This is an example, replace with yours
   };
 
   try {

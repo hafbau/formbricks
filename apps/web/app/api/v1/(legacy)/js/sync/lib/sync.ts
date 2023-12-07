@@ -2,30 +2,30 @@ import { getActionClasses } from "@fastform/lib/actionClass/service";
 import {
   IS_FORMBRICKS_CLOUD,
   MAU_LIMIT,
-  PRICING_APPSURVEYS_FREE_RESPONSES,
+  PRICING_APPformS_FREE_RESPONSES,
   PRICING_USERTARGETING_FREE_MTU,
 } from "@fastform/lib/constants";
 import { getEnvironment } from "@fastform/lib/environment/service";
 import { getPerson } from "@fastform/lib/person/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSurveys, getSyncSurveys } from "@fastform/lib/form/service";
+import { getforms, getSyncforms } from "@fastform/lib/form/service";
 import {
   getMonthlyActiveTeamPeopleCount,
   getMonthlyTeamResponseCount,
   getTeamByEnvironmentId,
 } from "@fastform/lib/team/service";
 import { TEnvironment } from "@fastform/types/environment";
-import { TJsLegacyState, TSurveyWithTriggers } from "@fastform/types/js";
+import { TJsLegacyState, TformWithTriggers } from "@fastform/types/js";
 import { TPerson } from "@fastform/types/people";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 
-export const transformLegacySurveys = (surveys: TSurvey[]): TSurveyWithTriggers[] => {
-  const updatedSurveys = surveys.map((form) => {
-    const updatedSurvey: any = { ...form };
-    updatedSurvey.triggers = updatedSurvey.triggers.map((trigger) => ({ name: trigger }));
-    return updatedSurvey;
+export const transformLegacyforms = (forms: Tform[]): TformWithTriggers[] => {
+  const updatedforms = forms.map((form) => {
+    const updatedform: any = { ...form };
+    updatedform.triggers = updatedform.triggers.map((trigger) => ({ name: trigger }));
+    return updatedform;
   });
-  return updatedSurveys;
+  return updatedforms;
 };
 
 export const getUpdatedState = async (environmentId: string, personId?: string): Promise<TJsLegacyState> => {
@@ -76,31 +76,31 @@ export const getUpdatedState = async (environmentId: string, personId?: string):
     }
   }
   // check if App Form limit is reached
-  let isAppSurveyLimitReached = false;
+  let isAppformLimitReached = false;
   if (IS_FORMBRICKS_CLOUD) {
-    const hasAppSurveySubscription =
-      team?.billing?.features.inAppSurvey.status &&
-      team?.billing?.features.inAppSurvey.status in ["active", "canceled"];
+    const hasAppformSubscription =
+      team?.billing?.features.inAppform.status &&
+      team?.billing?.features.inAppform.status in ["active", "canceled"];
     const monthlyResponsesCount = await getMonthlyTeamResponseCount(team.id);
-    isAppSurveyLimitReached =
+    isAppformLimitReached =
       IS_FORMBRICKS_CLOUD &&
-      !hasAppSurveySubscription &&
-      monthlyResponsesCount >= PRICING_APPSURVEYS_FREE_RESPONSES;
+      !hasAppformSubscription &&
+      monthlyResponsesCount >= PRICING_APPformS_FREE_RESPONSES;
   }
 
   const isPerson = Object.keys(person).length > 0;
 
-  let surveys;
-  if (isAppSurveyLimitReached) {
-    surveys = [];
+  let forms;
+  if (isAppformLimitReached) {
+    forms = [];
   } else if (isPerson) {
-    surveys = await getSyncSurveys(environmentId, person as TPerson);
+    forms = await getSyncforms(environmentId, person as TPerson);
   } else {
-    surveys = await getSurveys(environmentId);
-    surveys = surveys.filter((form) => form.type === "web" && form.status === "inProgress");
+    forms = await getforms(environmentId);
+    forms = forms.filter((form) => form.type === "web" && form.status === "inProgress");
   }
 
-  surveys = transformLegacySurveys(surveys);
+  forms = transformLegacyforms(forms);
 
   // get/create rest of the state
   const [noCodeActionClasses, product] = await Promise.all([
@@ -116,7 +116,7 @@ export const getUpdatedState = async (environmentId: string, personId?: string):
   const state: TJsLegacyState = {
     person,
     session,
-    surveys,
+    forms,
     noCodeActionClasses: noCodeActionClasses.filter((actionClass) => actionClass.type === "noCode"),
     product,
   };

@@ -4,14 +4,14 @@ import QuestionImage from "@/components/general/QuestionImage";
 import Headline from "@/components/general/Headline";
 import Subheader from "@/components/general/Subheader";
 import { TResponseData } from "@fastform/types/responses";
-import type { TSurveyOpenTextQuestion } from "@fastform/types/surveys";
+import type { TformOpenTextQuestion } from "@fastform/types/forms";
 import { useCallback } from "react";
 import { useState } from "preact/hooks";
 import { TResponseTtc } from "@fastform/types/responses";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 
 interface OpenTextQuestionProps {
-  question: TSurveyOpenTextQuestion;
+  question: TformOpenTextQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;

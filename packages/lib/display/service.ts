@@ -28,7 +28,7 @@ const selectDisplay = {
   id: true,
   createdAt: true,
   updatedAt: true,
-  surveyId: true,
+  formId: true,
   responseId: true,
   personId: true,
 };
@@ -99,7 +99,7 @@ export const updateDisplay = async (
 
     displayCache.revalidate({
       id: display.id,
-      surveyId: display.surveyId,
+      formId: display.formId,
     });
 
     return display;
@@ -141,7 +141,7 @@ export const updateDisplayLegacy = async (
 
     displayCache.revalidate({
       id: display.id,
-      surveyId: display.surveyId,
+      formId: display.formId,
     });
 
     return display;
@@ -158,7 +158,7 @@ export const updateDisplayLegacy = async (
 export const createDisplay = async (displayInput: TDisplayCreateInput): Promise<TDisplay> => {
   validateInputs([displayInput, ZDisplayCreateInput]);
 
-  const { environmentId, userId, surveyId } = displayInput;
+  const { environmentId, userId, formId } = displayInput;
 
   try {
     let person;
@@ -172,7 +172,7 @@ export const createDisplay = async (displayInput: TDisplayCreateInput): Promise<
       data: {
         form: {
           connect: {
-            id: surveyId,
+            id: formId,
           },
         },
 
@@ -190,7 +190,7 @@ export const createDisplay = async (displayInput: TDisplayCreateInput): Promise<
     displayCache.revalidate({
       id: display.id,
       personId: display.personId,
-      surveyId: display.surveyId,
+      formId: display.formId,
     });
 
     return display;
@@ -210,7 +210,7 @@ export const createDisplayLegacy = async (displayInput: TDisplayLegacyCreateInpu
       data: {
         form: {
           connect: {
-            id: displayInput.surveyId,
+            id: displayInput.formId,
           },
         },
 
@@ -228,7 +228,7 @@ export const createDisplayLegacy = async (displayInput: TDisplayLegacyCreateInpu
     displayCache.revalidate({
       id: display.id,
       personId: display.personId,
-      surveyId: display.surveyId,
+      formId: display.formId,
     });
 
     return display;
@@ -264,7 +264,7 @@ export const markDisplayRespondedLegacy = async (displayId: string): Promise<TDi
     displayCache.revalidate({
       id: display.id,
       personId: display.personId,
-      surveyId: display.surveyId,
+      formId: display.formId,
     });
 
     return display;
@@ -318,8 +318,8 @@ export const getDisplaysByPersonId = async (personId: string, page?: number): Pr
   return formatDisplaysDateFields(displays);
 };
 
-export const deleteDisplayByResponseId = async (responseId: string, surveyId: string): Promise<TDisplay> => {
-  validateInputs([responseId, ZId], [surveyId, ZId]);
+export const deleteDisplayByResponseId = async (responseId: string, formId: string): Promise<TDisplay> => {
+  validateInputs([responseId, ZId], [formId, ZId]);
 
   try {
     const display = await prisma.display.delete({
@@ -332,7 +332,7 @@ export const deleteDisplayByResponseId = async (responseId: string, surveyId: st
     displayCache.revalidate({
       id: display.id,
       personId: display.personId,
-      surveyId,
+      formId,
     });
 
     return display;
@@ -344,15 +344,15 @@ export const deleteDisplayByResponseId = async (responseId: string, surveyId: st
   }
 };
 
-export const getDisplayCountBySurveyId = async (surveyId: string): Promise<number> =>
+export const getDisplayCountByformId = async (formId: string): Promise<number> =>
   unstable_cache(
     async () => {
-      validateInputs([surveyId, ZId]);
+      validateInputs([formId, ZId]);
 
       try {
         const displayCount = await prisma.display.count({
           where: {
-            surveyId: surveyId,
+            formId: formId,
           },
         });
         return displayCount;
@@ -360,9 +360,9 @@ export const getDisplayCountBySurveyId = async (surveyId: string): Promise<numbe
         throw error;
       }
     },
-    [`getDisplayCountBySurveyId-${surveyId}`],
+    [`getDisplayCountByformId-${formId}`],
     {
-      tags: [displayCache.tag.bySurveyId(surveyId)],
+      tags: [displayCache.tag.byformId(formId)],
       revalidate: SERVICES_REVALIDATION_INTERVAL,
     }
   )();

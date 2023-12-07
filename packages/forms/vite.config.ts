@@ -13,7 +13,7 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, "src/index.ts"),
-      name: "fastform-surveys",
+      name: "fastform-forms",
       formats: ["cjs", "es", "umd"],
       // the proper extensions will be added
       fileName: "index",

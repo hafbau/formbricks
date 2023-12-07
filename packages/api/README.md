@@ -30,7 +30,7 @@ const api = new FormbricksAPI({
 
 ```ts
 const response = await api.createResponse({
-  surveyId: "......" as SurveyId,
+  formId: "......" as formId,
   personId: "......" as PersonId,
   data: {
     questionId: "response",

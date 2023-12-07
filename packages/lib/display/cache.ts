@@ -2,7 +2,7 @@ import { revalidateTag } from "next/cache";
 
 interface RevalidateProps {
   id?: string;
-  surveyId?: string;
+  formId?: string;
   personId?: string | null;
   environmentId?: string;
 }
@@ -12,8 +12,8 @@ export const displayCache = {
     byId(id: string) {
       return `displays-${id}`;
     },
-    bySurveyId(surveyId: string) {
-      return `surveys-${surveyId}-displays`;
+    byformId(formId: string) {
+      return `forms-${formId}-displays`;
     },
     byPersonId(personId: string) {
       return `people-${personId}-displays`;
@@ -22,13 +22,13 @@ export const displayCache = {
       return `environments-${environmentId}-displays`;
     },
   },
-  revalidate({ id, surveyId, personId, environmentId }: RevalidateProps): void {
+  revalidate({ id, formId, personId, environmentId }: RevalidateProps): void {
     if (id) {
       revalidateTag(this.tag.byId(id));
     }
 
-    if (surveyId) {
-      revalidateTag(this.tag.bySurveyId(surveyId));
+    if (formId) {
+      revalidateTag(this.tag.byformId(formId));
     }
 
     if (personId) {

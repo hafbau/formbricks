@@ -57,12 +57,12 @@ We have two APIs: Management API and Client API.
 
 The public endpoints of the Client API are used by the link form and `fastform-js` to send responses and displays to fastform. Client APIs can be found in `apps/web/app/api/v1/client`
 
-The Management API offers the same functionality as the management frontend and can be used to create surveys, view responses or change account settings. The endpoints require an api key that the user can obtain in the management frontend. Management APIs can be found in `apps/web/app/api/v1/management`.
+The Management API offers the same functionality as the management frontend and can be used to create forms, view responses or change account settings. The endpoints require an api key that the user can obtain in the management frontend. Management APIs can be found in `apps/web/app/api/v1/management`.
 
 Please keep the following in mind:
 
 - When dealing with Management APIs always make sure to require authentication via API keys and a sufficient authorization check.
-- Make sure to handle CORS requests in any new Client API endpoint you create as these are called from the browser in link surveys or `fastform-js`. Example below:
+- Make sure to handle CORS requests in any new Client API endpoint you create as these are called from the browser in link forms or `fastform-js`. Example below:
 
 <Image
   src={CorsHandling}

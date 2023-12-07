@@ -1,10 +1,10 @@
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import Progress from "./Progress";
 import { calculateElementIdx } from "@/lib/utils";
 import { useCallback, useMemo } from "preact/hooks";
 
 interface ProgressBarProps {
-  form: TSurvey;
+  form: Tform;
   questionId: string;
 }
 
@@ -14,7 +14,7 @@ export default function ProgressBar({ form, questionId }: ProgressBarProps) {
     [form, questionId]
   );
 
-  const calculateProgress = useCallback((questionId: string, form: TSurvey, progress: number) => {
+  const calculateProgress = useCallback((questionId: string, form: Tform, progress: number) => {
     if (form.questions.length === 0) return 0;
     let currentQustionIdx = form.questions.findIndex((e) => e.id === questionId);
     if (currentQustionIdx === -1) currentQustionIdx = 0;

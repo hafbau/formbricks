@@ -1,4 +1,4 @@
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 
 export const cn = (...classes: string[]) => {
   return classes.filter(Boolean).join(" ");
@@ -48,10 +48,10 @@ export const shuffleQuestions = (array: any[], shuffleOption: string) => {
   return arrayCopy;
 };
 
-export const calculateElementIdx = (form: TSurvey, currentQustionIdx: number): number => {
+export const calculateElementIdx = (form: Tform, currentQustionIdx: number): number => {
   const currentQuestion = form.questions[currentQustionIdx];
-  const surveyLength = form.questions.length;
-  const middleIdx = Math.floor(surveyLength / 2);
+  const formLength = form.questions.length;
+  const middleIdx = Math.floor(formLength / 2);
   const possibleNextQuestions = currentQuestion?.logic?.map((l) => l.destination) || [];
 
   const getLastQuestionIndex = () => {

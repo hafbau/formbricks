@@ -31,7 +31,7 @@ const responseSelection = {
   id: true,
   createdAt: true,
   updatedAt: true,
-  surveyId: true,
+  formId: true,
   finished: true,
   data: true,
   meta: true,
@@ -143,17 +143,17 @@ export const getResponsesByPersonId = async (
 };
 
 export const getResponseBySingleUseId = async (
-  surveyId: string,
+  formId: string,
   singleUseId: string
 ): Promise<TResponse | null> => {
   const response = await unstable_cache(
     async () => {
-      validateInputs([surveyId, ZId], [singleUseId, ZString]);
+      validateInputs([formId, ZId], [singleUseId, ZString]);
 
       try {
         const responsePrisma = await prisma.response.findUnique({
           where: {
-            surveyId_singleUseId: { surveyId, singleUseId },
+            formId_singleUseId: { formId, singleUseId },
           },
           select: responseSelection,
         });
@@ -177,9 +177,9 @@ export const getResponseBySingleUseId = async (
         throw error;
       }
     },
-    [`getResponseBySingleUseId-${surveyId}-${singleUseId}`],
+    [`getResponseBySingleUseId-${formId}-${singleUseId}`],
     {
-      tags: [responseCache.tag.bySingleUseId(surveyId, singleUseId)],
+      tags: [responseCache.tag.bySingleUseId(formId, singleUseId)],
       revalidate: SERVICES_REVALIDATION_INTERVAL,
     }
   )();
@@ -198,7 +198,7 @@ export const createResponse = async (responseInput: TResponseInput): Promise<TRe
   validateInputs([responseInput, ZResponseInput]);
   captureTelemetry("response created");
 
-  const { environmentId, userId, surveyId, finished, data, meta, singleUseId } = responseInput;
+  const { environmentId, userId, formId, finished, data, meta, singleUseId } = responseInput;
 
   try {
     let person: TPerson | null = null;
@@ -215,7 +215,7 @@ export const createResponse = async (responseInput: TResponseInput): Promise<TRe
       data: {
         form: {
           connect: {
-            id: surveyId,
+            id: formId,
           },
         },
         finished: finished,
@@ -243,7 +243,7 @@ export const createResponse = async (responseInput: TResponseInput): Promise<TRe
     responseCache.revalidate({
       id: response.id,
       personId: response.person?.id,
-      surveyId: response.surveyId,
+      formId: response.formId,
     });
 
     responseNoteCache.revalidate({
@@ -283,7 +283,7 @@ export const createResponseLegacy = async (responseInput: TResponseLegacyInput):
       data: {
         form: {
           connect: {
-            id: responseInput.surveyId,
+            id: responseInput.formId,
           },
         },
         finished: responseInput.finished,
@@ -313,7 +313,7 @@ export const createResponseLegacy = async (responseInput: TResponseLegacyInput):
     responseCache.revalidate({
       id: response.id,
       personId: response.person?.id,
-      surveyId: response.surveyId,
+      formId: response.formId,
     });
 
     responseNoteCache.revalidate({
@@ -379,15 +379,15 @@ export const getResponse = async (responseId: string): Promise<TResponse | null>
   } as TResponse;
 };
 
-export const getResponses = async (surveyId: string, page?: number): Promise<TResponse[]> => {
+export const getResponses = async (formId: string, page?: number): Promise<TResponse[]> => {
   const responses = await unstable_cache(
     async () => {
-      validateInputs([surveyId, ZId], [page, ZOptionalNumber]);
+      validateInputs([formId, ZId], [page, ZOptionalNumber]);
 
       try {
         const responses = await prisma.response.findMany({
           where: {
-            surveyId,
+            formId,
           },
           select: responseSelection,
           orderBy: [
@@ -418,9 +418,9 @@ export const getResponses = async (surveyId: string, page?: number): Promise<TRe
         throw error;
       }
     },
-    [`getResponses-${surveyId}`],
+    [`getResponses-${formId}`],
     {
-      tags: [responseCache.tag.bySurveyId(surveyId)],
+      tags: [responseCache.tag.byformId(formId)],
       revalidate: SERVICES_REVALIDATION_INTERVAL,
     }
   )();
@@ -540,7 +540,7 @@ export const updateResponse = async (
     responseCache.revalidate({
       id: response.id,
       personId: response.person?.id,
-      surveyId: response.surveyId,
+      formId: response.formId,
     });
 
     responseNoteCache.revalidate({
@@ -575,12 +575,12 @@ export const deleteResponse = async (responseId: string): Promise<TResponse> => 
       tags: responsePrisma.tags.map((tagPrisma: { tag: TTag }) => tagPrisma.tag),
     };
 
-    deleteDisplayByResponseId(responseId, response.surveyId);
+    deleteDisplayByResponseId(responseId, response.formId);
 
     responseCache.revalidate({
       id: response.id,
       personId: response.person?.id,
-      surveyId: response.surveyId,
+      formId: response.formId,
     });
 
     responseNoteCache.revalidate({
@@ -597,15 +597,15 @@ export const deleteResponse = async (responseId: string): Promise<TResponse> => 
   }
 };
 
-export const getResponseCountBySurveyId = async (surveyId: string): Promise<number> =>
+export const getResponseCountByformId = async (formId: string): Promise<number> =>
   unstable_cache(
     async () => {
-      validateInputs([surveyId, ZId]);
+      validateInputs([formId, ZId]);
 
       try {
         const responseCount = await prisma.response.count({
           where: {
-            surveyId: surveyId,
+            formId: formId,
           },
         });
         return responseCount;
@@ -613,9 +613,9 @@ export const getResponseCountBySurveyId = async (surveyId: string): Promise<numb
         throw error;
       }
     },
-    [`getResponseCountBySurveyId-${surveyId}`],
+    [`getResponseCountByformId-${formId}`],
     {
-      tags: [responseCache.tag.bySurveyId(surveyId)],
+      tags: [responseCache.tag.byformId(formId)],
       revalidate: SERVICES_REVALIDATION_INTERVAL,
     }
   )();

@@ -2,20 +2,20 @@ import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProfile } from "@fastform/types/profile";
 import { TResponse } from "@fastform/types/responses";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { TTag } from "@fastform/types/tags";
 import SingleResponseCard from "@fastform/ui/SingleResponseCard";
 
 export default async function ResponseFeed({
   responses,
   environment,
-  surveys,
+  forms,
   profile,
   environmentTags,
 }: {
   responses: TResponse[];
   environment: TEnvironment;
-  surveys: TSurvey[];
+  forms: Tform[];
   profile: TProfile;
   environmentTags: TTag[];
 }) {
@@ -25,8 +25,8 @@ export default async function ResponseFeed({
         <EmptySpaceFiller type="response" environment={environment} />
       ) : (
         responses.map((response, idx) => {
-          const form = surveys.find((form) => {
-            return form.id === response.surveyId;
+          const form = forms.find((form) => {
+            return form.id === response.formId;
           });
           return (
             <div key={idx}>

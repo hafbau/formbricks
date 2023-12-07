@@ -1,7 +1,7 @@
 import { sendEmail } from "@/app/lib/email";
 import { withEmailTemplate } from "@/app/lib/email-template";
 import { WEBAPP_URL } from "@fastform/lib/constants";
-import { Insights, NotificationResponse, Form, SurveyResponse } from "./types";
+import { Insights, NotificationResponse, Form, formResponse } from "./types";
 
 const getEmailSubject = (productName: string) => {
   return `${productName} User Insights - Last Week by Fastform`;
@@ -46,8 +46,8 @@ const notificationInsight = (insights: Insights) =>
     <table style="background-color: #f1f5f9; border-radius:1em; margin-top:1em; margin-bottom:1em;">
         <tr>
           <td style="text-align:center;">
-            <p style="font-size:0.9em">Surveys</p>
-            <h1>${insights.numLiveSurvey}</h1>
+            <p style="font-size:0.9em">forms</p>
+            <h1>${insights.numLiveform}</h1>
           </td>
           <td style="text-align:center;">
             <p style="font-size:0.9em">Displays</p>
@@ -74,7 +74,7 @@ const notificationInsight = (insights: Insights) =>
   </div>
 `;
 
-function convertSurveyStatus(status) {
+function convertformStatus(status) {
   const statusMap = {
     inProgress: "Live",
     paused: "Paused",
@@ -91,18 +91,18 @@ const getButtonLabel = (count) => {
   return `View ${count > 2 ? count - 1 : "1"} more Response${count > 2 ? "s" : ""}`;
 };
 
-const notificationLiveSurveys = (surveys: Form[], environmentId: string) => {
-  if (!surveys.length) return ` `;
+const notificationLiveforms = (forms: Form[], environmentId: string) => {
+  if (!forms.length) return ` `;
 
-  return surveys
+  return forms
     .map((form) => {
-      const displayStatus = convertSurveyStatus(form.status);
+      const displayStatus = convertformStatus(form.status);
       const isLive = displayStatus === "Live";
       const noResponseLastWeek = isLive && form.responses.length === 0;
 
       return `
         <div style="display: block; margin-top:3em;">
-          <a href="${WEBAPP_URL}/environments/${environmentId}/surveys/${
+          <a href="${WEBAPP_URL}/environments/${environmentId}/forms/${
         form.id
       }/responses?utm_source=weekly&utm_medium=email&utm_content=ViewResponsesCTA" style="color:#1e293b;">
             <h2 style="text-decoration: underline; display:inline;">${form.name}</h2>
@@ -115,11 +115,11 @@ const notificationLiveSurveys = (surveys: Form[], environmentId: string) => {
           ${
             noResponseLastWeek
               ? "<p>No new response received this week 🕵️</p>"
-              : createSurveyFields(form.responses)
+              : createformFields(form.responses)
           }
           ${
             form.responseCount >= 0
-              ? `<a class="button" href="${WEBAPP_URL}/environments/${environmentId}/surveys/${
+              ? `<a class="button" href="${WEBAPP_URL}/environments/${environmentId}/forms/${
                   form.id
                 }/responses?utm_source=weekly&utm_medium=email&utm_content=ViewResponsesCTA">
                 ${noResponseLastWeek ? "View previous responses" : getButtonLabel(form.responseCount)}
@@ -131,17 +131,17 @@ const notificationLiveSurveys = (surveys: Form[], environmentId: string) => {
     .join("");
 };
 
-const createSurveyFields = (surveyResponses: SurveyResponse[]) => {
-  let surveyFields = "";
-  const responseCount = surveyResponses.length;
+const createformFields = (formResponses: formResponse[]) => {
+  let formFields = "";
+  const responseCount = formResponses.length;
 
-  surveyResponses.forEach((response, index) => {
+  formResponses.forEach((response, index) => {
     if (!response) {
       return;
     }
 
     for (const [headline, answer] of Object.entries(response)) {
-      surveyFields += `
+      formFields += `
         <div style="margin-top:1em;">
           <p style="margin:0px;">${headline}</p>
           <p style="font-weight: bold; margin:0px;">${answer}</p>  
@@ -151,11 +151,11 @@ const createSurveyFields = (surveyResponses: SurveyResponse[]) => {
 
     // Add <hr/> only when there are 2 or more responses to display, and it's not the last response
     if (responseCount >= 2 && index < responseCount - 1) {
-      surveyFields += "<hr/>";
+      formFields += "<hr/>";
     }
   });
 
-  return surveyFields;
+  return formFields;
 };
 
 const notificationFooter = () => {
@@ -168,11 +168,11 @@ const notificationFooter = () => {
 
 const createReminderNotificationBody = (notificationData: NotificationResponse, webUrl) => {
   return `
-    <p>We’d love to send you a Weekly Summary, but currently there are no surveys running for ${notificationData.productName}.</p>
+    <p>We’d love to send you a Weekly Summary, but currently there are no forms running for ${notificationData.productName}.</p>
 
     <p style="font-weight: bold; padding-top:1em;">Don’t let a week pass without learning about your users:</p>
 
-    <a class="button" href="${webUrl}/environments/${notificationData.environmentId}/surveys?utm_source=weekly&utm_medium=email&utm_content=SetupANewSurveyCTA">Setup a new form</a>
+    <a class="button" href="${webUrl}/environments/${notificationData.environmentId}/forms?utm_source=weekly&utm_medium=email&utm_content=SetupANewformCTA">Setup a new form</a>
     
     <br/>
     <p style="padding-top:1em;">Need help finding the right form for your product? Pick a 15-minute slot <a href="https://cal.com/johannes/15">in our CEOs calendar</a> or reply to this email :)</p>
@@ -205,13 +205,13 @@ export const sendWeeklySummaryNotificationEmail = async (
     html: withEmailTemplate(`
         ${notificationHeader(notificationData.productName, startDate, endDate, startYear, endYear)}
         ${notificationInsight(notificationData.insights)}
-        ${notificationLiveSurveys(notificationData.surveys, notificationData.environmentId)}
+        ${notificationLiveforms(notificationData.forms, notificationData.environmentId)}
         ${notificationFooter()}
       `),
   });
 };
 
-export const sendNoLiveSurveyNotificationEmail = async (
+export const sendNoLiveformNotificationEmail = async (
   email: string,
   notificationData: NotificationResponse
 ) => {

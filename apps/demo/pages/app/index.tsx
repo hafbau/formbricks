@@ -50,7 +50,7 @@ export default function AppPage({}) {
             Fastform In-product Form Demo App
           </h1>
           <p className="text-slate-700 dark:text-slate-300">
-            This app helps you test your in-app surveys. You can create and test user actions, create and
+            This app helps you test your in-app forms. You can create and test user actions, create and
             update user attributes, etc.
           </p>
         </div>
@@ -102,7 +102,7 @@ export default function AppPage({}) {
             </h3>
             <p className="text-slate-700 dark:text-gray-300">
               On fastform.reset() a few things happen: <strong>New person is created</strong> and{" "}
-              <strong>surveys & no-code actions are pulled from Fastform:</strong>.
+              <strong>forms & no-code actions are pulled from Fastform:</strong>.
             </p>
             <button
               className="my-4 rounded-lg bg-slate-500 px-6 py-3 text-white hover:bg-slate-700 dark:bg-gray-700 dark:hover:bg-gray-600"

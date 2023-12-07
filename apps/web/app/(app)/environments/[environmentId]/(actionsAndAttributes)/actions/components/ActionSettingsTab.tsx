@@ -217,7 +217,7 @@ export default function ActionSettingsTab({
         setOpen={setOpenDeleteDialog}
         isDeleting={isDeletingAction}
         deleteWhat={"Action"}
-        text="Are you sure you want to delete this action? This also removes this action as a trigger from all your surveys."
+        text="Are you sure you want to delete this action? This also removes this action as a trigger from all your forms."
         onDelete={handleDeleteAction}
       />
     </div>

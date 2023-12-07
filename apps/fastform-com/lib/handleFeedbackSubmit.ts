@@ -8,7 +8,7 @@ export const handleFeedbackSubmit = async (YesNo: string, pageUrl: string | null
 
   const payload = {
     response: response_data,
-    surveyId: process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_SURVEY_ID,
+    formId: process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID,
   };
 
   try {

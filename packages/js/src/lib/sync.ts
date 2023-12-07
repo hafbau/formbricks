@@ -80,7 +80,7 @@ export const sync = async (params: TJsSyncParams): Promise<void> => {
     }
 
     let state: TJsState = {
-      surveys: syncResult.value.surveys,
+      forms: syncResult.value.forms,
       noCodeActionClasses: syncResult.value.noCodeActionClasses,
       product: syncResult.value.product,
       attributes: oldState?.attributes || {},
@@ -88,18 +88,18 @@ export const sync = async (params: TJsSyncParams): Promise<void> => {
 
     if (!params.userId) {
       // unidentified user
-      // set the displays and filter out surveys
+      // set the displays and filter out forms
       state = {
         ...state,
         displays: oldState?.displays || [],
       };
-      state = filterPublicSurveys(state);
+      state = filterPublicforms(state);
 
-      const surveyNames = state.surveys.map((s) => s.name);
-      logger.debug("Fetched " + surveyNames.length + " surveys during sync: " + surveyNames.join(", "));
+      const formNames = state.forms.map((s) => s.name);
+      logger.debug("Fetched " + formNames.length + " forms during sync: " + formNames.join(", "));
     } else {
-      const surveyNames = state.surveys.map((s) => s.name);
-      logger.debug("Fetched " + surveyNames.length + " surveys during sync: " + surveyNames.join(", "));
+      const formNames = state.forms.map((s) => s.name);
+      logger.debug("Fetched " + formNames.length + " forms during sync: " + formNames.join(", "));
     }
 
     config.update({
@@ -109,30 +109,30 @@ export const sync = async (params: TJsSyncParams): Promise<void> => {
       state,
     });
 
-    // before finding the surveys, check for public use
+    // before finding the forms, check for public use
   } catch (error) {
     logger.error(`Error during sync: ${error}`);
     throw error;
   }
 };
 
-export const filterPublicSurveys = (state: TJsState): TJsState => {
+export const filterPublicforms = (state: TJsState): TJsState => {
   const { displays, product } = state;
 
-  let { surveys } = state;
+  let { forms } = state;
 
   if (!displays) {
     return state;
   }
 
-  // filter surveys that meet the displayOption criteria
-  let filteredSurveys = surveys.filter((form) => {
+  // filter forms that meet the displayOption criteria
+  let filteredforms = forms.filter((form) => {
     if (form.displayOption === "respondMultiple") {
       return true;
     } else if (form.displayOption === "displayOnce") {
-      return displays.filter((display) => display.surveyId === form.id).length === 0;
+      return displays.filter((display) => display.formId === form.id).length === 0;
     } else if (form.displayOption === "displayMultiple") {
-      return displays.filter((display) => display.surveyId === form.id && display.responded).length === 0;
+      return displays.filter((display) => display.formId === form.id && display.responded).length === 0;
     } else {
       throw Error("Invalid displayOption");
     }
@@ -140,16 +140,16 @@ export const filterPublicSurveys = (state: TJsState): TJsState => {
 
   const latestDisplay = displays.length > 0 ? displays[displays.length - 1] : undefined;
 
-  // filter surveys that meet the recontactDays criteria
-  filteredSurveys = filteredSurveys.filter((form) => {
+  // filter forms that meet the recontactDays criteria
+  filteredforms = filteredforms.filter((form) => {
     if (!latestDisplay) {
       return true;
     } else if (form.recontactDays !== null) {
-      const lastDisplaySurvey = displays.filter((display) => display.surveyId === form.id)[0];
-      if (!lastDisplaySurvey) {
+      const lastDisplayform = displays.filter((display) => display.formId === form.id)[0];
+      if (!lastDisplayform) {
         return true;
       }
-      return diffInDays(new Date(), new Date(lastDisplaySurvey.createdAt)) >= form.recontactDays;
+      return diffInDays(new Date(), new Date(lastDisplayform.createdAt)) >= form.recontactDays;
     } else if (product.recontactDays !== null) {
       return diffInDays(new Date(), new Date(latestDisplay.createdAt)) >= product.recontactDays;
     } else {
@@ -159,7 +159,7 @@ export const filterPublicSurveys = (state: TJsState): TJsState => {
 
   return {
     ...state,
-    surveys: filteredSurveys,
+    forms: filteredforms,
   };
 };
 

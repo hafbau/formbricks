@@ -5,7 +5,7 @@ const {
   environmentId,
   sessionId,
   expiryTime,
-  surveyId,
+  formId,
   questionOneId,
   questionTwoId,
   choiceOneId,
@@ -32,9 +32,9 @@ export const mockInitResponse = () => {
           updatedAt: "2021-03-09T15:00:00.000Z",
           attributes: {},
         },
-        surveys: [
+        forms: [
           {
-            id: surveyId,
+            id: formId,
             questions: [
               {
                 id: questionOneId,
@@ -79,7 +79,7 @@ export const mockInitResponse = () => {
         product: {
           noCodeEvents: [],
           brandColor: "#20b398",
-          linkSurveyBranding: true,
+          linkformBranding: true,
           inAppBranding: true,
           placement: "bottomRight",
           darkOverlay: false,
@@ -94,7 +94,7 @@ export const mockSetUserIdResponse = () => {
   fetchMock.mockResponseOnce(
     JSON.stringify({
       data: {
-        surveys: [],
+        forms: [],
         session: {
           id: sessionId,
           createdAt: "2021-03-09T15:00:00.000Z",
@@ -183,7 +183,7 @@ export const mockResetResponse = () => {
   fetchMock.mockResponseOnce(
     JSON.stringify({
       data: {
-        surveys: [],
+        forms: [],
         person: {
           id: newPersonUid,
           environmentId,

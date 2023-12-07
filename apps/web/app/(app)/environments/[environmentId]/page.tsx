@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function EnvironmentPage({ params }) {
-  return redirect(`/environments/${params.environmentId}/surveys`);
+  return redirect(`/environments/${params.environmentId}/forms`);
 }

@@ -36,9 +36,9 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
   const isEnterpriseEdition = await getIsEnterpriseEdition();
 
   const canRemoveLinkBranding =
-    team.billing.features.linkSurvey.status !== "inactive" || !IS_FORMBRICKS_CLOUD;
+    team.billing.features.linkform.status !== "inactive" || !IS_FORMBRICKS_CLOUD;
   const canRemoveInAppBranding =
-    team.billing.features.inAppSurvey.status !== "inactive" || isEnterpriseEdition;
+    team.billing.features.inAppform.status !== "inactive" || isEnterpriseEdition;
 
   const currentUserMembership = await getMembershipByUserIdTeamId(session?.user.id, team.id);
   const { isDeveloper, isViewer } = getAccessFlags(currentUserMembership?.role);
@@ -51,7 +51,7 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
   return (
     <div>
       <SettingsTitle title="Look & Feel" />
-      <SettingsCard title="Brand Color" description="Match the surveys with your user interface.">
+      <SettingsCard title="Brand Color" description="Match the forms with your user interface.">
         <EditBrandColor
           product={product}
           isBrandColorDisabled={isBrandColorEditDisabled}
@@ -60,7 +60,7 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
       </SettingsCard>
       <SettingsCard
         title="In-app Form Placement"
-        description="Change where surveys will be shown in your web app.">
+        description="Change where forms will be shown in your web app.">
         <EditPlacement product={product} environmentId={params.environmentId} />
       </SettingsCard>
       <SettingsCard
@@ -77,13 +77,13 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
         title="Fastform Branding"
         description="We love your support but understand if you toggle it off.">
         <EditFormbricksBranding
-          type="linkSurvey"
+          type="linkform"
           product={product}
           canRemoveBranding={canRemoveLinkBranding}
           environmentId={params.environmentId}
         />
         <EditFormbricksBranding
-          type="inAppSurvey"
+          type="inAppform"
           product={product}
           canRemoveBranding={canRemoveInAppBranding}
           environmentId={params.environmentId}

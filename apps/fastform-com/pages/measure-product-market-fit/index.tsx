@@ -85,7 +85,7 @@ export default function MeasurePMFPage() {
                 Form users in-app
               </h2>
               <p className="text-md mt-6 max-w-lg leading-7 text-slate-500 dark:text-slate-400">
-                On average, in-app surveys convert 6x better than email surveys. Get significant results even
+                On average, in-app forms convert 6x better than email forms. Get significant results even
                 from smaller user bases.
               </p>
             </div>

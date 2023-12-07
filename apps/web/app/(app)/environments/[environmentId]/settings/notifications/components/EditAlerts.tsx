@@ -38,14 +38,14 @@ export default function EditAlerts({ memberships, user, environmentId }: EditAle
             </div>
 
             {membership.team.products.some((product) =>
-              product.environments.some((environment) => environment.surveys.length > 0)
+              product.environments.some((environment) => environment.forms.length > 0)
             ) ? (
               <div className="grid-cols-8 space-y-1 p-2">
                 {membership.team.products.map((product) => (
                   <div key={product.id}>
                     {product.environments.map((environment) => (
                       <div key={environment.id}>
-                        {environment.surveys.map((form) => (
+                        {environment.forms.map((form) => (
                           <div
                             className="grid h-auto w-full cursor-pointer grid-cols-3 place-content-center rounded-lg px-2 py-2 text-left text-sm text-slate-900 hover:bg-slate-50"
                             key={form.name}>
@@ -55,7 +55,7 @@ export default function EditAlerts({ memberships, user, environmentId }: EditAle
                             </div>
                             <div className="col-span-1 text-center">
                               <NotificationSwitch
-                                surveyOrProductId={form.id}
+                                formOrProductId={form.id}
                                 notificationSettings={user.notificationSettings}
                                 notificationType={"alert"}
                               />
@@ -69,7 +69,7 @@ export default function EditAlerts({ memberships, user, environmentId }: EditAle
               </div>
             ) : (
               <div className="m-2 flex h-16 items-center justify-center rounded bg-slate-50 text-sm text-slate-500">
-                <p>No surveys found.</p>
+                <p>No forms found.</p>
               </div>
             )}
             <p className="pb-3 pl-4 text-xs text-slate-400">

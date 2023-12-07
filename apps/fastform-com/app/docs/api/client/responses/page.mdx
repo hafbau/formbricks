@@ -28,7 +28,7 @@ Add a new response to a form.
     ### Mandatory Body Fields
 
     <Properties>
-      <Property name="surveyId" type="string">
+      <Property name="formId" type="string">
         The id of the form the response belongs to.
       </Property>
       <Property name="finished" type="boolean">
@@ -54,7 +54,7 @@ Add a new response to a form.
 | ---------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
 | data       | yes      | -       | The response data object (answers to the form). In this object the key is the questionId, the value the answer of the user to this question. |
 | userId     | no       | -       | The person this response is connected to.                                                                                                      |
-| surveyId   | yes      | -       | The form this response is connected to.                                                                                                      |
+| formId   | yes      | -       | The form this response is connected to.                                                                                                      |
 | finished   | yes      | false   | Mark a response as complete to be able to filter accordingly.                                                                                  |
 
   </Col>
@@ -65,7 +65,7 @@ Add a new response to a form.
     ```bash {{ title: 'cURL' }}
     curl --location --request POST 'https://app.fastform.com/api/v1/client/<environment-id>/responses' \
     --data-raw '{
-      "surveyId":"cloqzeuu70000z8khcirufo60",
+      "formId":"cloqzeuu70000z8khcirufo60",
       "userId": "1",
       "finished": true,
       "data": {
@@ -78,7 +78,7 @@ Add a new response to a form.
     ```json {{ title: 'Example Request Body' }}
     {
       "userId": "1",
-      "surveyId": "cloqzeuu70000z8khcirufo60",
+      "formId": "cloqzeuu70000z8khcirufo60",
       "finished": true,
       "data": {
           "clfqjny0v0003yzgscnog1j9i": 10,
@@ -102,9 +102,9 @@ Add a new response to a form.
     ```json {{ title: '400 Bad Request' }}
     {
       "code": "bad_request",
-      "message": "surveyId was not provided.",
+      "message": "formId was not provided.",
       "details": {
-        "surveyId": "This field is required."
+        "formId": "This field is required."
       }
     }
     ```

@@ -10,20 +10,20 @@ export const metadata = {
 
 ## v1.1 -> v1.2
 
-Fastform v1.2 ships a lot of features targeting our Link Surveys. We have also improved our security posture to be as robust as ever. However, it also comes with a few breaking changes specifically with the environment variables. This guide will help you migrate your existing Fastform instance to v1.2 without any hassles or build errors.
+Fastform v1.2 ships a lot of features targeting our Link forms. We have also improved our security posture to be as robust as ever. However, it also comes with a few breaking changes specifically with the environment variables. This guide will help you migrate your existing Fastform instance to v1.2 without any hassles or build errors.
 
 ### New Environment Variables
 
 | Environment Variable | Required | Recommended Generation         | Comments                                                    |
 | -------------------- | -------- | ------------------------------ | ----------------------------------------------------------- |
 | ENCRYPTION_KEY       | true     | `openssl rand -hex 32`         | Needed for 2 Factor Authentication                          |
-| SHORT_URL_BASE       | false    | `<your-short-base-url>`        | Needed if you want to enable shorter links for Link Surveys |
+| SHORT_URL_BASE       | false    | `<your-short-base-url>`        | Needed if you want to enable shorter links for Link forms |
 
 ### Deprecated / Removed Environment Variables
 
 | Environment Variable | Comments                                                                  |
 | -------------------- | ------------------------------------------------------------------------- |
-| SURVEY_BASE_URL      | The WEBAPP_URL is now used to determine the form base url in all places |
+| form_BASE_URL      | The WEBAPP_URL is now used to determine the form base url in all places |
 
 ## v1.0 -> v1.1
 
@@ -47,7 +47,7 @@ This is now possible with v1.1. However, due to Next.JS best practices, we had t
 | **NEXT*PUBLIC***GOOGLE_AUTH_ENABLED         | GOOGLE_AUTH_ENABLED         |
 | **NEXT*PUBLIC***WEBAPP_URL                  | WEBAPP_URL                  |
 | **NEXT*PUBLIC***IS_FORMBRICKS_CLOUD         | IS_FORMBRICKS_CLOUD         |
-| **NEXT*PUBLIC***SURVEY_BASE_URL             | SURVEY_BASE_URL             |
+| **NEXT*PUBLIC***form_BASE_URL             | form_BASE_URL             |
 
 <Note>
   Please note that their values and the logic remains exactly the same. Only the prefix has been deprecated.
@@ -119,10 +119,10 @@ x-environment: &environment
     # Uncomment the below and set a value to have your own Privacy Page URL on the signup & login page
     # PRIVACY_URL:
 
-    # Uncomment the below and set a value to have your own Terms Page URL on the auth and the surveys page
+    # Uncomment the below and set a value to have your own Terms Page URL on the auth and the forms page
     # TERMS_URL:
 
-    # Uncomment the below and set a value to have your own Imprint Page URL on the auth and the surveys page
+    # Uncomment the below and set a value to have your own Imprint Page URL on the auth and the forms page
     # IMPRINT_URL:
 
     # Uncomment the below and set to 1 if you want to enable GitHub OAuth

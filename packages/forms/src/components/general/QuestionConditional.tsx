@@ -9,10 +9,10 @@ import PictureSelectionQuestion from "@/components/questions/PictureSelectionQue
 import RatingQuestion from "@/components/questions/RatingQuestion";
 import { TResponseData, TResponseTtc } from "@fastform/types/responses";
 import { TUploadFileConfig } from "@fastform/types/storage";
-import { TSurveyQuestion, TSurveyQuestionType } from "@fastform/types/surveys";
+import { TformQuestion, TformQuestionType } from "@fastform/types/forms";
 
 interface QuestionConditionalProps {
-  question: TSurveyQuestion;
+  question: TformQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;
@@ -23,7 +23,7 @@ interface QuestionConditionalProps {
   autoFocus?: boolean;
   ttc: TResponseTtc;
   setTtc: (ttc: TResponseTtc) => void;
-  surveyId: string;
+  formId: string;
 }
 
 export default function QuestionConditional({
@@ -37,10 +37,10 @@ export default function QuestionConditional({
   autoFocus = true,
   ttc,
   setTtc,
-  surveyId,
+  formId,
   onFileUpload,
 }: QuestionConditionalProps) {
-  return question.type === TSurveyQuestionType.OpenText ? (
+  return question.type === TformQuestionType.OpenText ? (
     <OpenTextQuestion
       question={question}
       value={value}
@@ -53,7 +53,7 @@ export default function QuestionConditional({
       ttc={ttc}
       setTtc={setTtc}
     />
-  ) : question.type === TSurveyQuestionType.MultipleChoiceSingle ? (
+  ) : question.type === TformQuestionType.MultipleChoiceSingle ? (
     <MultipleChoiceSingleQuestion
       question={question}
       value={value}
@@ -65,7 +65,7 @@ export default function QuestionConditional({
       ttc={ttc}
       setTtc={setTtc}
     />
-  ) : question.type === TSurveyQuestionType.MultipleChoiceMulti ? (
+  ) : question.type === TformQuestionType.MultipleChoiceMulti ? (
     <MultipleChoiceMultiQuestion
       question={question}
       value={value}
@@ -77,7 +77,7 @@ export default function QuestionConditional({
       ttc={ttc}
       setTtc={setTtc}
     />
-  ) : question.type === TSurveyQuestionType.NPS ? (
+  ) : question.type === TformQuestionType.NPS ? (
     <NPSQuestion
       question={question}
       value={value}
@@ -89,7 +89,7 @@ export default function QuestionConditional({
       ttc={ttc}
       setTtc={setTtc}
     />
-  ) : question.type === TSurveyQuestionType.CTA ? (
+  ) : question.type === TformQuestionType.CTA ? (
     <CTAQuestion
       question={question}
       value={value}
@@ -101,7 +101,7 @@ export default function QuestionConditional({
       ttc={ttc}
       setTtc={setTtc}
     />
-  ) : question.type === TSurveyQuestionType.Rating ? (
+  ) : question.type === TformQuestionType.Rating ? (
     <RatingQuestion
       question={question}
       value={value}
@@ -113,7 +113,7 @@ export default function QuestionConditional({
       ttc={ttc}
       setTtc={setTtc}
     />
-  ) : question.type === TSurveyQuestionType.Consent ? (
+  ) : question.type === TformQuestionType.Consent ? (
     <ConsentQuestion
       question={question}
       value={value}
@@ -125,7 +125,7 @@ export default function QuestionConditional({
       ttc={ttc}
       setTtc={setTtc}
     />
-  ) : question.type === TSurveyQuestionType.PictureSelection ? (
+  ) : question.type === TformQuestionType.PictureSelection ? (
     <PictureSelectionQuestion
       question={question}
       value={value}
@@ -137,9 +137,9 @@ export default function QuestionConditional({
       ttc={ttc}
       setTtc={setTtc}
     />
-  ) : question.type === TSurveyQuestionType.FileUpload ? (
+  ) : question.type === TformQuestionType.FileUpload ? (
     <FileUploadQuestion
-      surveyId={surveyId}
+      formId={formId}
       question={question}
       value={value}
       onChange={onChange}

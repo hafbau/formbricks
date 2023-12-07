@@ -18,7 +18,7 @@ import {
 } from "@fastform/ui/DropdownMenu";
 import CreateTeamModal from "@fastform/ui/CreateTeamModal";
 import UrlShortenerModal from "./UrlShortenerModal";
-import { formbricksLogout } from "@/app/lib/fastform";
+import { fastformLogout } from "@/app/lib/fastform";
 import { capitalizeFirstLetter, truncate } from "@fastform/lib/strings";
 import fastform from "@fastform/js";
 import { cn } from "@fastform/lib/cn";
@@ -63,7 +63,7 @@ interface NavigationProps {
   team: TTeam;
   products: TProduct[];
   environments: TEnvironment[];
-  isFormbricksCloud: boolean;
+  isfastformCloud: boolean;
   webAppUrl: string;
   membershipRole?: TMembershipRole;
 }
@@ -75,7 +75,7 @@ export default function Navigation({
   session,
   products,
   environments,
-  isFormbricksCloud,
+  isfastformCloud,
   webAppUrl,
   membershipRole,
 }: NavigationProps) {
@@ -110,10 +110,10 @@ export default function Navigation({
   const navigation = useMemo(
     () => [
       {
-        name: "Surveys",
-        href: `/environments/${environment.id}/surveys`,
+        name: "forms",
+        href: `/environments/${environment.id}/forms`,
         icon: FormIcon,
-        current: pathname?.includes("/surveys"),
+        current: pathname?.includes("/forms"),
         hidden: false,
       },
       {
@@ -179,7 +179,7 @@ export default function Navigation({
           icon: CreditCardIcon,
           label: "Billing & Plan",
           href: `/environments/${environment.id}/settings/billing`,
-          hidden: !isFormbricksCloud || isPricingDisabled,
+          hidden: !isfastformCloud || isPricingDisabled,
         },
       ],
     },
@@ -239,7 +239,7 @@ export default function Navigation({
         <nav className="top-0 w-full border-b border-slate-200 bg-white">
           {environment?.type === "development" && (
             <div className="h-6 w-full bg-[#A33700] p-0.5 text-center text-sm text-white">
-              You&apos;re in development mode. Use it to test surveys, actions and attributes.
+              You&apos;re in development mode. Use it to test forms, actions and attributes.
             </div>
           )}
 
@@ -247,7 +247,7 @@ export default function Navigation({
             <div className="flex h-14 justify-between">
               <div className="flex space-x-4 py-2">
                 <Link
-                  href={`/environments/${environment.id}/surveys/`}
+                  href={`/environments/${environment.id}/forms/`}
                   className="flex items-center justify-center rounded-md bg-gradient-to-b text-white transition-all ease-in-out hover:scale-105">
                   <Image src={FaveIcon} width={30} height={30} alt="faveicon" />
                 </Link>
@@ -476,7 +476,7 @@ export default function Navigation({
                     ))}
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
-                      {isFormbricksCloud && (
+                      {isfastformCloud && (
                         <DropdownMenuItem>
                           <button
                             onClick={() => {
@@ -492,7 +492,7 @@ export default function Navigation({
                       <DropdownMenuItem
                         onClick={async () => {
                           await signOut();
-                          await formbricksLogout();
+                          await fastformLogout();
                         }}>
                         <div className="flex h-full w-full items-center">
                           <ArrowRightOnRectangleIcon className="mr-2 h-4 w-4" />

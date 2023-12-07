@@ -3,11 +3,11 @@ import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { sendToPipeline } from "@/app/lib/pipelines";
 import { capturePosthogEvent } from "@fastform/lib/posthogServer";
 import { createResponseLegacy } from "@fastform/lib/response/service";
-import { getSurvey } from "@fastform/lib/form/service";
+import { getform } from "@fastform/lib/form/service";
 import { getTeamDetails } from "@fastform/lib/teamDetail/service";
 import { InvalidInputError } from "@fastform/types/errors";
 import { TResponse, ZResponseLegacyInput } from "@fastform/types/responses";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { NextResponse } from "next/server";
 import { UAParser } from "ua-parser-js";
 
@@ -31,12 +31,12 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
   }
 
-  let form: TSurvey | null;
+  let form: Tform | null;
 
   try {
-    form = await getSurvey(responseInput.surveyId);
+    form = await getform(responseInput.formId);
     if (!form) {
-      return responses.notFoundResponse("Form", responseInput.surveyId);
+      return responses.notFoundResponse("Form", responseInput.formId);
     }
   } catch (error) {
     if (error instanceof InvalidInputError) {
@@ -83,7 +83,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   sendToPipeline({
     event: "responseCreated",
     environmentId: form.environmentId,
-    surveyId: response.surveyId,
+    formId: response.formId,
     response: response,
   });
 
@@ -91,15 +91,15 @@ export async function POST(request: Request): Promise<NextResponse> {
     sendToPipeline({
       event: "responseFinished",
       environmentId: form.environmentId,
-      surveyId: response.surveyId,
+      formId: response.formId,
       response: response,
     });
   }
 
   if (teamDetails?.teamOwnerId) {
     await capturePosthogEvent(teamDetails.teamOwnerId, "response created", teamDetails.teamId, {
-      surveyId: response.surveyId,
-      surveyType: form.type,
+      formId: response.formId,
+      formType: form.type,
     });
   } else {
     console.warn("Posthog capture not possible. No team owner found");

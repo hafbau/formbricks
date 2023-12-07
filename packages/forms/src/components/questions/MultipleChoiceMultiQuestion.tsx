@@ -5,12 +5,12 @@ import Headline from "@/components/general/Headline";
 import Subheader from "@/components/general/Subheader";
 import { cn, shuffleQuestions } from "@/lib/utils";
 import { TResponseData } from "@fastform/types/responses";
-import type { TSurveyMultipleChoiceMultiQuestion } from "@fastform/types/surveys";
+import type { TformMultipleChoiceMultiQuestion } from "@fastform/types/forms";
 import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { TResponseTtc } from "@fastform/types/responses";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 interface MultipleChoiceMultiProps {
-  question: TSurveyMultipleChoiceMultiQuestion;
+  question: TformMultipleChoiceMultiQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;

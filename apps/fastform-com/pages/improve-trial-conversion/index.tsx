@@ -25,7 +25,7 @@ export default function MissedTrialPagePage() {
           </h3>
           <p className="text-slate-600 dark:text-slate-400">
             Once a user signed up for a trial, you can pass this info as an attribute to Fastform. This allows
-            you to pre-segment your user base and only survey formin the trial stage. This granular
+            you to pre-segment your user base and only form formin the trial stage. This granular
             segmentation leads to better data and minimal form fatigue.
           </p>
           <UseCaseCTA href="/docs/best-practices/improve-trial-cr" />

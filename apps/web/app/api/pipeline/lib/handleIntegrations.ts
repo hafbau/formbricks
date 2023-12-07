@@ -1,7 +1,7 @@
 import { writeData as airtableWriteData } from "@fastform/lib/airtable/service";
 import { TIntegration } from "@fastform/types/integration";
 import { writeData } from "@fastform/lib/googleSheet/service";
-import { getSurvey } from "@fastform/lib/form/service";
+import { getform } from "@fastform/lib/form/service";
 import { TPipelineInput } from "@fastform/types/pipelines";
 import { TIntegrationGoogleSheets } from "@fastform/types/integration/googleSheet";
 import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
@@ -22,7 +22,7 @@ export async function handleIntegrations(integrations: TIntegration[], data: TPi
 async function handleAirtableIntegration(integration: TIntegrationAirtable, data: TPipelineInput) {
   if (integration.config.data.length > 0) {
     for (const element of integration.config.data) {
-      if (element.surveyId === data.surveyId) {
+      if (element.formId === data.formId) {
         const values = await extractResponses(data, element.questionIds);
 
         await airtableWriteData(integration.config.key, element, values);
@@ -34,7 +34,7 @@ async function handleAirtableIntegration(integration: TIntegrationAirtable, data
 async function handleGoogleSheetsIntegration(integration: TIntegrationGoogleSheets, data: TPipelineInput) {
   if (integration.config.data.length > 0) {
     for (const element of integration.config.data) {
-      if (element.surveyId === data.surveyId) {
+      if (element.formId === data.formId) {
         const values = await extractResponses(data, element.questionIds);
         await writeData(integration.config.key, element.spreadsheetId, values);
       }
@@ -45,7 +45,7 @@ async function handleGoogleSheetsIntegration(integration: TIntegrationGoogleShee
 async function extractResponses(data: TPipelineInput, questionIds: string[]): Promise<string[][]> {
   const responses: string[] = [];
   const questions: string[] = [];
-  const form = await getSurvey(data.surveyId);
+  const form = await getform(data.formId);
 
   for (const questionId of questionIds) {
     const responseValue = data.response.data[questionId];

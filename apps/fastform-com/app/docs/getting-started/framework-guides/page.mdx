@@ -43,11 +43,11 @@ All you need to do is copy a `<script>` tag to your HTML head, and that’s abou
 <Col>
 <CodeGroup title="HTML">
 ```html {{ title: 'index.html' }}
-<!-- START Fastform Surveys -->
+<!-- START Fastform forms -->
 <script type="text/javascript">
     !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://unpkg.com/@fastform/js@^1.2.0/dist/index.umd.js";var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e),setTimeout(function(){window.fastform.init({environmentId: "<your-environment-id>", apiHost: "<api-host>"})},500)}();
     </script>
-<!-- END Fastform Surveys -->
+<!-- END Fastform forms -->
 ```
 </CodeGroup>
 </Col>
@@ -130,7 +130,7 @@ The app initializes 'fastform' when it's loaded in a browser environment (due to
 
 <Image
   src={ReactApp}
-  alt="In app form in React app for micro surveys"
+  alt="In app form in React app for micro forms"
   quality="100"
   className="max-w-full rounded-lg sm:max-w-3xl"
 />

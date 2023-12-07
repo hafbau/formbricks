@@ -4,12 +4,12 @@ import QuestionImage from "@/components/general/QuestionImage";
 import Headline from "@/components/general/Headline";
 import HtmlBody from "@/components/general/HtmlBody";
 import { TResponseData } from "@fastform/types/responses";
-import type { TSurveyCTAQuestion } from "@fastform/types/surveys";
+import type { TformCTAQuestion } from "@fastform/types/forms";
 import { useState } from "react";
 import { TResponseTtc } from "@fastform/types/responses";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 interface CTAQuestionProps {
-  question: TSurveyCTAQuestion;
+  question: TformCTAQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;

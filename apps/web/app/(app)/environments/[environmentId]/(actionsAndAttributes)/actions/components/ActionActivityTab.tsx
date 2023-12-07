@@ -12,7 +12,7 @@ import {
   getActionCountInLastHourAction,
   getActionCountInLast24HoursAction,
   getActionCountInLast7DaysAction,
-  GetActiveInactiveSurveysAction,
+  GetActiveInactiveformsAction,
 } from "../actions";
 interface ActivityTabProps {
   actionClass: TActionClass;
@@ -25,8 +25,8 @@ export default function EventActivityTab({ actionClass, environmentId }: Activit
   const [numEventsLastHour, setNumEventsLastHour] = useState<number | undefined>();
   const [numEventsLast24Hours, setNumEventsLast24Hours] = useState<number | undefined>();
   const [numEventsLast7Days, setNumEventsLast7Days] = useState<number | undefined>();
-  const [activeSurveys, setActiveSurveys] = useState<string[] | undefined>();
-  const [inactiveSurveys, setInactiveSurveys] = useState<string[] | undefined>();
+  const [activeforms, setActiveforms] = useState<string[] | undefined>();
+  const [inactiveforms, setInactiveforms] = useState<string[] | undefined>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -41,18 +41,18 @@ export default function EventActivityTab({ actionClass, environmentId }: Activit
           numEventsLastHourData,
           numEventsLast24HoursData,
           numEventsLast7DaysData,
-          activeInactiveSurveys,
+          activeInactiveforms,
         ] = await Promise.all([
           getActionCountInLastHourAction(actionClass.id, environmentId),
           getActionCountInLast24HoursAction(actionClass.id, environmentId),
           getActionCountInLast7DaysAction(actionClass.id, environmentId),
-          GetActiveInactiveSurveysAction(actionClass.id, environmentId),
+          GetActiveInactiveformsAction(actionClass.id, environmentId),
         ]);
         setNumEventsLastHour(numEventsLastHourData);
         setNumEventsLast24Hours(numEventsLast24HoursData);
         setNumEventsLast7Days(numEventsLast7DaysData);
-        setActiveSurveys(activeInactiveSurveys.activeSurveys);
-        setInactiveSurveys(activeInactiveSurveys.inactiveSurveys);
+        setActiveforms(activeInactiveforms.activeforms);
+        setInactiveforms(activeInactiveforms.inactiveforms);
       } catch (err) {
         setError(err);
       } finally {
@@ -86,20 +86,20 @@ export default function EventActivityTab({ actionClass, environmentId }: Activit
         </div>
 
         <div>
-          <Label className="text-slate-500">Active surveys</Label>
-          {activeSurveys?.length === 0 && <p className="text-sm text-slate-900">-</p>}
-          {activeSurveys?.map((surveyName) => (
-            <p key={surveyName} className="text-sm text-slate-900">
-              {surveyName}
+          <Label className="text-slate-500">Active forms</Label>
+          {activeforms?.length === 0 && <p className="text-sm text-slate-900">-</p>}
+          {activeforms?.map((formName) => (
+            <p key={formName} className="text-sm text-slate-900">
+              {formName}
             </p>
           ))}
         </div>
         <div>
-          <Label className="text-slate-500">Inactive surveys</Label>
-          {inactiveSurveys?.length === 0 && <p className="text-sm text-slate-900">-</p>}
-          {inactiveSurveys?.map((surveyName) => (
-            <p key={surveyName} className="text-sm text-slate-900">
-              {surveyName}
+          <Label className="text-slate-500">Inactive forms</Label>
+          {inactiveforms?.length === 0 && <p className="text-sm text-slate-900">-</p>}
+          {inactiveforms?.map((formName) => (
+            <p key={formName} className="text-sm text-slate-900">
+              {formName}
             </p>
           ))}
         </div>

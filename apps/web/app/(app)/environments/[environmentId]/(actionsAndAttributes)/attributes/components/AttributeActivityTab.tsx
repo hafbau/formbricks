@@ -1,6 +1,6 @@
 "use client";
 
-import { GetActiveInactiveSurveysAction } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/actions";
+import { GetActiveInactiveformsAction } from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/actions";
 import LoadingSpinner from "@fastform/ui/LoadingSpinner";
 import { capitalizeFirstLetter } from "@fastform/lib/strings";
 import { convertDateTimeStringShort } from "@fastform/lib/time";
@@ -15,22 +15,22 @@ interface EventActivityTabProps {
 }
 
 export default function AttributeActivityTab({ attributeClass }: EventActivityTabProps) {
-  const [activeSurveys, setActiveSurveys] = useState<string[] | undefined>();
-  const [inactiveSurveys, setInactiveSurveys] = useState<string[] | undefined>();
+  const [activeforms, setActiveforms] = useState<string[] | undefined>();
+  const [inactiveforms, setInactiveforms] = useState<string[] | undefined>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     setLoading(true);
 
-    getSurveys();
+    getforms();
 
-    async function getSurveys() {
+    async function getforms() {
       try {
         setLoading(true);
-        const activeInactive = await GetActiveInactiveSurveysAction(attributeClass.id);
-        setActiveSurveys(activeInactive.activeSurveys);
-        setInactiveSurveys(activeInactive.inactiveSurveys);
+        const activeInactive = await GetActiveInactiveformsAction(attributeClass.id);
+        setActiveforms(activeInactive.activeforms);
+        setInactiveforms(activeInactive.inactiveforms);
       } catch (err) {
         setError(err);
       } finally {
@@ -46,20 +46,20 @@ export default function AttributeActivityTab({ attributeClass }: EventActivityTa
     <div className="grid grid-cols-3 pb-2">
       <div className="col-span-2 space-y-4 pr-6">
         <div>
-          <Label className="text-slate-500">Active surveys</Label>
-          {activeSurveys?.length === 0 && <p className="text-sm text-slate-900">-</p>}
-          {activeSurveys?.map((surveyName) => (
-            <p key={surveyName} className="text-sm text-slate-900">
-              {surveyName}
+          <Label className="text-slate-500">Active forms</Label>
+          {activeforms?.length === 0 && <p className="text-sm text-slate-900">-</p>}
+          {activeforms?.map((formName) => (
+            <p key={formName} className="text-sm text-slate-900">
+              {formName}
             </p>
           ))}
         </div>
         <div>
-          <Label className="text-slate-500">Inactive surveys</Label>
-          {inactiveSurveys?.length === 0 && <p className="text-sm text-slate-900">-</p>}
-          {inactiveSurveys?.map((surveyName) => (
-            <p key={surveyName} className="text-sm text-slate-900">
-              {surveyName}
+          <Label className="text-slate-500">Inactive forms</Label>
+          {inactiveforms?.length === 0 && <p className="text-sm text-slate-900">-</p>}
+          {inactiveforms?.map((formName) => (
+            <p key={formName} className="text-sm text-slate-900">
+              {formName}
             </p>
           ))}
         </div>

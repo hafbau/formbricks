@@ -24,7 +24,7 @@ export const AddNoCodeEventModalDummy: React.FC<EventDetailModalProps> = ({ open
               <div>
                 <div className="text-lg font-medium text-slate-700 dark:text-slate-300">Add Action</div>
                 <div className="text-sm text-slate-500">
-                  Create a new user action to display surveys when it&apos;s triggered.
+                  Create a new user action to display forms when it&apos;s triggered.
                 </div>
               </div>
             </div>

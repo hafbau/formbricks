@@ -4,7 +4,7 @@ import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { deleteResponse, getResponse, updateResponse } from "@fastform/lib/response/service";
 import { TResponse, ZResponseUpdateInput } from "@fastform/types/responses";
 import { hasUserEnvironmentAccess } from "@fastform/lib/environment/auth";
-import { getSurvey } from "@fastform/lib/form/service";
+import { getform } from "@fastform/lib/form/service";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { handleErrorResponse } from "@/app/api/v1/auth";
 
@@ -17,7 +17,7 @@ async function fetchAndValidateResponse(authentication: any, responseId: string)
 }
 
 const canUserAccessResponse = async (authentication: any, response: TResponse): Promise<boolean> => {
-  const form = await getSurvey(response.surveyId);
+  const form = await getform(response.formId);
   if (!form) return false;
 
   if (authentication.type === "session") {

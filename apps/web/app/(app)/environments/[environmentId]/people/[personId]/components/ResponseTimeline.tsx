@@ -2,7 +2,7 @@
 
 import ResponseFeed from "@/app/(app)/environments/[environmentId]/people/[personId]/components/ResponsesFeed";
 import { TResponse } from "@fastform/types/responses";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { ArrowsUpDownIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
@@ -10,13 +10,13 @@ import { TTag } from "@fastform/types/tags";
 import { TProfile } from "@fastform/types/profile";
 
 export default function ResponseTimeline({
-  surveys,
+  forms,
   profile,
   environment,
   responses,
   environmentTags,
 }: {
-  surveys: TSurvey[];
+  forms: Tform[];
   profile: TProfile;
   responses: TResponse[];
   environment: TEnvironment;
@@ -47,7 +47,7 @@ export default function ResponseTimeline({
       <ResponseFeed
         responses={sortedResponses}
         environment={environment}
-        surveys={surveys}
+        forms={forms}
         profile={profile}
         environmentTags={environmentTags}
       />

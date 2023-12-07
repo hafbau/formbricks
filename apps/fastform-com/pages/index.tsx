@@ -27,7 +27,7 @@ const IndexPage = () => (
     <div className="hidden lg:block">
       <BreakerCTA
         teaser="READY?"
-        headline="Create surveys in minutes."
+        headline="Create forms in minutes."
         subheadline="Don’t take our word for it, try it yourself."
         cta="Create form"
         href="https://app.fastform.com/auth/signup"

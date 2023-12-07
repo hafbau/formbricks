@@ -5,7 +5,7 @@ interface RevalidateProps {
   environmentId?: string;
   personId?: string;
   singleUseId?: string;
-  surveyId?: string;
+  formId?: string;
 }
 
 export const responseCache = {
@@ -19,14 +19,14 @@ export const responseCache = {
     byPersonId(personId: string) {
       return `people-${personId}-responses`;
     },
-    bySingleUseId(surveyId: string, singleUseId: string) {
-      return `surveys-${surveyId}-singleUse-${singleUseId}-responses`;
+    bySingleUseId(formId: string, singleUseId: string) {
+      return `forms-${formId}-singleUse-${singleUseId}-responses`;
     },
-    bySurveyId(surveyId: string) {
-      return `surveys-${surveyId}-responses`;
+    byformId(formId: string) {
+      return `forms-${formId}-responses`;
     },
   },
-  revalidate({ environmentId, personId, id, singleUseId, surveyId }: RevalidateProps): void {
+  revalidate({ environmentId, personId, id, singleUseId, formId }: RevalidateProps): void {
     if (id) {
       revalidateTag(this.tag.byId(id));
     }
@@ -35,16 +35,16 @@ export const responseCache = {
       revalidateTag(this.tag.byPersonId(personId));
     }
 
-    if (surveyId) {
-      revalidateTag(this.tag.bySurveyId(surveyId));
+    if (formId) {
+      revalidateTag(this.tag.byformId(formId));
     }
 
     if (environmentId) {
       revalidateTag(this.tag.byEnvironmentId(environmentId));
     }
 
-    if (surveyId && singleUseId) {
-      revalidateTag(this.tag.bySingleUseId(surveyId, singleUseId));
+    if (formId && singleUseId) {
+      revalidateTag(this.tag.bySingleUseId(formId, singleUseId));
     }
   },
 };

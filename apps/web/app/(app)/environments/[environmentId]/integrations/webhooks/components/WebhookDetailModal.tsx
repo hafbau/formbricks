@@ -2,7 +2,7 @@ import ModalWithTabs from "@fastform/ui/ModalWithTabs";
 import { TWebhook } from "@fastform/types/webhooks";
 import WebhookOverviewTab from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookOverviewTab";
 import WebhookSettingsTab from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookSettingsTab";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { Webhook } from "lucide-react";
 
 interface WebhookModalProps {
@@ -10,14 +10,14 @@ interface WebhookModalProps {
   open: boolean;
   setOpen: (v: boolean) => void;
   webhook: TWebhook;
-  surveys: TSurvey[];
+  forms: Tform[];
 }
 
-export default function WebhookModal({ environmentId, open, setOpen, webhook, surveys }: WebhookModalProps) {
+export default function WebhookModal({ environmentId, open, setOpen, webhook, forms }: WebhookModalProps) {
   const tabs = [
     {
       title: "Overview",
-      children: <WebhookOverviewTab webhook={webhook} surveys={surveys} />,
+      children: <WebhookOverviewTab webhook={webhook} forms={forms} />,
     },
     {
       title: "Settings",
@@ -25,7 +25,7 @@ export default function WebhookModal({ environmentId, open, setOpen, webhook, su
         <WebhookSettingsTab
           environmentId={environmentId}
           webhook={webhook}
-          surveys={surveys}
+          forms={forms}
           setOpen={setOpen}
         />
       ),

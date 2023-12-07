@@ -39,8 +39,8 @@ export const getSettings = async (environmentId: string, personId: string): Prom
     throw new Error("Person not found");
   }
 
-  // get all surveys that meet the displayOption criteria
-  const potentialSurveys = await prisma.form.findMany({
+  // get all forms that meet the displayOption criteria
+  const potentialforms = await prisma.form.findMany({
     where: {
       OR: [
         {
@@ -126,8 +126,8 @@ export const getSettings = async (environmentId: string, personId: string): Prom
     },
   });
 
-  // filter surveys that meet the attributeFilters criteria
-  const potentialSurveysWithAttributes = potentialSurveys.filter((form) => {
+  // filter forms that meet the attributeFilters criteria
+  const potentialformsWithAttributes = potentialforms.filter((form) => {
     const attributeFilters = form.attributeFilters;
     if (attributeFilters.length === 0) {
       return true;
@@ -147,20 +147,20 @@ export const getSettings = async (environmentId: string, personId: string): Prom
     });
   });
 
-  // filter surveys that meet the recontactDays criteria
-  const surveys = potentialSurveysWithAttributes
+  // filter forms that meet the recontactDays criteria
+  const forms = potentialformsWithAttributes
     .filter((form) => {
       if (!lastDisplayPerson) {
         // no display yet - always display
         return true;
       } else if (form.recontactDays !== null) {
         // if recontactDays is set on form, use that
-        const lastDisplaySurvey = form.displays[0];
-        if (!lastDisplaySurvey) {
+        const lastDisplayform = form.displays[0];
+        if (!lastDisplayform) {
           // no display yet - always display
           return true;
         }
-        const lastDisplayDate = new Date(lastDisplaySurvey.createdAt);
+        const lastDisplayDate = new Date(lastDisplayform.createdAt);
         const currentDate = new Date();
         const diffTime = Math.abs(currentDate.getTime() - lastDisplayDate.getTime());
         const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
@@ -208,7 +208,7 @@ export const getSettings = async (environmentId: string, personId: string): Prom
       product: {
         select: {
           brandColor: true,
-          linkSurveyBranding: true,
+          linkformBranding: true,
           placement: true,
           darkOverlay: true,
           clickOutsideClose: true,
@@ -217,17 +217,17 @@ export const getSettings = async (environmentId: string, personId: string): Prom
     },
   });
 
-  const formbricksSignature = environmentProdut?.product.linkSurveyBranding;
+  const fastformSignature = environmentProdut?.product.linkformBranding;
   const brandColor = environmentProdut?.product.brandColor;
   const placement = environmentProdut?.product.placement;
   const darkOverlay = environmentProdut?.product.darkOverlay;
   const clickOutsideClose = environmentProdut?.product.clickOutsideClose;
 
   return {
-    surveys,
+    forms,
     noCodeEvents,
     brandColor,
-    formbricksSignature,
+    fastformSignature,
     placement,
     darkOverlay,
     clickOutsideClose,

@@ -8,15 +8,15 @@ import {
 import { getEnvironment } from "@fastform/lib/environment/service";
 import { getSpreadSheets } from "@fastform/lib/googleSheet/service";
 import { getIntegrations } from "@fastform/lib/integration/service";
-import { getSurveys } from "@fastform/lib/form/service";
+import { getforms } from "@fastform/lib/form/service";
 import { TIntegrationItem } from "@fastform/types/integration";
 import { TIntegrationGoogleSheets } from "@fastform/types/integration/googleSheet";
 import GoBackButton from "@fastform/ui/GoBackButton";
 
 export default async function GoogleSheet({ params }) {
   const enabled = !!(GOOGLE_SHEETS_CLIENT_ID && GOOGLE_SHEETS_CLIENT_SECRET && GOOGLE_SHEETS_REDIRECT_URL);
-  const [surveys, integrations, environment] = await Promise.all([
-    getSurveys(params.environmentId),
+  const [forms, integrations, environment] = await Promise.all([
+    getforms(params.environmentId),
     getIntegrations(params.environmentId),
     getEnvironment(params.environmentId),
   ]);
@@ -38,7 +38,7 @@ export default async function GoogleSheet({ params }) {
         <GoogleSheetWrapper
           enabled={enabled}
           environment={environment}
-          surveys={surveys}
+          forms={forms}
           spreadSheetArray={spreadSheetArray}
           googleSheetIntegration={googleSheetIntegration}
           webAppUrl={WEBAPP_URL}

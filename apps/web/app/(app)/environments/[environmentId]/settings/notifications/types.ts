@@ -9,7 +9,7 @@ export interface Membership {
       name: string;
       environments: {
         id: string;
-        surveys: {
+        forms: {
           id: string;
           name: string;
         }[];

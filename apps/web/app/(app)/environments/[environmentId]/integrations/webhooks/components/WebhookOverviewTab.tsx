@@ -1,20 +1,20 @@
 import { Label } from "@fastform/ui/Label";
 import { convertDateTimeStringShort } from "@fastform/lib/time";
 import { TWebhook } from "@fastform/types/webhooks";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { capitalizeFirstLetter } from "@fastform/lib/strings";
 
 interface ActivityTabProps {
   webhook: TWebhook;
-  surveys: TSurvey[];
+  forms: Tform[];
 }
 
-const getSurveyNamesForWebhook = (webhook: TWebhook, allSurveys: TSurvey[]): string[] => {
-  if (webhook.surveyIds.length === 0) {
-    return allSurveys.map((form) => form.name);
+const getformNamesForWebhook = (webhook: TWebhook, allforms: Tform[]): string[] => {
+  if (webhook.formIds.length === 0) {
+    return allforms.map((form) => form.name);
   } else {
-    return webhook.surveyIds.map((surveyId) => {
-      const form = allSurveys.find((form) => form.id === surveyId);
+    return webhook.formIds.map((formId) => {
+      const form = allforms.find((form) => form.id === formId);
       return form ? form.name : "";
     });
   }
@@ -33,7 +33,7 @@ const convertTriggerIdToName = (triggerId: string): string => {
   }
 };
 
-export default function WebhookOverviewTab({ webhook, surveys }: ActivityTabProps) {
+export default function WebhookOverviewTab({ webhook, forms }: ActivityTabProps) {
   return (
     <div className="grid grid-cols-3 pb-2">
       <div className="col-span-2 space-y-4 pr-6">
@@ -55,11 +55,11 @@ export default function WebhookOverviewTab({ webhook, surveys }: ActivityTabProp
         </div>
 
         <div>
-          <Label className="text-slate-500">Surveys</Label>
+          <Label className="text-slate-500">forms</Label>
 
-          {getSurveyNamesForWebhook(webhook, surveys).map((surveyName, index) => (
+          {getformNamesForWebhook(webhook, forms).map((formName, index) => (
             <p key={index} className="text-sm text-slate-900">
-              {surveyName}
+              {formName}
             </p>
           ))}
         </div>

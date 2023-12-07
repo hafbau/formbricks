@@ -27,7 +27,7 @@ This set of API can be used to
 
     ### Mandatory Request Body JSON Keys
     <Properties>
-      <Property name="surveyId" type="string">
+      <Property name="formId" type="string">
         Form ID to mark as viewed for a person
       </Property>
     </Properties>
@@ -53,7 +53,7 @@ This set of API can be used to
     'https://app.fastform.com/api/v1/client/displays' \
     -H 'Content-Type: application/json' \
     -d '{
-        "surveyId":"<form-id>",
+        "formId":"<form-id>",
         "userId":"<user-id>"
       }'
     ```
@@ -75,7 +75,7 @@ This set of API can be used to
       "code": "bad_request",
       "message": "Fields are missing or incorrectly formatted",
       "details": {
-        "surveyId": "Required"
+        "formId": "Required"
         }
     }
     ```
@@ -133,7 +133,7 @@ This set of API can be used to
       "code": "bad_request",
       "message": "Fields are missing or incorrectly formatted",
       "details": {
-        "surveyId": "Required"
+        "formId": "Required"
       }
     }
     ```

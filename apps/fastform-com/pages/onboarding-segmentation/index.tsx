@@ -24,8 +24,8 @@ export default function OnboardingSegmentationPage() {
           </h3>
           <p className="text-slate-600 dark:text-slate-400">
             Onboardings are unique to every product. Fastform does not help you build the right onboarding.
-            Currently, you can use the Fastform API to send survey data to Fastform for later usage. Down the
-            line, we might offer a simple way to add survey formons to your Onboarding.
+            Currently, you can use the Fastform API to send form data to Fastform for later usage. Down the
+            line, we might offer a simple way to add form formons to your Onboarding.
           </p>
           form
         </div>

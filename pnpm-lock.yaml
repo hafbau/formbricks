@@ -296,9 +296,9 @@ importers:
       '@fastform/lib':
         specifier: workspace:*
         version: link:../../packages/lib
-      '@fastform/surveys':
+      '@fastform/forms':
         specifier: workspace:*
-        version: link:../../packages/surveys
+        version: link:../../packages/forms
       '@fastform/types':
         specifier: workspace:*
         version: link:../../packages/types
@@ -557,9 +557,9 @@ importers:
       '@fastform/lib':
         specifier: workspace:*
         version: link:../lib
-      '@fastform/surveys':
+      '@fastform/forms':
         specifier: workspace:*
-        version: link:../surveys
+        version: link:../forms
       '@fastform/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -691,7 +691,7 @@ importers:
         specifier: ^0.2.8
         version: 0.2.8(prettier@2.8.8)
 
-  packages/surveys:
+  packages/forms:
     devDependencies:
       '@fastform/lib':
         specifier: workspace:*
@@ -784,9 +784,9 @@ importers:
       '@fastform/lib':
         specifier: workspace:*
         version: link:../lib
-      '@fastform/surveys':
+      '@fastform/forms':
         specifier: workspace:*
-        version: link:../surveys
+        version: link:../forms
       '@heroicons/react':
         specifier: ^2.0.18
         version: 2.0.18(react@18.2.0)

@@ -1,25 +1,25 @@
 import { FormbricksAPI } from "@fastform/api";
 import { TResponseUpdate } from "@fastform/types/responses";
-import SurveyState from "./surveyState";
+import formState from "./formState";
 
 interface QueueConfig {
   apiHost: string;
   environmentId: string;
   retryAttempts: number;
   onResponseSendingFailed?: (responseUpdate: TResponseUpdate) => void;
-  setSurveyState?: (state: SurveyState) => void;
+  setformState?: (state: formState) => void;
 }
 
 export class ResponseQueue {
   private queue: TResponseUpdate[] = [];
   private config: QueueConfig;
-  private surveyState: SurveyState;
+  private formState: formState;
   private isRequestInProgress = false;
   private api: FormbricksAPI;
 
-  constructor(config: QueueConfig, surveyState: SurveyState) {
+  constructor(config: QueueConfig, formState: formState) {
     this.config = config;
-    this.surveyState = surveyState;
+    this.formState = formState;
     this.api = new FormbricksAPI({
       apiHost: config.apiHost,
       environmentId: config.environmentId,
@@ -28,9 +28,9 @@ export class ResponseQueue {
 
   add(responseUpdate: TResponseUpdate) {
     // update form state
-    this.surveyState.accumulateResponse(responseUpdate);
-    if (this.config.setSurveyState) {
-      this.config.setSurveyState(this.surveyState);
+    this.formState.accumulateResponse(responseUpdate);
+    if (this.config.setformState) {
+      this.config.setformState(this.formState);
     }
     // add response to queue
     this.queue.push(responseUpdate);
@@ -60,8 +60,8 @@ export class ResponseQueue {
       // Inform the user after 2 failed attempts
       console.error("Failed to send response after 2 attempts.");
       // If the response is finished and thus fails finally, inform the user
-      if (this.surveyState.responseAcc.finished && this.config.onResponseSendingFailed) {
-        this.config.onResponseSendingFailed(this.surveyState.responseAcc);
+      if (this.formState.responseAcc.finished && this.config.onResponseSendingFailed) {
+        this.config.onResponseSendingFailed(this.formState.responseAcc);
       }
       this.queue.shift(); // remove the failed response from the queue
     }
@@ -72,24 +72,24 @@ export class ResponseQueue {
 
   async sendResponse(responseUpdate: TResponseUpdate): Promise<boolean> {
     try {
-      if (this.surveyState.responseId !== null) {
-        await this.api.client.response.update({ ...responseUpdate, responseId: this.surveyState.responseId });
+      if (this.formState.responseId !== null) {
+        await this.api.client.response.update({ ...responseUpdate, responseId: this.formState.responseId });
       } else {
         const response = await this.api.client.response.create({
           ...responseUpdate,
-          surveyId: this.surveyState.surveyId,
-          userId: this.surveyState.userId || null,
-          singleUseId: this.surveyState.singleUseId || null,
+          formId: this.formState.formId,
+          userId: this.formState.userId || null,
+          singleUseId: this.formState.singleUseId || null,
         });
         if (!response.ok) {
           throw new Error("Could not create response");
         }
-        if (this.surveyState.displayId) {
-          await this.api.client.display.update(this.surveyState.displayId, { responseId: response.data.id });
+        if (this.formState.displayId) {
+          await this.api.client.display.update(this.formState.displayId, { responseId: response.data.id });
         }
-        this.surveyState.updateResponseId(response.data.id);
-        if (this.config.setSurveyState) {
-          this.config.setSurveyState(this.surveyState);
+        this.formState.updateResponseId(response.data.id);
+        if (this.config.setformState) {
+          this.config.setformState(this.formState);
         }
       }
       return true;
@@ -99,8 +99,8 @@ export class ResponseQueue {
     }
   }
 
-  // update surveyState
-  updateSurveyState(surveyState: SurveyState) {
-    this.surveyState = surveyState;
+  // update formState
+  updateformState(formState: formState) {
+    this.formState = formState;
   }
 }

@@ -1,19 +1,19 @@
 import { capitalizeFirstLetter } from "@fastform/lib/strings";
 import { timeSinceConditionally } from "@fastform/lib/time";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { TWebhook } from "@fastform/types/webhooks";
 import { Badge } from "@fastform/ui/Badge";
 
-const renderSelectedSurveysText = (webhook: TWebhook, allSurveys: TSurvey[]) => {
-  if (webhook.surveyIds.length === 0) {
-    const allSurveyNames = allSurveys.map((form) => form.name);
-    return <p className="text-slate-400">{allSurveyNames.join(", ")}</p>;
+const renderSelectedformsText = (webhook: TWebhook, allforms: Tform[]) => {
+  if (webhook.formIds.length === 0) {
+    const allformNames = allforms.map((form) => form.name);
+    return <p className="text-slate-400">{allformNames.join(", ")}</p>;
   } else {
-    const selectedSurveyNames = webhook.surveyIds.map((surveyId) => {
-      const form = allSurveys.find((form) => form.id === surveyId);
+    const selectedformNames = webhook.formIds.map((formId) => {
+      const form = allforms.find((form) => form.id === formId);
       return form ? form.name : "";
     });
-    return <p className="text-slate-400">{selectedSurveyNames.join(", ")}</p>;
+    return <p className="text-slate-400">{selectedformNames.join(", ")}</p>;
   }
 };
 
@@ -51,7 +51,7 @@ const renderSelectedTriggersText = (webhook: TWebhook) => {
   }
 };
 
-export default function WebhookRowData({ webhook, surveys }: { webhook: TWebhook; surveys: TSurvey[] }) {
+export default function WebhookRowData({ webhook, forms }: { webhook: TWebhook; forms: Tform[] }) {
   return (
     <div className="mt-2 grid h-auto grid-cols-12 content-center rounded-lg py-2 hover:bg-slate-100">
       <div className="col-span-3 flex items-center truncate pl-6 text-sm">
@@ -72,7 +72,7 @@ export default function WebhookRowData({ webhook, surveys }: { webhook: TWebhook
         <Badge text={capitalizeFirstLetter(webhook.source) || "User"} type="gray" size="tiny" />
       </div>
       <div className="col-span-4 my-auto text-center text-sm text-slate-800">
-        {renderSelectedSurveysText(webhook, surveys)}
+        {renderSelectedformsText(webhook, forms)}
       </div>
       <div className="col-span-2 my-auto text-center text-sm text-slate-800">
         {renderSelectedTriggersText(webhook)}

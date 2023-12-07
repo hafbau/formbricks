@@ -2,7 +2,7 @@
 import Connect from "./Connect";
 import Home from "./Home";
 import { useState } from "react";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
 import { TIntegrationItem } from "@fastform/types/integration";
@@ -11,7 +11,7 @@ interface AirtableWrapperProps {
   environmentId: string;
   airtableArray: TIntegrationItem[];
   airtableIntegration?: TIntegrationAirtable;
-  surveys: TSurvey[];
+  forms: Tform[];
   environment: TEnvironment;
   enabled: boolean;
   webAppUrl: string;
@@ -21,7 +21,7 @@ export default function AirtableWrapper({
   environmentId,
   airtableArray,
   airtableIntegration,
-  surveys,
+  forms,
   environment,
   enabled,
   webAppUrl,
@@ -41,7 +41,7 @@ export default function AirtableWrapper({
       environment={environment}
       airtableIntegration={airtableIntegration}
       setIsConnected={setIsConnected}
-      surveys={surveys}
+      forms={forms}
     />
   ) : (
     <Connect enabled={enabled} environmentId={environment.id} webAppUrl={webAppUrl} />

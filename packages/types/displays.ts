@@ -5,7 +5,7 @@ export const ZDisplay = z.object({
   createdAt: z.date(),
   updatedAt: z.date(),
   personId: z.string().cuid().nullable(),
-  surveyId: z.string().cuid(),
+  formId: z.string().cuid(),
   responseId: z.string().cuid().nullable(),
   status: z.enum(["seen", "responded"]).optional(),
 });
@@ -14,7 +14,7 @@ export type TDisplay = z.infer<typeof ZDisplay>;
 
 export const ZDisplayCreateInput = z.object({
   environmentId: z.string().cuid(),
-  surveyId: z.string().cuid(),
+  formId: z.string().cuid(),
   userId: z.string().optional(),
   responseId: z.string().cuid().optional(),
 });
@@ -22,7 +22,7 @@ export const ZDisplayCreateInput = z.object({
 export type TDisplayCreateInput = z.infer<typeof ZDisplayCreateInput>;
 
 export const ZDisplayLegacyCreateInput = z.object({
-  surveyId: z.string().cuid(),
+  formId: z.string().cuid(),
   personId: z.string().cuid().optional(),
   responseId: z.string().cuid().optional(),
 });
@@ -44,8 +44,8 @@ export const ZDisplayLegacyUpdateInput = z.object({
 
 export type TDisplayLegacyUpdateInput = z.infer<typeof ZDisplayLegacyUpdateInput>;
 
-export const ZDisplaysWithSurveyName = ZDisplay.extend({
-  surveyName: z.string(),
+export const ZDisplaysWithformName = ZDisplay.extend({
+  formName: z.string(),
 });
 
-export type TDisplaysWithSurveyName = z.infer<typeof ZDisplaysWithSurveyName>;
+export type TDisplaysWithformName = z.infer<typeof ZDisplaysWithformName>;

@@ -3,8 +3,8 @@ import { prisma } from "@fastform/database";
 import { CRON_SECRET } from "@fastform/lib/constants";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
-import { sendNoLiveSurveyNotificationEmail, sendWeeklySummaryNotificationEmail } from "./email";
-import { EnvironmentData, NotificationResponse, ProductData, Form, SurveyResponse } from "./types";
+import { sendNoLiveformNotificationEmail, sendWeeklySummaryNotificationEmail } from "./email";
+import { EnvironmentData, NotificationResponse, ProductData, Form, formResponse } from "./types";
 
 const BATCH_SIZE = 10;
 
@@ -39,10 +39,10 @@ export async function POST(): Promise<NextResponse> {
 
         const notificationResponse = getNotificationResponse(product.environments[0], product.name);
 
-        if (notificationResponse.insights.numLiveSurvey === 0) {
+        if (notificationResponse.insights.numLiveform === 0) {
           for (const teamMember of teamMembersWithNotificationEnabled) {
             emailSendingPromises.push(
-              sendNoLiveSurveyNotificationEmail(teamMember.user.email, notificationResponse)
+              sendNoLiveformNotificationEmail(teamMember.user.email, notificationResponse)
             );
           }
           continue;
@@ -87,7 +87,7 @@ const getProductsByTeamId = async (teamId: string): Promise<ProductData[]> => {
         },
         select: {
           id: true,
-          surveys: {
+          forms: {
             where: {
               NOT: {
                 AND: [
@@ -167,14 +167,14 @@ const getNotificationResponse = (environment: EnvironmentData, productName: stri
     totalDisplays: 0,
     totalResponses: 0,
     completionRate: 0,
-    numLiveSurvey: 0,
+    numLiveform: 0,
   };
 
-  const surveys: Form[] = [];
+  const forms: Form[] = [];
 
-  // iterate through the surveys and calculate the overall insights
-  for (const form of environment.surveys) {
-    const surveyData: Form = {
+  // iterate through the forms and calculate the overall insights
+  for (const form of environment.forms) {
+    const formData: Form = {
       id: form.id,
       name: form.name,
       status: form.status,
@@ -184,24 +184,24 @@ const getNotificationResponse = (environment: EnvironmentData, productName: stri
     // iterate through the responses and calculate the form insights
     for (const response of form.responses) {
       // only take the first 3 responses
-      if (surveyData.responses.length >= 1) {
+      if (formData.responses.length >= 1) {
         break;
       }
-      const surveyResponse: SurveyResponse = {};
+      const formResponse: formResponse = {};
       for (const question of form.questions) {
         const headline = question.headline;
         const answer = response.data[question.id]?.toString() || null;
         if (answer === null || answer === "" || answer?.length === 0) {
           continue;
         }
-        surveyResponse[headline] = answer;
+        formResponse[headline] = answer;
       }
-      surveyData.responses.push(surveyResponse);
+      formData.responses.push(formResponse);
     }
-    surveys.push(surveyData);
+    forms.push(formData);
     // calculate the overall insights
     if (form.status == "inProgress") {
-      insights.numLiveSurvey += 1;
+      insights.numLiveform += 1;
     }
     insights.totalCompletedResponses += form.responses.filter((r) => r.finished).length;
     insights.totalDisplays += form.displays.length;
@@ -216,7 +216,7 @@ const getNotificationResponse = (environment: EnvironmentData, productName: stri
     currentDate: new Date(),
     lastWeekDate,
     productName: productName,
-    surveys,
+    forms,
     insights,
   };
 };

@@ -1,6 +1,6 @@
 interface UploadFileConfig {
   allowedFileExtensions?: string[];
-  surveyId?: string;
+  formId?: string;
 }
 
 export class StorageAPI {
@@ -14,7 +14,7 @@ export class StorageAPI {
 
   async uploadFile(
     file: File,
-    { allowedFileExtensions, surveyId }: UploadFileConfig | undefined = {}
+    { allowedFileExtensions, formId }: UploadFileConfig | undefined = {}
   ): Promise<string> {
     if (!(file instanceof Blob) || !(file instanceof File)) {
       throw new Error(`Invalid file type. Expected Blob or File, but received ${typeof file}`);
@@ -24,7 +24,7 @@ export class StorageAPI {
       fileName: file.name,
       fileType: file.type,
       allowedFileExtensions,
-      surveyId,
+      formId,
     };
 
     const response = await fetch(`${this.apiHost}/api/v1/client/${this.environmentId}/storage`, {
@@ -52,7 +52,7 @@ export class StorageAPI {
       requestHeaders = {
         "X-File-Type": file.type,
         "X-File-Name": encodeURIComponent(file.name),
-        "X-Form-ID": surveyId ?? "",
+        "X-Form-ID": formId ?? "",
         "X-Signature": signature,
         "X-Timestamp": String(timestamp),
         "X-UUID": uuid,

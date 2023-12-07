@@ -5,17 +5,17 @@ import { env } from "./env.mjs";
 export function createToken(userId: string, userEmail: string, options = {}): string {
   return jwt.sign({ id: userId }, env.NEXTAUTH_SECRET + userEmail, options);
 }
-export function createTokenForLinkSurvey(surveyId: string, userEmail: string): string {
-  return jwt.sign({ email: userEmail }, env.NEXTAUTH_SECRET + surveyId);
+export function createTokenForLinkform(formId: string, userEmail: string): string {
+  return jwt.sign({ email: userEmail }, env.NEXTAUTH_SECRET + formId);
 }
 
 export const createInviteToken = (inviteId: string, email: string, options = {}): string => {
   return jwt.sign({ inviteId, email }, env.NEXTAUTH_SECRET, options);
 };
 
-export function verifyTokenForLinkSurvey(token: string, surveyId: string): Promise<boolean> {
+export function verifyTokenForLinkform(token: string, formId: string): Promise<boolean> {
   return new Promise((resolve) => {
-    jwt.verify(token, env.NEXTAUTH_SECRET + surveyId, function (err) {
+    jwt.verify(token, env.NEXTAUTH_SECRET + formId, function (err) {
       if (err) {
         resolve(false);
       } else {

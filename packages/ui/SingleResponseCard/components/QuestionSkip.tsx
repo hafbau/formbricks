@@ -1,11 +1,11 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../../Tooltip";
 import { ChevronDoubleDownIcon, XCircleIcon, CheckCircleIcon } from "@heroicons/react/20/solid";
-import { TSurveyQuestion } from "@fastform/types/surveys";
+import { TformQuestion } from "@fastform/types/forms";
 
 interface QuestionSkipProps {
   skippedQuestions: string[] | undefined;
   status: string;
-  questions: TSurveyQuestion[];
+  questions: TformQuestion[];
   isFirstQuestionAnswered?: boolean;
 }
 

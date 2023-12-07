@@ -1,11 +1,11 @@
 "use client";
 
 import { timeSince } from "@fastform/lib/time";
-import { TSurveyQuestionType } from "@fastform/types/surveys";
+import { TformQuestionType } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProfile } from "@fastform/types/profile";
 import { TResponse } from "@fastform/types/responses";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { TTag } from "@fastform/types/tags";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
@@ -17,7 +17,7 @@ import toast from "react-hot-toast";
 import { PersonAvatar } from "../Avatars";
 import { DeleteDialog } from "../DeleteDialog";
 import { RatingResponse } from "../RatingResponse";
-import { SurveyStatusIndicator } from "../SurveyStatusIndicator";
+import { formStatusIndicator } from "../formStatusIndicator";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../Tooltip";
 import { deleteResponseAction } from "./actions";
 import QuestionSkip from "./components/QuestionSkip";
@@ -31,7 +31,7 @@ import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { LoadingWrapper } from "../LoadingWrapper";
 
 export interface SingleResponseCardProps {
-  form: TSurvey;
+  form: Tform;
   response: TResponse;
   profile: TProfile;
   pageType: string;
@@ -242,11 +242,11 @@ export default function SingleResponseCard({
             {pageType === "people" && (
               <div className="flex items-center justify-center space-x-2 rounded-full bg-slate-100 p-1 px-2 text-sm text-slate-600">
                 {(form.type === "link" || environment.widgetSetupCompleted) && (
-                  <SurveyStatusIndicator status={form.status} />
+                  <formStatusIndicator status={form.status} />
                 )}
                 <Link
                   className="hover:underline"
-                  href={`/environments/${environmentId}/surveys/${form.id}/summary`}>
+                  href={`/environments/${environmentId}/forms/${form.id}/summary`}>
                   {form.name}
                 </Link>
               </div>
@@ -313,7 +313,7 @@ export default function SingleResponseCard({
                     />
                   )}
                   {typeof response.data[question.id] !== "object" ? (
-                    question.type === TSurveyQuestionType.Rating ? (
+                    question.type === TformQuestionType.Rating ? (
                       <div>
                         <RatingResponse
                           scale={question.scale}
@@ -326,12 +326,12 @@ export default function SingleResponseCard({
                         {response.data[question.id]}
                       </p>
                     )
-                  ) : question.type === TSurveyQuestionType.PictureSelection ? (
+                  ) : question.type === TformQuestionType.PictureSelection ? (
                     <PictureSelectionResponse
                       choices={question.choices}
                       selected={response.data[question.id]}
                     />
-                  ) : question.type === TSurveyQuestionType.FileUpload ? (
+                  ) : question.type === TformQuestionType.FileUpload ? (
                     <FileUploadResponse selected={response.data[question.id]} />
                   ) : (
                     <p className="ph-no-capture my-1 font-semibold text-slate-700">

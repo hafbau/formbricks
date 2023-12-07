@@ -3,7 +3,7 @@ import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { getActionClasses } from "@fastform/lib/actionClass/service";
 import { getEnvironment, updateEnvironment } from "@fastform/lib/environment/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
-import { getSurveys } from "@fastform/lib/form/service";
+import { getforms } from "@fastform/lib/form/service";
 import { TJsStateSync, ZJsPublicSyncInput } from "@fastform/types/js";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -41,8 +41,8 @@ export async function GET(
       await updateEnvironment(environment.id, { widgetSetupCompleted: true });
     }
 
-    const [surveys, noCodeActionClasses, product] = await Promise.all([
-      getSurveys(environmentId),
+    const [forms, noCodeActionClasses, product] = await Promise.all([
+      getforms(environmentId),
       getActionClasses(environmentId),
       getProductByEnvironmentId(environmentId),
     ]);
@@ -51,7 +51,7 @@ export async function GET(
     }
 
     const state: TJsStateSync = {
-      surveys: surveys.filter((form) => form.status === "inProgress" && form.type === "web"),
+      forms: forms.filter((form) => form.status === "inProgress" && form.type === "web"),
       noCodeActionClasses: noCodeActionClasses.filter((actionClass) => actionClass.type === "noCode"),
       product,
       person: null,

@@ -60,7 +60,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         id: true,
         createdAt: true,
         updatedAt: true,
-        surveyId: true,
+        formId: true,
         finished: true,
         data: true,
         ttc: true,
@@ -121,7 +121,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     // update response cache
     responseCache.revalidate({
       id: responseId,
-      surveyId: responsePrisma.surveyId,
+      formId: responsePrisma.formId,
       environmentId,
     });
 
@@ -141,7 +141,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       body: JSON.stringify({
         internalSecret: INTERNAL_SECRET,
         environmentId,
-        surveyId: responseData.surveyId,
+        formId: responseData.formId,
         event: "responseUpdated",
         response: responseData,
       } as TPipelineInput),
@@ -152,7 +152,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       // don't await to not block the response
       sendToPipeline({
         environmentId,
-        surveyId: responseData.surveyId,
+        formId: responseData.formId,
         event: "responseFinished",
         response: responseData,
       });

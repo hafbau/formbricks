@@ -7,7 +7,7 @@ import {
   TIntegrationGoogleSheets,
   TIntegrationGoogleSheetsConfigData,
 } from "@fastform/types/integration/googleSheet";
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { useState } from "react";
 import AddIntegrationModal from "./AddIntegrationModal";
 import Connect from "./Connect";
@@ -16,7 +16,7 @@ import Home from "./Home";
 interface GoogleSheetWrapperProps {
   enabled: boolean;
   environment: TEnvironment;
-  surveys: TSurvey[];
+  forms: Tform[];
   spreadSheetArray: TIntegrationItem[];
   googleSheetIntegration?: TIntegrationGoogleSheets;
   webAppUrl: string;
@@ -25,7 +25,7 @@ interface GoogleSheetWrapperProps {
 export default function GoogleSheetWrapper({
   enabled,
   environment,
-  surveys,
+  forms,
   spreadSheetArray,
   googleSheetIntegration,
   webAppUrl,
@@ -50,7 +50,7 @@ export default function GoogleSheetWrapper({
         <>
           <AddIntegrationModal
             environmentId={environment.id}
-            surveys={surveys}
+            forms={forms}
             open={isModalOpen}
             setOpen={setModalOpen}
             spreadsheets={spreadsheets}

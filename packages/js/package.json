@@ -2,10 +2,10 @@
   "name": "@fastform/js",
   "license": "MIT",
   "version": "1.2.6",
-  "description": "Fastform-js allows you to connect your app to Fastform, display surveys and trigger events.",
+  "description": "Fastform-js allows you to connect your app to Fastform, display forms and trigger events.",
   "keywords": [
     "Fastform",
-    "surveys",
+    "forms",
     "experience management"
   ],
   "sideEffects": false,
@@ -39,7 +39,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "@fastform/api": "workspace:*",
     "@fastform/lib": "workspace:*",
-    "@fastform/surveys": "workspace:*",
+    "@fastform/forms": "workspace:*",
     "@fastform/tsconfig": "workspace:*",
     "@fastform/types": "workspace:*",
     "@types/jest": "^29.5.10",

@@ -4,15 +4,15 @@ import WebhookRowData from "@/app/(app)/environments/[environmentId]/integration
 import WebhookTable from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookTable";
 import WebhookTableHeading from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookTableHeading";
 import GoBackButton from "@fastform/ui/GoBackButton";
-import { getSurveys } from "@fastform/lib/form/service";
+import { getforms } from "@fastform/lib/form/service";
 import { getWebhooks } from "@fastform/lib/webhook/service";
 import { REVALIDATION_INTERVAL } from "@fastform/lib/constants";
 import { getEnvironment } from "@fastform/lib/environment/service";
 
 export default async function CustomWebhookPage({ params }) {
-  const [webhooksUnsorted, surveys, environment] = await Promise.all([
+  const [webhooksUnsorted, forms, environment] = await Promise.all([
     getWebhooks(params.environmentId),
-    getSurveys(params.environmentId),
+    getforms(params.environmentId),
     getEnvironment(params.environmentId),
   ]);
   if (!environment) {
@@ -26,10 +26,10 @@ export default async function CustomWebhookPage({ params }) {
   return (
     <>
       <GoBackButton />
-      <WebhookTable environment={environment} webhooks={webhooks} surveys={surveys}>
+      <WebhookTable environment={environment} webhooks={webhooks} forms={forms}>
         <WebhookTableHeading />
         {webhooks.map((webhook) => (
-          <WebhookRowData key={webhook.id} webhook={webhook} surveys={surveys} />
+          <WebhookRowData key={webhook.id} webhook={webhook} forms={forms} />
         ))}
       </WebhookTable>
     </>

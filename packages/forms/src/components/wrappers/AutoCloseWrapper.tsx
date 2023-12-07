@@ -1,9 +1,9 @@
-import { TSurvey } from "@fastform/types/surveys";
+import { Tform } from "@fastform/types/forms";
 import { useEffect, useRef, useState } from "preact/hooks";
 import Progress from "../general/Progress";
 
 interface AutoCloseProps {
-  form: TSurvey;
+  form: Tform;
   onClose: () => void;
   children: any;
 }

@@ -50,7 +50,7 @@ const DeleteProductRender: React.FC<DeleteProductRenderProps> = ({
         <div>
           <p className="text-sm text-slate-900">
             Delete {truncate(product.name, 30)}
-            &nbsp;incl. all surveys, responses, people, actions and attributes.{" "}
+            &nbsp;incl. all forms, responses, people, actions and attributes.{" "}
             <strong>This action cannot be undone.</strong>
           </p>
           <Button

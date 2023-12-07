@@ -6,7 +6,7 @@ import { TUploadFileConfig } from "@fastform/types/storage";
 
 interface MultipleFileInputProps {
   allowedFileExtensions?: TAllowedFileExtension[];
-  surveyId: string | undefined;
+  formId: string | undefined;
   onUploadCallback: (uploadedUrls: string[]) => void;
   onFileUpload: (file: File, config?: TUploadFileConfig) => Promise<string>;
   fileUrls: string[] | undefined;
@@ -16,7 +16,7 @@ interface MultipleFileInputProps {
 
 export default function FileInput({
   allowedFileExtensions,
-  surveyId,
+  formId,
   onUploadCallback,
   onFileUpload,
   fileUrls,
@@ -38,7 +38,7 @@ export default function FileInput({
         } else {
           setIsUploading(true);
           try {
-            const response = await onFileUpload(file, { allowedFileExtensions, surveyId });
+            const response = await onFileUpload(file, { allowedFileExtensions, formId });
             setSelectedFiles([...selectedFiles, file]);
 
             setIsUploading(false);
@@ -60,7 +60,7 @@ export default function FileInput({
         setIsUploading(true);
 
         try {
-          const response = await onFileUpload(file, { allowedFileExtensions, surveyId });
+          const response = await onFileUpload(file, { allowedFileExtensions, formId });
 
           setSelectedFiles([...selectedFiles, file]);
           setIsUploading(false);
@@ -127,7 +127,7 @@ export default function FileInput({
             } else {
               setIsUploading(true);
               try {
-                const response = await onFileUpload(file, { allowedFileExtensions, surveyId });
+                const response = await onFileUpload(file, { allowedFileExtensions, formId });
                 setSelectedFiles([...selectedFiles, file]);
 
                 uploadedUrls.push(response);
@@ -143,7 +143,7 @@ export default function FileInput({
           } else {
             setIsUploading(true);
             try {
-              const response = await onFileUpload(file, { allowedFileExtensions, surveyId });
+              const response = await onFileUpload(file, { allowedFileExtensions, formId });
               setSelectedFiles([...selectedFiles, file]);
 
               uploadedUrls.push(response);

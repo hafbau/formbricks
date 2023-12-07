@@ -1,5 +1,5 @@
 import { TResponseData, TResponseTtc } from "@fastform/types/responses";
-import type { TSurveyFileUploadQuestion } from "@fastform/types/surveys";
+import type { TformFileUploadQuestion } from "@fastform/types/forms";
 import { BackButton } from "../buttons/BackButton";
 import SubmitButton from "../buttons/SubmitButton";
 import FileInput from "../general/FileInput";
@@ -10,7 +10,7 @@ import { useState } from "preact/hooks";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 
 interface FileUploadQuestionProps {
-  question: TSurveyFileUploadQuestion;
+  question: TformFileUploadQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;
@@ -18,7 +18,7 @@ interface FileUploadQuestionProps {
   onFileUpload: (file: File, config?: TUploadFileConfig) => Promise<string>;
   isFirstQuestion: boolean;
   isLastQuestion: boolean;
-  surveyId: string;
+  formId: string;
   ttc: TResponseTtc;
   setTtc: (ttc: TResponseTtc) => void;
 }
@@ -31,7 +31,7 @@ export default function FileUploadQuestion({
   onBack,
   isFirstQuestion,
   isLastQuestion,
-  surveyId,
+  formId,
   onFileUpload,
   ttc,
   setTtc,
@@ -65,7 +65,7 @@ export default function FileUploadQuestion({
       <Subheader subheader={question.subheader} questionId={question.id} />
 
       <FileInput
-        surveyId={surveyId}
+        formId={formId}
         onFileUpload={onFileUpload}
         onUploadCallback={(urls: string[]) => {
           if (urls) {

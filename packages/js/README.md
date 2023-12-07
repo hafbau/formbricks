@@ -8,7 +8,7 @@ Specifically, [Quickstart/Implementation details](https://fastform.com/docs/gett
 
 ## What is Fastform
 
-Fastform is your go-to solution for in-product micro-surveys that will supercharge your product experience! 🚀 For more information please check out [fastform.com](https://fastform.com).
+Fastform is your go-to solution for in-product micro-forms that will supercharge your product experience! 🚀 For more information please check out [fastform.com](https://fastform.com).
 
 ## How to use this library
 

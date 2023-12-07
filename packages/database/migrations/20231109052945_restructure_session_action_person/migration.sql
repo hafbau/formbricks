@@ -48,13 +48,13 @@ ALTER TABLE "Action" ADD CONSTRAINT "Action_actionClassId_fkey" FOREIGN KEY ("ac
 -- AddForeignKey
 ALTER TABLE "Action" ADD CONSTRAINT "Action_personId_fkey" FOREIGN KEY ("personId") REFERENCES "Person"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
-ALTER TABLE "SurveyTrigger" RENAME COLUMN "eventClassId" TO "actionClassId";
+ALTER TABLE "formTrigger" RENAME COLUMN "eventClassId" TO "actionClassId";
 
 -- RenameForeignKey
-ALTER TABLE "SurveyTrigger" RENAME CONSTRAINT "SurveyTrigger_eventClassId_fkey" TO "SurveyTrigger_actionClassId_fkey";
+ALTER TABLE "formTrigger" RENAME CONSTRAINT "formTrigger_eventClassId_fkey" TO "formTrigger_actionClassId_fkey";
 
 -- RenameIndex
-ALTER INDEX "SurveyTrigger_surveyId_eventClassId_key" RENAME TO "SurveyTrigger_surveyId_actionClassId_key";
+ALTER INDEX "formTrigger_formId_eventClassId_key" RENAME TO "formTrigger_formId_actionClassId_key";
 
 ALTER TYPE "EventType" RENAME TO "ActionType";
 
