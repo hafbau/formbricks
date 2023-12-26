@@ -1,6 +1,6 @@
 import { TTemplate } from "@fastform/types/templates";
 import { useEffect, useState } from "react";
-import PreviewForm from "./Previewdform";
+import PreviewForm from "./PreviewForm";
 import TemplateList from "./TemplateList";
 import { templates } from "./templates";
 

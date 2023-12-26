@@ -17,7 +17,7 @@ import { TForm } from "@fastform/types/forms";
 import { testEndpoint } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/testEndpoint";
 import { triggers } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/HardcodedTriggers";
 import TriggerCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/TriggerCheckboxGroup";
-import FormCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/dformCheckboxGroup";
+import FormCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/FormCheckboxGroup";
 
 interface ActionSettingsTabProps {
   environmentId: string;

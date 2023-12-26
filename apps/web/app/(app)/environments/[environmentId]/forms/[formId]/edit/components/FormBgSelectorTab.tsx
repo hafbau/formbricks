@@ -1,8 +1,8 @@
 import { TForm } from "@fastform/types/forms";
 import { useState } from "react";
-import AnimatedFormBg from "./AnimateddformBg";
-import ColorFormBg from "./ColordformBg";
-import ImageFormBg from "./ImagedformBg";
+import AnimatedFormBg from "./AnimatedFormBg";
+import ColorFormBg from "./ColorFormBg";
+import ImageFormBg from "./ImageFormBg";
 
 interface FormBgSelectorTabProps {
   localform: TForm;

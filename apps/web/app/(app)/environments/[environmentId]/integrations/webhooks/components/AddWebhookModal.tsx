@@ -1,4 +1,4 @@
-import FormCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/dformCheckboxGroup";
+import FormCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/FormCheckboxGroup";
 import TriggerCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/TriggerCheckboxGroup";
 import { triggers } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/HardcodedTriggers";
 import { testEndpoint } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/testEndpoint";

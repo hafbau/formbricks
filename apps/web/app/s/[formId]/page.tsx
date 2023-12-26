@@ -2,10 +2,10 @@ export const revalidate = REVALIDATION_INTERVAL;
 
 import { validateformSingleUseId } from "@/app/lib/singleUseforms";
 import LegalFooter from "@/app/s/[formId]/components/LegalFooter";
-import LinkForm from "@/app/s/[formId]/components/Linkdform";
+import LinkForm from "@/app/s/[formId]/components/LinkForm";
 import { MediaBackground } from "@/app/s/[formId]/components/MediaBackground";
 import PinScreen from "@/app/s/[formId]/components/PinScreen";
-import FormInactive from "@/app/s/[formId]/components/dformInactive";
+import FormInactive from "@/app/s/[formId]/components/FormInactive";
 import { checkValidity } from "@/app/s/[formId]/lib/prefilling";
 import { REVALIDATION_INTERVAL, WEBAPP_URL } from "@fastform/lib/constants";
 import { createPerson, getPersonByUserId } from "@fastform/lib/person/service";

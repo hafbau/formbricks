@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import PreviewForm from "./Previewdform";
+import PreviewForm from "./PreviewForm";
 import { findTemplateByName } from "./templates";
 import { TTemplate } from "@fastform/types/templates";
 
