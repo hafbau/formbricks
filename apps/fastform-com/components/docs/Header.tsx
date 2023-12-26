@@ -67,8 +67,8 @@ export const Header = forwardRef<React.ElementRef<"div">, { className?: string }
       <div className="flex items-center gap-6">
         <nav className="hidden lg:block">
           <ul role="list" className="flex items-center gap-8">
-            <TopLevelNavItem href="https://github.com/fastform/fastform">Star us on GitHub</TopLevelNavItem>
-            <TopLevelNavItem href="https://fastform.com/discord">Join our Discord</TopLevelNavItem>
+            <TopLevelNavItem href="https://github.com/hafbau/formbricks">Star us on GitHub</TopLevelNavItem>
+            <TopLevelNavItem href="https://getfastform.com/discord">Join our Discord</TopLevelNavItem>
           </ul>
         </nav>
         <div className="md:dark:bg-white/15 hidden md:block md:h-5 md:w-px md:bg-slate-900/10" />

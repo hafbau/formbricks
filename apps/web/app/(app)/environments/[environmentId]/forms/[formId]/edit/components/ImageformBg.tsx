@@ -1,8 +1,8 @@
 import FileInput from "@fastform/ui/FileInput";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 
 interface ImageformBgBgProps {
-  localform?: Tform;
+  localform?: TForm;
   handleBgChange: (url: string, bgType: string) => void;
 }
 

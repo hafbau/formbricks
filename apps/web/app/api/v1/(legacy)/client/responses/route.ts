@@ -7,7 +7,7 @@ import { getform } from "@fastform/lib/form/service";
 import { getTeamDetails } from "@fastform/lib/teamDetail/service";
 import { InvalidInputError } from "@fastform/types/errors";
 import { TResponse, ZResponseLegacyInput } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { NextResponse } from "next/server";
 import { UAParser } from "ua-parser-js";
 
@@ -31,7 +31,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
   }
 
-  let form: Tform | null;
+  let form: TForm | null;
 
   try {
     form = await getform(responseInput.formId);

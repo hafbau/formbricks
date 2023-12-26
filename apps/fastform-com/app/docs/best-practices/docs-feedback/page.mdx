@@ -136,9 +136,10 @@ This allows us to capture and analyze partial feedback where the user is not wil
   className="rounded"
 />
 
-Locate that file. We are using the [Tailwind Template “Syntax”](https://tailwindui.com/templates/syntax) for our docs. Here is our [Layout.tsx](https://github.com/fastform/fastform/blob/main/apps/fastform-com/components/docs/Layout.tsx) file.
+Locate that file. We are using the [Tailwind Template “Syntax”](https://tailwindui.com/templates/syntax) for our docs. Here is our [Layout.tsx](https://github.com/hafbau/formbricks/blob/main/apps/fastform-com/components/docs/Layout.tsx) file.
 
 3. Write the frontend code for the widget. Here is the full component (we break it down right below):
+
 <Col>
 <CodeGroup title="Entire Widget">
 
@@ -221,6 +222,7 @@ export default function DocsFeedback() {
 **Let’s break it down!**
 
 Setting the local states and getting the current URL:
+
 <Col>
 <CodeGroup title="State Management">
 
@@ -234,7 +236,9 @@ const [freeText, setFreeText] = useState(""); // to locally store the additional
 
 </CodeGroup>
 </Col>
+
 Disabling feedback if config environment variables are not set properly:
+
 <Col>
 <CodeGroup title="Disable feedback if incorrect config env vars">
 
@@ -250,7 +254,9 @@ if (
 
 </CodeGroup>
 </Col>
+
 The actual frontend (read comments):
+
 <Col>
 <CodeGroup title="Actual Frontend">
 
@@ -309,11 +315,13 @@ return (
 
 </CodeGroup>
 </Col>
+
 ## 3. Connecting to the Fastform API
 
 The last step is to hook up your sparkling new frontend to the Fastform API. To do so, we followed the “[Create Response](/docs/api/client/responses#create-a-response)” and “[Update Response](/docs/api/client/responses#update-a-response)” pages in our docs.
 
 Here is the code for the `handleFeedbackSubmit` function with comments:
+
 <Col>
 <CodeGroup title="handleFeedbackSubmit() function definition">
 
@@ -334,7 +342,6 @@ export const handleFeedbackSubmit = async (YesNo, pageUrl) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_FASTFORM_COM_API_HOST}/api/v1/client/environments/${process.env.NEXT_PUBLIC_FASTFORM_COM_ENVIRONMENT_ID}/responses`, // For testing, replace this with the API host and environemnt ID of your Development environment on app.fastform.com
-  };
       {
         method: "POST",
         headers: {
@@ -358,7 +365,9 @@ export const handleFeedbackSubmit = async (YesNo, pageUrl) => {
 
 </CodeGroup>
 </Col>
+
 And this is the `updateFeedback` function with comments:
+
 <Col>
 <CodeGroup title="updateFeedback() function definition">
 
@@ -401,6 +410,7 @@ export const updateFeedback = async (freeText, responseId) => {
 
 </CodeGroup>
 </Col>
+
 That’s almost it! 🤸
 
 ## 4. Setting it up for testing
@@ -415,6 +425,7 @@ When you are on the form detail page, you’ll find both of them in the URL:
 <Image src={CopyIds} alt="copy IDs" quality="100" className="max-w-full rounded-lg sm:max-w-3xl" />
 
 Now, you have to replace the IDs and the API host accordingly in your `handleFeedbackSubmit`:
+
 <Col>
 <CodeGroup title="Replace the ID and API accordingly">
 
@@ -433,7 +444,9 @@ Now, you have to replace the IDs and the API host accordingly in your `handleFee
 
 </CodeGroup>
 </Col>
+
 And lastly, in the `updateFeedback` function
+
 <Col>
 <CodeGroup title="Replace the ID and API here as well">
 
@@ -447,8 +460,9 @@ And lastly, in the `updateFeedback` function
 
 </CodeGroup>
 </Col>
+
 ### You’re good to go! 🎉
 
 Something doesn’t work? Check your browser console for the error.
 
-Can’t figure it out? [Join our Discord!](https://fastform.com/discord)
+Can’t figure it out? [Join our Discord!](https://getfastform.com/discord)

@@ -5,10 +5,10 @@ import { canUserAccessform, verifyUserRoleAccess } from "@fastform/lib/form/auth
 import { deleteform, getform, updateform } from "@fastform/lib/form/service";
 import { formatformDateFields } from "@fastform/lib/form/util";
 import { AuthorizationError } from "@fastform/types/errors";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { getServerSession } from "next-auth";
 
-export async function updateformAction(form: Tform): Promise<Tform> {
+export async function updateformAction(form: TForm): Promise<TForm> {
   const session = await getServerSession(authOptions);
   if (!session) throw new AuthorizationError("Not authorized");
 

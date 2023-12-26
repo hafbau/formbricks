@@ -3,7 +3,7 @@
 import { generateSingleUseIdAction } from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/actions";
 import { truncateMiddle } from "@fastform/lib/strings";
 import { cn } from "@fastform/lib/cn";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import { DocumentDuplicateIcon, EyeIcon } from "@heroicons/react/24/solid";
@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
 interface LinkSingleUseFormModalProps {
-  form: Tform;
+  form: TForm;
   formBaseUrl: string;
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,7 +31,7 @@ import { getAccessFlags } from "@fastform/lib/membership/utils";
 interface SummaryHeaderProps {
   formId: string;
   environment: TEnvironment;
-  form: Tform;
+  form: TForm;
   webAppUrl: string;
   product: TProduct;
   profile: TProfile;

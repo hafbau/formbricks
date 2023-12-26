@@ -1,9 +1,9 @@
-interface formNavBarNameProps {
+interface FormNavBarNameProps {
   formName: string;
   productName: string;
 }
 
-export default function formNavBarName({ formName, productName }: formNavBarNameProps) {
+export default function FormNavBarName({ formName, productName }: FormNavBarNameProps) {
   return (
     <div className="hidden items-center space-x-2 whitespace-nowrap md:flex">
       {/*       <Button

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@fastform/lib/cn";
-import { Tform, TformHiddenFields, TformQuestions } from "@fastform/types/forms";
+import { TForm, TformHiddenFields, TformQuestions } from "@fastform/types/forms";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
 import { Switch } from "@fastform/ui/Switch";
@@ -11,8 +11,8 @@ import { FC, useState } from "react";
 import toast from "react-hot-toast";
 
 interface HiddenFieldsCardProps {
-  localform: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  setLocalform: (form: TForm) => void;
   activeQuestionId: string | null;
   setActiveQuestionId: (questionId: string | null) => void;
 }

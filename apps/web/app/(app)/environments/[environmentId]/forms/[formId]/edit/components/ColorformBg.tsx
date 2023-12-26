@@ -1,9 +1,9 @@
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { ColorPicker } from "@fastform/ui/ColorPicker";
 import { useState } from "react";
 
 interface ColorformBgBgProps {
-  localform?: Tform;
+  localform?: TForm;
   handleBgChange: (bg: string, bgType: string) => void;
   colours: string[];
 }

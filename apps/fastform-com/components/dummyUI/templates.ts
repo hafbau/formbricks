@@ -38,7 +38,7 @@ const welcomeCardDefault = {
   showResponseCount: false,
 };
 
-export const customform: TTemplate = {
+export const customForm: TTemplate = {
   name: "Start from scratch",
   description: "Create a form without template.",
   icon: null,
@@ -1017,7 +1017,7 @@ export const templates: TTemplate[] = [
           type: TformQuestionType.CTA,
           headline: "You're one of our most valued customers! Please write a review for us.",
           buttonLabel: "Write review",
-          buttonUrl: "https://fastform.com/github",
+          buttonUrl: "https://getfastform.com/github",
           buttonExternal: true,
           required: false,
         },

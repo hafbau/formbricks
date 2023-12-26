@@ -1,10 +1,10 @@
 import { TformQuestionType } from "@fastform/types/forms";
 import { TResponseData } from "@fastform/types/responses";
-import { Tform, TformQuestion } from "@fastform/types/forms";
+import { TForm, TformQuestion } from "@fastform/types/forms";
 
 export function getPrefillResponseData(
   currentQuestion: TformQuestion,
-  form: Tform,
+  form: TForm,
   firstQuestionPrefill: string
 ): TResponseData | undefined {
   try {

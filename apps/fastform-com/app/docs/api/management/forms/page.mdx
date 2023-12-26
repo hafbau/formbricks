@@ -1,13 +1,14 @@
 import { Fence } from "@/components/shared/Fence";
-import {generateManagementApiMetadata} from "@/lib/utils"
+import { generateManagementApiMetadata } from "@/lib/utils";
 
-export const metadata = generateManagementApiMetadata("forms",["Fetch","Create","Update","Delete"])
+export const metadata = generateManagementApiMetadata("forms", ["Fetch", "Create", "Update", "Delete"]);
 
 #### Management API
 
 # forms API
 
 This set of API can be used to
+
 - [List All forms](#list-all-forms)
 - [Get Form](#get-form-by-id)
 - [Create Form](#create-form)
@@ -314,7 +315,7 @@ This set of API can be used to
                         }
                     ],
                     "html": "<p class=\"fb-editor-paragraph\" dir=\"ltr\"><span>We'd love to keep you as a customer. Happy to offer a 30% discount for the next year.</span></p>",
-                    "buttonUrl": "https://fastform.com",
+                    "buttonUrl": "https://getfastform.com",
                     "buttonExternal": true,
                     "dismissButtonLabel": "Skip"
                 },
@@ -403,7 +404,6 @@ This set of API can be used to
     ```
     </CodeGroup>
 
-
   </Col>
   <Col sticky>
 
@@ -453,7 +453,7 @@ This set of API can be used to
         }
     }
     ```
-    
+
     ```json {{ title: '401 Not Authenticated' }}
     {
       "code": "not_authenticated",
@@ -491,12 +491,11 @@ This set of API can be used to
     ```json {{ title: 'cURL' }}
     {
         "name": "My renamed Form",
-        "redirectUrl":"https://fastform.com",
+        "redirectUrl":"https://getfastform.com",
         "type":"web"
     }
     ```
     </CodeGroup>
-
 
   </Col>
   <Col sticky>
@@ -568,7 +567,7 @@ This set of API can be used to
         }
     }
     ```
-    
+
     ```json {{ title: '401 Not Authenticated' }}
     {
       "code": "not_authenticated",
@@ -584,7 +583,6 @@ This set of API can be used to
 </Row>
 
 ---
-
 
 ## Delete Form by ID {{ tag: 'DELETE', label: '/api/v1/management/forms/<form-id>' }}
 
@@ -717,7 +715,7 @@ This set of API can be used to
                         }
                     ],
                     "html": "<p class=\"fb-editor-paragraph\" dir=\"ltr\"><span>We'd love to keep you as a customer. Happy to offer a 30% discount for the next year.</span></p>",
-                    "buttonUrl": "https://fastform.com",
+                    "buttonUrl": "https://getfastform.com",
                     "buttonExternal": true,
                     "dismissButtonLabel": "Skip"
                 },

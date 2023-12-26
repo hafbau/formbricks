@@ -5,7 +5,7 @@ import { DeleteDialog } from "@fastform/ui/DeleteDialog";
 import { TformQuestionType } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProduct } from "@fastform/types/product";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
 import { ArrowLeftIcon, Cog8ToothIcon, ExclamationTriangleIcon } from "@heroicons/react/24/solid";
@@ -18,9 +18,9 @@ import { deleteformAction, updateformAction } from "../actions";
 import FormStatusDropdown from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/FormStatusDropdown";
 
 interface formMenuBarProps {
-  localform: Tform;
-  form: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  form: TForm;
+  setLocalform: (form: TForm) => void;
   environment: TEnvironment;
   activeId: "questions" | "settings";
   setActiveId: (id: "questions" | "settings") => void;
@@ -73,7 +73,7 @@ export default function FormMenuBar({
   }, [localform, form]);
 
   // write a function which updates the local form status
-  const updateLocalFormStatus = (status: Tform["status"]) => {
+  const updateLocalFormStatus = (status: TForm["status"]) => {
     const updatedform = { ...localform };
     updatedform.status = status;
     setLocalform(updatedform);
@@ -212,7 +212,7 @@ export default function FormMenuBar({
     }
     setIsformSaving(true);
     // Create a copy of localform with isDraft removed from every question
-    const strippedform: Tform = {
+    const strippedform: TForm = {
       ...localform,
       questions: localform.questions.map((question) => {
         const { isDraft, ...rest } = question;

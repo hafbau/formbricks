@@ -6,7 +6,7 @@ Discover a myriad of ways to leave your mark on Fastform — whether it's by squ
 
 ## 🐛 Issue Hunters
 
-Did you stumble upon a bug? Encountered a hiccup in deployment? Perhaps you have some user feedback to share? Your quickest route to help us out is by [raising an issue](https://github.com/fastform/fastform/issues/new/choose). We're on standby to respond swiftly.
+Did you stumble upon a bug? Encountered a hiccup in deployment? Perhaps you have some user feedback to share? Your quickest route to help us out is by [raising an issue](https://github.com/hafbau/formbricks/issues/new/choose). We're on standby to respond swiftly.
 
 ## 💡 Feature Architects
 
@@ -16,15 +16,15 @@ Are you brimming with brilliant ideas? For new features that can elevate Fastfor
 
 Ready to dive into the code and make a real impact? Here's your path:
 
-1. **Read our Best Practices**: [It takes 5 minutes](https://fastform.com/docs/contributing/how-we-code) but will help you save hours 🤓
+1. **Read our Best Practices**: [It takes 5 minutes](https://getfastform.com/docs/contributing/how-we-code) but will help you save hours 🤓
 
-1. **Fork the Repository:** Fork our repository or use [Gitpod](https://fastform.com/docs/contributing/gitpod)
+1. **Fork the Repository:** Fork our repository or use [Gitpod](https://getfastform.com/docs/contributing/gitpod)
 
 1. **Tweak and Transform:** Work your coding magic and apply your changes.
 
 1. **Pull Request Act:** If you're ready to go, craft a new pull request closely following our PR template 🙏
 
-Would you prefer a chat before you dive into a lot of work? Our [Discord server](https://fastform.com/discord) is your harbor. Share your thoughts, and we'll meet you there with open arms. We're responsive and friendly, promise!
+Would you prefer a chat before you dive into a lot of work? Our [Discord server](https://getfastform.com/discord) is your harbor. Share your thoughts, and we'll meet you there with open arms. We're responsive and friendly, promise!
 
 ## 🚀 Aspiring Features
 

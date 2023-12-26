@@ -36,7 +36,7 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
   const isEnterpriseEdition = await getIsEnterpriseEdition();
 
   const canRemoveLinkBranding =
-    team.billing.features.linkform.status !== "inactive" || !IS_FASTFORM_CLOUD;
+    team.billing.features.linkForm.status !== "inactive" || !IS_FASTFORM_CLOUD;
   const canRemoveInAppBranding =
     team.billing.features.inAppform.status !== "inactive" || isEnterpriseEdition;
 
@@ -77,7 +77,7 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
         title="Fastform Branding"
         description="We love your support but understand if you toggle it off.">
         <EditFastformBranding
-          type="linkform"
+          type="linkForm"
           product={product}
           canRemoveBranding={canRemoveLinkBranding}
           environmentId={params.environmentId}

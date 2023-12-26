@@ -4,7 +4,7 @@ import ResponseOptionsCard from "./ResponseOptionsCard";
 import WhenToSendCard from "./WhenToSendCard";
 import WhoToSendCard from "./WhoToSendCard";
 import StylingCard from "./StylingCard";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TActionClass } from "@fastform/types/actionClasses";
 import { TAttributeClass } from "@fastform/types/attributeClasses";
@@ -12,8 +12,8 @@ import { TMembershipRole } from "@fastform/types/memberships";
 
 interface SettingsViewProps {
   environment: TEnvironment;
-  localform: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  setLocalform: (form: TForm) => void;
   actionClasses: TActionClass[];
   attributeClasses: TAttributeClass[];
   responseCount: number;

@@ -5,7 +5,7 @@ import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProfile } from "@fastform/types/profile";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TTag } from "@fastform/types/tags";
 import SingleResponseCard from "@fastform/ui/SingleResponseCard";
 
@@ -13,7 +13,7 @@ interface ResponseTimelineProps {
   environment: TEnvironment;
   formId: string;
   responses: TResponse[];
-  form: Tform;
+  form: TForm;
   profile: TProfile;
   environmentTags: TTag[];
   responsesPerPage: number;

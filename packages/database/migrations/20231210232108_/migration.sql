@@ -15,7 +15,7 @@ ADD COLUMN     "inAppFormBranding" BOOLEAN NOT NULL DEFAULT true,
 ADD COLUMN     "linkFormBranding" BOOLEAN NOT NULL DEFAULT true;
 
 -- AlterTable
-ALTER TABLE "Team" ALTER COLUMN "billing" SET DEFAULT '{"stripeCustomerId": null, "features": {"inAppform": {"status": "inactive", "unlimited": false}, "linkform": {"status": "inactive", "unlimited": false}, "userTargeting": {"status": "inactive", "unlimited": false}}}';
+ALTER TABLE "Team" ALTER COLUMN "billing" SET DEFAULT '{"stripeCustomerId": null, "features": {"inAppform": {"status": "inactive", "unlimited": false}, "linkForm": {"status": "inactive", "unlimited": false}, "userTargeting": {"status": "inactive", "unlimited": false}}}';
 
 -- RenameForeignKey
 ALTER TABLE "Form" RENAME CONSTRAINT "form_environmentId_fkey" TO "Form_environmentId_fkey";

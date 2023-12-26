@@ -1,4 +1,4 @@
-import { Tform, TformPictureSelectionQuestion } from "@fastform/types/forms";
+import { TForm, TformPictureSelectionQuestion } from "@fastform/types/forms";
 import FileInput from "@fastform/ui/FileInput";
 import { Label } from "@fastform/ui/Label";
 import { Switch } from "@fastform/ui/Switch";
@@ -12,7 +12,7 @@ import { createId } from "@paralleldrive/cuid2";
 import { useState } from "react";
 
 interface PictureSelectionFormProps {
-  localform: Tform;
+  localform: TForm;
   question: TformPictureSelectionQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;

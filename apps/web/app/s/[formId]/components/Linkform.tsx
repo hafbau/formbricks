@@ -1,15 +1,15 @@
 "use client";
 
-import formLinkUsed from "@/app/s/[formId]/components/formLinkUsed";
+import FormLinkUsed from "@/app/s/[formId]/components/FormLinkUsed";
 import VerifyEmail from "@/app/s/[formId]/components/VerifyEmail";
 import { getPrefillResponseData } from "@/app/s/[formId]/lib/prefilling";
 import { FastformAPI } from "@fastform/api";
 import { ResponseQueue } from "@fastform/lib/responseQueue";
-import { formState } from "@fastform/lib/formState";
+import { FormState } from "@fastform/lib/formState";
 import { TProduct } from "@fastform/types/product";
 import { TResponse, TResponseData, TResponseUpdate } from "@fastform/types/responses";
 import { TUploadFileConfig } from "@fastform/types/storage";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import ContentWrapper from "@fastform/ui/ContentWrapper";
 import { FormInline } from "@fastform/ui/Form";
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
@@ -17,7 +17,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 
 interface LinkformProps {
-  form: Tform;
+  form: TForm;
   product: TProduct;
   userId?: string;
   emailVerificationStatus?: string;
@@ -44,7 +44,7 @@ export default function Linkform({
   const isPreview = searchParams?.get("preview") === "true";
   const sourceParam = searchParams?.get("source");
   // pass in the responseId if the form is a single use form, ensures form state is updated with the responseId
-  const [formState, setformState] = useState(new formState(form.id, singleUseId, responseId, userId));
+  const [formState, setformState] = useState(new FormState(form.id, singleUseId, responseId, userId));
   const [activeQuestionId, setActiveQuestionId] = useState<string>(
     form.welcomeCard.enabled ? "start" : form?.questions[0]?.id
   );
@@ -68,7 +68,7 @@ export default function Linkform({
         },
         formState
       ),
-    [webAppUrl]
+    [webAppUrl, form?.environmentId, formState]
   );
   const [autoFocus, setAutofocus] = useState(false);
   const hasFinishedSingleUseResponse = useMemo(() => {
@@ -107,7 +107,7 @@ export default function Linkform({
   }, [responseQueue, formState]);
 
   if (!formState.isResponseFinished() && hasFinishedSingleUseResponse) {
-    return <formLinkUsed singleUseMessage={form.singleUse} />;
+    return <FormLinkUsed singleUseMessage={form.singleUse} />;
   }
   if (form.verifyEmail && emailVerificationStatus !== "verified") {
     if (emailVerificationStatus === "fishy") {

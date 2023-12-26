@@ -4,7 +4,7 @@ import FormState from "@fastform/lib/formState";
 import { renderFormModal } from "@fastform/forms";
 import { TJSStateDisplay } from "@fastform/types/js";
 import { TResponseUpdate } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Config } from "./config";
 import { ErrorHandler } from "./errors";
 import { Logger } from "./logger";
@@ -16,7 +16,7 @@ const logger = Logger.getInstance();
 const errorHandler = ErrorHandler.getInstance();
 let formRunning = false;
 
-export const renderWidget = (form: Tform) => {
+export const renderWidget = (form: TForm) => {
   if (formRunning) {
     logger.debug("A form is already running. Skipping.");
     return;
@@ -132,7 +132,7 @@ export const renderWidget = (form: Tform) => {
           finished: responseUpdate.finished,
         });
       },
-      onClose: closeform,
+      onClose: closeForm,
       onFileUpload: async (file: File, params) => {
         const api = new FastformAPI({
           apiHost: config.get().apiHost,

@@ -11,7 +11,7 @@ import type {
 import { TEnvironment } from "@fastform/types/environment";
 import { TResponse } from "@fastform/types/responses";
 import {
-  Tform,
+  TForm,
   TformCTAQuestion,
   TformConsentQuestion,
   TformMultipleChoiceMultiQuestion,
@@ -31,7 +31,7 @@ import PictureChoiceSummary from "./PictureChoiceSummary";
 
 interface SummaryListProps {
   environment: TEnvironment;
-  form: Tform;
+  form: TForm;
   responses: TResponse[];
   responsesPerPage: number;
 }

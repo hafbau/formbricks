@@ -244,7 +244,7 @@ export default function AddNoCodeActionModal({
                       fastform.track(&quot;{watch("name")}&quot;)
                     </span>{" "}
                     in your code. Read more in our{" "}
-                    <a href="https://fastform.com/docs/actions/code" target="_blank" className="underline">
+                    <a href="https://getfastform.com/docs/actions/code" target="_blank" className="underline">
                       docs
                     </a>
                     .

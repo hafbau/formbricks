@@ -20,7 +20,7 @@ export const Hero: React.FC = ({ }) => {
     <div className="relative">
       <div className="px-4 pb-20 pt-16 text-center sm:px-6 lg:px-8 lg:pb-32 lg:pt-20">
         <a
-          href="https://fastform.com/github"
+          href="https://getfastform.com/github"
           target="_blank"
           className="border-brand-dark xs:text-sm animate-bounce rounded-full border px-4 py-1.5 text-xs text-slate-500 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">
           We&apos;re Open Source - Star us on GitHub
@@ -98,7 +98,7 @@ export const Hero: React.FC = ({ }) => {
             variant="secondary"
             className="px-6"
             onClick={() => {
-              router.push("https://fastform.com/github");
+              router.push("https://getfastform.com/github");
               /*  plausible("Hero_CTA_LaunchDemo"); */
             }}>
             View Code on GitHub

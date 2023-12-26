@@ -1,7 +1,7 @@
 export default function FastformBranding() {
   return (
     <a
-      href="https://fastform.com?utm_source=form_branding"
+      href="https://getfastform.com?utm_source=form_branding"
       target="_blank"
       tabIndex={-1}
       className="mb-5 mt-2 flex justify-center">

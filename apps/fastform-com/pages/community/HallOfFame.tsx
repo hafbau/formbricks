@@ -38,7 +38,7 @@ const BadgeSection: React.FC<BadgeSectionProps> = ({ badgeImage, level, members,
           filteredMembers?.map((member) => (
             <Link
               key={member.githubId}
-              href={`https://github.com/fastform/fastform/pulls?q=is:pr+author:${member.githubId}`}
+              href={`https://github.com/hafbau/formbricks/pulls?q=is:pr+author:${member.githubId}`}
               target="_blank"
               className={`flex w-full items-center space-x-3 rounded-xl border px-4 py-1 transition-all hover:scale-105 md:px-5 md:py-2 ${className}`}>
               <Image

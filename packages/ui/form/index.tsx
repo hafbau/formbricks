@@ -1,13 +1,13 @@
 import { renderFormInline, renderFormModal } from "@fastform/forms";
 import { TResponseData, TResponseUpdate } from "@fastform/types/responses";
 import { TUploadFileConfig } from "@fastform/types/storage";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { useEffect, useMemo } from "react";
 
 const createContainerId = () => `fastform-form-container`;
 
 interface FormProps {
-  form: Tform;
+  form: TForm;
   brandColor: string;
   isBrandingEnabled: boolean;
   activeQuestionId?: string;

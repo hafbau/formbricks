@@ -56,7 +56,7 @@ const SlideInBanner: React.FC<Props> = ({ delay = 5000, scrollPercentage = 10, U
         <p>
           Did you know? Fastform is the only open source Experience Management solution: free & privacy-first!
         </p>
-        <Button size="sm" href={`https://fastform.com?utm_source=${UTMSource}`} className="whitespace-nowrap">
+        <Button size="sm" href={`https://getfastform.com?utm_source=${UTMSource}`} className="whitespace-nowrap">
           Learn more
         </Button>
         <button

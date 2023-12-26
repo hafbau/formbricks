@@ -2,7 +2,7 @@ import ModalWithTabs from "@fastform/ui/ModalWithTabs";
 import { TWebhook } from "@fastform/types/webhooks";
 import WebhookOverviewTab from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookOverviewTab";
 import WebhookSettingsTab from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookSettingsTab";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Webhook } from "lucide-react";
 
 interface WebhookModalProps {
@@ -10,7 +10,7 @@ interface WebhookModalProps {
   open: boolean;
   setOpen: (v: boolean) => void;
   webhook: TWebhook;
-  forms: Tform[];
+  forms: TForm[];
 }
 
 export default function WebhookModal({ environmentId, open, setOpen, webhook, forms }: WebhookModalProps) {

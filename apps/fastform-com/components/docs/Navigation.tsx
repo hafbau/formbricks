@@ -293,8 +293,8 @@ export function Navigation(props: React.ComponentPropsWithoutRef<"nav">) {
     <nav {...props}>
       <ul role="list">
         <TopLevelNavItem href="/docs/introduction/what-is-fastform">Documentation</TopLevelNavItem>
-        <TopLevelNavItem href="https://github.com/fastform/fastform">Star us on GitHub</TopLevelNavItem>
-        <TopLevelNavItem href="https://fastform.com/discord">Join our Discord</TopLevelNavItem>
+        <TopLevelNavItem href="https://github.com/hafbau/formbricks">Star us on GitHub</TopLevelNavItem>
+        <TopLevelNavItem href="https://getfastform.com/discord">Join our Discord</TopLevelNavItem>
         {navigation.map((group, groupIndex) => (
           <NavigationGroup key={group.title} group={group} className={groupIndex === 0 ? "md:mt-0" : ""} />
         ))}

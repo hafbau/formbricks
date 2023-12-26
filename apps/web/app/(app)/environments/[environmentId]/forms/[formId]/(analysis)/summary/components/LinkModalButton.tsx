@@ -1,6 +1,6 @@
 "use client";
 
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { ShareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
@@ -10,7 +10,7 @@ import ShareEmbedform from "./ShareEmbedform";
 import { TProfile } from "@fastform/types/profile";
 
 interface LinkformShareButtonProps {
-  form: Tform;
+  form: TForm;
   className?: string;
   webAppUrl: string;
   product: TProduct;

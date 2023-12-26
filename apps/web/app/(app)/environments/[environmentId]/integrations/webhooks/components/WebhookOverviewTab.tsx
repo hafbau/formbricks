@@ -1,15 +1,15 @@
 import { Label } from "@fastform/ui/Label";
 import { convertDateTimeStringShort } from "@fastform/lib/time";
 import { TWebhook } from "@fastform/types/webhooks";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { capitalizeFirstLetter } from "@fastform/lib/strings";
 
 interface ActivityTabProps {
   webhook: TWebhook;
-  forms: Tform[];
+  forms: TForm[];
 }
 
-const getformNamesForWebhook = (webhook: TWebhook, allforms: Tform[]): string[] => {
+const getformNamesForWebhook = (webhook: TWebhook, allforms: TForm[]): string[] => {
   if (webhook.formIds.length === 0) {
     return allforms.map((form) => form.name);
   } else {

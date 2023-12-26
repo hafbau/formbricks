@@ -2,7 +2,7 @@
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/QuestionFormInput";
 import { cn } from "@fastform/lib/cn";
-import { Tform, TformMultipleChoiceSingleQuestion } from "@fastform/types/forms";
+import { TForm, TformMultipleChoiceSingleQuestion } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
@@ -12,7 +12,7 @@ import { createId } from "@paralleldrive/cuid2";
 import { useEffect, useRef, useState } from "react";
 
 interface OpenQuestionFormProps {
-  localform: Tform;
+  localform: TForm;
   question: TformMultipleChoiceSingleQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;

@@ -2,7 +2,7 @@ import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProfile } from "@fastform/types/profile";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TTag } from "@fastform/types/tags";
 import SingleResponseCard from "@fastform/ui/SingleResponseCard";
 
@@ -15,7 +15,7 @@ export default async function ResponseFeed({
 }: {
   responses: TResponse[];
   environment: TEnvironment;
-  forms: Tform[];
+  forms: TForm[];
   profile: TProfile;
   environmentTags: TTag[];
 }) {

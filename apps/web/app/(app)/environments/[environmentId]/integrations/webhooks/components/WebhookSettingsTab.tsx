@@ -13,16 +13,16 @@ import { toast } from "react-hot-toast";
 import { TWebhook, TWebhookInput } from "@fastform/types/webhooks";
 import { deleteWebhookAction, updateWebhookAction } from "../actions";
 import { TPipelineTrigger } from "@fastform/types/pipelines";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { testEndpoint } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/testEndpoint";
 import { triggers } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/HardcodedTriggers";
 import TriggerCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/TriggerCheckboxGroup";
-import formCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/formCheckboxGroup";
+import FormCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/FormCheckboxGroup";
 
 interface ActionSettingsTabProps {
   environmentId: string;
   webhook: TWebhook;
-  forms: Tform[];
+  forms: TForm[];
   setOpen: (v: boolean) => void;
 }
 
@@ -188,7 +188,7 @@ export default function WebhookSettingsTab({
 
         <div>
           <Label htmlFor="forms">forms</Label>
-          <formCheckboxGroup
+          <FormCheckboxGroup
             forms={forms}
             selectedforms={selectedforms}
             selectedAllforms={selectedAllforms}
@@ -213,7 +213,7 @@ export default function WebhookSettingsTab({
 
             <Button
               variant="secondary"
-              href="https://fastform.com/docs/api/management/webhooks"
+              href="https://getfastform.com/docs/api/management/webhooks"
               target="_blank">
               Read Docs
             </Button>

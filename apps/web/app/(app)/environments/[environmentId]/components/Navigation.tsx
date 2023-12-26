@@ -63,7 +63,7 @@ interface NavigationProps {
   team: TTeam;
   products: TProduct[];
   environments: TEnvironment[];
-  isfastformCloud: boolean;
+  isFastformCloud: boolean;
   webAppUrl: string;
   membershipRole?: TMembershipRole;
 }
@@ -75,7 +75,7 @@ export default function Navigation({
   session,
   products,
   environments,
-  isfastformCloud,
+  isFastformCloud,
   webAppUrl,
   membershipRole,
 }: NavigationProps) {
@@ -145,7 +145,7 @@ export default function Navigation({
         hidden: false,
       },
     ],
-    [environment.id, pathname]
+    [environment.id, pathname, isViewer]
   );
 
   const dropdownnavigation = [
@@ -179,7 +179,7 @@ export default function Navigation({
           icon: CreditCardIcon,
           label: "Billing & Plan",
           href: `/environments/${environment.id}/settings/billing`,
-          hidden: !isfastformCloud || isPricingDisabled,
+          hidden: !isFastformCloud || isPricingDisabled,
         },
       ],
     },
@@ -203,13 +203,13 @@ export default function Navigation({
         {
           icon: CodeBracketIcon,
           label: "Developer Docs",
-          href: "https://fastform.com/docs",
+          href: "https://getfastform.com/docs",
           target: "_blank",
         },
         {
           icon: HeartIcon,
           label: "Contribute to Fastform",
-          href: "https://github.com/fastform/fastform",
+          href: "https://github.com/hafbau/formbricks",
           target: "_blank",
         },
       ],
@@ -476,7 +476,7 @@ export default function Navigation({
                     ))}
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
-                      {isfastformCloud && (
+                      {isFastformCloud && (
                         <DropdownMenuItem>
                           <button
                             onClick={() => {

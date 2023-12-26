@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@fastform/lib/cn";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
 import { Badge } from "@fastform/ui/Badge";
 import { Input } from "@fastform/ui/Input";
@@ -37,8 +37,8 @@ const displayOptions: DisplayOption[] = [
 ];
 
 interface RecontactOptionsCardProps {
-  localform: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  setLocalform: (form: TForm) => void;
   environmentId: string;
 }
 

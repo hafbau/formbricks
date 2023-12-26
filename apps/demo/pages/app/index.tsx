@@ -130,7 +130,7 @@ export default function AppPage({ }) {
             <div>
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sends a{" "}
-                <a href="https://fastform.com/docs/actions/code" className="underline" target="_blank">
+                <a href="https://getfastform.com/docs/actions/code" className="underline" target="_blank">
                   Code Action
                 </a>{" "}
                 to the Fastform API called &apos;Code Action&apos;. You will find it in the Actions Tab.
@@ -147,14 +147,14 @@ export default function AppPage({ }) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sends a{" "}
                 <a
-                  href="https://fastform.com/docs/actions/no-code"
+                  href="https://getfastform.com/docs/actions/no-code"
                   className="underline dark:text-blue-500"
                   target="_blank">
                   No Code Action
                 </a>{" "}
                 as long as you created it beforehand in the Fastform App.{" "}
                 <a
-                  href="https://fastform.com/docs/actions/no-code"
+                  href="https://getfastform.com/docs/actions/no-code"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   Here are instructions on how to do it.
@@ -176,7 +176,7 @@ export default function AppPage({ }) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sets the{" "}
                 <a
-                  href="https://fastform.com/docs/attributes/custom-attributes"
+                  href="https://getfastform.com/docs/attributes/custom-attributes"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   attribute
@@ -199,7 +199,7 @@ export default function AppPage({ }) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sets the{" "}
                 <a
-                  href="https://fastform.com/docs/attributes/custom-attributes"
+                  href="https://getfastform.com/docs/attributes/custom-attributes"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   attribute
@@ -222,7 +222,7 @@ export default function AppPage({ }) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button sets the{" "}
                 <a
-                  href="https://fastform.com/docs/attributes/identify-users"
+                  href="https://getfastform.com/docs/attributes/identify-users"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   user email
@@ -257,7 +257,7 @@ export default function AppPage({ }) {
               <p className="text-xs text-slate-700 dark:text-gray-300">
                 This button activates/deactivates{" "}
                 <a
-                  href="https://fastform.com/docs/attributes/identify-users"
+                  href="https://getfastform.com/docs/attributes/identify-users"
                   target="_blank"
                   className="underline dark:text-blue-500">
                   user identification

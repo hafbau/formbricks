@@ -1,12 +1,12 @@
 import { responses } from "@/app/lib/api/response";
 import { NextResponse } from "next/server";
 import { getform, updateform, deleteform } from "@fastform/lib/form/service";
-import { Tform, Zform } from "@fastform/types/forms";
+import { TForm, Zform } from "@fastform/types/forms";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { authenticateRequest } from "@/app/api/v1/auth";
 import { handleErrorResponse } from "@/app/api/v1/auth";
 
-async function fetchAndAuthorizeform(authentication: any, formId: string): Promise<Tform | null> {
+async function fetchAndAuthorizeform(authentication: any, formId: string): Promise<TForm | null> {
   const form = await getform(formId);
   if (!form) {
     return null;

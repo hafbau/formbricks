@@ -3,7 +3,7 @@
 import { updateformAction } from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/actions";
 import { FormStatusIndicator } from "@fastform/ui/FormStatusIndicator";
 import { TEnvironment } from "@fastform/types/environment";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@fastform/ui/Select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { CheckCircleIcon, PauseCircleIcon, PlayCircleIcon } from "@heroicons/react/24/solid";
@@ -16,7 +16,7 @@ export default function FormStatusDropdown({
 }: {
   environment: TEnvironment;
   updateLocalFormStatus?: (status: "draft" | "inProgress" | "paused" | "completed" | "archived") => void;
-  form: Tform;
+  form: TForm;
 }) {
   const isCloseOnDateEnabled = form.closeOnDate !== null;
   const closeOnDate = form.closeOnDate ? new Date(form.closeOnDate) : null;

@@ -3,7 +3,7 @@ import { cn } from "@fastform/lib/cn";
 import Link from "next/link";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
 import { getform } from "@fastform/lib/form/service";
-import formNavBarName from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/components/formNavBarName";
+import FormNavBarName from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/attributes/components/FormNavBarName";
 
 interface SecondNavbarProps {
   tabs: { id: string; label: string; href: string; icon?: React.ReactNode }[];
@@ -33,7 +33,7 @@ export default async function SecondNavbar({
     <div {...props}>
       <div className="grid h-14 w-full grid-cols-3 items-center justify-items-stretch border-b bg-white px-4">
         <div className="justify-self-start">
-          {form && environmentId && <formNavBarName formName={form.name} productName={product.name} />}
+          {form && environmentId && <FormNavBarName formName={form.name} productName={product.name} />}
         </div>{" "}
         <nav className="flex h-full items-center space-x-4 justify-self-center" aria-label="Tabs">
           {tabs.map((tab) => (

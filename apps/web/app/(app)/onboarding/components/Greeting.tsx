@@ -61,7 +61,7 @@ const Greeting: React.FC<Greeting> = ({ next, skip, name, session }) => {
         <div className="pb-12 pt-8 text-center">
           <p>Your answers will help us improve your experience and help others like you.</p>
           <p>
-            <Link href="https://fastform.com/privacy-policy" target="_blank" className="underline">
+            <Link href="https://getfastform.com/privacy-policy" target="_blank" className="underline">
               Click here
             </Link>{" "}
             to learn how we handle your data.

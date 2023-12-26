@@ -25,7 +25,7 @@ export default function HeaderLight() {
         </Link>
 
         <Link
-          href="https://fastform.com/github"
+          href="https://getfastform.com/github"
           target="_blank"
           className="ml-6 mt-1 text-sm text-slate-300 hover:scale-105">
           Star us ⭐
@@ -39,7 +39,7 @@ export default function HeaderLight() {
             {navItem.name}
           </Link>
         ))}
-        <Button variant="secondary" size="sm" className="ml-2" href="https://fastform.com/discord">
+        <Button variant="secondary" size="sm" className="ml-2" href="https://getfastform.com/discord">
           Join us!
         </Button>
       </div>

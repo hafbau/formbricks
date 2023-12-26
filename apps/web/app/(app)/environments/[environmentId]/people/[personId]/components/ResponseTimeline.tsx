@@ -2,7 +2,7 @@
 
 import ResponseFeed from "@/app/(app)/environments/[environmentId]/people/[personId]/components/ResponsesFeed";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { ArrowsUpDownIcon } from "@heroicons/react/24/outline";
 import { useState, useEffect } from "react";
@@ -16,7 +16,7 @@ export default function ResponseTimeline({
   responses,
   environmentTags,
 }: {
-  forms: Tform[];
+  forms: TForm[];
   profile: TProfile;
   responses: TResponse[];
   environment: TEnvironment;

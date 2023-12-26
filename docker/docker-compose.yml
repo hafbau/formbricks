@@ -66,18 +66,18 @@ x-environment: &environment
     # GOOGLE_CLIENT_SECRET:
 
 services:
-  postgres:
-    restart: always
-    image: postgres:15-alpine
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    <<: *environment
+  # postgres:
+  #   restart: always
+  #   image: postgres:15-alpine
+  #   volumes:
+  #     - postgres:/var/lib/postgresql/data
+  #   <<: *environment
 
   fastform:
     restart: always
     image: fastform/fastform:latest
-    depends_on:
-      - postgres
+    # depends_on:
+    #   - postgres
     ports:
       - 3000:3000
     volumes:

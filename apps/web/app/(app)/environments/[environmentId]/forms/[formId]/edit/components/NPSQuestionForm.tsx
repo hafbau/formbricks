@@ -1,7 +1,7 @@
 "use client";
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/QuestionFormInput";
-import { Tform, TformNPSQuestion } from "@fastform/types/forms";
+import { TForm, TformNPSQuestion } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
@@ -9,7 +9,7 @@ import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
 interface NPSQuestionFormProps {
-  localform: Tform;
+  localform: TForm;
   question: TformNPSQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;

@@ -1,12 +1,12 @@
 import { evaluateCondition } from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/evaluateLogic";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { TimerIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 
 interface SummaryDropOffsProps {
-  form: Tform;
+  form: TForm;
   responses: TResponse[];
   displayCount: number;
 }

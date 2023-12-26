@@ -1,10 +1,10 @@
 import { capitalizeFirstLetter } from "@fastform/lib/strings";
 import { timeSinceConditionally } from "@fastform/lib/time";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TWebhook } from "@fastform/types/webhooks";
 import { Badge } from "@fastform/ui/Badge";
 
-const renderSelectedformsText = (webhook: TWebhook, allforms: Tform[]) => {
+const renderSelectedformsText = (webhook: TWebhook, allforms: TForm[]) => {
   if (webhook.formIds.length === 0) {
     const allformNames = allforms.map((form) => form.name);
     return <p className="text-slate-400">{allformNames.join(", ")}</p>;
@@ -51,7 +51,7 @@ const renderSelectedTriggersText = (webhook: TWebhook) => {
   }
 };
 
-export default function WebhookRowData({ webhook, forms }: { webhook: TWebhook; forms: Tform[] }) {
+export default function WebhookRowData({ webhook, forms }: { webhook: TWebhook; forms: TForm[] }) {
   return (
     <div className="mt-2 grid h-auto grid-cols-12 content-center rounded-lg py-2 hover:bg-slate-100">
       <div className="col-span-3 flex items-center truncate pl-6 text-sm">

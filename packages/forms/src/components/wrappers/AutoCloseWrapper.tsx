@@ -1,9 +1,9 @@
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { useEffect, useRef, useState } from "preact/hooks";
 import Progress from "../general/Progress";
 
 interface AutoCloseProps {
-  form: Tform;
+  form: TForm;
   onClose: () => void;
   children: any;
 }

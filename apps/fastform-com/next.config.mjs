@@ -46,7 +46,7 @@ const nextConfig = {
       },
       {
         source: "/github",
-        destination: "https://github.com/fastform/fastform",
+        destination: "https://github.com/hafbau/formbricks",
         permanent: true,
       },
       {
@@ -157,7 +157,7 @@ const nextConfig = {
       },
       {
         source: "/cla",
-        destination: "https://fastform.com/clmyhzfrymr4ko00hycsg1tvx",
+        destination: "https://getfastform.com/clmyhzfrymr4ko00hycsg1tvx",
         permanent: true,
       },
       {

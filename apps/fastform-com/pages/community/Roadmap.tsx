@@ -49,7 +49,7 @@ export const Roadmap: React.FC<RoadmapProps> = ({ data }) => {
           ))}
           {eventblock.id === "phlaunch" && (
             <Button
-              href="https://fastform.com/discord"
+              href="https://getfastform.com/discord"
               target="_blank"
               variant="darkCTA"
               className="rounded-xl px-5 py-2 text-base transition-all hover:scale-105">

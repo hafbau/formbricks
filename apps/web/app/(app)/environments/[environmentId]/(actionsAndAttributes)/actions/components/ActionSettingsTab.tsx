@@ -199,7 +199,7 @@ export default function ActionSettingsTab({
               </Button>
             )}
 
-            <Button variant="secondary" href="https://fastform.com/docs/actions/no-code" target="_blank">
+            <Button variant="secondary" href="https://getfastform.com/docs/actions/no-code" target="_blank">
               Read Docs
             </Button>
           </div>

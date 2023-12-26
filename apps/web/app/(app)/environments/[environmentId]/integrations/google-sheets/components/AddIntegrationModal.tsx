@@ -4,7 +4,7 @@ import {
   TIntegrationGoogleSheetsConfigData,
   TIntegrationGoogleSheetsInput,
 } from "@fastform/types/integration/googleSheet";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Checkbox } from "@fastform/ui/Checkbox";
 import { Label } from "@fastform/ui/Label";
@@ -21,7 +21,7 @@ import { TIntegrationItem } from "@fastform/types/integration";
 interface AddWebhookModalProps {
   environmentId: string;
   open: boolean;
-  forms: Tform[];
+  forms: TForm[];
   setOpen: (v: boolean) => void;
   spreadsheets: TIntegrationItem[];
   googleSheetIntegration: TIntegrationGoogleSheets;
@@ -51,7 +51,7 @@ export default function AddIntegrationModal({
 
   const [selectedQuestions, setSelectedQuestions] = useState<string[]>([]);
   const [isLinkingSheet, setIsLinkingSheet] = useState(false);
-  const [selectedform, setSelectedform] = useState<Tform | null>(null);
+  const [selectedform, setSelectedform] = useState<TForm | null>(null);
   const [selectedSpreadsheet, setSelectedSpreadsheet] = useState<any>(null);
   const [isDeleting, setIsDeleting] = useState<any>(null);
   const existingIntegrationData = googleSheetIntegration?.config?.data;

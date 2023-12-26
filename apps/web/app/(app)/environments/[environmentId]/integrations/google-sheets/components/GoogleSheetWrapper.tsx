@@ -7,7 +7,7 @@ import {
   TIntegrationGoogleSheets,
   TIntegrationGoogleSheetsConfigData,
 } from "@fastform/types/integration/googleSheet";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { useState } from "react";
 import AddIntegrationModal from "./AddIntegrationModal";
 import Connect from "./Connect";
@@ -16,7 +16,7 @@ import Home from "./Home";
 interface GoogleSheetWrapperProps {
   enabled: boolean;
   environment: TEnvironment;
-  forms: Tform[];
+  forms: TForm[];
   spreadSheetArray: TIntegrationItem[];
   googleSheetIntegration?: TIntegrationGoogleSheets;
   webAppUrl: string;

@@ -5,7 +5,7 @@ import { TformQuestionType } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProfile } from "@fastform/types/profile";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TTag } from "@fastform/types/tags";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
@@ -31,7 +31,7 @@ import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { LoadingWrapper } from "../LoadingWrapper";
 
 export interface SingleResponseCardProps {
-  form: Tform;
+  form: TForm;
   response: TResponse;
   profile: TProfile;
   pageType: string;

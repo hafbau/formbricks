@@ -13,12 +13,12 @@ export default function NotFound() {
         <QuestionMarkCircleIcon className="h-20 w-20" />,
         <h1 className="text-4xl font-bold text-slate-800">Form not found.</h1>
         <p className="text-lg leading-10 text-gray-500">There is no form with this ID.</p>
-        <Button variant="darkCTA" className="mt-2" href="https://fastform.com">
+        <Button variant="darkCTA" className="mt-2" href="https://getfastform.com">
           Create your own
         </Button>
       </div>
       <div>
-        <Link href="https://fastform.com">
+        <Link href="https://getfastform.com">
           <Image src={footerLogo} alt="Brand logo" className="mx-auto w-40" />
         </Link>
       </div>

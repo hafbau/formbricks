@@ -69,7 +69,7 @@ if (typeof window !== "undefined") {
                 </span>{" "}
                 <Link
                   className="decoration-brand-dark"
-                  href="https://fastform.com/docs/getting-started/quickstart-in-app-form"
+                  href="https://getfastform.com/docs/getting-started/quickstart-in-app-form"
                   target="_blank">
                   Check out the docs.
                 </Link>
@@ -79,11 +79,11 @@ if (typeof window !== "undefined") {
                 <Link
                   className="decoration-brand-dark"
                   target="_blank"
-                  href="https://github.com/fastform/fastform/issues">
+                  href="https://github.com/hafbau/formbricks/issues">
                   Open an issue on GitHub
                 </Link>{" "}
                 or{" "}
-                <Link className="decoration-brand-dark" href="https://fastform.com/discord" target="_blank">
+                <Link className="decoration-brand-dark" href="https://getfastform.com/discord" target="_blank">
                   join Discord.
                 </Link>
               </li>
@@ -93,7 +93,7 @@ if (typeof window !== "undefined") {
                 </span>{" "}
                 <Link
                   className="decoration-brand-dark"
-                  href="https://fastform.com/docs/attributes/why"
+                  href="https://getfastform.com/docs/attributes/why"
                   target="_blank">
                   Dive into the docs.
                 </Link>
@@ -126,11 +126,11 @@ if (typeof window !== "undefined") {
                 <Link
                   className="decoration-brand-dark"
                   target="_blank"
-                  href="https://github.com/fastform/fastform/issues">
+                  href="https://github.com/hafbau/formbricks/issues">
                   Open an issue on GitHub
                 </Link>{" "}
                 or{" "}
-                <Link className="decoration-brand-dark" href="https://fastform.com/discord" target="_blank">
+                <Link className="decoration-brand-dark" href="https://getfastform.com/discord" target="_blank">
                   join Discord.
                 </Link>
               </li>
@@ -140,7 +140,7 @@ if (typeof window !== "undefined") {
                 </span>{" "}
                 <Link
                   className="decoration-brand-dark"
-                  href="https://fastform.com/docs/attributes/why"
+                  href="https://getfastform.com/docs/attributes/why"
                   target="_blank">
                   Dive into the docs.
                 </Link>

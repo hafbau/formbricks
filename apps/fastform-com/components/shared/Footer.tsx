@@ -18,12 +18,12 @@ const navigation = {
     },
     {
       name: "GitHub",
-      href: "https://github.com/fastform/fastform",
+      href: "https://github.com/hafbau/formbricks",
       icon: FaGithub,
     },
     {
       name: "Discord",
-      href: "https://fastform.com/discord",
+      href: "https://getfastform.com/discord",
       icon: FaDiscord,
     },
   ],

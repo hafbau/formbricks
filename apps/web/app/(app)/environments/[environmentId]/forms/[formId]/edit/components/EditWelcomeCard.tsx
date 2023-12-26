@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@fastform/lib/cn";
 import { md } from "@fastform/lib/markdownIt";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Editor } from "@fastform/ui/Editor";
 import FileInput from "@fastform/ui/FileInput";
 import { Input } from "@fastform/ui/Input";
@@ -12,8 +12,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 interface EditWelcomeCardProps {
-  localform: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  setLocalform: (form: TForm) => void;
   setActiveQuestionId: (id: string | null) => void;
   activeQuestionId: string | null;
 }

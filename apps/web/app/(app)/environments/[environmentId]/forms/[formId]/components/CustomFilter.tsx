@@ -20,7 +20,7 @@ import { getTodaysDateFormatted } from "@fastform/lib/time";
 import { fetchFile } from "@/app/lib/fetchFile";
 import useClickOutside from "@fastform/lib/useClickOutside";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { createId } from "@paralleldrive/cuid2";
 import ResponseFilter from "./ResponseFilter";
 import {
@@ -48,7 +48,7 @@ enum FilterDropDownLabels {
 
 interface CustomFilterProps {
   environmentTags: TTag[];
-  form: Tform;
+  form: TForm;
   responses: TResponse[];
   totalResponses: TResponse[];
 }

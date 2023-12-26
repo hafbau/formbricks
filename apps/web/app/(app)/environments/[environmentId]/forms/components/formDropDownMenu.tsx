@@ -15,7 +15,7 @@ import {
 } from "@fastform/ui/DropdownMenu";
 import LoadingSpinner from "@fastform/ui/LoadingSpinner";
 import type { TEnvironment } from "@fastform/types/environment";
-import type { Tform } from "@fastform/types/forms";
+import type { TForm } from "@fastform/types/forms";
 import {
   ArrowUpOnSquareStackIcon,
   DocumentDuplicateIcon,
@@ -32,7 +32,7 @@ import toast from "react-hot-toast";
 
 interface FormDropDownMenuProps {
   environmentId: string;
-  form: Tform;
+  form: TForm;
   environment: TEnvironment;
   otherEnvironment: TEnvironment;
   webAppUrl: string;

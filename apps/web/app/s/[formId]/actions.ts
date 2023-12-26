@@ -11,14 +11,14 @@ interface LinkformEmailData {
 
 interface TformPinValidationResponse {
   error?: TformPinValidationResponseError;
-  form?: Tform;
+  form?: TForm;
 }
 
 import { TformPinValidationResponseError } from "@/app/s/[formId]/types";
 import { sendLinkformToVerifiedEmail } from "@/app/lib/email";
 import { verifyTokenForLinkform } from "@fastform/lib/jwt";
 import { getform } from "@fastform/lib/form/service";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 
 export async function sendLinkformEmailAction(data: LinkformEmailData) {
   if (!data.formData) {

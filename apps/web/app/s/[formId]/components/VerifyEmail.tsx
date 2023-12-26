@@ -1,7 +1,7 @@
 "use client";
 
 import { sendLinkformEmailAction } from "@/app/s/[formId]/actions";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
@@ -12,7 +12,7 @@ export default function VerifyEmail({
   form,
   isErrorComponent,
 }: {
-  form: Tform;
+  form: TForm;
   isErrorComponent?: boolean;
 }) {
   const [showPreviewQuestions, setShowPreviewQuestions] = useState(false);

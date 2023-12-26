@@ -1,11 +1,11 @@
 "use client";
 
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import React from "react";
 
 interface MediaBackgroundProps {
   children: React.ReactNode;
-  form: Tform;
+  form: TForm;
   isEditorView?: boolean;
   isMobilePreview?: boolean;
   ContentRef?: React.RefObject<HTMLDivElement>;

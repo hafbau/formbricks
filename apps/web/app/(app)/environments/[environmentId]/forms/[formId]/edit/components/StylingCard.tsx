@@ -1,7 +1,7 @@
 "use client";
 
 import { TPlacement } from "@fastform/types/common";
-import { Tform, TformBackgroundBgType } from "@fastform/types/forms";
+import { TForm, TformBackgroundBgType } from "@fastform/types/forms";
 import { ColorPicker } from "@fastform/ui/ColorPicker";
 import { Label } from "@fastform/ui/Label";
 import { Switch } from "@fastform/ui/Switch";
@@ -12,8 +12,8 @@ import Placement from "./Placement";
 import FormBgSelectorTab from "./FormBgSelectorTab";
 
 interface StylingCardProps {
-  localform: Tform;
-  setLocalform: React.Dispatch<React.SetStateAction<Tform>>;
+  localform: TForm;
+  setLocalform: React.Dispatch<React.SetStateAction<TForm>>;
   colours: string[];
 }
 

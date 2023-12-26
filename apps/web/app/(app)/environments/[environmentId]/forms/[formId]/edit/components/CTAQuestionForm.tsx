@@ -3,7 +3,7 @@
 import { BackButtonInput } from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/QuestionCard";
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/QuestionFormInput";
 import { md } from "@fastform/lib/markdownIt";
-import { Tform, TformCTAQuestion } from "@fastform/types/forms";
+import { TForm, TformCTAQuestion } from "@fastform/types/forms";
 import { Editor } from "@fastform/ui/Editor";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
@@ -11,7 +11,7 @@ import { RadioGroup, RadioGroupItem } from "@fastform/ui/RadioGroup";
 import { useState } from "react";
 
 interface CTAQuestionFormProps {
-  localform: Tform;
+  localform: TForm;
   question: TformCTAQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;

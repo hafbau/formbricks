@@ -42,7 +42,7 @@ export default function Connect({ enabled, environmentId, webAppUrl }: ConnectPr
             Google Sheets Integration is not configured in your instance of Fastform.
             <br />
             Please follow the{" "}
-            <Link href="https://fastform.com/docs/integrations/google-sheets" className="underline">
+            <Link href="https://getfastform.com/docs/integrations/google-sheets" className="underline">
               docs
             </Link>{" "}
             to configure it.

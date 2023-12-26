@@ -1,5 +1,5 @@
 import { TJsActionInput } from "@fastform/types/js";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Config } from "./config";
 import { NetworkError, Result, err, okVoid } from "./errors";
 import { Logger } from "./logger";
@@ -60,7 +60,7 @@ export const trackAction = async (
   return okVoid();
 };
 
-export const triggerform = (actionName: string, activeforms: Tform[]): void => {
+export const triggerform = (actionName: string, activeforms: TForm[]): void => {
   for (const form of activeforms) {
     for (const trigger of form.triggers) {
       if (trigger === actionName) {

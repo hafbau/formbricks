@@ -1,11 +1,11 @@
-import formCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/formCheckboxGroup";
+import FormCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/FormCheckboxGroup";
 import TriggerCheckboxGroup from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/TriggerCheckboxGroup";
 import { triggers } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/HardcodedTriggers";
 import { testEndpoint } from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/testEndpoint";
 import { Modal } from "@fastform/ui/Modal";
 import { createWebhookAction } from "../actions";
 import { TPipelineTrigger } from "@fastform/types/pipelines";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TWebhookInput } from "@fastform/types/webhooks";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
@@ -20,7 +20,7 @@ import toast from "react-hot-toast";
 interface AddWebhookModalProps {
   environmentId: string;
   open: boolean;
-  forms: Tform[];
+  forms: TForm[];
   setOpen: (v: boolean) => void;
 }
 
@@ -203,7 +203,7 @@ export default function AddWebhookModal({ environmentId, forms, open, setOpen }:
 
               <div>
                 <Label htmlFor="forms">forms</Label>
-                <formCheckboxGroup
+                <FormCheckboxGroup
                   forms={forms}
                   selectedforms={selectedforms}
                   selectedAllforms={selectedAllforms}

@@ -41,7 +41,7 @@ export default function ThankYouCard({ headline, subheader, brandColor }: ThankY
         <p className="text-xs text-slate-500">
           Powered by{" "}
           <b>
-            <a href="https://fastform.com" target="_blank" className="hover:text-slate-700">
+            <a href="https://getfastform.com" target="_blank" className="hover:text-slate-700">
               Fastform
             </a>
           </b>

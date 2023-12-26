@@ -1,8 +1,8 @@
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { useState } from "react";
 
 interface AnimatedformBgProps {
-  localform?: Tform;
+  localform?: TForm;
   handleBgChange: (bg: string, bgType: string) => void;
 }
 

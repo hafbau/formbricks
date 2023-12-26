@@ -6,7 +6,7 @@ import { MediaBackground } from "@/app/s/[formId]/components/MediaBackground";
 import type { TEnvironment } from "@fastform/types/environment";
 import type { TProduct } from "@fastform/types/product";
 import { TUploadFileConfig } from "@fastform/types/storage";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { FormInline } from "@fastform/ui/Form";
 import { ArrowPathRoundedSquareIcon } from "@heroicons/react/24/outline";
@@ -21,8 +21,8 @@ import { useEffect, useRef, useState } from "react";
 
 type TPreviewType = "modal" | "fullwidth" | "email";
 
-interface PreviewformProps {
-  form: Tform;
+interface PreviewFormProps {
+  form: TForm;
   setActiveQuestionId: (id: string | null) => void;
   activeQuestionId?: string | null;
   previewType?: TPreviewType;
@@ -59,7 +59,7 @@ const previewParentContainerVariant: Variants = {
     zIndex: -1,
   },
 };
-export default function Previewform({
+export default function PreviewForm({
   setActiveQuestionId,
   activeQuestionId,
   form,
@@ -67,14 +67,14 @@ export default function Previewform({
   product,
   environment,
   onFileUpload,
-}: PreviewformProps) {
+}: PreviewFormProps) {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [isFullScreenPreview, setIsFullScreenPreview] = useState(false);
   const [widgetSetupCompleted, setWidgetSetupCompleted] = useState(false);
   const [previewMode, setPreviewMode] = useState("desktop");
   const [previewPosition, setPreviewPosition] = useState("relative");
   const ContentRef = useRef<HTMLDivElement | null>(null);
-  const [shrink, setshrink] = useState(false);
+  const [shrink, setShrink] = useState(false);
 
   const { productOverwrites } = form || {};
 
@@ -167,7 +167,7 @@ export default function Previewform({
     if (form.styling?.background?.bgType === "animation") {
       animationTrigger();
     }
-  }, [form.styling?.background?.bg]);
+  }, [form.styling?.background?.bgType, animationTrigger]);
 
   useEffect(() => {
     if (environment && environment.widgetSetupCompleted) {
@@ -258,7 +258,7 @@ export default function Previewform({
                     <ArrowsPointingInIcon
                       className="mr-2 h-4 w-4 cursor-pointer"
                       onClick={() => {
-                        setshrink(true);
+                        setShrink(true);
                         setPreviewPosition("relative");
                         setTimeout(() => setIsFullScreenPreview(false), 300);
                       }}
@@ -267,7 +267,7 @@ export default function Previewform({
                     <ArrowsPointingOutIcon
                       className="mr-2 h-4 w-4 cursor-pointer"
                       onClick={() => {
-                        setshrink(false);
+                        setShrink(false);
                         setIsFullScreenPreview(true);
                         setTimeout(() => setPreviewPosition("fixed"), 300);
                       }}

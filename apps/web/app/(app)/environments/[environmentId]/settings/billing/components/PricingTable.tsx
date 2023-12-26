@@ -144,7 +144,7 @@ export default function PricingTableComponent({
     },
   ];
 
-  const linkformsFeatures = [
+  const linkFormsFeatures = [
     {
       title: "Remove Fastform Branding",
       comingSoon: false,
@@ -220,7 +220,7 @@ export default function PricingTableComponent({
                   onClick={() =>
                     upgradePlan([
                       StripePriceLookupKeys.inAppformUnlimited,
-                      StripePriceLookupKeys.linkformUnlimited,
+                      StripePriceLookupKeys.linkFormUnlimited,
                       StripePriceLookupKeys.userTargetingUnlimited,
                     ])
                   }>
@@ -287,14 +287,14 @@ export default function PricingTableComponent({
         <PricingCard
           title={"Link Form"}
           subtitle={"Link forms include unlimited forms and responses for free."}
-          featureName={ProductFeatureKeys[ProductFeatureKeys.linkform]}
+          featureName={ProductFeatureKeys[ProductFeatureKeys.linkForm]}
           monthlyPrice={30}
           actionText={""}
           team={team}
-          paidFeatures={linkformsFeatures}
+          paidFeatures={linkFormsFeatures}
           loading={upgradingPlan}
-          onUpgrade={() => upgradePlan([StripePriceLookupKeys.linkform])}
-          onUbsubscribe={(e) => handleUnsubscribe(e, ProductFeatureKeys[ProductFeatureKeys.linkform])}
+          onUpgrade={() => upgradePlan([StripePriceLookupKeys.linkForm])}
+          onUbsubscribe={(e) => handleUnsubscribe(e, ProductFeatureKeys[ProductFeatureKeys.linkForm])}
         />
 
         <PricingCard

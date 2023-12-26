@@ -3,7 +3,7 @@
 import toast from "react-hot-toast";
 import { FormInline } from "@fastform/ui/Form";
 import { cn } from "@fastform/lib/cn";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/solid";
 import { ArrowUpRightIcon } from "lucide-react";
@@ -11,7 +11,7 @@ import { useRef } from "react";
 
 interface EmailTabProps {
   formUrl: string;
-  form: Tform;
+  form: TForm;
   brandColor: string;
 }
 

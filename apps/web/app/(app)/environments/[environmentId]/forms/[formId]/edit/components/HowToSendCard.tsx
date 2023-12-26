@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@fastform/lib/cn";
 import { TEnvironment } from "@fastform/types/environment";
-import { Tform, TformType } from "@fastform/types/forms";
+import { TForm, TformType } from "@fastform/types/forms";
 import { Badge } from "@fastform/ui/Badge";
 import { Label } from "@fastform/ui/Label";
 import { RadioGroup, RadioGroupItem } from "@fastform/ui/RadioGroup";
@@ -17,8 +17,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface HowToSendCardProps {
-  localform: Tform;
-  setLocalform: (form: Tform | ((Tform) => Tform)) => void;
+  localform: TForm;
+  setLocalform: (form: TForm | ((TForm) => TForm)) => void;
   environment: TEnvironment;
 }
 

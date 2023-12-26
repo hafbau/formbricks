@@ -4,7 +4,7 @@ import LinkSingleUseFormModal from "@/app/(app)/environments/[environmentId]/for
 import { cn } from "@fastform/lib/cn";
 import { TProduct } from "@fastform/types/product";
 import { TProfile } from "@fastform/types/profile";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Dialog, DialogContent } from "@fastform/ui/Dialog";
 import { CodeBracketIcon, EnvelopeIcon, LinkIcon } from "@heroicons/react/24/outline";
@@ -14,7 +14,7 @@ import LinkTab from "./shareEmbedTabs/LinkTab";
 import WebpageTab from "./shareEmbedTabs/WebpageTab";
 
 interface ShareEmbedformProps {
-  form: Tform;
+  form: TForm;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   webAppUrl: string;

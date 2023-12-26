@@ -1,9 +1,9 @@
 import React from "react";
 import { Checkbox } from "@fastform/ui/Checkbox";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 
-interface formCheckboxGroupProps {
-  forms: Tform[];
+interface FormCheckboxGroupProps {
+  forms: TForm[];
   selectedforms: string[];
   selectedAllforms: boolean;
   onSelectAllforms: () => void;
@@ -11,7 +11,7 @@ interface formCheckboxGroupProps {
   allowChanges: boolean;
 }
 
-export const formCheckboxGroup: React.FC<formCheckboxGroupProps> = ({
+export const FormCheckboxGroup: React.FC<FormCheckboxGroupProps> = ({
   forms,
   selectedforms,
   selectedAllforms,
@@ -69,4 +69,4 @@ export const formCheckboxGroup: React.FC<formCheckboxGroupProps> = ({
   );
 };
 
-export default formCheckboxGroup;
+export default FormCheckboxGroup;

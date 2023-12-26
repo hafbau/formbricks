@@ -25,6 +25,7 @@ Before you proceed, make sure you have the following:
 ## Single Command Setup
 
 Copy and paste the following command into your terminal:
+
 <Col>
 <CodeGroup title="Single Command to deploy Fastform">
 
@@ -36,29 +37,61 @@ curl -fsSL https://raw.githubusercontent.com/fastform/fastform/main/docker/produ
 </Col>
 The script will prompt you for the following information:
 
-1. **Overwriting Docker GPG Keys**: If Docker GPG keys already exist, the script will ask if you want to overwrite them.
+1.  **Overwriting Docker GPG Keys**: If Docker GPG keys already exist, the script will ask if you want to overwrite them.
+
 <Col>
-   <CodeGroup title="Docker GPG Keys Overwrite Prompt">
+<CodeGroup title="Docker GPG Keys Overwrite Prompt">
 
-   ```bash
-   🧱 Welcome to the Fastform single instance installer
+    ```bash
+    🧱 Welcome to the Fastform single instance installer
 
-   🛸 Fasten your seatbelts! We're setting up your Fastform environment on your Ubuntu 22.04.2 LTS server.
+    🛸 Fasten your seatbelts! We're setting up your Fastform environment on your Ubuntu 22.04.2 LTS server.
 
-   🧹 Time to sweep away any old Docker installations.
-   🔄 Updating your package list.
-   📦 Installing the necessary dependencies.
-   🔑 Adding Docker's official GPG key and setting up the stable repository.
-   File '/etc/apt/keyrings/docker.gpg' exists. Overwrite? (y/N)
-   ```
+    🧹 Time to sweep away any old Docker installations.
+    🔄 Updating your package list.
+    📦 Installing the necessary dependencies.
+    🔑 Adding Docker's official GPG key and setting up the stable repository.
+    File '/etc/apt/keyrings/docker.gpg' exists. Overwrite? (y/N)
+    ```
 
-   </CodeGroup>
+</CodeGroup>
 </Col>
-2. **Email Address**: Provide your email address for SSL certificate registration with Let's Encrypt.
-<Col>
-   <CodeGroup title="Email Prompt">
 
-   ```bash
+2.  **Email Address**: Provide your email address for SSL certificate registration with Let's Encrypt.
+
+<Col>
+<CodeGroup title="Email Prompt">
+
+    ```bash
+     🧱 Welcome to the Fastform single instance installer
+
+     🛸 Fasten your seatbelts! We're setting up your Fastform environment on your Ubuntu 22.04.2 LTS server.
+
+     🧹 Time to sweep away any old Docker installations.
+     🔄 Updating your package list.
+     📦 Installing the necessary dependencies.
+     🔑 Adding Docker's official GPG key and setting up the stable repository.
+     File '/etc/apt/keyrings/docker.gpg' exists. Overwrite? (y/N) y
+     🔄 Updating your package list again.
+     🐳 Installing Docker.
+     🚀 Testing your Docker installation.
+     🎉 Docker is installed!
+     🐳 Adding your user to the Docker group to avoid using sudo with docker commands.
+     🎉 Hooray! Docker is all set and ready to go. You're now ready to run your Fastform instance!
+     🚗 Installing Traefik...
+     📁 Created Fastform Quickstart directory at ./fastform.
+     💡 Please enter your email address for the SSL certificate:
+    ```
+
+</CodeGroup>
+</Col>
+
+3.  **Domain Name**: Enter the domain name that Traefik will use to create the SSL certificate and forward requests to Fastform.
+
+<Col>
+<CodeGroup title="Domain Name for SSL certificate Prompt">
+
+    ```bash
     🧱 Welcome to the Fastform single instance installer
 
     🛸 Fasten your seatbelts! We're setting up your Fastform environment on your Ubuntu 22.04.2 LTS server.
@@ -77,42 +110,17 @@ The script will prompt you for the following information:
     🚗 Installing Traefik...
     📁 Created Fastform Quickstart directory at ./fastform.
     💡 Please enter your email address for the SSL certificate:
-   ```
+    docs@fastform.com
+    💡 Created traefik.yaml file with your provided email address.
+    💡 Created acme.json file with correct permissions.
+    🔗 Please enter your domain name for the SSL certificate (🚨 do NOT enter the protocol (http/https/etc)):
+    ```
 
-    </CodeGroup>
+</CodeGroup>
 </Col>
-3. **Domain Name**: Enter the domain name that Traefik will use to create the SSL certificate and forward requests to Fastform.
-<Col>
-   <CodeGroup title="Domain Name for SSL certificate Prompt">
 
-   ```bash
-   🧱 Welcome to the Fastform single instance installer
-
-   🛸 Fasten your seatbelts! We're setting up your Fastform environment on your Ubuntu 22.04.2 LTS server.
-
-   🧹 Time to sweep away any old Docker installations.
-   🔄 Updating your package list.
-   📦 Installing the necessary dependencies.
-   🔑 Adding Docker's official GPG key and setting up the stable repository.
-   File '/etc/apt/keyrings/docker.gpg' exists. Overwrite? (y/N) y
-   🔄 Updating your package list again.
-   🐳 Installing Docker.
-   🚀 Testing your Docker installation.
-   🎉 Docker is installed!
-   🐳 Adding your user to the Docker group to avoid using sudo with docker commands.
-   🎉 Hooray! Docker is all set and ready to go. You're now ready to run your Fastform instance!
-   🚗 Installing Traefik...
-   📁 Created Fastform Quickstart directory at ./fastform.
-   💡 Please enter your email address for the SSL certificate:
-   docs@fastform.com
-   💡 Created traefik.yaml file with your provided email address.
-   💡 Created acme.json file with correct permissions.
-   🔗 Please enter your domain name for the SSL certificate (🚨 do NOT enter the protocol (http/https/etc)):
-   ```
-
-   </CodeGroup>
-</Col>
 **That's it**! After running the command and providing the required information, visit the domain name you entered, and you should see the Fastform home wizard!
+
 <Col>
 <CodeGroup title="Successfully setup Fastform on your Ubuntu machine">
 
@@ -201,7 +209,6 @@ To restart Fastform, simply run the following command:
 
 The script will automatically restart all the Fastform related containers and brings the entire stack up with the previous configuration.
 
-
 ## Uninstall Fastform
 
 To uninstall Fastform, simply run the following command, but keep in mind that this will delete all your data!
@@ -220,6 +227,7 @@ The script will automatically stop all the Fastform related containers, remove t
 ## Debugging
 
 If you encounter any issues, you can check the logs of the container with:
+
 <Col>
 <CodeGroup title="Check logs of the container">
 
@@ -230,7 +238,6 @@ cd fastform && docker compose logs -f
 </CodeGroup>
 </Col>
 You can close the logs again with `CTRL + C`.
-
 
 ## Troubleshooting
 
@@ -244,4 +251,4 @@ If you encounter any issues, consider the following steps:
 
 - **Check Fastform Logs**: Run `cd fastform && docker compose logs` to check the logs of the Fastform stack.
 
-**Still can’t figure it out?**: [Join our Discord!](https://fastform.com/discord)
+**Still can’t figure it out?**: [Join our Discord!](https://getfastform.com/discord)

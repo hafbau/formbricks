@@ -1,5 +1,5 @@
 import { cn } from "@fastform/lib/cn";
-import { Tform, TformQuestionType } from "@fastform/types/forms";
+import { TForm, TformQuestionType } from "@fastform/types/forms";
 
 import { isLight } from "@/app/lib/utils";
 import { WEBAPP_URL } from "@fastform/lib/constants";
@@ -19,7 +19,7 @@ import {
 import { render } from "@react-email/render";
 
 interface EmailTemplateProps {
-  form: Tform;
+  form: TForm;
   formUrl: string;
   brandColor: string;
 }
@@ -311,7 +311,7 @@ const EmailTemplateWrapper = ({ children, formUrl, brandColor }) => {
 const EmailFooter = () => {
   return (
     <Container className="m-auto mt-8 text-center ">
-      <Link href="https://fastform.com/" target="_blank" className="text-xs text-slate-400">
+      <Link href="https://getfastform.com/" target="_blank" className="text-xs text-slate-400">
         Powered by Fastform
       </Link>
     </Container>

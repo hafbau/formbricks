@@ -9,11 +9,11 @@ import {
 import { QuestionFilterOptions } from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/ResponseFilter";
 import { TformQuestionType } from "@fastform/types/forms";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TTag } from "@fastform/types/tags";
 import { isWithinInterval } from "date-fns";
 
-export const generateQuestionsAndAttributes = (form: Tform, responses: TResponse[]) => {
+export const generateQuestionsAndAttributes = (form: TForm, responses: TResponse[]) => {
   let questionNames: string[] = [];
 
   if (form?.questions) {
@@ -91,7 +91,7 @@ const getPersonAttributes = (responses: TResponse[]): { [key: string]: any[] } |
 
 // creating the options for the filtering to be selected there are three types questions, attributes and tags
 export const generateQuestionAndFilterOptions = (
-  form: Tform,
+  form: TForm,
   responses: TResponse[],
   environmentTags: TTag[] | undefined
 ): {
@@ -180,7 +180,7 @@ export const generateQuestionAndFilterOptions = (
 export const getFilterResponses = (
   responses: TResponse[],
   selectedFilter: SelectedFilterValue,
-  form: Tform,
+  form: TForm,
   dateRange: DateRange
 ) => {
   // added the question on the response object to filter out the responses which has been selected

@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import footerLogo from "../lib/footerlogo.svg";
 
-const formInactive = ({
+const FormInactive = ({
   status,
   formClosedMessage,
 }: {
@@ -38,13 +38,13 @@ const formInactive = ({
             : descriptions[status]}
         </p>
         {!(status === "completed" && formClosedMessage) && status !== "link invalid" && (
-          <Button variant="darkCTA" className="mt-2" href="https://fastform.com">
+          <Button variant="darkCTA" className="mt-2" href="https://getfastform.com">
             Create your own
           </Button>
         )}
       </div>
       <div>
-        <Link href="https://fastform.com">
+        <Link href="https://getfastform.com">
           <Image src={footerLogo} alt="Brand logo" className="mx-auto w-40" />
         </Link>
       </div>
@@ -52,4 +52,4 @@ const formInactive = ({
   );
 };
 
-export default formInactive;
+export default FormInactive;

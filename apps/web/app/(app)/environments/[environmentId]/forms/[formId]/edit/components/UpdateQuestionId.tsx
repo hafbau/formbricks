@@ -1,13 +1,13 @@
 "use client";
 
-import { Tform, TformQuestion } from "@fastform/types/forms";
+import { TForm, TformQuestion } from "@fastform/types/forms";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
 interface UpdateQuestionIdProps {
-  localform: Tform;
+  localform: TForm;
   question: TformQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;

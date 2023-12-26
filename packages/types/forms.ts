@@ -425,11 +425,11 @@ export const ZformInput = z.object({
   triggers: z.array(z.string()).optional(),
 });
 
-export type Tform = z.infer<typeof Zform>;
+export type TForm = z.infer<typeof Zform>;
 export type TformDates = {
-  createdAt: Tform["createdAt"];
-  updatedAt: Tform["updatedAt"];
-  closeOnDate: Tform["closeOnDate"];
+  createdAt: TForm["createdAt"];
+  updatedAt: TForm["updatedAt"];
+  closeOnDate: TForm["closeOnDate"];
 };
 export type TformInput = z.infer<typeof ZformInput>;
 

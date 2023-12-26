@@ -3,7 +3,7 @@
 import { useGetBillingInfo } from "@fastform/lib/team/hooks/useGetBillingInfo";
 import { TAllowedFileExtension, ZAllowedFileExtension } from "@fastform/types/common";
 import { TProduct } from "@fastform/types/product";
-import { Tform, TformFileUploadQuestion } from "@fastform/types/forms";
+import { TForm, TformFileUploadQuestion } from "@fastform/types/forms";
 import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
@@ -13,7 +13,7 @@ import { useMemo, useState } from "react";
 import { toast } from "react-hot-toast";
 
 interface FileUploadFormProps {
-  localform: Tform;
+  localform: TForm;
   product?: TProduct;
   question: TformFileUploadQuestion;
   questionIdx: number;
@@ -93,7 +93,7 @@ export default function FileUploadQuestionForm({
       return 10;
     }
 
-    if (billingInfo.features.linkform.status === "active") {
+    if (billingInfo.features.linkForm.status === "active") {
       // 1GB in MB
       return 1024;
     }

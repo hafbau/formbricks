@@ -6,7 +6,7 @@ import {
   TIntegrationAirtableConfigData,
   TIntegrationAirtableInput,
 } from "@fastform/types/integration/airtable";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Alert, AlertDescription, AlertTitle } from "@fastform/ui/Alert";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@fastform/ui/Select";
 import { Button } from "@fastform/ui/Button";
@@ -32,7 +32,7 @@ type AddIntegrationModalProps = {
   setOpenWithStates: (v: boolean) => void;
   environmentId: string;
   airtableArray: TIntegrationItem[];
-  forms: Tform[];
+  forms: TForm[];
   airtableIntegration: TIntegrationAirtable;
 } & EditModeProps;
 

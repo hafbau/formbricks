@@ -101,7 +101,7 @@ export default function ArticlePage({ article = {} }: ArticlePageProps) {
   if (!article || !article.attributes) return <div>Loading...</div>;
 
   // Generate canonical URL
-  const canonicalURL = `https://fastform.com${router.asPath}`;
+  const canonicalURL = `https://getfastform.com${router.asPath}`;
 
   // Use next/image to render images in markdown
   const renderers = {

@@ -14,16 +14,16 @@ Fastform v1.2 ships a lot of features targeting our Link forms. We have also imp
 
 ### New Environment Variables
 
-| Environment Variable | Required | Recommended Generation         | Comments                                                    |
-| -------------------- | -------- | ------------------------------ | ----------------------------------------------------------- |
-| ENCRYPTION_KEY       | true     | `openssl rand -hex 32`         | Needed for 2 Factor Authentication                          |
-| SHORT_URL_BASE       | false    | `<your-short-base-url>`        | Needed if you want to enable shorter links for Link forms |
+| Environment Variable | Required | Recommended Generation  | Comments                                                  |
+| -------------------- | -------- | ----------------------- | --------------------------------------------------------- |
+| ENCRYPTION_KEY       | true     | `openssl rand -hex 32`  | Needed for 2 Factor Authentication                        |
+| SHORT_URL_BASE       | false    | `<your-short-base-url>` | Needed if you want to enable shorter links for Link forms |
 
 ### Deprecated / Removed Environment Variables
 
-| Environment Variable | Comments                                                                  |
-| -------------------- | ------------------------------------------------------------------------- |
-| form_BASE_URL      | The WEBAPP_URL is now used to determine the form base url in all places |
+| Environment Variable | Comments                                                                |
+| -------------------- | ----------------------------------------------------------------------- |
+| form_BASE_URL        | The WEBAPP_URL is now used to determine the form base url in all places |
 
 ## v1.0 -> v1.1
 
@@ -46,8 +46,8 @@ This is now possible with v1.1. However, due to Next.JS best practices, we had t
 | **NEXT*PUBLIC***GITHUB_AUTH_ENABLED         | GITHUB_AUTH_ENABLED         |
 | **NEXT*PUBLIC***GOOGLE_AUTH_ENABLED         | GOOGLE_AUTH_ENABLED         |
 | **NEXT*PUBLIC***WEBAPP_URL                  | WEBAPP_URL                  |
-| **NEXT*PUBLIC***IS_FASTFORM_CLOUD         | IS_FASTFORM_CLOUD         |
-| **NEXT*PUBLIC***form_BASE_URL             | form_BASE_URL             |
+| **NEXT*PUBLIC***IS_FASTFORM_CLOUD           | IS_FASTFORM_CLOUD           |
+| **NEXT*PUBLIC***form_BASE_URL               | form_BASE_URL               |
 
 <Note>
   Please note that their values and the logic remains exactly the same. Only the prefix has been deprecated.
@@ -138,4 +138,5 @@ x-environment: &environment
 ```
 </CodeGroup>
 </Col>
-Did we miss something? Are you still facing issues migrating your app? [Join our Discord!](https://fastform.com/discord) We'd be happy to help!
+Did we miss something? Are you still facing issues migrating your app? [Join our Discord!](https://getfastform.com/discord) We'd be happy to help!
+```

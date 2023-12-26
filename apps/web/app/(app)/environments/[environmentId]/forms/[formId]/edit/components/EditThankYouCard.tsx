@@ -1,15 +1,15 @@
 "use client";
 
 import { cn } from "@fastform/lib/cn";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
 import { Switch } from "@fastform/ui/Switch";
 import * as Collapsible from "@radix-ui/react-collapsible";
 
 interface EditThankYouCardProps {
-  localform: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  setLocalform: (form: TForm) => void;
   setActiveQuestionId: (id: string | null) => void;
   activeQuestionId: string | null;
 }

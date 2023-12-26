@@ -2,7 +2,7 @@
 
 import { timeSince } from "@fastform/lib/time";
 import { TEnvironment } from "@fastform/types/environment";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { DeleteDialog } from "@fastform/ui/DeleteDialog";
 import AddIntegrationModal, {
@@ -19,7 +19,7 @@ interface handleModalProps {
   environment: TEnvironment;
   environmentId: string;
   setIsConnected: (data: boolean) => void;
-  forms: Tform[];
+  forms: TForm[];
   airtableArray: TIntegrationItem[];
 }
 

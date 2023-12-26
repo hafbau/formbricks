@@ -1,4 +1,4 @@
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 
 export const cn = (...classes: string[]) => {
   return classes.filter(Boolean).join(" ");
@@ -48,7 +48,7 @@ export const shuffleQuestions = (array: any[], shuffleOption: string) => {
   return arrayCopy;
 };
 
-export const calculateElementIdx = (form: Tform, currentQustionIdx: number): number => {
+export const calculateElementIdx = (form: TForm, currentQustionIdx: number): number => {
   const currentQuestion = form.questions[currentQustionIdx];
   const formLength = form.questions.length;
   const middleIdx = Math.floor(formLength / 2);

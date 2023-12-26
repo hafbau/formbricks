@@ -55,7 +55,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
           name: "Fastform",
           description:
             "Form granular user segments at any point in the user journey. Gather up to 6x more insights with targeted micro-forms. All open-source.",
-          href: "https://fastform.com",
+          href: "https://getfastform.com",
         },
         {
           name: "Firecamp",

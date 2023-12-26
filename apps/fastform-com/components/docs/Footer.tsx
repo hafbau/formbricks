@@ -96,10 +96,10 @@ function SmallPrint() {
         <SocialLink href="https://twitter.com/fastform" icon={FaXTwitter}>
           Follow us on Twitter
         </SocialLink>
-        <SocialLink href="https://github.com/fastform/fastform" icon={FaGithub}>
+        <SocialLink href="https://github.com/hafbau/formbricks" icon={FaGithub}>
           Follow us on GitHub
         </SocialLink>
-        <SocialLink href="https://fastform.com/discord" icon={FaDiscord}>
+        <SocialLink href="https://getfastform.com/discord" icon={FaDiscord}>
           Join our Discord server
         </SocialLink>
       </div>

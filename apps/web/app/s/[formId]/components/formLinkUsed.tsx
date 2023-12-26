@@ -4,11 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import footerLogo from "../lib/footerlogo.svg";
 
-type formLinkUsedProps = {
+type FormLinkUsedProps = {
   singleUseMessage: TformSingleUse | null;
 };
 
-const formLinkUsed = ({ singleUseMessage }: formLinkUsedProps) => {
+const FormLinkUsed = ({ singleUseMessage }: FormLinkUsedProps) => {
   const defaultHeading = "The form has already been answered.";
   const defaultSubheading = "You can only use this link once.";
   return (
@@ -24,7 +24,7 @@ const formLinkUsed = ({ singleUseMessage }: formLinkUsedProps) => {
         </p>
       </div>
       <div>
-        <Link href="https://fastform.com">
+        <Link href="https://getfastform.com">
           <Image src={footerLogo} alt="Brand logo" className="mx-auto w-40" />
         </Link>
       </div>
@@ -32,4 +32,4 @@ const formLinkUsed = ({ singleUseMessage }: formLinkUsedProps) => {
   );
 };
 
-export default formLinkUsed;
+export default FormLinkUsed;

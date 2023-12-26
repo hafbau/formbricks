@@ -1,6 +1,6 @@
 "use client";
 
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Confetti } from "@fastform/ui/Confetti";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -12,7 +12,7 @@ import { TProfile } from "@fastform/types/profile";
 
 interface SummaryMetadataProps {
   environment: TEnvironment;
-  form: Tform;
+  form: TForm;
   webAppUrl: string;
   product: TProduct;
   profile: TProfile;

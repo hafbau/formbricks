@@ -1,5 +1,5 @@
 import {
-  Tform,
+  TForm,
   TformLogic,
   TformQuestion,
   TformQuestionType,
@@ -22,7 +22,7 @@ import { toast } from "react-hot-toast";
 import { BsArrowDown, BsArrowReturnRight } from "react-icons/bs";
 
 interface LogicEditorProps {
-  localform: Tform;
+  localform: TForm;
   questionIdx: number;
   question: TformQuestion;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;

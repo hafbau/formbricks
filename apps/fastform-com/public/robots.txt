@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://fastform.com
+Host: https://getfastform.com
 
 # Sitemaps
-Sitemap: https://fastform.com/sitemap.xml
+Sitemap: https://getfastform.com/sitemap.xml

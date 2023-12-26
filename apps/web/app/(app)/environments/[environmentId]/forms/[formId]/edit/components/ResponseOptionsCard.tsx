@@ -1,5 +1,5 @@
 "use client";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
 import { DatePicker } from "@fastform/ui/DatePicker";
 import { Input } from "@fastform/ui/Input";
@@ -11,8 +11,8 @@ import { KeyboardEventHandler, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 interface ResponseOptionsCardProps {
-  localform: Tform;
-  setLocalform: (form: Tform | ((Tform) => Tform)) => void;
+  localform: TForm;
+  setLocalform: (form: TForm | ((TForm) => TForm)) => void;
   responseCount: number;
 }
 

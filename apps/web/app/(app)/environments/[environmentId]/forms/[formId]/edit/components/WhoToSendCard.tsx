@@ -2,7 +2,7 @@
 
 import { cn } from "@fastform/lib/cn";
 import { TAttributeClass } from "@fastform/types/attributeClasses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Alert, AlertDescription, AlertTitle } from "@fastform/ui/Alert";
 import { Badge } from "@fastform/ui/Badge";
 import { Button } from "@fastform/ui/Button";
@@ -19,8 +19,8 @@ const filterConditions = [
 ];
 
 interface WhoToSendCardProps {
-  localform: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  setLocalform: (form: TForm) => void;
   environmentId: string;
   attributeClasses: TAttributeClass[];
 }
@@ -109,7 +109,7 @@ export default function WhoToSendCard({ localform, setLocalform, attributeClasse
                 To target your audience you need to identify your users within your app. You can read more
                 about how to do this in our{" "}
                 <a
-                  href="https://fastform.com/docs/attributes/identify-users"
+                  href="https://getfastform.com/docs/attributes/identify-users"
                   className="underline"
                   target="_blank">
                   docs

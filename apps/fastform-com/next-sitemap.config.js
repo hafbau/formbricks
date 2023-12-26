@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://fastform.com",
+  siteUrl: "https://getfastform.com",
   generateRobotsTxt: true, // (optional)
 };

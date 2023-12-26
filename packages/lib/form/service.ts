@@ -6,7 +6,7 @@ import { ZOptionalNumber } from "@fastform/types/common";
 import { ZId } from "@fastform/types/environment";
 import { DatabaseError, ResourceNotFoundError } from "@fastform/types/errors";
 import { TPerson } from "@fastform/types/people";
-import { Tform, TformAttributeFilter, TformInput, Zform } from "@fastform/types/forms";
+import { TForm, TformAttributeFilter, TformInput, Zform } from "@fastform/types/forms";
 import { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 import { getActionClasses } from "../actionClass/service";
@@ -96,7 +96,7 @@ const revalidateformByAttributeClassId = (attributeFilters: TformAttributeFilter
   }
 };
 
-export const getform = async (formId: string): Promise<Tform | null> => {
+export const getform = async (formId: string): Promise<TForm | null> => {
   const form = await unstable_cache(
     async () => {
       validateInputs([formId, ZId]);
@@ -151,7 +151,7 @@ export const getform = async (formId: string): Promise<Tform | null> => {
 export const getformsByAttributeClassId = async (
   attributeClassId: string,
   page?: number
-): Promise<Tform[]> => {
+): Promise<TForm[]> => {
   const forms = await unstable_cache(
     async () => {
       validateInputs([attributeClassId, ZId], [page, ZOptionalNumber]);
@@ -169,7 +169,7 @@ export const getformsByAttributeClassId = async (
         skip: page ? ITEMS_PER_PAGE * (page - 1) : undefined,
       });
 
-      const forms: Tform[] = [];
+      const forms: TForm[] = [];
 
       for (const formPrisma of formsPrisma) {
         const transformedform = {
@@ -194,7 +194,7 @@ export const getformsByAttributeClassId = async (
   }));
 };
 
-export const getformsByActionClassId = async (actionClassId: string, page?: number): Promise<Tform[]> => {
+export const getformsByActionClassId = async (actionClassId: string, page?: number): Promise<TForm[]> => {
   const forms = await unstable_cache(
     async () => {
       validateInputs([actionClassId, ZId], [page, ZOptionalNumber]);
@@ -214,7 +214,7 @@ export const getformsByActionClassId = async (actionClassId: string, page?: numb
         skip: page ? ITEMS_PER_PAGE * (page - 1) : undefined,
       });
 
-      const forms: Tform[] = [];
+      const forms: TForm[] = [];
 
       for (const formPrisma of formsPrisma) {
         const transformedform = {
@@ -239,7 +239,7 @@ export const getformsByActionClassId = async (actionClassId: string, page?: numb
   }));
 };
 
-export const getforms = async (environmentId: string, page?: number): Promise<Tform[]> => {
+export const getforms = async (environmentId: string, page?: number): Promise<TForm[]> => {
   const forms = await unstable_cache(
     async () => {
       validateInputs([environmentId, ZId], [page, ZOptionalNumber]);
@@ -262,7 +262,7 @@ export const getforms = async (environmentId: string, page?: number): Promise<Tf
         throw error;
       }
 
-      const forms: Tform[] = [];
+      const forms: TForm[] = [];
 
       for (const formPrisma of formsPrisma) {
         const transformedform = {
@@ -288,7 +288,7 @@ export const getforms = async (environmentId: string, page?: number): Promise<Tf
   }));
 };
 
-export const updateform = async (updatedform: Tform): Promise<Tform> => {
+export const updateform = async (updatedform: TForm): Promise<TForm> => {
   validateInputs([updatedform, Zform]);
 
   const formId = updatedform.id;
@@ -438,7 +438,7 @@ export const updateform = async (updatedform: Tform): Promise<Tform> => {
       data,
     });
 
-    const modifiedform: Tform = {
+    const modifiedform: TForm = {
       ...prismaform, // Properties from prismaform
       triggers: updatedform.triggers ? updatedform.triggers : [], // Include triggers from updatedform
       attributeFilters: updatedform.attributeFilters ? updatedform.attributeFilters : [], // Include attributeFilters from updatedform
@@ -495,7 +495,7 @@ export async function deleteform(formId: string) {
   return deletedform;
 }
 
-export const createform = async (environmentId: string, formBody: TformInput): Promise<Tform> => {
+export const createform = async (environmentId: string, formBody: TformInput): Promise<TForm> => {
   validateInputs([environmentId, ZId]);
 
   if (formBody.attributeFilters) {
@@ -609,7 +609,7 @@ export const duplicateform = async (environmentId: string, formId: string) => {
   return newform;
 };
 
-export const getSyncforms = (environmentId: string, person: TPerson): Promise<Tform[]> => {
+export const getSyncforms = (environmentId: string, person: TPerson): Promise<TForm[]> => {
   validateInputs([environmentId, ZId]);
 
   return unstable_cache(

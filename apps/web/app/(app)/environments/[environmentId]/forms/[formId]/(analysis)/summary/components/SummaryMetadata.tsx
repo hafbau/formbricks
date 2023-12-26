@@ -1,6 +1,6 @@
 import { timeSinceConditionally } from "@fastform/lib/time";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
@@ -10,7 +10,7 @@ interface SummaryMetadataProps {
   responses: TResponse[];
   showDropOffs: boolean;
   setShowDropOffs: React.Dispatch<React.SetStateAction<boolean>>;
-  form: Tform;
+  form: TForm;
   displayCount: number;
 }
 

@@ -2,7 +2,7 @@
 import Connect from "./Connect";
 import Home from "./Home";
 import { useState } from "react";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TIntegrationAirtable } from "@fastform/types/integration/airtable";
 import { TIntegrationItem } from "@fastform/types/integration";
@@ -11,7 +11,7 @@ interface AirtableWrapperProps {
   environmentId: string;
   airtableArray: TIntegrationItem[];
   airtableIntegration?: TIntegrationAirtable;
-  forms: Tform[];
+  forms: TForm[];
   environment: TEnvironment;
   enabled: boolean;
   webAppUrl: string;

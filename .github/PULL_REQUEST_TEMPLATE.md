@@ -34,7 +34,7 @@ Fixes # (issue)
 ### Required
 
 - [ ] Filled out the "How to test" section in this PR
-- [ ] Read [How we Code at Fastform](<[https://github.com/fastform/fastform/blob/main/CONTRIBUTING.md](https://fastform.com/docs/contributing/how-we-code)>)
+- [ ] Read [How we Code at Fastform](<[https://github.com/hafbau/formbricks/blob/main/CONTRIBUTING.md](https://getfastform.com/docs/contributing/how-we-code)>)
 - [ ] Self-reviewed my own code
 - [ ] Commented on my code in hard-to-understand bits
 - [ ] Ran `pnpm build`
@@ -42,7 +42,7 @@ Fixes # (issue)
 - [ ] Removed all `console.logs`
 - [ ] Merged the latest changes from main onto my branch with `git pull origin main`
 - [ ] My changes don't cause any responsiveness issues
-- [ ] First PR at Fastform? [Please sign the CLA!](https://fastform.com/clmyhzfrymr4ko00hycsg1tvx) Without it we wont be able to merge it 🙏
+- [ ] First PR at Fastform? [Please sign the CLA!](https://getfastform.com/clmyhzfrymr4ko00hycsg1tvx) Without it we wont be able to merge it 🙏
 
 ### Appreciated
 

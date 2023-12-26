@@ -143,7 +143,7 @@ export const withEmailTemplate = (content: string) =>
       "
     >
       <div class="gutter" style="padding: 30px">
-        <a href="https://fastform.com" target="_blank">
+        <a href="https://getfastform.com" target="_blank">
           <img
             src="https://s3.eu-central-1.amazonaws.com/listmonk-fastform/Fastform-Light-transparent.png"
             alt="Fastform Logo"
@@ -178,7 +178,7 @@ export const withEmailTemplate = (content: string) =>
               /></a>
             </td>
             <td>
-              <a target="_blank" href="https://fastform.com/github"
+              <a target="_blank" href="https://getfastform.com/github"
                 ><img
                   title="GitHub"
                   src="https://s3.eu-central-1.amazonaws.com/listmonk-fastform/Github-transp.png"
@@ -187,7 +187,7 @@ export const withEmailTemplate = (content: string) =>
               /></a>
             </td>
             <td>
-              <a target="_blank" href="https://fastform.com/discord"
+              <a target="_blank" href="https://getfastform.com/discord"
                 ><img
                   title="Discord"
                   src="https://s3.eu-central-1.amazonaws.com/listmonk-fastform/Discord-transp.png"
@@ -201,14 +201,14 @@ export const withEmailTemplate = (content: string) =>
           Fastform ${new Date().getFullYear()}. All rights reserved.<br />
           <a
             style="text-decoration: none"
-            href="https://fastform.com/imprint"
+            href="https://getfastform.com/imprint"
             target="_blank"
             >Imprint</a
           >
           |
           <a
             style="text-decoration: none"
-            href="https://fastform.com/privacy-policy"
+            href="https://getfastform.com/privacy-policy"
             target="_blank"
             >Privacy Policy</a
           >

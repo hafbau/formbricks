@@ -304,7 +304,7 @@ export default function Header() {
           <Button
             variant="secondary"
             className="group hidden px-2 lg:block"
-            href="https://fastform.com/github"
+            href="https://getfastform.com/github"
             target="_blank">
             <Image
               src={GitHubMarkDark}
@@ -399,7 +399,7 @@ export default function Header() {
                 <Button
                   variant="secondary"
                   EndIcon={GitHubIcon}
-                  onClick={() => router.push("https://github.com/fastform/fastform")}
+                  onClick={() => router.push("https://github.com/hafbau/formbricks")}
                   className="flex w-full justify-center fill-slate-800 dark:fill-slate-200">
                   View on Github
                 </Button>

@@ -59,7 +59,7 @@ export default async function IntegrationsPage({ params }) {
 
   const integrationCards = [
     {
-      docsHref: "https://fastform.com/docs/getting-started/framework-guides#next-js",
+      docsHref: "https://getfastform.com/docs/getting-started/framework-guides#next-js",
       docsText: "Docs",
       docsNewTab: true,
       label: "Javascript Widget",
@@ -69,7 +69,7 @@ export default async function IntegrationsPage({ params }) {
       statusText: environment?.widgetSetupCompleted ? "Connected" : "Not Connected",
     },
     {
-      docsHref: "https://fastform.com/docs/integrations/zapier",
+      docsHref: "https://getfastform.com/docs/integrations/zapier",
       docsText: "Docs",
       docsNewTab: true,
       connectHref: "https://zapier.com/apps/fastform/integrations",
@@ -90,7 +90,7 @@ export default async function IntegrationsPage({ params }) {
       connectHref: `/environments/${params.environmentId}/integrations/webhooks`,
       connectText: "Manage Webhooks",
       connectNewTab: false,
-      docsHref: "https://fastform.com/docs/api/management/webhooks",
+      docsHref: "https://getfastform.com/docs/api/management/webhooks",
       docsText: "Docs",
       docsNewTab: true,
       label: "Webhooks",
@@ -108,7 +108,7 @@ export default async function IntegrationsPage({ params }) {
       connectHref: `/environments/${params.environmentId}/integrations/google-sheets`,
       connectText: `${containsGoogleSheetIntegration ? "Manage Sheets" : "Connect"}`,
       connectNewTab: false,
-      docsHref: "https://fastform.com/docs/integrations/google-sheets",
+      docsHref: "https://getfastform.com/docs/integrations/google-sheets",
       docsText: "Docs",
       docsNewTab: true,
       label: "Google Sheets",
@@ -121,7 +121,7 @@ export default async function IntegrationsPage({ params }) {
       connectHref: `/environments/${params.environmentId}/integrations/airtable`,
       connectText: `${containsAirtableIntegration ? "Manage Table" : "Connect"}`,
       connectNewTab: false,
-      docsHref: "https://fastform.com/docs/integrations/airtable",
+      docsHref: "https://getfastform.com/docs/integrations/airtable",
       docsText: "Docs",
       docsNewTab: true,
       label: "Airtable",
@@ -131,7 +131,7 @@ export default async function IntegrationsPage({ params }) {
       statusText: containsAirtableIntegration ? "Connected" : "Not Connected",
     },
     {
-      docsHref: "https://fastform.com/docs/integrations/n8n",
+      docsHref: "https://getfastform.com/docs/integrations/n8n",
       docsText: "Docs",
       docsNewTab: true,
       connectHref: "https://n8n.io",
@@ -149,7 +149,7 @@ export default async function IntegrationsPage({ params }) {
           : `${n8nwebhookCount} integrations`,
     },
     {
-      docsHref: "https://fastform.com/docs/integrations/make",
+      docsHref: "https://getfastform.com/docs/integrations/make",
       docsText: "Docs",
       docsNewTab: true,
       connectHref: "https://www.make.com/en/integrations/fastform",

@@ -35,7 +35,7 @@ export default function OSSFriendsPage({ OSSFriends }: Props) {
         <Button
           variant="minimal"
           className="dark:text-slate-400"
-          href="https://fastform.com/clhys1p9r001cpr0hu65rwh17"
+          href="https://getfastform.com/clhys1p9r001cpr0hu65rwh17"
           target="_blank">
           Wanna join OSS Friends?
         </Button>
@@ -45,14 +45,23 @@ export default function OSSFriendsPage({ OSSFriends }: Props) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch("https://fastform.com/api/oss-friends");
-  const data = await res.json();
+  try {
+    const res = await fetch("https://getfastform.com/api/oss-friends");
+    const data = await res.json();
 
-  // By returning { props: { OSSFriends } }, the OSSFriendsPage component
-  // will receive `OSSFriends` as a prop at build time
-  return {
-    props: {
-      OSSFriends: data.data,
-    },
-  };
+    // By returning { props: { OSSFriends } }, the OSSFriendsPage component
+    // will receive `OSSFriends` as a prop at build time
+    return {
+      props: {
+        OSSFriends: data.data,
+      },
+    };
+  } catch (e) {
+    console.log('getStaticProps error', e);
+    return {
+      props: {
+        OSSFriends: [],
+      },
+    };
+  }
 }

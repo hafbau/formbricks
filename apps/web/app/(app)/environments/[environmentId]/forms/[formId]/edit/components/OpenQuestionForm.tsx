@@ -1,7 +1,7 @@
 "use client";
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/QuestionFormInput";
-import { Tform, TformOpenTextQuestion, TformOpenTextQuestionInputType } from "@fastform/types/forms";
+import { TForm, TformOpenTextQuestion, TformOpenTextQuestionInputType } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
@@ -18,7 +18,7 @@ const questionTypes = [
 ];
 
 interface OpenQuestionFormProps {
-  localform: Tform;
+  localform: TForm;
   question: TformOpenTextQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;

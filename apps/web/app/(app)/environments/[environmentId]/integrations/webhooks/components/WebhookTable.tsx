@@ -4,7 +4,7 @@ import { Button } from "@fastform/ui/Button";
 import { useState } from "react";
 import { TWebhook } from "@fastform/types/webhooks";
 import AddWebhookModal from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/AddWebhookModal";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import WebhookModal from "@/app/(app)/environments/[environmentId]/integrations/webhooks/components/WebhookDetailModal";
 import { Webhook } from "lucide-react";
 import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
@@ -18,7 +18,7 @@ export default function WebhookTable({
 }: {
   environment: TEnvironment;
   webhooks: TWebhook[];
-  forms: Tform[];
+  forms: TForm[];
   children: [JSX.Element, JSX.Element[]];
 }) {
   const [isWebhookDetailModalOpen, setWebhookDetailModalOpen] = useState(false);

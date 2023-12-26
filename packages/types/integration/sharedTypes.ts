@@ -6,7 +6,7 @@ export const ZIntegrationBase = z.object({
   environmentId: z.string(),
 });
 
-export const ZIntegrationBaseformData = z.object({
+export const ZIntegrationBaseFormData = z.object({
   createdAt: z.date(),
   questionIds: z.array(z.string()),
   questions: z.string(),

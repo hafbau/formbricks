@@ -1,5 +1,5 @@
 import {
-  Tform,
+  TForm,
   TformHiddenFields,
   TformQuestionType,
   TformWelcomeCard,
@@ -250,7 +250,7 @@ export const testTemplate: TTemplate = {
         headline: "This is a CTA question",
         html: "This is a test CTA",
         buttonLabel: "Click",
-        buttonUrl: "https://fastform.com",
+        buttonUrl: "https://getfastform.com",
         buttonExternal: true,
         required: true,
         dismissButtonLabel: "Maybe later",
@@ -261,7 +261,7 @@ export const testTemplate: TTemplate = {
         headline: "This is a CTA question",
         html: "This is a test CTA",
         buttonLabel: "Click",
-        buttonUrl: "https://fastform.com",
+        buttonUrl: "https://getfastform.com",
         buttonExternal: true,
         required: false,
         dismissButtonLabel: "Maybe later",
@@ -590,7 +590,7 @@ export const templates: TTemplate[] = [
           logic: [{ condition: "clicked", destination: "end" }],
           headline: "Get 30% off for the next year!",
           required: true,
-          buttonUrl: "https://fastform.com",
+          buttonUrl: "https://getfastform.com",
           buttonLabel: "Get 30% off",
           buttonExternal: true,
           dismissButtonLabel: "Skip",
@@ -760,7 +760,7 @@ export const templates: TTemplate[] = [
           logic: [{ condition: "clicked", destination: "end" }],
           headline: "Sorry to hear! Get 20% off the first year.",
           required: true,
-          buttonUrl: "https://fastform.com/github",
+          buttonUrl: "https://getfastform.com/github",
           buttonLabel: "Get 20% off",
           buttonExternal: true,
           dismissButtonLabel: "Skip",
@@ -821,7 +821,7 @@ export const templates: TTemplate[] = [
           logic: [{ condition: "clicked", destination: "end" }],
           headline: "Happy to hear 🙏 Please write a review for us!",
           required: true,
-          buttonUrl: "https://fastform.com/github",
+          buttonUrl: "https://getfastform.com/github",
           buttonLabel: "Write review",
           buttonExternal: true,
         },
@@ -2238,7 +2238,7 @@ export const templates: TTemplate[] = [
           type: TformQuestionType.CTA,
           headline: "Thanks! ❤️ Spread the love with ONE friend.",
           required: false,
-          buttonUrl: "https://fastform.com",
+          buttonUrl: "https://getfastform.com",
           buttonLabel: "Happy to help!",
           buttonExternal: true,
           dismissButtonLabel: "Find your own friends",
@@ -2474,7 +2474,7 @@ questions: [
   },  */
 ];
 
-export const customform: TTemplate = {
+export const customForm: TTemplate = {
   name: "Start from scratch",
   description: "Create a form without template.",
   preset: {
@@ -2496,7 +2496,7 @@ export const customform: TTemplate = {
   },
 };
 
-export const minimalform: Tform = {
+export const minimalForm: TForm = {
   id: "someUniqueId1",
   createdAt: new Date(),
   updatedAt: new Date(),

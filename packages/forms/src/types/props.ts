@@ -1,9 +1,9 @@
 import { TResponseData, TResponseUpdate } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TUploadFileConfig } from "@fastform/types/storage";
 
 export interface FormBaseProps {
-  form: Tform;
+  form: TForm;
   isBrandingEnabled: boolean;
   activeQuestionId?: string;
   onDisplay?: () => void;

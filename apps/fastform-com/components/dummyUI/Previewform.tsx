@@ -1,24 +1,24 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import QuestionConditional from "./QuestionConditional";
-import { TformQuestion, Tform } from "@fastform/types/forms";
+import { TformQuestion, TForm } from "@fastform/types/forms";
 import ThankYouCard from "./ThankYouCard";
 
-interface PreviewformProps {
-  localform?: Tform;
+interface PreviewFormProps {
+  localform?: TForm;
   setActiveQuestionId: (id: string | null) => void;
   activeQuestionId?: string | null;
   questions: TformQuestion[];
   brandColor: string;
 }
 
-export default function Previewform({
+export default function PreviewForm({
   localform,
   setActiveQuestionId,
   activeQuestionId,
   questions,
   brandColor,
-}: PreviewformProps) {
+}: PreviewFormProps) {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const gotoNextQuestion = () => {

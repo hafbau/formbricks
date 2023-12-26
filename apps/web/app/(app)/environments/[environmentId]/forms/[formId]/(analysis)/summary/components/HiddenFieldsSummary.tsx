@@ -3,7 +3,7 @@ import { getPersonIdentifier } from "@fastform/lib/person/util";
 import { timeSince } from "@fastform/lib/time";
 import { TEnvironment } from "@fastform/types/environment";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { PersonAvatar } from "@fastform/ui/Avatars";
 import { ChatBubbleBottomCenterTextIcon, InboxStackIcon } from "@heroicons/react/24/solid";
 import { Link } from "lucide-react";
@@ -11,7 +11,7 @@ import { FC, useMemo } from "react";
 
 interface HiddenFieldsSummaryProps {
   question: string;
-  form: Tform;
+  form: TForm;
   responses: TResponse[];
   environment: TEnvironment;
 }

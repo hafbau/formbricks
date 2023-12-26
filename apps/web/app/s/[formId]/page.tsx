@@ -5,7 +5,7 @@ import LegalFooter from "@/app/s/[formId]/components/LegalFooter";
 import Linkform from "@/app/s/[formId]/components/Linkform";
 import { MediaBackground } from "@/app/s/[formId]/components/MediaBackground";
 import PinScreen from "@/app/s/[formId]/components/PinScreen";
-import formInactive from "@/app/s/[formId]/components/formInactive";
+import FormInactive from "@/app/s/[formId]/components/FormInactive";
 import { checkValidity } from "@/app/s/[formId]/lib/prefilling";
 import { REVALIDATION_INTERVAL, WEBAPP_URL } from "@fastform/lib/constants";
 import { createPerson, getPersonByUserId } from "@fastform/lib/person/service";
@@ -104,7 +104,7 @@ export default async function LinkformPage({ params, searchParams }: LinkformPag
 
   if (form && form.status !== "inProgress") {
     return (
-      <formInactive
+      <FormInactive
         status={form.status}
         formClosedMessage={form.formClosedMessage ? form.formClosedMessage : undefined}
       />
@@ -115,7 +115,7 @@ export default async function LinkformPage({ params, searchParams }: LinkformPag
   if (isSingleUseform) {
     // check if the single use id is present for single use forms
     if (!suId) {
-      return <formInactive status="link invalid" />;
+      return <FormInactive status="link invalid" />;
     }
 
     // if encryption is enabled, validate the single use id
@@ -123,7 +123,7 @@ export default async function LinkformPage({ params, searchParams }: LinkformPag
     if (isSingleUseformEncrypted) {
       validatedSingleUseId = validateformSingleUseId(suId);
       if (!validatedSingleUseId) {
-        return <formInactive status="link invalid" />;
+        return <FormInactive status="link invalid" />;
       }
     }
     // if encryption is disabled, use the suId as is

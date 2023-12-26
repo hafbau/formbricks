@@ -3,7 +3,7 @@
 import AddNoCodeActionModal from "@/app/(app)/environments/[environmentId]/(actionsAndAttributes)/actions/components/AddActionModal";
 import { cn } from "@fastform/lib/cn";
 import { TActionClass } from "@fastform/types/actionClasses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
 import { Badge } from "@fastform/ui/Badge";
 import { Button } from "@fastform/ui/Button";
@@ -22,8 +22,8 @@ import { useCallback, useEffect, useState } from "react";
 import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { TMembershipRole } from "@fastform/types/memberships";
 interface WhenToSendCardProps {
-  localform: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  setLocalform: (form: TForm) => void;
   environmentId: string;
   actionClasses: TActionClass[];
   membershipRole?: TMembershipRole;

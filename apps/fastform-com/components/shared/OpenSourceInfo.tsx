@@ -17,7 +17,7 @@ export const OpenSourceInfo = () => {
           <div className="mt-4 space-x-2">
             <Button
               variant="darkCTA"
-              onClick={() => window.open("https://github.com/fastform/fastform", "_blank")}>
+              onClick={() => window.open("https://github.com/hafbau/formbricks", "_blank")}>
               Star us on GitHub
             </Button>
             <Button

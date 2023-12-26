@@ -6,7 +6,7 @@ import { TformPinValidationResponseError } from "@/app/s/[formId]/types";
 import { cn } from "@fastform/lib/cn";
 import { TProduct } from "@fastform/types/product";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { OTPInput } from "@fastform/ui/OTPInput";
 import type { NextPage } from "next";
 import { useCallback, useEffect, useState } from "react";
@@ -38,7 +38,7 @@ const LinkformPinScreen: NextPage<LinkformPinScreenProps> = (props) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const [error, setError] = useState<TformPinValidationResponseError>();
-  const [form, setform] = useState<Tform>();
+  const [form, setform] = useState<TForm>();
 
   const _validateformPinAsync = useCallback(async (formId: string, pin: string) => {
     const response = await validateformPinAction(formId, pin);

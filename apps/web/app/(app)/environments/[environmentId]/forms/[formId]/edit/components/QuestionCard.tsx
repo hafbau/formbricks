@@ -4,7 +4,7 @@ import AdvancedSettings from "@/app/(app)/environments/[environmentId]/forms/[fo
 import { getTformQuestionTypeName } from "@/app/lib/questions";
 import { cn } from "@fastform/lib/cn";
 import { TformQuestionType } from "@fastform/types/forms";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
 import { Switch } from "@fastform/ui/Switch";
@@ -37,7 +37,7 @@ import PictureSelectionForm from "@/app/(app)/environments/[environmentId]/forms
 import { TProduct } from "@fastform/types/product";
 
 interface QuestionCardProps {
-  localform: Tform;
+  localform: TForm;
   product?: TProduct;
   questionIdx: number;
   moveQuestion: (questionIndex: number, up: boolean) => void;

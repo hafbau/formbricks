@@ -2,7 +2,7 @@ import { getActionClasses } from "@fastform/lib/actionClass/service";
 import {
   IS_FASTFORM_CLOUD,
   MAU_LIMIT,
-  PRICING_APPformS_FREE_RESPONSES,
+  PRICING_APPFORMS_FREE_RESPONSES,
   PRICING_USERTARGETING_FREE_MTU,
 } from "@fastform/lib/constants";
 import { getEnvironment } from "@fastform/lib/environment/service";
@@ -17,9 +17,9 @@ import {
 import { TEnvironment } from "@fastform/types/environment";
 import { TJsLegacyState, TformWithTriggers } from "@fastform/types/js";
 import { TPerson } from "@fastform/types/people";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 
-export const transformLegacyforms = (forms: Tform[]): TformWithTriggers[] => {
+export const transformLegacyforms = (forms: TForm[]): TformWithTriggers[] => {
   const updatedforms = forms.map((form) => {
     const updatedform: any = { ...form };
     updatedform.triggers = updatedform.triggers.map((trigger) => ({ name: trigger }));
@@ -79,13 +79,13 @@ export const getUpdatedState = async (environmentId: string, personId?: string):
   let isAppformLimitReached = false;
   if (IS_FASTFORM_CLOUD) {
     const hasAppformSubscription =
-      team?.billing?.features.inAppform.status &&
-      team?.billing?.features.inAppform.status in ["active", "canceled"];
+      team?.billing?.features.inAppForm.status &&
+      team?.billing?.features.inAppForm.status in ["active", "canceled"];
     const monthlyResponsesCount = await getMonthlyTeamResponseCount(team.id);
     isAppformLimitReached =
       IS_FASTFORM_CLOUD &&
       !hasAppformSubscription &&
-      monthlyResponsesCount >= PRICING_APPformS_FREE_RESPONSES;
+      monthlyResponsesCount >= PRICING_APPFORMS_FREE_RESPONSES;
   }
 
   const isPerson = Object.keys(person).length > 0;

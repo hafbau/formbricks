@@ -1,13 +1,13 @@
 "use client";
 import CustomFilter from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/CustomFilter";
 import SummaryHeader from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/SummaryHeader";
-import formResultsTabs from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/components/formResultsTabs";
+import FormResultsTabs from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/components/FormResultsTabs";
 import ResponseTimeline from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/responses/components/ResponseTimeline";
 import ContentWrapper from "@fastform/ui/ContentWrapper";
 import { useResponseFilter } from "@/app/(app)/environments/[environmentId]/components/ResponseFilterContext";
 import { getFilterResponses } from "@/app/lib/forms/forms";
 import { TResponse } from "@fastform/types/responses";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo } from "react";
 import { TEnvironment } from "@fastform/types/environment";
@@ -18,7 +18,7 @@ import { TMembershipRole } from "@fastform/types/memberships";
 
 interface ResponsePageProps {
   environment: TEnvironment;
-  form: Tform;
+  form: TForm;
   formId: string;
   responses: TResponse[];
   webAppUrl: string;
@@ -72,7 +72,7 @@ const ResponsePage = ({
         form={form}
         totalResponses={responses}
       />
-      <formResultsTabs activeId="responses" environmentId={environment.id} formId={formId} />
+      <FormResultsTabs activeId="responses" environmentId={environment.id} formId={formId} />
       <ResponseTimeline
         environment={environment}
         formId={formId}

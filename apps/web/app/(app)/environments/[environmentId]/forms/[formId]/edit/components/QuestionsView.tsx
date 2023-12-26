@@ -2,7 +2,7 @@
 
 import HiddenFieldsCard from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/HiddenFieldsCard";
 import { TProduct } from "@fastform/types/product";
-import { TformQuestion, Tform } from "@fastform/types/forms";
+import { TformQuestion, TForm } from "@fastform/types/forms";
 import { createId } from "@paralleldrive/cuid2";
 import { useMemo, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
@@ -15,8 +15,8 @@ import { StrictModeDroppable } from "./StrictModeDroppable";
 import { validateQuestion } from "./Validation";
 
 interface QuestionsViewProps {
-  localform: Tform;
-  setLocalform: (form: Tform) => void;
+  localform: TForm;
+  setLocalform: (form: TForm) => void;
   activeQuestionId: string | null;
   setActiveQuestionId: (questionId: string | null) => void;
   product: TProduct;
@@ -42,7 +42,7 @@ export default function QuestionsView({
 
   const [backButtonLabel, setbackButtonLabel] = useState(null);
 
-  const handleQuestionLogicChange = (form: Tform, compareId: string, updatedId: string): Tform => {
+  const handleQuestionLogicChange = (form: TForm, compareId: string, updatedId: string): TForm => {
     form.questions.forEach((question) => {
       if (!question.logic) return;
       question.logic.forEach((rule) => {
@@ -107,7 +107,7 @@ export default function QuestionsView({
 
   const deleteQuestion = (questionIdx: number) => {
     const questionId = localform.questions[questionIdx].id;
-    let updatedform: Tform = { ...localform };
+    let updatedform: TForm = { ...localform };
     updatedform.questions.splice(questionIdx, 1);
 
     updatedform = handleQuestionLogicChange(updatedform, questionId, "end");

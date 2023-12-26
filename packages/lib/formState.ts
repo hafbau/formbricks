@@ -1,6 +1,6 @@
 import { TResponseUpdate } from "@fastform/types/responses";
 
-export class formState {
+export class FormState {
   responseId: string | null = null;
   displayId: string | null = null;
   userId: string | null = null;
@@ -32,7 +32,7 @@ export class formState {
    * Get a copy of the current state
    */
   copy() {
-    const copyInstance = new formState(
+    const copyInstance = new FormState(
       this.formId,
       this.singleUseId ?? undefined,
       this.responseId ?? undefined,
@@ -95,4 +95,4 @@ export class formState {
   }
 }
 
-export default formState;
+export default FormState;

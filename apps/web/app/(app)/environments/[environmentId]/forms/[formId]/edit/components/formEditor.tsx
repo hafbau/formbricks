@@ -2,13 +2,13 @@
 
 import React from "react";
 import { useEffect, useState } from "react";
-import Previewform from "../../../components/Previewform";
+import PreviewForm from "../../../components/PreviewForm";
 import QuestionsAudienceTabs from "./QuestionsSettingsTabs";
 import QuestionsView from "./QuestionsView";
 import SettingsView from "./SettingsView";
 import FormMenuBar from "./FormMenuBar";
 import { TEnvironment } from "@fastform/types/environment";
-import { Tform } from "@fastform/types/forms";
+import { TForm } from "@fastform/types/forms";
 import { TProduct } from "@fastform/types/product";
 import { TAttributeClass } from "@fastform/types/attributeClasses";
 import { TActionClass } from "@fastform/types/actionClasses";
@@ -16,7 +16,7 @@ import { TMembershipRole } from "@fastform/types/memberships";
 import Loading from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/loading";
 
 interface FormEditorProps {
-  form: Tform;
+  form: TForm;
   product: TProduct;
   environment: TEnvironment;
   actionClasses: TActionClass[];
@@ -38,7 +38,7 @@ export default function FormEditor({
 }: FormEditorProps): JSX.Element {
   const [activeView, setActiveView] = useState<"questions" | "settings">("questions");
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null);
-  const [localform, setLocalform] = useState<Tform | null>();
+  const [localform, setLocalform] = useState<TForm | null>();
   const [invalidQuestions, setInvalidQuestions] = useState<String[] | null>(null);
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export default function FormEditor({
             )}
           </main>
           <aside className="group hidden flex-1 flex-shrink-0 items-center justify-center overflow-hidden border-l border-slate-100 bg-slate-50 py-6  md:flex md:flex-col">
-            <Previewform
+            <PreviewForm
               form={localform}
               setActiveQuestionId={setActiveQuestionId}
               activeQuestionId={activeQuestionId}

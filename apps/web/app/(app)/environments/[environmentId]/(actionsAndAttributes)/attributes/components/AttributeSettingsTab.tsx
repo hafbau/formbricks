@@ -76,7 +76,7 @@ export default function AttributeSettingsTab({ attributeClass, setOpen }: Attrib
           <div className="flex items-center">
             <Button
               variant="secondary"
-              href="https://fastform.com/docs/attributes/identify-users"
+              href="https://getfastform.com/docs/attributes/identify-users"
               target="_blank">
               Read Docs
             </Button>
