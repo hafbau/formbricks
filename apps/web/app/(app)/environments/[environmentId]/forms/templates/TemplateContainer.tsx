@@ -4,8 +4,8 @@ import { useState } from "react";
 import type { TTemplate } from "@fastform/types/templates";
 import { useEffect } from "react";
 import { replacePresetPlaceholders } from "@/app/lib/templates";
-import { minimalSurvey, templates } from "./templates";
-import PreviewSurvey from "../components/PreviewSurvey";
+import { minimalForm, templates } from "./templates";
+import PreviewForm from "../components/PreviewForm";
 import TemplateList from "./TemplateList";
 import type { TProduct } from "@fastform/types/product";
 import type { TEnvironment } from "@fastform/types/environment";
@@ -71,8 +71,8 @@ export default function TemplateContainerWithPreview({
           {activeTemplate && (
             <div className="my-6 flex h-full w-full flex-col items-center justify-center">
               <p className="pb-2 text-center text-sm font-normal text-slate-400">Preview</p>
-              <PreviewSurvey
-                form={{ ...minimalSurvey, ...activeTemplate.preset }}
+              <PreviewForm
+                form={{ ...minimalForm, ...activeTemplate.preset }}
                 activeQuestionId={activeQuestionId}
                 product={product}
                 environment={environment}

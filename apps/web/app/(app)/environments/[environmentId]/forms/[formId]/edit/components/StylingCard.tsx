@@ -9,7 +9,7 @@ import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import * as Collapsible from "@radix-ui/react-collapsible";
 import { useState } from "react";
 import Placement from "./Placement";
-import formBgSelectorTab from "./formBgSelectorTab";
+import FormBgSelectorTab from "./FormBgSelectorTab";
 
 interface StylingCardProps {
   localform: Tform;
@@ -228,7 +228,7 @@ export default function StylingCard({ localform, setLocalform, colours }: Stylin
                   </Label>
                 </div>
                 {bg && (
-                  <formBgSelectorTab
+                  <FormBgSelectorTab
                     localform={localform}
                     handleBgChange={handleBgChange}
                     colours={colours}

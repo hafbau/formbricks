@@ -1,10 +1,10 @@
 import { TTemplate } from "@fastform/types/templates";
 import { useEffect, useState } from "react";
-import PreviewSurvey from "./PreviewSurvey";
+import PreviewForm from "./PreviewForm";
 import TemplateList from "./TemplateList";
 import { templates } from "./templates";
 
-export default function SurveyTemplatesPage({}) {
+export default function FormTemplatesPage({ }) {
   const [activeTemplate, setActiveTemplate] = useState<TTemplate | null>(null);
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null);
 
@@ -27,7 +27,7 @@ export default function SurveyTemplatesPage({}) {
         />
         <aside className="group relative h-full flex-1 flex-shrink-0 overflow-hidden rounded-r-lg bg-slate-200 shadow-inner  dark:bg-slate-700 md:flex md:flex-col">
           {activeTemplate && (
-            <PreviewSurvey
+            <PreviewForm
               activeQuestionId={activeQuestionId}
               questions={activeTemplate.preset.questions}
               brandColor="#94a3b8"

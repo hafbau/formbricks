@@ -30,7 +30,7 @@ import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import toast from "react-hot-toast";
 
-interface formDropDownMenuProps {
+interface FormDropDownMenuProps {
   environmentId: string;
   form: Tform;
   environment: TEnvironment;
@@ -40,7 +40,7 @@ interface formDropDownMenuProps {
   isformCreationDeletionDisabled?: boolean;
 }
 
-export default function formDropDownMenu({
+export default function FormDropDownMenu({
   environmentId,
   form,
   environment,
@@ -48,7 +48,7 @@ export default function formDropDownMenu({
   webAppUrl,
   singleUseId,
   isformCreationDeletionDisabled,
-}: formDropDownMenuProps) {
+}: FormDropDownMenuProps) {
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();

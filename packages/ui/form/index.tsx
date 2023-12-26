@@ -1,4 +1,4 @@
-import { renderformInline, renderformModal } from "@fastform/forms";
+import { renderFormInline, renderFormModal } from "@fastform/forms";
 import { TResponseData, TResponseUpdate } from "@fastform/types/responses";
 import { TUploadFileConfig } from "@fastform/types/storage";
 import { Tform } from "@fastform/types/forms";
@@ -6,7 +6,7 @@ import { useEffect, useMemo } from "react";
 
 const createContainerId = () => `fastform-form-container`;
 
-interface formProps {
+interface FormProps {
   form: Tform;
   brandColor: string;
   isBrandingEnabled: boolean;
@@ -23,31 +23,31 @@ interface formProps {
   responseCount?: number;
 }
 
-interface formModalProps extends formProps {
+interface FormModalProps extends FormProps {
   placement?: "topRight" | "bottomRight" | "bottomLeft" | "topLeft" | "center";
   clickOutside?: boolean;
   darkOverlay?: boolean;
   highlightBorderColor?: string | null;
 }
 
-export const formInline = ({
+export const FormInline = ({
   form,
   brandColor,
   isBrandingEnabled,
   activeQuestionId,
-  onDisplay = () => {},
-  onResponse = () => {},
-  onActiveQuestionChange = () => {},
-  onClose = () => {},
+  onDisplay = () => { },
+  onResponse = () => { },
+  onActiveQuestionChange = () => { },
+  onClose = () => { },
   autoFocus,
   prefillResponseData,
   isRedirectDisabled,
   onFileUpload,
   responseCount,
-}: formProps) => {
+}: FormProps) => {
   const containerId = useMemo(() => createContainerId(), []);
   useEffect(() => {
-    renderformInline({
+    renderFormInline({
       form,
       brandColor,
       isBrandingEnabled,
@@ -82,7 +82,7 @@ export const formInline = ({
   return <div id={containerId} className="h-full w-full" />;
 };
 
-export const formModal = ({
+export const FormModal = ({
   form,
   brandColor,
   isBrandingEnabled,
@@ -91,17 +91,17 @@ export const formModal = ({
   clickOutside = false,
   darkOverlay = false,
   highlightBorderColor = null,
-  onDisplay = () => {},
-  onResponse = () => {},
-  onActiveQuestionChange = () => {},
-  onClose = () => {},
+  onDisplay = () => { },
+  onResponse = () => { },
+  onActiveQuestionChange = () => { },
+  onClose = () => { },
   autoFocus,
   isRedirectDisabled,
   onFileUpload,
   responseCount,
-}: formModalProps) => {
+}: FormModalProps) => {
   useEffect(() => {
-    renderformModal({
+    renderFormModal({
       form,
       brandColor,
       isBrandingEnabled,

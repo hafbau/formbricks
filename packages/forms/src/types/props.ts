@@ -2,7 +2,7 @@ import { TResponseData, TResponseUpdate } from "@fastform/types/responses";
 import { Tform } from "@fastform/types/forms";
 import { TUploadFileConfig } from "@fastform/types/storage";
 
-export interface formBaseProps {
+export interface FormBaseProps {
   form: Tform;
   isBrandingEnabled: boolean;
   activeQuestionId?: string;
@@ -18,11 +18,11 @@ export interface formBaseProps {
   responseCount?: number;
 }
 
-export interface formInlineProps extends formBaseProps {
+export interface FormInlineProps extends FormBaseProps {
   containerId: string;
 }
 
-export interface formModalProps extends formBaseProps {
+export interface FormModalProps extends FormBaseProps {
   clickOutside: boolean;
   darkOverlay: boolean;
   highlightBorderColor: string | null;

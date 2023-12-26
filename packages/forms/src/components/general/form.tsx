@@ -1,9 +1,9 @@
-import FormbricksBranding from "@/components/general/FormbricksBranding";
+import FastformBranding from "@/components/general/FastformBranding";
 import ProgressBar from "@/components/general/ProgressBar";
 import { AutoCloseWrapper } from "@/components/wrappers/AutoCloseWrapper";
 import { evaluateCondition } from "@/lib/logicEvaluator";
 import { cn } from "@/lib/utils";
-import { formBaseProps } from "@/types/props";
+import { FormBaseProps } from "@/types/props";
 import type { TResponseData, TResponseTtc } from "@fastform/types/responses";
 import { useEffect, useRef, useState } from "preact/hooks";
 import QuestionConditional from "./QuestionConditional";
@@ -14,16 +14,16 @@ export function Form({
   form,
   isBrandingEnabled,
   activeQuestionId,
-  onDisplay = () => {},
-  onActiveQuestionChange = () => {},
-  onResponse = () => {},
-  onClose = () => {},
-  onFinished = () => {},
+  onDisplay = () => { },
+  onActiveQuestionChange = () => { },
+  onResponse = () => { },
+  onClose = () => { },
+  onFinished = () => { },
   isRedirectDisabled = false,
   prefillResponseData,
   onFileUpload,
   responseCount,
-}: formBaseProps) {
+}: FormBaseProps) {
   const [questionId, setQuestionId] = useState(
     activeQuestionId || (form.welcomeCard.enabled ? "start" : form?.questions[0]?.id)
   );
@@ -184,7 +184,7 @@ export function Form({
             )}
           </div>
           <div className="mt-8">
-            {isBrandingEnabled && <FormbricksBranding />}
+            {isBrandingEnabled && <FastformBranding />}
             <ProgressBar form={form} questionId={questionId} />
           </div>
         </div>

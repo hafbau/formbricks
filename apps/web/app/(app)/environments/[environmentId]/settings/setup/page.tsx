@@ -1,5 +1,5 @@
 import EnvironmentNotice from "@fastform/ui/EnvironmentNotice";
-import { IS_FORMBRICKS_CLOUD, WEBAPP_URL } from "@fastform/lib/constants";
+import { IS_FASTFORM_CLOUD, WEBAPP_URL } from "@fastform/lib/constants";
 import SettingsCard from "../components/SettingsCard";
 import SettingsTitle from "../components/SettingsTitle";
 import SetupInstructions from "./components/SetupInstructions";
@@ -22,7 +22,7 @@ export default async function ProfileSettingsPage({ params }) {
           <SetupInstructions
             environmentId={params.environmentId}
             webAppUrl={WEBAPP_URL}
-            isFormbricksCloud={IS_FORMBRICKS_CLOUD}
+            isFastformCloud={IS_FASTFORM_CLOUD}
           />
         </SettingsCard>
       </div>

@@ -1,6 +1,6 @@
-import { UsageAttributesUpdater } from "@/app/(app)/components/FormbricksClient";
-import formDropDownMenu from "@/app/(app)/environments/[environmentId]/forms/components/formDropDownMenu";
-import formStarter from "@/app/(app)/environments/[environmentId]/forms/components/formStarter";
+import { UsageAttributesUpdater } from "@/app/(app)/components/FastformClient";
+import FormDropDownMenu from "@/app/(app)/environments/[environmentId]/forms/components/FormDropDownMenu";
+import FormStarter from "@/app/(app)/environments/[environmentId]/forms/components/FormStarter";
 import { generateformSingleUseId } from "@/app/lib/singleUseforms";
 import { authOptions } from "@fastform/lib/authOptions";
 import { WEBAPP_URL } from "@fastform/lib/constants";
@@ -12,12 +12,12 @@ import { getforms } from "@fastform/lib/form/service";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import type { TEnvironment } from "@fastform/types/environment";
 import { Badge } from "@fastform/ui/Badge";
-import { formStatusIndicator } from "@fastform/ui/formStatusIndicator";
+import { FormStatusIndicator } from "@fastform/ui/FormStatusIndicator";
 import { ComputerDesktopIcon, LinkIcon, PlusIcon } from "@heroicons/react/24/solid";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 
-export default async function formsList({ environmentId }: { environmentId: string }) {
+export default async function FormsList({ environmentId }: { environmentId: string }) {
   const session = await getServerSession(authOptions);
   const product = await getProductByEnvironmentId(environmentId);
   const team = await getTeamByEnvironmentId(environmentId);
@@ -49,7 +49,7 @@ export default async function formsList({ environmentId }: { environmentId: stri
 
   if (forms.length === 0) {
     return (
-      <formStarter
+      <FormStarter
         environmentId={environmentId}
         environment={environment}
         product={product}
@@ -105,7 +105,7 @@ export default async function formsList({ environmentId }: { environmentId: stri
                         {form.status !== "draft" && (
                           <>
                             {(form.type === "link" || environment.widgetSetupCompleted) && (
-                              <formStatusIndicator status={form.status} />
+                              <FormStatusIndicator status={form.status} />
                             )}
                           </>
                         )}
@@ -113,7 +113,7 @@ export default async function formsList({ environmentId }: { environmentId: stri
                           <span className="text-xs italic text-slate-400">Draft</span>
                         )}
                       </div>
-                      <formDropDownMenu
+                      <FormDropDownMenu
                         form={form}
                         key={`forms-${form.id}`}
                         environmentId={environmentId}
@@ -130,7 +130,7 @@ export default async function formsList({ environmentId }: { environmentId: stri
             );
           })}
       </ul>
-      <UsageAttributesUpdater numforms={forms.length} />
+      <UsageAttributesUpdater numForms={forms.length} />
     </>
   );
 }

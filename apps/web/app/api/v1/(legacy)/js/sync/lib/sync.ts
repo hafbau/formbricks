@@ -1,6 +1,6 @@
 import { getActionClasses } from "@fastform/lib/actionClass/service";
 import {
-  IS_FORMBRICKS_CLOUD,
+  IS_FASTFORM_CLOUD,
   MAU_LIMIT,
   PRICING_APPformS_FREE_RESPONSES,
   PRICING_USERTARGETING_FREE_MTU,
@@ -48,7 +48,7 @@ export const getUpdatedState = async (environmentId: string, personId?: string):
   }
 
   // check if Monthly Active Users limit is reached
-  if (IS_FORMBRICKS_CLOUD) {
+  if (IS_FASTFORM_CLOUD) {
     const hasUserTargetingSubscription =
       team?.billing?.features.userTargeting.status &&
       team?.billing?.features.userTargeting.status in ["active", "canceled"];
@@ -77,13 +77,13 @@ export const getUpdatedState = async (environmentId: string, personId?: string):
   }
   // check if App Form limit is reached
   let isAppformLimitReached = false;
-  if (IS_FORMBRICKS_CLOUD) {
+  if (IS_FASTFORM_CLOUD) {
     const hasAppformSubscription =
       team?.billing?.features.inAppform.status &&
       team?.billing?.features.inAppform.status in ["active", "canceled"];
     const monthlyResponsesCount = await getMonthlyTeamResponseCount(team.id);
     isAppformLimitReached =
-      IS_FORMBRICKS_CLOUD &&
+      IS_FASTFORM_CLOUD &&
       !hasAppformSubscription &&
       monthlyResponsesCount >= PRICING_APPformS_FREE_RESPONSES;
   }

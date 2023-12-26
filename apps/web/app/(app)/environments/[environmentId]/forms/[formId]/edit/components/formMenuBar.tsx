@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { validateQuestion } from "./Validation";
 import { deleteformAction, updateformAction } from "../actions";
-import formStatusDropdown from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/formStatusDropdown";
+import FormStatusDropdown from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/FormStatusDropdown";
 
 interface formMenuBarProps {
   localform: Tform;
@@ -29,7 +29,7 @@ interface formMenuBarProps {
   responseCount: number;
 }
 
-export default function formMenuBar({
+export default function FormMenuBar({
   localform,
   form,
   environment,
@@ -73,7 +73,7 @@ export default function formMenuBar({
   }, [localform, form]);
 
   // write a function which updates the local form status
-  const updateLocalformStatus = (status: Tform["status"]) => {
+  const updateLocalFormStatus = (status: Tform["status"]) => {
     const updatedform = { ...localform };
     updatedform.status = status;
     setLocalform(updatedform);
@@ -300,10 +300,10 @@ export default function formMenuBar({
         )}
         <div className="mt-3 flex sm:ml-4 sm:mt-0">
           <div className="mr-4 flex items-center">
-            <formStatusDropdown
+            <FormStatusDropdown
               form={form}
               environment={environment}
-              updateLocalformStatus={updateLocalformStatus}
+              updateLocalFormStatus={updateLocalFormStatus}
             />
           </div>
           <Button

@@ -157,9 +157,9 @@ export default function DocsFeedback() {
   const [freeText, setFreeText] = useState("");
 
   if (
-    !process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID ||
-    !process.env.NEXT_PUBLIC_FORMBRICKS_COM_API_HOST ||
-    !process.env.NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID
+    !process.env.NEXT_PUBLIC_FASTFORM_COM_DOCS_FEEDBACK_form_ID ||
+    !process.env.NEXT_PUBLIC_FASTFORM_COM_API_HOST ||
+    !process.env.NEXT_PUBLIC_FASTFORM_COM_ENVIRONMENT_ID
   ) {
     return null;
   }
@@ -240,9 +240,9 @@ Disabling feedback if config environment variables are not set properly:
 
 ```tsx
 if (
-  !process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID ||
-  !process.env.NEXT_PUBLIC_FORMBRICKS_COM_API_HOST ||
-  !process.env.NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID
+  !process.env.NEXT_PUBLIC_FASTFORM_COM_DOCS_FEEDBACK_form_ID ||
+  !process.env.NEXT_PUBLIC_FASTFORM_COM_API_HOST ||
+  !process.env.NEXT_PUBLIC_FASTFORM_COM_ENVIRONMENT_ID
 ) {
   return null;
 }
@@ -328,12 +328,12 @@ export const handleFeedbackSubmit = async (YesNo, pageUrl) => {
 
   const payload = {
     response: response_data,
-    formId: process.env.NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID, // For testing, replace this with the form ID of your form (more info below)
+    formId: process.env.NEXT_PUBLIC_FASTFORM_COM_DOCS_FEEDBACK_form_ID, // For testing, replace this with the form ID of your form (more info below)
   };
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_FORMBRICKS_COM_API_HOST}/api/v1/client/environments/${process.env.NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID}/responses`, // For testing, replace this with the API host and environemnt ID of your Development environment on app.fastform.com
+      `${process.env.NEXT_PUBLIC_FASTFORM_COM_API_HOST}/api/v1/client/environments/${process.env.NEXT_PUBLIC_FASTFORM_COM_ENVIRONMENT_ID}/responses`, // For testing, replace this with the API host and environemnt ID of your Development environment on app.fastform.com
   };
       {
         method: "POST",
@@ -380,7 +380,7 @@ export const updateFeedback = async (freeText, responseId) => {
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_FORMBRICKS_COM_API_HOST}/api/v1/client/environments/${process.env.NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID}/responses/${responseId}`,
+      `${process.env.NEXT_PUBLIC_FASTFORM_COM_API_HOST}/api/v1/client/environments/${process.env.NEXT_PUBLIC_FASTFORM_COM_ENVIRONMENT_ID}/responses/${responseId}`,
       {
         method: "PUT",
         headers: {

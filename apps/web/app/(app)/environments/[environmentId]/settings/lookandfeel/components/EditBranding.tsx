@@ -9,29 +9,29 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { updateProductAction } from "../actions";
 
-interface EditFormbricksBrandingProps {
-  type: "linkSurvey" | "inAppSurvey";
+interface EditFastformBrandingProps {
+  type: "linkForm" | "inAppForm";
   product: TProduct;
   canRemoveBranding: boolean;
   environmentId: string;
-  isFormbricksCloud?: boolean;
+  isFastformCloud?: boolean;
 }
 
-export function EditFormbricksBranding({
+export function EditFastformBranding({
   type,
   product,
   canRemoveBranding,
   environmentId,
-  isFormbricksCloud,
-}: EditFormbricksBrandingProps) {
+  isFastformCloud,
+}: EditFastformBrandingProps) {
   const [isBrandingEnabled, setIsBrandingEnabled] = useState(
-    type === "linkSurvey" ? product.linkSurveyBranding : product.inAppSurveyBranding
+    type === "linkForm" ? product.linkFormBranding : product.inAppFormBranding
   );
   const [updatingBranding, setUpdatingBranding] = useState(false);
 
   const getTextFromType = (type) => {
-    if (type === "linkSurvey") return "Link Surveys";
-    if (type === "inAppSurvey") return "In App Surveys";
+    if (type === "linkForm") return "Link Forms";
+    if (type === "inAppForm") return "In App Forms";
   };
 
   const toggleBranding = async () => {
@@ -40,7 +40,7 @@ export function EditFormbricksBranding({
       const newBrandingState = !isBrandingEnabled;
       setIsBrandingEnabled(newBrandingState);
       let inputProduct: Partial<TProductUpdateInput> = {
-        [type === "linkSurvey" ? "linkSurveyBranding" : "inAppSurveyBranding"]: newBrandingState,
+        [type === "linkForm" ? "linkFormBranding" : "inAppFormBranding"]: newBrandingState,
       };
       await updateProductAction(product.id, inputProduct);
       toast.success(
@@ -61,13 +61,13 @@ export function EditFormbricksBranding({
             <AlertDescription>
               To remove the Fastform branding from the&nbsp;
               <span className="font-semibold">{getTextFromType(type)}</span>, please&nbsp;
-              {type === "linkSurvey" ? (
+              {type === "linkForm" ? (
                 <span className="underline">
                   <Link href={`/environments/${environmentId}/settings/billing`}>upgrade your plan.</Link>
                 </span>
               ) : (
                 <span className="underline">
-                  {isFormbricksCloud ? (
+                  {isFastformCloud ? (
                     <Link href={`/environments/${environmentId}/settings/billing`}>add your creditcard.</Link>
                   ) : (
                     <a href="mailto:hola@fastform.com">get a self-hosted license (free to get started).</a>
@@ -86,7 +86,7 @@ export function EditFormbricksBranding({
           disabled={!canRemoveBranding || updatingBranding}
         />
         <Label htmlFor={`branding-${type}`}>
-          Show Fastform Branding in {type === "linkSurvey" ? "Link" : "In-App"} Surveys
+          Show Fastform Branding in {type === "linkForm" ? "Link" : "In-App"} Forms
         </Label>
       </div>
     </div>

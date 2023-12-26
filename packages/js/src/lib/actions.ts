@@ -4,7 +4,7 @@ import { Config } from "./config";
 import { NetworkError, Result, err, okVoid } from "./errors";
 import { Logger } from "./logger";
 import { renderWidget } from "./widget";
-import { FormbricksAPI } from "@fastform/api";
+import { FastformAPI } from "@fastform/api";
 const logger = Logger.getInstance();
 const config = Config.getInstance();
 
@@ -26,7 +26,7 @@ export const trackAction = async (
   if (userId && !intentsToNotCreateOnApp.includes(name)) {
     logger.debug(`Sending action "${name}" to backend`);
 
-    const api = new FormbricksAPI({
+    const api = new FastformAPI({
       apiHost: config.get().apiHost,
       environmentId: config.get().environmentId,
     });

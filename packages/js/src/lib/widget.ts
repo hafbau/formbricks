@@ -1,14 +1,14 @@
-import { FormbricksAPI } from "@fastform/api";
+import { FastformAPI } from "@fastform/api";
 import { ResponseQueue } from "@fastform/lib/responseQueue";
-import formState from "@fastform/lib/formState";
-import { renderformModal } from "@fastform/forms";
+import FormState from "@fastform/lib/formState";
+import { renderFormModal } from "@fastform/forms";
 import { TJSStateDisplay } from "@fastform/types/js";
 import { TResponseUpdate } from "@fastform/types/responses";
 import { Tform } from "@fastform/types/forms";
 import { Config } from "./config";
 import { ErrorHandler } from "./errors";
 import { Logger } from "./logger";
-import { filterPublicforms, sync } from "./sync";
+import { filterPublicForms, sync } from "./sync";
 
 const containerId = "fastform-web-container";
 const config = Config.getInstance();
@@ -29,7 +29,7 @@ export const renderWidget = (form: Tform) => {
 
   const product = config.get().state.product;
 
-  const formState = new formState(form.id, null, null, config.get().userId);
+  const formState = new FormState(form.id, null, null, config.get().userId);
 
   const responseQueue = new ResponseQueue(
     {
@@ -49,10 +49,10 @@ export const renderWidget = (form: Tform) => {
   const clickOutside = productOverwrites.clickOutsideClose ?? product.clickOutsideClose;
   const darkOverlay = productOverwrites.darkOverlay ?? product.darkOverlay;
   const placement = productOverwrites.placement ?? product.placement;
-  const isBrandingEnabled = product.inAppformBranding;
+  const isBrandingEnabled = product.inAppFormBranding;
 
   setTimeout(() => {
-    renderformModal({
+    renderFormModal({
       form: form,
       brandColor,
       isBrandingEnabled: isBrandingEnabled,
@@ -73,7 +73,7 @@ export const renderWidget = (form: Tform) => {
           const existingDisplays = config.get().state.displays;
           const displays = existingDisplays ? [...existingDisplays, localDisplay] : [localDisplay];
           const previousConfig = config.get();
-          let state = filterPublicforms({
+          let state = filterPublicForms({
             ...previousConfig.state,
             displays,
           });
@@ -83,7 +83,7 @@ export const renderWidget = (form: Tform) => {
           });
         }
 
-        const api = new FormbricksAPI({
+        const api = new FastformAPI({
           apiHost: config.get().apiHost,
           environmentId: config.get().environmentId,
         });
@@ -111,7 +111,7 @@ export const renderWidget = (form: Tform) => {
           if (!lastDisplay.responded) {
             lastDisplay.responded = true;
             const previousConfig = config.get();
-            let state = filterPublicforms({
+            let state = filterPublicForms({
               ...previousConfig.state,
               displays,
             });
@@ -134,7 +134,7 @@ export const renderWidget = (form: Tform) => {
       },
       onClose: closeform,
       onFileUpload: async (file: File, params) => {
-        const api = new FormbricksAPI({
+        const api = new FastformAPI({
           apiHost: config.get().apiHost,
           environmentId: config.get().environmentId,
         });
@@ -145,7 +145,7 @@ export const renderWidget = (form: Tform) => {
   }, form.delay * 1000);
 };
 
-export const closeform = async (): Promise<void> => {
+export const closeForm = async (): Promise<void> => {
   // remove container element from DOM
   document.getElementById(containerId)?.remove();
   addWidgetContainer();
@@ -153,7 +153,7 @@ export const closeform = async (): Promise<void> => {
   // if unidentified user, refilter the forms
   if (!config.get().userId) {
     const state = config.get().state;
-    const updatedState = filterPublicforms(state);
+    const updatedState = filterPublicForms(state);
     config.update({
       ...config.get(),
       state: updatedState,

@@ -74,7 +74,7 @@ const notificationInsight = (insights: Insights) =>
   </div>
 `;
 
-function convertformStatus(status) {
+function convertFormStatus(status) {
   const statusMap = {
     inProgress: "Live",
     paused: "Paused",
@@ -96,7 +96,7 @@ const notificationLiveforms = (forms: Form[], environmentId: string) => {
 
   return forms
     .map((form) => {
-      const displayStatus = convertformStatus(form.status);
+      const displayStatus = convertFormStatus(form.status);
       const isLive = displayStatus === "Live";
       const noResponseLastWeek = isLive && form.responses.length === 0;
 

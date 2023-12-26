@@ -1,19 +1,19 @@
-import { SurveyBaseProps } from "@/types/props";
+import { FormBaseProps } from "@/types/props";
 import { Form } from "./Form";
 
-export function SurveyInline({
+export function FormInline({
   form,
   isBrandingEnabled,
   activeQuestionId,
-  onDisplay = () => {},
-  onActiveQuestionChange = () => {},
-  onResponse = () => {},
-  onClose = () => {},
+  onDisplay = () => { },
+  onActiveQuestionChange = () => { },
+  onResponse = () => { },
+  onClose = () => { },
   prefillResponseData,
   isRedirectDisabled = false,
   onFileUpload,
   responseCount,
-}: SurveyBaseProps) {
+}: FormBaseProps) {
   return (
     <div id="fbjs" className="fastform-form h-full w-full">
       <Form

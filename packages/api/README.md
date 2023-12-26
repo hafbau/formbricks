@@ -12,9 +12,9 @@ npm install @fastform/api
 <summary>Create API Client</summary>
 
 ```ts
-import { FormbricksAPI, EnvironmentId } from "@fastform/api";
+import { FastformAPI, EnvironmentId } from "@fastform/api";
 
-const api = new FormbricksAPI({
+const api = new FastformAPI({
   apiHost: "http://localhost:3000",
   environmentId: "clgwh8maj0005n2f66pwzev3r" as EnvironmentId,
 });

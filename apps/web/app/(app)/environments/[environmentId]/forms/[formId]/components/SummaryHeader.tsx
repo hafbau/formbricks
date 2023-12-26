@@ -15,7 +15,7 @@ import {
 } from "@fastform/ui/DropdownMenu";
 import { Button } from "@fastform/ui/Button";
 import { PencilSquareIcon, EllipsisHorizontalIcon } from "@heroicons/react/24/solid";
-import { formStatusIndicator } from "@fastform/ui/formStatusIndicator";
+import { FormStatusIndicator } from "@fastform/ui/FormStatusIndicator";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import SuccessMessage from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/SuccessMessage";
@@ -24,7 +24,7 @@ import { TEnvironment } from "@fastform/types/environment";
 import { TProduct } from "@fastform/types/product";
 import { updateformAction } from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/actions";
 import { TProfile } from "@fastform/types/profile";
-import formStatusDropdown from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/formStatusDropdown";
+import FormStatusDropdown from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/FormStatusDropdown";
 import { TMembershipRole } from "@fastform/types/memberships";
 import { getAccessFlags } from "@fastform/lib/membership/utils";
 
@@ -65,7 +65,7 @@ const SummaryHeader = ({
         {!isViewer &&
         (environment?.widgetSetupCompleted || form.type === "link") &&
         form?.status !== "draft" ? (
-          <formStatusDropdown environment={environment} form={form} />
+          <FormStatusDropdown environment={environment} form={form} />
         ) : null}
         {!isViewer && (
           <Button
@@ -105,7 +105,7 @@ const SummaryHeader = ({
                     style={isStatusChangeDisabled ? { pointerEvents: "none", opacity: 0.5 } : {}}>
                     <div className="flex items-center">
                       {(form.type === "link" || environment.widgetSetupCompleted) && (
-                        <formStatusIndicator status={form.status} />
+                        <FormStatusIndicator status={form.status} />
                       )}
                       <span className="ml-1 text-sm text-slate-700">
                         {form.status === "inProgress" && "In-progress"}

@@ -8,7 +8,7 @@ import type { TProduct } from "@fastform/types/product";
 import { TUploadFileConfig } from "@fastform/types/storage";
 import { Tform } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
-import { formInline } from "@fastform/ui/Form";
+import { FormInline } from "@fastform/ui/Form";
 import { ArrowPathRoundedSquareIcon } from "@heroicons/react/24/outline";
 import {
   ArrowsPointingInIcon,
@@ -217,11 +217,11 @@ export default function Previewform({
                   placement={placement}
                   highlightBorderColor={highlightBorderColor}
                   previewMode="mobile">
-                  <formInline
+                  <FormInline
                     form={form}
                     brandColor={brandColor}
                     activeQuestionId={activeQuestionId || undefined}
-                    isBrandingEnabled={product.linkformBranding}
+                    isBrandingEnabled={product.linkFormBranding}
                     onActiveQuestionChange={setActiveQuestionId}
                     isRedirectDisabled={true}
                     onFileUpload={onFileUpload}
@@ -229,11 +229,11 @@ export default function Previewform({
                 </Modal>
               ) : (
                 <div className="relative z-10 w-full max-w-md  px-4">
-                  <formInline
+                  <FormInline
                     form={form}
                     brandColor={brandColor}
                     activeQuestionId={activeQuestionId || undefined}
-                    isBrandingEnabled={product.linkformBranding}
+                    isBrandingEnabled={product.linkFormBranding}
                     onActiveQuestionChange={setActiveQuestionId}
                     onFileUpload={onFileUpload}
                     responseCount={42}
@@ -284,11 +284,11 @@ export default function Previewform({
                 placement={placement}
                 highlightBorderColor={highlightBorderColor}
                 previewMode="desktop">
-                <formInline
+                <FormInline
                   form={form}
                   brandColor={brandColor}
                   activeQuestionId={activeQuestionId || undefined}
-                  isBrandingEnabled={product.linkformBranding}
+                  isBrandingEnabled={product.linkFormBranding}
                   onActiveQuestionChange={setActiveQuestionId}
                   isRedirectDisabled={true}
                   onFileUpload={onFileUpload}
@@ -297,11 +297,11 @@ export default function Previewform({
             ) : (
               <MediaBackground form={form} ContentRef={ContentRef} isEditorView>
                 <div className="z-0 w-full  max-w-md rounded-lg p-4">
-                  <formInline
+                  <FormInline
                     form={form}
                     brandColor={brandColor}
                     activeQuestionId={activeQuestionId || undefined}
-                    isBrandingEnabled={product.linkformBranding}
+                    isBrandingEnabled={product.linkFormBranding}
                     onActiveQuestionChange={setActiveQuestionId}
                     isRedirectDisabled={true}
                     onFileUpload={onFileUpload}

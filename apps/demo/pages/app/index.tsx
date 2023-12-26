@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 declare const window: any;
 
-export default function AppPage({}) {
+export default function AppPage({ }) {
   const [darkMode, setDarkMode] = useState(false);
   const router = useRouter();
 
@@ -19,12 +19,12 @@ export default function AppPage({}) {
   }, [darkMode]);
 
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID && process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST) {
+    if (process.env.NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID && process.env.NEXT_PUBLIC_FASTFORM_API_HOST) {
       const isUserId = window.location.href.includes("userId=true");
       const userId = isUserId ? "THIS-IS-A-VERY-LONG-USER-ID-FOR-TESTING" : undefined;
       fastform.init({
-        environmentId: process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID,
-        apiHost: process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST,
+        environmentId: process.env.NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID,
+        apiHost: process.env.NEXT_PUBLIC_FASTFORM_API_HOST,
         userId,
         debug: true,
       });
@@ -32,7 +32,7 @@ export default function AppPage({}) {
     }
 
     // Connect next.js router to Fastform
-    if (process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID && process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST) {
+    if (process.env.NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID && process.env.NEXT_PUBLIC_FASTFORM_API_HOST) {
       const handleRouteChange = fastform?.registerRouteChange;
       router.events.on("routeChangeComplete", handleRouteChange);
 
@@ -74,7 +74,7 @@ export default function AppPage({}) {
               <p className="mb-1 sm:mb-0 sm:mr-2">You&apos;re connected with env:</p>
               <div className="flex items-center">
                 <strong className="w-32 truncate sm:w-auto">
-                  {process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID}
+                  {process.env.NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID}
                 </strong>
                 <span className="relative ml-2 flex h-3 w-3">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>

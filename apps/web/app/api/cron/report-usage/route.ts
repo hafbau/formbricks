@@ -1,7 +1,7 @@
 import { responses } from "@/app/lib/api/response";
 import { reportUsageToStripe } from "@fastform/ee/billing/lib/reportUsage";
 import { ProductFeatureKeys } from "@fastform/ee/billing/lib/constants";
-import { CRON_SECRET, IS_FORMBRICKS_CLOUD } from "@fastform/lib/constants";
+import { CRON_SECRET, IS_FASTFORM_CLOUD } from "@fastform/lib/constants";
 import {
   getMonthlyActiveTeamPeopleCount,
   getMonthlyTeamResponseCount,
@@ -17,12 +17,12 @@ async function reportTeamUsage(team: TTeam) {
     return;
   }
 
-  if (!IS_FORMBRICKS_CLOUD) {
+  if (!IS_FASTFORM_CLOUD) {
     return;
   }
 
   let calculateResponses =
-    team.billing.features.inAppSurvey.status !== "inactive" && !team.billing.features.inAppSurvey.unlimited;
+    team.billing.features.inAppForm.status !== "inactive" && !team.billing.features.inAppForm.unlimited;
   let calculatePeople =
     team.billing.features.userTargeting.status !== "inactive" &&
     !team.billing.features.userTargeting.unlimited;
@@ -45,7 +45,7 @@ async function reportTeamUsage(team: TTeam) {
     await reportUsageToStripe(
       stripeCustomerId,
       responses,
-      ProductFeatureKeys.inAppSurvey,
+      ProductFeatureKeys.inAppForm,
       Math.floor(Date.now() / 1000)
     );
   }

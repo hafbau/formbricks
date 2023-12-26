@@ -28,13 +28,13 @@ import { TMembershipRole } from "@fastform/types/memberships";
 
 export default function SettingsNavbar({
   environmentId,
-  isFormbricksCloud,
+  isFastformCloud,
   team,
   product,
   membershipRole,
 }: {
   environmentId: string;
-  isFormbricksCloud: boolean;
+  isFastformCloud: boolean;
   team: TTeam;
   product: TProduct;
   membershipRole?: TMembershipRole;
@@ -129,7 +129,7 @@ export default function SettingsNavbar({
             name: "Billing & Plan",
             href: `/environments/${environmentId}/settings/billing`,
             icon: CreditCardIcon,
-            hidden: !isFormbricksCloud || isPricingDisabled,
+            hidden: !isFastformCloud || isPricingDisabled,
             current: pathname?.includes("/billing"),
           },
         ],
@@ -170,21 +170,21 @@ export default function SettingsNavbar({
             href: "https://fastform.com/gdpr",
             icon: LinkIcon,
             target: "_blank",
-            hidden: !isFormbricksCloud,
+            hidden: !isFastformCloud,
           },
           {
             name: "Privacy",
             href: "https://fastform.com/privacy",
             icon: LinkIcon,
             target: "_blank",
-            hidden: !isFormbricksCloud,
+            hidden: !isFastformCloud,
           },
           {
             name: "Terms",
             href: "https://fastform.com/terms",
             icon: LinkIcon,
             target: "_blank",
-            hidden: !isFormbricksCloud,
+            hidden: !isFastformCloud,
           },
           {
             name: "License",
@@ -197,7 +197,7 @@ export default function SettingsNavbar({
         hidden: false,
       },
     ],
-    [environmentId, isFormbricksCloud, pathname]
+    [environmentId, isFastformCloud, pathname]
   );
 
   if (!navigation) return null;

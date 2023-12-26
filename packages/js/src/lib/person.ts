@@ -1,11 +1,11 @@
-import { FormbricksAPI } from "@fastform/api";
+import { FastformAPI } from "@fastform/api";
 import { TPersonUpdateInput } from "@fastform/types/people";
 import { Config } from "./config";
 import { AttributeAlreadyExistsError, MissingPersonError, NetworkError, Result, err, okVoid } from "./errors";
 import { deinitalize, initialize } from "./initialize";
 import { Logger } from "./logger";
 import { sync } from "./sync";
-import { closeSurvey } from "./widget";
+import { closeForm } from "./widget";
 
 const config = Config.getInstance();
 const logger = Logger.getInstance();
@@ -28,7 +28,7 @@ export const updatePersonAttribute = async (
     },
   };
 
-  const api = new FormbricksAPI({
+  const api = new FastformAPI({
     apiHost: config.get().apiHost,
     environmentId: config.get().environmentId,
   });
@@ -108,7 +108,7 @@ export const logoutPerson = async (): Promise<void> => {
 
 export const resetPerson = async (): Promise<Result<void, NetworkError>> => {
   logger.debug("Resetting state & getting new state from backend");
-  closeSurvey();
+  closeForm();
   const syncParams = {
     environmentId: config.get().environmentId,
     apiHost: config.get().apiHost,

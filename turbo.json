@@ -3,48 +3,78 @@
   "pipeline": {
     "@fastform/database#build": {
       "cache": false,
-      "dependsOn": ["post-install"]
+      "dependsOn": [
+        "post-install"
+      ]
     },
     "@fastform/web#go": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@fastform/database#db:setup", "@fastform/js#build"]
+      "dependsOn": [
+        "@fastform/database#db:setup",
+        "@fastform/js#build"
+      ]
     },
     "@fastform/demo#go": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@fastform/js#build"]
+      "dependsOn": [
+        "@fastform/js#build"
+      ]
     },
     "@fastform/api#build": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build"]
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
     },
     "@fastform/js#build": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build"]
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
     },
     "@fastform/forms#build": {
-      "outputs": ["dist/**"],
-      "dependsOn": ["^build"]
+      "outputs": [
+        "dist/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
     },
     "@fastform/forms#go": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@fastform/forms#build"]
+      "dependsOn": [
+        "@fastform/forms#build"
+      ]
     },
     "@fastform/js#go": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@fastform/js#build"]
+      "dependsOn": [
+        "@fastform/js#build"
+      ]
     },
     "@fastform/api#go": {
       "cache": false,
       "persistent": true,
-      "dependsOn": ["@fastform/api#build"]
+      "dependsOn": [
+        "@fastform/api#build"
+      ]
     },
     "build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**"],
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ],
       "env": [
         "ASSET_PREFIX_URL",
         "AZUREAD_AUTH_ENABLED",
@@ -66,10 +96,10 @@
         "INTERNAL_SECRET",
         "MAIL_FROM",
         "EMAIL_VERIFICATION_DISABLED",
-        "FORMBRICKS_ENCRYPTION_KEY",
+        "FASTFORM_ENCRYPTION_KEY",
         "GOOGLE_AUTH_ENABLED",
         "GITHUB_AUTH_ENABLED",
-        "IS_FORMBRICKS_CLOUD",
+        "IS_FASTFORM_CLOUD",
         "PASSWORD_RESET_DISABLED",
         "PRIVACY_URL",
         "NEXT_PUBLIC_SENTRY_DSN",
@@ -87,23 +117,23 @@
         "NEXT_PUBLIC_DOCSEARCH_APP_ID",
         "NEXT_PUBLIC_DOCSEARCH_API_KEY",
         "NEXT_PUBLIC_DOCSEARCH_INDEX_NAME",
-        "NEXT_PUBLIC_FORMBRICKS_API_HOST",
-        "NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID",
-        "NEXT_PUBLIC_FORMBRICKS_FORM_ID",
-        "NEXT_PUBLIC_FORMBRICKS_FEEDBACK_FORM_ID",
-        "NEXT_PUBLIC_FORMBRICKS_FEEDBACK_CUSTOM_FORM_ID",
-        "NEXT_PUBLIC_FORMBRICKS_ONBOARDING_form_ID",
-        "NEXT_PUBLIC_FORMBRICKS_PMF_FORM_ID",
-        "NEXT_PUBLIC_FORMBRICKS_URL",
+        "NEXT_PUBLIC_FASTFORM_API_HOST",
+        "NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID",
+        "NEXT_PUBLIC_FASTFORM_FORM_ID",
+        "NEXT_PUBLIC_FASTFORM_FEEDBACK_FORM_ID",
+        "NEXT_PUBLIC_FASTFORM_FEEDBACK_CUSTOM_FORM_ID",
+        "NEXT_PUBLIC_FASTFORM_ONBOARDING_form_ID",
+        "NEXT_PUBLIC_FASTFORM_PMF_FORM_ID",
+        "NEXT_PUBLIC_FASTFORM_URL",
         "IMPRINT_URL",
         "NEXT_PUBLIC_SENTRY_DSN",
         "SHORT_URL_BASE",
         "NODE_ENV",
         "NEXT_PUBLIC_POSTHOG_API_HOST",
         "NEXT_PUBLIC_POSTHOG_API_KEY",
-        "NEXT_PUBLIC_FORMBRICKS_COM_API_HOST",
-        "NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID",
-        "NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_form_ID",
+        "NEXT_PUBLIC_FASTFORM_COM_API_HOST",
+        "NEXT_PUBLIC_FASTFORM_COM_ENVIRONMENT_ID",
+        "NEXT_PUBLIC_FASTFORM_COM_DOCS_FEEDBACK_form_ID",
         "WEBAPP_URL",
         "SENTRY_DSN",
         "STRAPI_API_KEY",
@@ -126,7 +156,9 @@
       "cache": false,
       "dependsOn": [],
       "outputs": [],
-      "inputs": ["./schema.prisma"]
+      "inputs": [
+        "./schema.prisma"
+      ]
     },
     "db:setup": {
       "cache": false,
@@ -147,7 +179,10 @@
       "outputs": []
     },
     "db:migrate:vercel": {
-      "env": ["MIGRATE_DATABASE_URL", "DATABASE_URL"],
+      "env": [
+        "MIGRATE_DATABASE_URL",
+        "DATABASE_URL"
+      ],
       "outputs": []
     },
     "db:push": {
@@ -170,7 +205,9 @@
       "outputs": []
     },
     "generate": {
-      "dependsOn": ["^generate"]
+      "dependsOn": [
+        "^generate"
+      ]
     },
     "lint": {
       "outputs": []

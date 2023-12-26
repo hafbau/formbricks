@@ -7,13 +7,13 @@ import {
 } from "@heroicons/react/24/solid";
 import React from "react";
 
-interface TSurveyQuestionType {
+interface TFormQuestionType {
   value: string;
   label: string;
 }
 
 interface QuestionTypeSelectorProps {
-  questionTypes: TSurveyQuestionType[];
+  questionTypes: TFormQuestionType[];
   currentType: string | undefined;
   handleTypeChange: (value: string) => void;
 }
@@ -37,11 +37,10 @@ export function QuestionTypeSelector({
         <div
           key={type.value}
           onClick={() => handleTypeChange(type.value)}
-          className={`flex-grow cursor-pointer rounded-md bg-${
-            (currentType === undefined && type.value === "text") || currentType === type.value
+          className={`flex-grow cursor-pointer rounded-md bg-${(currentType === undefined && type.value === "text") || currentType === type.value
               ? "slate-100"
               : "white"
-          } p-2 text-center`}>
+            } p-2 text-center`}>
           <div className="flex items-center justify-center space-x-2">
             <span className="text-sm text-slate-900">{type.label}</span>
             <div className="h-4 w-4 text-slate-600 hover:text-slate-800">{typeIcons[type.value]}</div>

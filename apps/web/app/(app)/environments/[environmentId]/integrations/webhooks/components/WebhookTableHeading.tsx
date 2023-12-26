@@ -5,7 +5,7 @@ export default function WebhookTableHeading() {
         <span className="sr-only">Edit</span>
         <div className="col-span-3 pl-6 ">Webhook</div>
         <div className="col-span-1 text-center">Source</div>
-        <div className="col-span-4 text-center">Surveys</div>
+        <div className="col-span-4 text-center">Forms</div>
         <div className="col-span-2 text-center ">Triggers</div>
         <div className="col-span-2 text-center">Updated</div>
       </div>

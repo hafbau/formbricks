@@ -48,7 +48,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
       },
       select: {
         brandColor: true,
-        linkformBranding: true,
+        linkFormBranding: true,
       },
     });
 
@@ -57,7 +57,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
         message: "Form not running",
         reason: form.status,
         brandColor: product?.brandColor,
-        fastformSignature: product?.linkformBranding,
+        fastformSignature: product?.linkFormBranding,
         formClosedMessage: form?.formClosedMessage,
       });
     }
@@ -66,7 +66,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
     return res.status(200).json({
       ...form,
       brandColor: product?.brandColor,
-      fastformSignature: product?.linkformBranding,
+      fastformSignature: product?.linkFormBranding,
     });
   }
 

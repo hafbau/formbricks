@@ -1,4 +1,4 @@
-import FormbricksClient from "@/app/(app)/components/FormbricksClient";
+import FastformClient from "@/app/(app)/components/FastformClient";
 import { PHProvider, PostHogPageview } from "@fastform/ui/PostHogClient";
 import { authOptions } from "@fastform/lib/authOptions";
 import { getServerSession } from "next-auth";
@@ -22,7 +22,7 @@ export default async function AppLayout({ children }) {
       <PHProvider>
         <>
           <PosthogIdentify session={session} />
-          <FormbricksClient session={session} />
+          <FastformClient session={session} />
           {children}
         </>
       </PHProvider>

@@ -1,6 +1,6 @@
 "use client";
 
-import LinkSingleUseformModal from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/LinkSingleUseformModal";
+import LinkSingleUseFormModal from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/LinkSingleUseFormModal";
 import { cn } from "@fastform/lib/cn";
 import { TProduct } from "@fastform/types/product";
 import { TProfile } from "@fastform/types/profile";
@@ -29,7 +29,7 @@ export default function ShareEmbedform({
   product,
   profile,
 }: ShareEmbedformProps) {
-  const formUrl = useMemo(() => webAppUrl + "/s/" + form.id, [form]);
+  const formUrl = useMemo(() => webAppUrl + "/s/" + form.id, [form, webAppUrl]);
   const isSingleUseLinkform = form.singleUse?.enabled;
   const { email } = profile;
   const { brandColor } = product;
@@ -78,7 +78,7 @@ export default function ShareEmbedform({
           <div className="flex w-full grow flex-col gap-6 bg-gray-50 px-4 py-6 lg:p-6">
             <div className="flex h-full overflow-y-scroll lg:h-[590px] lg:overflow-y-visible">
               {isSingleUseLinkform ? (
-                <LinkSingleUseformModal form={form} formBaseUrl={webAppUrl} />
+                <LinkSingleUseFormModal form={form} formBaseUrl={webAppUrl} />
               ) : activeId === "link" ? (
                 <LinkTab formUrl={formUrl} form={form} brandColor={formBrandColor} />
               ) : activeId === "email" ? (

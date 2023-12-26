@@ -10,7 +10,7 @@ export const ZActivityFeedItem = z.object({
   actionLabel: z.string().nullable(),
   actionDescription: z.string().nullable(),
   actionType: z.string().nullable(),
-  displaySurveyName: z.string().nullable(),
+  displayFormName: z.string().nullable(),
 });
 
 export type TActivityFeedItem = z.infer<typeof ZActivityFeedItem>;

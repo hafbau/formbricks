@@ -1,9 +1,9 @@
 import { useState } from "preact/hooks";
-import { SurveyModalProps } from "@/types/props";
+import { FormModalProps } from "@/types/props";
 import Modal from "@/components/wrappers/Modal";
 import { Form } from "./Form";
 
-export function SurveyModal({
+export function FormModal({
   form,
   isBrandingEnabled,
   activeQuestionId,
@@ -11,15 +11,15 @@ export function SurveyModal({
   clickOutside,
   darkOverlay,
   highlightBorderColor,
-  onDisplay = () => {},
-  onActiveQuestionChange = () => {},
-  onResponse = () => {},
-  onClose = () => {},
-  onFinished = () => {},
+  onDisplay = () => { },
+  onActiveQuestionChange = () => { },
+  onResponse = () => { },
+  onClose = () => { },
+  onFinished = () => { },
   onFileUpload,
   isRedirectDisabled = false,
   responseCount,
-}: SurveyModalProps) {
+}: FormModalProps) {
   const [isOpen, setIsOpen] = useState(true);
 
   const close = () => {

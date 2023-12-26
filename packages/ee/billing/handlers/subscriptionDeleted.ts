@@ -23,16 +23,16 @@ export const handleSubscriptionDeleted = async (event: Stripe.Event) => {
     const product = await stripe.products.retrieve(item.price.product as string);
 
     switch (product.name) {
-      case StripeProductNames.inAppSurvey:
-        updatedFeatures[ProductFeatureKeys.inAppSurvey as keyof typeof team.billing.features].status =
+      case StripeProductNames.inAppForm:
+        updatedFeatures[ProductFeatureKeys.inAppForm as keyof typeof team.billing.features].status =
           "inactive";
-        updatedFeatures[ProductFeatureKeys.inAppSurvey as keyof typeof team.billing.features].unlimited =
+        updatedFeatures[ProductFeatureKeys.inAppForm as keyof typeof team.billing.features].unlimited =
           false;
         break;
-      case StripeProductNames.linkSurvey:
-        updatedFeatures[ProductFeatureKeys.linkSurvey as keyof typeof team.billing.features].status =
+      case StripeProductNames.linkForm:
+        updatedFeatures[ProductFeatureKeys.linkForm as keyof typeof team.billing.features].status =
           "inactive";
-        updatedFeatures[ProductFeatureKeys.linkSurvey as keyof typeof team.billing.features].unlimited =
+        updatedFeatures[ProductFeatureKeys.linkForm as keyof typeof team.billing.features].unlimited =
           false;
         break;
       case StripeProductNames.userTargeting:

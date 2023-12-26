@@ -1,7 +1,7 @@
 "use client";
 
 import { authorize } from "@/app/(app)/environments/[environmentId]/integrations/airtable/lib/airtable";
-import FormbricksLogo from "@/images/logo.svg";
+import FastformLogo from "@/images/logo.svg";
 import { Button } from "@fastform/ui/Button";
 import Image from "next/image";
 import { useState } from "react";
@@ -29,7 +29,7 @@ export default function AirtableConnect({ environmentId, enabled, webAppUrl }: A
       <div className="flex w-1/2 flex-col items-center justify-center rounded-lg bg-white p-8 shadow">
         <div className="flex w-1/2 justify-center -space-x-4">
           <div className="flex h-32 w-32 items-center justify-center rounded-full bg-white p-4 shadow-md">
-            <Image className="w-1/2" src={FormbricksLogo} alt="Fastform Logo" />
+            <Image className="w-1/2" src={FastformLogo} alt="Fastform Logo" />
           </div>
           <div className="flex h-32 w-32 items-center justify-center rounded-full bg-white p-4 shadow-md">
             <Image className="w-1/2" src={AirtableLogo} alt="Airtable Logo" />

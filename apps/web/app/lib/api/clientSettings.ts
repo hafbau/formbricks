@@ -208,7 +208,7 @@ export const getSettings = async (environmentId: string, personId: string): Prom
       product: {
         select: {
           brandColor: true,
-          linkformBranding: true,
+          linkFormBranding: true,
           placement: true,
           darkOverlay: true,
           clickOutsideClose: true,
@@ -217,7 +217,7 @@ export const getSettings = async (environmentId: string, personId: string): Prom
     },
   });
 
-  const fastformSignature = environmentProdut?.product.linkformBranding;
+  const fastformSignature = environmentProdut?.product.linkFormBranding;
   const brandColor = environmentProdut?.product.brandColor;
   const placement = environmentProdut?.product.placement;
   const darkOverlay = environmentProdut?.product.darkOverlay;

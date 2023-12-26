@@ -11,7 +11,7 @@ import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { TProfile } from "@fastform/types/profile";
 
-export default function formStarter({
+export default function FormStarter({
   environmentId,
   environment,
   product,

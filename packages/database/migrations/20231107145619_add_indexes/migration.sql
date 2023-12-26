@@ -47,13 +47,13 @@ CREATE INDEX "ResponseNote_responseId_idx" ON "ResponseNote"("responseId");
 CREATE INDEX "form_environmentId_idx" ON "Form"("environmentId");
 
 -- CreateIndex
-CREATE INDEX "formAttributeFilter_formId_idx" ON "formAttributeFilter"("formId");
+CREATE INDEX "formAttributeFilter_formId_idx" ON "FormAttributeFilter"("formId");
 
 -- CreateIndex
-CREATE INDEX "formAttributeFilter_attributeClassId_idx" ON "formAttributeFilter"("attributeClassId");
+CREATE INDEX "formAttributeFilter_attributeClassId_idx" ON "FormAttributeFilter"("attributeClassId");
 
 -- CreateIndex
-CREATE INDEX "formTrigger_formId_idx" ON "formTrigger"("formId");
+CREATE INDEX "formTrigger_formId_idx" ON "FormTrigger"("formId");
 
 -- CreateIndex
 CREATE INDEX "Tag_environmentId_idx" ON "Tag"("environmentId");

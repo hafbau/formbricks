@@ -66,5 +66,5 @@ const fastform = {
   getApi,
 };
 
-export type FormbricksType = typeof fastform;
-export default fastform as FormbricksType;
+export type FastformType = typeof fastform;
+export default fastform as FastformType;

@@ -31,24 +31,24 @@ export const handleCheckoutSessionCompleted = async (event: Stripe.Event) => {
     const product = await stripe.products.retrieve(item.price.product as string);
 
     switch (product.name) {
-      case StripeProductNames.inAppSurvey:
-        updatedFeatures.inAppSurvey.status = "active";
-        if (item.price.lookup_key === StripePriceLookupKeys.inAppSurveyUnlimited) {
-          updatedFeatures.inAppSurvey.unlimited = true;
+      case StripeProductNames.inAppForm:
+        updatedFeatures.inAppForm.status = "active";
+        if (item.price.lookup_key === StripePriceLookupKeys.inAppFormUnlimited) {
+          updatedFeatures.inAppForm.unlimited = true;
         } else {
           const countForTeam = await getMonthlyTeamResponseCount(team.id);
           await reportUsage(
             stripeSubscriptionObject.items.data,
-            ProductFeatureKeys.inAppSurvey,
+            ProductFeatureKeys.inAppForm,
             countForTeam
           );
         }
         break;
 
-      case StripeProductNames.linkSurvey:
-        updatedFeatures.linkSurvey.status = "active";
-        if (item.price.lookup_key === StripePriceLookupKeys.linkSurveyUnlimited) {
-          updatedFeatures.linkSurvey.unlimited = true;
+      case StripeProductNames.linkForm:
+        updatedFeatures.linkForm.status = "active";
+        if (item.price.lookup_key === StripePriceLookupKeys.linkFormUnlimited) {
+          updatedFeatures.linkForm.unlimited = true;
         }
         break;
 

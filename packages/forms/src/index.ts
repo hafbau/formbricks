@@ -1,10 +1,10 @@
-import { formInline } from "@/components/general/formInline";
-import { formModal } from "@/components/general/formModal";
+import { FormInline } from "@/components/general/FormInline";
+import { FormModal } from "@/components/general/FormModal";
 import { addCustomThemeToDom, addStylesToDom } from "@/lib/styles";
-import { formInlineProps, formModalProps } from "@/types/props";
+import { FormInlineProps, FormModalProps } from "@/types/props";
 import { h, render } from "preact";
 
-export const renderformInline = (props: formInlineProps & { brandColor: string }) => {
+export const renderFormInline = (props: FormInlineProps & { brandColor: string }) => {
   addStylesToDom();
   addCustomThemeToDom({ brandColor: props.brandColor });
 
@@ -13,10 +13,10 @@ export const renderformInline = (props: formInlineProps & { brandColor: string }
   if (!element) {
     throw new Error(`renderform: Element with id ${containerId} not found.`);
   }
-  render(h(formInline, formProps), element);
+  render(h(FormInline, formProps), element);
 };
 
-export const renderformModal = (props: formModalProps & { brandColor: string }) => {
+export const renderFormModal = (props: FormModalProps & { brandColor: string }) => {
   addStylesToDom();
   addCustomThemeToDom({ brandColor: props.brandColor });
 
@@ -24,5 +24,5 @@ export const renderformModal = (props: formModalProps & { brandColor: string }) 
   const element = document.createElement("div");
   element.id = "fastform-modal-container";
   document.body.appendChild(element);
-  render(h(formModal, props), element);
+  render(h(FormModal, props), element);
 };

@@ -2,7 +2,7 @@ import { responses } from "@/app/lib/api/response";
 import { transformErrorToDetails } from "@/app/lib/api/validator";
 import { getLatestActionByPersonId } from "@fastform/lib/action/service";
 import { getActionClasses } from "@fastform/lib/actionClass/service";
-import { IS_FORMBRICKS_CLOUD, PRICING_USERTARGETING_FREE_MTU } from "@fastform/lib/constants";
+import { IS_FASTFORM_CLOUD, PRICING_USERTARGETING_FREE_MTU } from "@fastform/lib/constants";
 import { getEnvironment, updateEnvironment } from "@fastform/lib/environment/service";
 import { createPerson, getPersonByUserId } from "@fastform/lib/person/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
@@ -57,7 +57,7 @@ export async function GET(
 
     // check if MAU limit is reached
     let isMauLimitReached = false;
-    if (IS_FORMBRICKS_CLOUD) {
+    if (IS_FASTFORM_CLOUD) {
       // check team subscriptons
       const team = await getTeamByEnvironmentId(environmentId);
 

@@ -1,4 +1,4 @@
-export default function FormbricksBranding() {
+export default function FastformBranding() {
   return (
     <a
       href="https://fastform.com?utm_source=form_branding"

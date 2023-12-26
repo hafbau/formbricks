@@ -17,7 +17,7 @@ import toast from "react-hot-toast";
 import { PersonAvatar } from "../Avatars";
 import { DeleteDialog } from "../DeleteDialog";
 import { RatingResponse } from "../RatingResponse";
-import { formStatusIndicator } from "../formStatusIndicator";
+import { FormStatusIndicator } from "../FormStatusIndicator";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../Tooltip";
 import { deleteResponseAction } from "./actions";
 import QuestionSkip from "./components/QuestionSkip";
@@ -242,7 +242,7 @@ export default function SingleResponseCard({
             {pageType === "people" && (
               <div className="flex items-center justify-center space-x-2 rounded-full bg-slate-100 p-1 px-2 text-sm text-slate-600">
                 {(form.type === "link" || environment.widgetSetupCompleted) && (
-                  <formStatusIndicator status={form.status} />
+                  <FormStatusIndicator status={form.status} />
                 )}
                 <Link
                   className="hover:underline"

@@ -1,7 +1,7 @@
 "use client";
 
 import toast from "react-hot-toast";
-import { formInline } from "@fastform/ui/Form";
+import { FormInline } from "@fastform/ui/Form";
 import { cn } from "@fastform/lib/cn";
 import { Tform } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
@@ -53,7 +53,7 @@ export default function LinkTab({ formUrl, form, brandColor }: EmailTabProps) {
         </Button>
       </div>
       <div className="relative grow overflow-y-scroll rounded-xl border border-gray-200 bg-white px-4 py-[18px]">
-        <formInline
+        <FormInline
           brandColor={brandColor}
           form={form}
           isBrandingEnabled={false}

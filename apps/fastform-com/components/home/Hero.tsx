@@ -13,7 +13,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import HeroAnimation from "./HeroAnimation";
 
-export const Hero: React.FC = ({}) => {
+export const Hero: React.FC = ({ }) => {
   const plausible = usePlausible();
   const router = useRouter();
   return (
@@ -90,7 +90,7 @@ export const Hero: React.FC = ({}) => {
             className="mr-3 px-6"
             onClick={() => {
               router.push("https://app.fastform.com/auth/signup");
-              plausible("Hero_CTA_CreateSurvey");
+              plausible("Hero_CTA_CreateForm");
             }}>
             Get started
           </Button>

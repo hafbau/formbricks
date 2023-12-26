@@ -1,19 +1,19 @@
 export enum ProductFeatureKeys {
-  inAppSurvey = "inAppSurvey",
-  linkSurvey = "linkSurvey",
+  inAppForm = "inAppForm",
+  linkForm = "linkForm",
   userTargeting = "userTargeting",
 }
 
 export enum StripeProductNames {
-  inAppSurvey = "Fastform In App Form",
-  linkSurvey = "Fastform Link Form",
+  inAppForm = "Fastform In App Form",
+  linkForm = "Fastform Link Form",
   userTargeting = "Fastform User Identification",
 }
 export enum StripePriceLookupKeys {
-  inAppSurvey = "inAppSurvey",
-  linkSurvey = "linkSurvey",
+  inAppForm = "inAppForm",
+  linkForm = "linkForm",
   userTargeting = "userTargeting",
-  inAppSurveyUnlimited = "form-unlimited-03112023",
-  linkSurveyUnlimited = "linkSurvey-unlimited-03112023",
+  inAppFormUnlimited = "form-unlimited-03112023",
+  linkFormUnlimited = "linkForm-unlimited-03112023",
   userTargetingUnlimited = "userTargeting-unlimited-03112023",
 }

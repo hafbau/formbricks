@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZIntegrationBase, ZIntegrationBaseSurveyData } from "./sharedTypes";
+import { ZIntegrationBase, ZIntegrationBaseFormData } from "./sharedTypes";
 
 export const ZGoogleCredential = z.object({
   scope: z.string(),
@@ -16,7 +16,7 @@ export const ZIntegrationGoogleSheetsConfigData = z
     spreadsheetId: z.string(),
     spreadsheetName: z.string(),
   })
-  .merge(ZIntegrationBaseSurveyData);
+  .merge(ZIntegrationBaseFormData);
 
 export type TIntegrationGoogleSheetsConfigData = z.infer<typeof ZIntegrationGoogleSheetsConfigData>;
 

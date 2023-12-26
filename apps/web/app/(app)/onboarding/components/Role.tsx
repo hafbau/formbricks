@@ -56,8 +56,8 @@ const Role: React.FC<RoleProps> = ({ next, skip, setfastformResponseId, session 
           toast.error("An error occured saving your settings");
           console.error(e);
         }
-        if (fastformEnabled && env.NEXT_PUBLIC_fastform_ONBOARDING_SURVEY_ID) {
-          const res = await createResponse(env.NEXT_PUBLIC_fastform_ONBOARDING_SURVEY_ID, session.user.id, {
+        if (fastformEnabled && env.NEXT_PUBLIC_fastform_ONBOARDING_FORM_ID) {
+          const res = await createResponse(env.NEXT_PUBLIC_fastform_ONBOARDING_FORM_ID, session.user.id, {
             role: selectedRole.label,
           });
           if (res.ok) {

@@ -1,7 +1,7 @@
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
-/* import { config } from 'dotenv';
-config({ path: '../../.env' }); */
+// import { config } from 'dotenv';
+// config({ path: '../../.env' });
 
 export const env = createEnv({
   /*
@@ -12,7 +12,7 @@ export const env = createEnv({
     WEBAPP_URL: z.string().url().optional(),
     DATABASE_URL: z.string().url(),
     ENCRYPTION_KEY: z.string().length(64).or(z.string().length(32)),
-    FORMBRICKS_ENCRYPTION_KEY: z.string().length(24).or(z.string().length(0)).optional(),
+    FASTFORM_ENCRYPTION_KEY: z.string().length(24).or(z.string().length(0)).optional(),
     NEXTAUTH_SECRET: z.string().min(1),
     NEXTAUTH_URL: z.string().url().optional(),
     MAIL_FROM: z.string().email().optional(),
@@ -50,7 +50,7 @@ export const env = createEnv({
     GOOGLE_AUTH_ENABLED: z.enum(["1", "0"]).optional(),
     AZUREAD_AUTH_ENABLED: z.enum(["1", "0"]).optional(),
     INVITE_DISABLED: z.enum(["1", "0"]).optional(),
-    IS_FORMBRICKS_CLOUD: z.enum(["1", "0"]).optional(),
+    IS_FASTFORM_CLOUD: z.enum(["1", "0"]).optional(),
     VERCEL_URL: z.string().optional(),
     SHORT_URL_BASE: z.string().url().optional().or(z.string().length(0)),
     GOOGLE_SHEETS_CLIENT_ID: z.string().optional(),
@@ -75,13 +75,13 @@ export const env = createEnv({
    * 💡 You'll get type errors if these are not prefixed with NEXT_PUBLIC_.
    */
   client: {
-    NEXT_PUBLIC_FORMBRICKS_API_HOST: z
+    NEXT_PUBLIC_FASTFORM_API_HOST: z
       .string()
       .url()
       .optional()
       .or(z.string().refine((str) => str === "")),
-    NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID: z.string().optional(),
-    NEXT_PUBLIC_FORMBRICKS_ONBOARDING_SURVEY_ID: z.string().optional(),
+    NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID: z.string().optional(),
+    NEXT_PUBLIC_FASTFORM_ONBOARDING_FORM_ID: z.string().optional(),
     NEXT_PUBLIC_POSTHOG_API_KEY: z.string().optional(),
     NEXT_PUBLIC_POSTHOG_API_HOST: z.string().optional(),
     NEXT_PUBLIC_SENTRY_DSN: z.string().optional(),
@@ -127,13 +127,13 @@ export const env = createEnv({
     S3_SECRET_KEY: process.env.S3_SECRET_KEY,
     S3_REGION: process.env.S3_REGION,
     S3_BUCKET_NAME: process.env.S3_BUCKET_NAME,
-    NEXT_PUBLIC_FORMBRICKS_API_HOST: process.env.NEXT_PUBLIC_FORMBRICKS_API_HOST,
-    NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID: process.env.NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID,
-    NEXT_PUBLIC_FORMBRICKS_ONBOARDING_SURVEY_ID: process.env.NEXT_PUBLIC_FORMBRICKS_ONBOARDING_SURVEY_ID,
-    IS_FORMBRICKS_CLOUD: process.env.IS_FORMBRICKS_CLOUD,
+    NEXT_PUBLIC_FASTFORM_API_HOST: process.env.NEXT_PUBLIC_FASTFORM_API_HOST,
+    NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID: process.env.NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID,
+    NEXT_PUBLIC_FASTFORM_ONBOARDING_FORM_ID: process.env.NEXT_PUBLIC_FASTFORM_ONBOARDING_FORM_ID,
+    IS_FASTFORM_CLOUD: process.env.IS_FASTFORM_CLOUD,
     NEXT_PUBLIC_POSTHOG_API_KEY: process.env.NEXT_PUBLIC_POSTHOG_API_KEY,
     NEXT_PUBLIC_POSTHOG_API_HOST: process.env.NEXT_PUBLIC_POSTHOG_API_HOST,
-    FORMBRICKS_ENCRYPTION_KEY: process.env.FORMBRICKS_ENCRYPTION_KEY,
+    FASTFORM_ENCRYPTION_KEY: process.env.FASTFORM_ENCRYPTION_KEY,
     VERCEL_URL: process.env.VERCEL_URL,
     SHORT_URL_BASE: process.env.SHORT_URL_BASE,
     NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,

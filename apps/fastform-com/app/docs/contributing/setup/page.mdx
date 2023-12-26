@@ -61,7 +61,7 @@ Assistance with setup issues on your local machine may be limited due to varying
         3. Installing Docker images by extracting them from the `packages/database/docker-compose.yml` file.
         4. Building the @fastform/js component.
      - When the workspace starts:
-        1. Wait for the web and demo apps to launch on Gitpod. This automatically opens the `apps/demo/.env` file. Utilize dynamic localhost URLs (e.g., `localhost:3000` for signup and `localhost:8025` for email confirmation) to configure `NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID`. After creating your account and finding the `ID` in the URL at `localhost:3000`, replace `YOUR_ENVIRONMENT_ID` in the `.env` file located in `app/demo`. 
+        1. Wait for the web and demo apps to launch on Gitpod. This automatically opens the `apps/demo/.env` file. Utilize dynamic localhost URLs (e.g., `localhost:3000` for signup and `localhost:8025` for email confirmation) to configure `NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID`. After creating your account and finding the `ID` in the URL at `localhost:3000`, replace `YOUR_ENVIRONMENT_ID` in the `.env` file located in `app/demo`. 
 
     **Web Component Initialization:** 
      - we initialize the @fastform/web component during prebuilds. This involves:
@@ -79,7 +79,7 @@ Assistance with setup issues on your local machine may be limited due to varying
         2. Caching hits and replaying builds from the `@fastform/js` component.
      - When the workspace starts: 
         1. Initializing environment variables.
-        2. Replaces `NEXT_PUBLIC_FORMBRICKS_API_HOST` to take in Gitpod URL's ports when running on VSCode browser.
+        2. Replaces `NEXT_PUBLIC_FASTFORM_API_HOST` to take in Gitpod URL's ports when running on VSCode browser.
         3. Starting the `@fastform/demo` dev environment.
 
     **Github Prebuilds Configuration:** 

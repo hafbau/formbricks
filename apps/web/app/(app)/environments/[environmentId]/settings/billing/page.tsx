@@ -1,8 +1,8 @@
 export const revalidate = REVALIDATION_INTERVAL;
 
 import {
-  IS_FORMBRICKS_CLOUD,
-  PRICING_APPSURVEYS_FREE_RESPONSES,
+  IS_FASTFORM_CLOUD,
+  PRICING_APPFORMS_FREE_RESPONSES,
   REVALIDATION_INTERVAL,
 } from "@fastform/lib/constants";
 
@@ -22,7 +22,7 @@ import { ErrorComponent } from "@fastform/ui/ErrorComponent";
 import { getAccessFlags } from "@fastform/lib/membership/utils";
 
 export default async function ProfileSettingsPage({ params }) {
-  if (!IS_FORMBRICKS_CLOUD) {
+  if (!IS_FASTFORM_CLOUD) {
     notFound();
   }
 
@@ -57,7 +57,7 @@ export default async function ProfileSettingsPage({ params }) {
             peopleCount={peopleCount}
             responseCount={responseCount}
             userTargetingFreeMtu={PRICING_USERTARGETING_FREE_MTU}
-            inAppSurveyFreeResponses={PRICING_APPSURVEYS_FREE_RESPONSES}
+            inAppFormFreeResponses={PRICING_APPFORMS_FREE_RESPONSES}
           />
         ) : (
           <ErrorComponent />

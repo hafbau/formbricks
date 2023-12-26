@@ -1,7 +1,7 @@
 "use client";
 
 import { updateformAction } from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/actions";
-import { formStatusIndicator } from "@fastform/ui/formStatusIndicator";
+import { FormStatusIndicator } from "@fastform/ui/FormStatusIndicator";
 import { TEnvironment } from "@fastform/types/environment";
 import { Tform } from "@fastform/types/forms";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@fastform/ui/Select";
@@ -9,13 +9,13 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastf
 import { CheckCircleIcon, PauseCircleIcon, PlayCircleIcon } from "@heroicons/react/24/solid";
 import toast from "react-hot-toast";
 
-export default function formStatusDropdown({
+export default function FormStatusDropdown({
   environment,
-  updateLocalformStatus,
+  updateLocalFormStatus,
   form,
 }: {
   environment: TEnvironment;
-  updateLocalformStatus?: (status: "draft" | "inProgress" | "paused" | "completed" | "archived") => void;
+  updateLocalFormStatus?: (status: "draft" | "inProgress" | "paused" | "completed" | "archived") => void;
   form: Tform;
 }) {
   const isCloseOnDateEnabled = form.closeOnDate !== null;
@@ -27,7 +27,7 @@ export default function formStatusDropdown({
       {form.status === "draft" ? (
         <div className="flex items-center">
           {(form.type === "link" || environment.widgetSetupCompleted) && (
-            <formStatusIndicator status={form.status} />
+            <FormStatusIndicator status={form.status} />
           )}
           {form.status === "draft" && <p className="text-sm italic text-slate-600">Draft</p>}
         </div>
@@ -53,8 +53,8 @@ export default function formStatusDropdown({
                 toast.error(`Error: ${error.message}`);
               });
 
-            if (updateLocalformStatus)
-              updateLocalformStatus(value as "draft" | "inProgress" | "paused" | "completed" | "archived");
+            if (updateLocalFormStatus)
+              updateLocalFormStatus(value as "draft" | "inProgress" | "paused" | "completed" | "archived");
           }}>
           <TooltipProvider delayDuration={50}>
             <Tooltip open={isStatusChangeDisabled ? undefined : false}>
@@ -63,7 +63,7 @@ export default function formStatusDropdown({
                   <SelectValue>
                     <div className="flex items-center">
                       {(form.type === "link" || environment.widgetSetupCompleted) && (
-                        <formStatusIndicator status={form.status} />
+                        <FormStatusIndicator status={form.status} />
                       )}
                       <span className="ml-2 text-sm text-slate-700">
                         {form.status === "inProgress" && "In-progress"}

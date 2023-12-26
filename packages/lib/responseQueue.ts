@@ -1,4 +1,4 @@
-import { FormbricksAPI } from "@fastform/api";
+import { FastformAPI } from "@fastform/api";
 import { TResponseUpdate } from "@fastform/types/responses";
 import formState from "./formState";
 
@@ -15,12 +15,12 @@ export class ResponseQueue {
   private config: QueueConfig;
   private formState: formState;
   private isRequestInProgress = false;
-  private api: FormbricksAPI;
+  private api: FastformAPI;
 
   constructor(config: QueueConfig, formState: formState) {
     this.config = config;
     this.formState = formState;
-    this.api = new FormbricksAPI({
+    this.api = new FastformAPI({
       apiHost: config.apiHost,
       environmentId: config.environmentId,
     });

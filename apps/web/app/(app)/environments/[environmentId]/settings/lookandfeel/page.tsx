@@ -2,7 +2,7 @@ export const revalidate = REVALIDATION_INTERVAL;
 
 import { getIsEnterpriseEdition } from "@fastform/ee/lib/service";
 import { authOptions } from "@fastform/lib/authOptions";
-import { DEFAULT_BRAND_COLOR, IS_FORMBRICKS_CLOUD, REVALIDATION_INTERVAL } from "@fastform/lib/constants";
+import { DEFAULT_BRAND_COLOR, IS_FASTFORM_CLOUD, REVALIDATION_INTERVAL } from "@fastform/lib/constants";
 import { getMembershipByUserIdTeamId } from "@fastform/lib/membership/service";
 import { getAccessFlags } from "@fastform/lib/membership/utils";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
@@ -12,7 +12,7 @@ import { getServerSession } from "next-auth";
 import SettingsCard from "../components/SettingsCard";
 import SettingsTitle from "../components/SettingsTitle";
 import { EditBrandColor } from "./components/EditBrandColor";
-import { EditFormbricksBranding } from "./components/EditBranding";
+import { EditFastformBranding } from "./components/EditBranding";
 import { EditHighlightBorder } from "./components/EditHighlightBorder";
 import { EditPlacement } from "./components/EditPlacement";
 
@@ -36,7 +36,7 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
   const isEnterpriseEdition = await getIsEnterpriseEdition();
 
   const canRemoveLinkBranding =
-    team.billing.features.linkform.status !== "inactive" || !IS_FORMBRICKS_CLOUD;
+    team.billing.features.linkform.status !== "inactive" || !IS_FASTFORM_CLOUD;
   const canRemoveInAppBranding =
     team.billing.features.inAppform.status !== "inactive" || isEnterpriseEdition;
 
@@ -76,18 +76,18 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
       <SettingsCard
         title="Fastform Branding"
         description="We love your support but understand if you toggle it off.">
-        <EditFormbricksBranding
+        <EditFastformBranding
           type="linkform"
           product={product}
           canRemoveBranding={canRemoveLinkBranding}
           environmentId={params.environmentId}
         />
-        <EditFormbricksBranding
+        <EditFastformBranding
           type="inAppform"
           product={product}
           canRemoveBranding={canRemoveInAppBranding}
           environmentId={params.environmentId}
-          isFormbricksCloud={IS_FORMBRICKS_CLOUD}
+          isFastformCloud={IS_FASTFORM_CLOUD}
         />
       </SettingsCard>
     </div>

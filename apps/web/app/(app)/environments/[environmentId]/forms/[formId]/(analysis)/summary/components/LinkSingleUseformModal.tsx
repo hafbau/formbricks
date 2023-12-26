@@ -10,12 +10,12 @@ import { DocumentDuplicateIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 
-interface LinkSingleUseformModalProps {
+interface LinkSingleUseFormModalProps {
   form: Tform;
   formBaseUrl: string;
 }
 
-export default function LinkSingleUseformModal({ form, formBaseUrl }: LinkSingleUseformModalProps) {
+export default function LinkSingleUseFormModal({ form, formBaseUrl }: LinkSingleUseFormModalProps) {
   const [singleUseIds, setSingleUseIds] = useState<string[] | null>(null);
 
   useEffect(() => {

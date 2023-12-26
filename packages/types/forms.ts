@@ -371,9 +371,9 @@ const ZformType = z.enum(["web", "email", "link", "mobile"]);
 
 export type TformType = z.infer<typeof ZformType>;
 
-const ZformStatus = z.enum(["draft", "inProgress", "paused", "completed"]);
+const ZFormStatus = z.enum(["draft", "inProgress", "paused", "completed"]);
 
-export type TformStatus = z.infer<typeof ZformStatus>;
+export type TFormStatus = z.infer<typeof ZFormStatus>;
 
 export const Zform = z.object({
   id: z.string().cuid2(),
@@ -382,7 +382,7 @@ export const Zform = z.object({
   name: z.string(),
   type: ZformType,
   environmentId: z.string(),
-  status: ZformStatus,
+  status: ZFormStatus,
   attributeFilters: z.array(ZformAttributeFilter),
   displayOption: ZformDisplayOption,
   autoClose: z.number().nullable(),
@@ -407,7 +407,7 @@ export const Zform = z.object({
 export const ZformInput = z.object({
   name: z.string(),
   type: ZformType.optional(),
-  status: ZformStatus.optional(),
+  status: ZFormStatus.optional(),
   displayOption: ZformDisplayOption.optional(),
   autoClose: z.number().optional(),
   redirectUrl: z.string().url().optional(),

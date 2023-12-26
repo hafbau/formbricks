@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { ZIntegrationBase, ZIntegrationBaseSurveyData } from "./sharedTypes";
+import { ZIntegrationBase, ZIntegrationBaseFormData } from "./sharedTypes";
 
 export const ZIntegrationAirtableCredential = z.object({
   expiry_date: z.string(),
@@ -15,7 +15,7 @@ export const ZIntegrationAirtableConfigData = z
     baseId: z.string(),
     tableName: z.string(),
   })
-  .merge(ZIntegrationBaseSurveyData);
+  .merge(ZIntegrationBaseFormData);
 
 export type TIntegrationAirtableConfigData = z.infer<typeof ZIntegrationAirtableConfigData>;
 

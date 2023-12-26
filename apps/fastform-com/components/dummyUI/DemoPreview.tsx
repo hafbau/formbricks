@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import PreviewSurvey from "./PreviewSurvey";
+import PreviewForm from "./PreviewForm";
 import { findTemplateByName } from "./templates";
 import { TTemplate } from "@fastform/types/templates";
 
@@ -28,7 +28,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ template }) => {
         <p className="my-3 text-sm text-slate-500 dark:text-slate-300">Preview</p>
         <div className="">
           {selectedTemplate && (
-            <PreviewSurvey
+            <PreviewForm
               activeQuestionId={activeQuestionId}
               questions={selectedTemplate.preset.questions}
               brandColor="#94a3b8"

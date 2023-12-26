@@ -242,7 +242,7 @@ These variables can be provided at the runtime i.e. in your docker-compose file.
 | TELEMETRY_DISABLED          | Disables telemetry if set to `1`.                                                       | optional                                                |                                                                         |
 | INSTANCE_ID                 | Instance ID for Fastform Cloud to be sent to Telemetry.                               | optional                                                |                                                                         |
 | INTERNAL_SECRET             | Internal Secret (Currently we overwrite the value with a random value).                 | optional                                                |                                                                         |
-| IS_FORMBRICKS_CLOUD         | Uses Fastform Cloud if set to `1`                                                     | optional                                                |                                                                         |
+| IS_FASTFORM_CLOUD         | Uses Fastform Cloud if set to `1`                                                     | optional                                                |                                                                         |
 | DEFAULT_BRAND_COLOR         | Default brand color for your app (Can be overwritten from the UI as well).              | optional                                                | `#64748b`                                                               |
 
 ## Build-time Variables
@@ -251,17 +251,17 @@ These variables must be provided at the time of the docker build and would requi
 
 | Variable                                           | Description                                                     | Required | Default |
 | -------------------------------------------------- | --------------------------------------------------------------- | -------- | ------- |
-| NEXT_PUBLIC_FORMBRICKS_API_HOST                    | Host for the Fastform API.                                    | optional |         |
-| NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID              | If you already have a preset environment ID of the environment. | optional |         |
-| NEXT_PUBLIC_FORMBRICKS_ONBOARDING_SURVEY_ID        | If you already have an onboarding form ID to show new users.  | optional |         |
+| NEXT_PUBLIC_FASTFORM_API_HOST                    | Host for the Fastform API.                                    | optional |         |
+| NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID              | If you already have a preset environment ID of the environment. | optional |         |
+| NEXT_PUBLIC_FASTFORM_ONBOARDING_FORM_ID        | If you already have an onboarding form ID to show new users.  | optional |         |
 | NEXT_PUBLIC_POSTHOG_API_KEY                        | API key for PostHog analytics.                                  | optional |         |
 | NEXT_PUBLIC_POSTHOG_API_HOST                       | Host for PostHog analytics.                                     | optional |         |
 | NEXT_PUBLIC_SENTRY_DSN                             | DSN for Sentry error tracking.                                  | optional |         |
 | NEXT_PUBLIC_DOCSEARCH_APP_ID                       | ID of the DocSearch application.                                | optional |         |
 | NEXT_PUBLIC_DOCSEARCH_API_KEY                      | API key of the DocSearch application.                           | optional |         |
 | NEXT_PUBLIC_DOCSEARCH_INDEX_NAME                   | Name of the DocSearch index.                                    | optional |         |
-| NEXT_PUBLIC_FORMBRICKS_COM_ENVIRONMENT_ID          | Environment ID for Fastform (if you already have one)         | optional |         |
-| NEXT_PUBLIC_FORMBRICKS_COM_DOCS_FEEDBACK_SURVEY_ID | Form ID for the feedback form on the docs site.             | optional |         |
-| NEXT_PUBLIC_FORMBRICKS_COM_API_HOST                | Host for the Fastform API.                                    | optional |         |
+| NEXT_PUBLIC_FASTFORM_COM_ENVIRONMENT_ID          | Environment ID for Fastform (if you already have one)         | optional |         |
+| NEXT_PUBLIC_FASTFORM_COM_DOCS_FEEDBACK_FORM_ID | Form ID for the feedback form on the docs site.             | optional |         |
+| NEXT_PUBLIC_FASTFORM_COM_API_HOST                | Host for the Fastform API.                                    | optional |         |
 
 Still facing issues? [Join our Discord!](https://fastform.com/discord) and we'd be glad to assist you!

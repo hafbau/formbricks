@@ -93,7 +93,7 @@ export const sync = async (params: TJsSyncParams): Promise<void> => {
         ...state,
         displays: oldState?.displays || [],
       };
-      state = filterPublicforms(state);
+      state = filterPublicForms(state);
 
       const formNames = state.forms.map((s) => s.name);
       logger.debug("Fetched " + formNames.length + " forms during sync: " + formNames.join(", "));
@@ -116,7 +116,7 @@ export const sync = async (params: TJsSyncParams): Promise<void> => {
   }
 };
 
-export const filterPublicforms = (state: TJsState): TJsState => {
+export const filterPublicForms = (state: TJsState): TJsState => {
   const { displays, product } = state;
 
   let { forms } = state;

@@ -3,12 +3,12 @@
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "../Tooltip";
 import { ArchiveBoxIcon, CheckIcon, PauseIcon } from "@heroicons/react/24/solid";
 
-interface SurveyStatusIndicatorProps {
+interface FormStatusIndicatorProps {
   status: string;
   tooltip?: boolean;
 }
 
-export function SurveyStatusIndicator({ status, tooltip }: SurveyStatusIndicatorProps) {
+export function FormStatusIndicator({ status, tooltip }: FormStatusIndicatorProps) {
   if (tooltip) {
     return (
       <TooltipProvider>

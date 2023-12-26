@@ -62,7 +62,7 @@ export const Steps: React.FC = () => {
                 No-Code: Track User Actions
               </h2>
               <p className="text-md mt-6 max-w-lg leading-7 text-slate-500 dark:text-slate-400">
-                Set up user actions which can trigger your form without writing a single line of code. Surveys
+                Set up user actions which can trigger your form without writing a single line of code. Forms
                 can be triggered on specific pages or after an element is clicked.
               </p>
             </div>

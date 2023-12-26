@@ -5,5 +5,5 @@
 
 */
 -- AlterTable
-ALTER TABLE "Product" RENAME COLUMN "fastformSignature" TO "linkSurveyBranding";
-ALTER TABLE "Product" ADD COLUMN "inAppSurveyBranding" BOOLEAN NOT NULL DEFAULT true;
+ALTER TABLE "Product" RENAME COLUMN "fastformSignature" TO "linkFormBranding";
+ALTER TABLE "Product" ADD COLUMN "inAppFormBranding" BOOLEAN NOT NULL DEFAULT true;

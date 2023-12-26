@@ -1,9 +1,9 @@
 import "server-only";
 import { env } from "./env.mjs";
-export const IS_FORMBRICKS_CLOUD = env.IS_FORMBRICKS_CLOUD === "1";
+export const IS_FASTFORM_CLOUD = env.IS_FASTFORM_CLOUD === "1";
 export const REVALIDATION_INTERVAL = 0; //TODO: find a good way to cache and revalidate data when it changes
 export const SERVICES_REVALIDATION_INTERVAL = 60 * 30; // 30 minutes
-export const MAU_LIMIT = IS_FORMBRICKS_CLOUD ? 9000 : 1000000;
+export const MAU_LIMIT = IS_FASTFORM_CLOUD ? 9000 : 1000000;
 
 // URLs
 export const WEBAPP_URL =
@@ -12,7 +12,7 @@ export const WEBAPP_URL =
 export const SHORT_URL_BASE = env.SHORT_URL_BASE ? env.SHORT_URL_BASE : WEBAPP_URL;
 
 // encryption keys
-export const FORMBRICKS_ENCRYPTION_KEY = env.FORMBRICKS_ENCRYPTION_KEY || undefined;
+export const FASTFORM_ENCRYPTION_KEY = env.FASTFORM_ENCRYPTION_KEY || undefined;
 export const ENCRYPTION_KEY = env.ENCRYPTION_KEY;
 
 // Other
@@ -69,7 +69,7 @@ export const IS_S3_CONFIGURED: boolean =
 
 // Pricing
 export const PRICING_USERTARGETING_FREE_MTU = 2500;
-export const PRICING_APPSURVEYS_FREE_RESPONSES = 250;
+export const PRICING_APPFORMS_FREE_RESPONSES = 250;
 
 // Colors for Form Bg
 export const colours = [

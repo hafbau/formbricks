@@ -3,7 +3,7 @@
 import formLinkUsed from "@/app/s/[formId]/components/formLinkUsed";
 import VerifyEmail from "@/app/s/[formId]/components/VerifyEmail";
 import { getPrefillResponseData } from "@/app/s/[formId]/lib/prefilling";
-import { FormbricksAPI } from "@fastform/api";
+import { FastformAPI } from "@fastform/api";
 import { ResponseQueue } from "@fastform/lib/responseQueue";
 import { formState } from "@fastform/lib/formState";
 import { TProduct } from "@fastform/types/product";
@@ -11,7 +11,7 @@ import { TResponse, TResponseData, TResponseUpdate } from "@fastform/types/respo
 import { TUploadFileConfig } from "@fastform/types/storage";
 import { Tform } from "@fastform/types/forms";
 import ContentWrapper from "@fastform/ui/ContentWrapper";
-import { formInline } from "@fastform/ui/Form";
+import { FormInline } from "@fastform/ui/Form";
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
@@ -133,13 +133,13 @@ export default function Linkform({
             </button>
           </div>
         )}
-        <formInline
+        <FormInline
           form={form}
           brandColor={brandColor}
-          isBrandingEnabled={product.linkformBranding}
+          isBrandingEnabled={product.linkFormBranding}
           onDisplay={async () => {
             if (!isPreview) {
-              const api = new FormbricksAPI({
+              const api = new FastformAPI({
                 apiHost: webAppUrl,
                 environmentId: form.environmentId,
               });
@@ -172,7 +172,7 @@ export default function Linkform({
               });
           }}
           onFileUpload={async (file: File, params: TUploadFileConfig) => {
-            const api = new FormbricksAPI({
+            const api = new FastformAPI({
               apiHost: webAppUrl,
               environmentId: form.environmentId,
             });

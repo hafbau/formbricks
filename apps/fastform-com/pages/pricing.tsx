@@ -4,9 +4,9 @@ import { OpenSourceInfo } from "@/components/shared/OpenSourceInfo";
 import { GetStartedWithPricing } from "@/components/shared/PricingGetStarted";
 import { PricingTable } from "../components/shared/PricingTable";
 
-const inProductSurveys = {
+const inProductForms = {
   leadRow: {
-    title: "Website and In-App Surveys",
+    title: "Website and In-App Forms",
     comparison: "like HotJar",
     free: (
       <div>
@@ -16,17 +16,17 @@ const inProductSurveys = {
     paid: "Unlimited",
   },
   features: [
-    { name: "Unlimited Surveys", free: true, paid: true },
+    { name: "Unlimited Forms", free: true, paid: true },
     { name: "Unlimited Team Members", free: true, paid: true },
     { name: "API Access", free: true, paid: true },
     { name: "30+ Templates", free: true, paid: true },
     { name: "Unlimited Responses per Form", free: false, paid: true },
     { name: "Team Role Management", free: false, paid: true, comingSoon: true },
     { name: "Advanced User Targeting", free: false, paid: true, comingSoon: true },
-    { name: "Multi Language Surveys", free: false, paid: true, comingSoon: true },
+    { name: "Multi Language Forms", free: false, paid: true, comingSoon: true },
   ],
   endRow: {
-    title: "Website and In-App Surveys",
+    title: "Website and In-App Forms",
     free: "Free",
     paid: (
       <div>
@@ -77,23 +77,23 @@ const userSegmentation = {
   },
 };
 
-const linkSurveys = {
+const linkForms = {
   leadRow: {
-    title: "Link Surveys",
+    title: "Link Forms",
     comparison: "like Typeform",
     free: <span>Unlimited</span>,
     paid: "Unlimited",
   },
 
   features: [
-    { name: "Unlimited Surveys", free: true, paid: true },
+    { name: "Unlimited Forms", free: true, paid: true },
     { name: "Unlimited Responses", free: true, paid: true },
     { name: "Partial Responses", free: true, paid: true },
     { name: "Multi-media Backgrounds", free: true, paid: true },
     { name: "File Upload", free: true, paid: true, comingSoon: true },
     { name: "Hidden Fields", free: true, paid: true },
     { name: "Single Use Form Links", free: true, paid: true },
-    { name: "Pin-protected Surveys", free: true, paid: true },
+    { name: "Pin-protected Forms", free: true, paid: true },
     { name: "Custom Styling", free: true, paid: true, comingSoon: true },
     { name: "Recall Information", free: true, paid: true, comingSoon: true },
     { name: "Collect Payments, Signatures and Appointments", free: true, paid: true, comingSoon: true },
@@ -102,7 +102,7 @@ const linkSurveys = {
   ],
 
   endRow: {
-    title: "Link Surveys Pricing",
+    title: "Link Forms Pricing",
     free: "Free",
     paid: "$30 / month",
   },
@@ -186,16 +186,16 @@ const PricingPage = () => {
           <GetStartedWithPricing showDetailed={true} />
 
           <PricingTable
-            leadRow={linkSurveys.leadRow}
-            pricing={linkSurveys.features}
-            endRow={linkSurveys.endRow}
+            leadRow={linkForms.leadRow}
+            pricing={linkForms.features}
+            endRow={linkForms.endRow}
           />
         </div>
 
         <PricingTable
-          leadRow={inProductSurveys.leadRow}
-          pricing={inProductSurveys.features}
-          endRow={inProductSurveys.endRow}
+          leadRow={inProductForms.leadRow}
+          pricing={inProductForms.features}
+          endRow={inProductForms.endRow}
         />
 
         <PricingTable

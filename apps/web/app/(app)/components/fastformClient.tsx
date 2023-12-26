@@ -6,15 +6,15 @@ import fastform from "@fastform/js";
 import { useEffect } from "react";
 
 type UsageAttributesUpdaterProps = {
-  numSurveys: number;
+  numForms: number;
 };
 
-export default function fastformClient({ session }) {
+export default function FastformClient({ session }) {
   useEffect(() => {
     if (fastformEnabled && session?.user && fastform) {
       fastform.init({
-        environmentId: env.NEXT_PUBLIC_fastform_ENVIRONMENT_ID || "",
-        apiHost: env.NEXT_PUBLIC_fastform_API_HOST || "",
+        environmentId: env.NEXT_PUBLIC_FASTFORM_ENVIRONMENT_ID || "",
+        apiHost: env.NEXT_PUBLIC_FASTFORM_API_HOST || "",
         userId: session.user.id,
       });
       fastform.setEmail(session.user.email);
@@ -23,18 +23,18 @@ export default function fastformClient({ session }) {
   return null;
 }
 
-const updateUsageAttributes = (numSurveys) => {
+const updateUsageAttributes = (numForms) => {
   if (!fastformEnabled) return;
 
-  if (numSurveys >= 3) {
-    fastform.setAttribute("HasThreeSurveys", "true");
+  if (numForms >= 3) {
+    fastform.setAttribute("HasThreeForms", "true");
   }
 };
 
-export function UsageAttributesUpdater({ numSurveys }: UsageAttributesUpdaterProps) {
+export function UsageAttributesUpdater({ numForms }: UsageAttributesUpdaterProps) {
   useEffect(() => {
-    updateUsageAttributes(numSurveys);
-  }, [numSurveys]);
+    updateUsageAttributes(numForms);
+  }, [numForms]);
 
   return null;
 }

@@ -16,11 +16,11 @@ const tabs = [
 export default function SetupInstructions({
   environmentId,
   webAppUrl,
-  isFormbricksCloud,
+  isFastformCloud,
 }: {
   environmentId: string;
   webAppUrl: string;
-  isFormbricksCloud: boolean;
+  isFastformCloud: boolean;
 }) {
   const [activeTab, setActiveTab] = useState(tabs[0].id);
 
@@ -148,7 +148,7 @@ if (typeof window !== "undefined") {
             </ul>
           </div>
         ) : null}
-        {!isFormbricksCloud && (
+        {!isFastformCloud && (
           <div>
             <hr className="my-3" />
             <p className="flex w-full justify-end text-sm text-slate-700">

@@ -251,7 +251,7 @@ export const getTeamsWithPaidPlan = async (): Promise<TTeam[]> => {
             OR: [
               {
                 billing: {
-                  path: ["features", "inAppSurvey", "status"],
+                  path: ["features", "inAppForm", "status"],
                   not: "inactive",
                 },
               },

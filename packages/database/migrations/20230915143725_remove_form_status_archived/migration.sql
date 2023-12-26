@@ -1,16 +1,16 @@
 /*
   Warnings:
 
-  - The values [archived] on the enum `SurveyStatus` will be removed. If these variants are still used in the database, this will fail.
+  - The values [archived] on the enum `FormStatus` will be removed. If these variants are still used in the database, this will fail.
 
 */
 -- AlterEnum
 BEGIN;
-CREATE TYPE "SurveyStatus_new" AS ENUM ('draft', 'inProgress', 'paused', 'completed');
+CREATE TYPE "FormStatus_new" AS ENUM ('draft', 'inProgress', 'paused', 'completed');
 ALTER TABLE "Form" ALTER COLUMN "status" DROP DEFAULT;
-ALTER TABLE "Form" ALTER COLUMN "status" TYPE "SurveyStatus_new" USING ("status"::text::"SurveyStatus_new");
-ALTER TYPE "SurveyStatus" RENAME TO "SurveyStatus_old";
-ALTER TYPE "SurveyStatus_new" RENAME TO "SurveyStatus";
-DROP TYPE "SurveyStatus_old";
+ALTER TABLE "Form" ALTER COLUMN "status" TYPE "FormStatus_new" USING ("status"::text::"FormStatus_new");
+ALTER TYPE "FormStatus" RENAME TO "FormStatus_old";
+ALTER TYPE "FormStatus_new" RENAME TO "FormStatus";
+DROP TYPE "FormStatus_old";
 ALTER TABLE "Form" ALTER COLUMN "status" SET DEFAULT 'draft';
 COMMIT;

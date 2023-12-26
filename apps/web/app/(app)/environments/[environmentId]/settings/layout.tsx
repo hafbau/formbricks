@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import SettingsNavbar from "./components/SettingsNavbar";
-import { IS_FORMBRICKS_CLOUD } from "@fastform/lib/constants";
+import { IS_FASTFORM_CLOUD } from "@fastform/lib/constants";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { getProductByEnvironmentId } from "@fastform/lib/product/service";
 import { authOptions } from "@fastform/lib/authOptions";
@@ -35,7 +35,7 @@ export default async function SettingsLayout({ children, params }) {
       <div className="sm:flex">
         <SettingsNavbar
           environmentId={params.environmentId}
-          isFormbricksCloud={IS_FORMBRICKS_CLOUD}
+          isFastformCloud={IS_FASTFORM_CLOUD}
           team={team}
           product={product}
           membershipRole={currentUserMembership?.role}

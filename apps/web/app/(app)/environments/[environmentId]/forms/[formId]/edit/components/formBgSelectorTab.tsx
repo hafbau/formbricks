@@ -4,7 +4,7 @@ import AnimatedformBg from "./AnimatedformBg";
 import ColorformBg from "./ColorformBg";
 import ImageformBg from "./ImageformBg";
 
-interface formBgSelectorTabProps {
+interface FormBgSelectorTabProps {
   localform: Tform;
   handleBgChange: (bg: string, bgType: string) => void;
   colours: string[];
@@ -21,12 +21,12 @@ const TabButton = ({ isActive, onClick, children }) => (
   </button>
 );
 
-export default function formBgSelectorTab({
+export default function FormBgSelectorTab({
   localform,
   handleBgChange,
   colours,
   bgType,
-}: formBgSelectorTabProps) {
+}: FormBgSelectorTabProps) {
   const [tab, setTab] = useState(bgType || "image");
 
   const renderContent = () => {

@@ -28,39 +28,39 @@ export const handleSubscriptionUpdatedOrCreated = async (event: Stripe.Event) =>
     const product = await stripe.products.retrieve(item.price.product as string);
 
     switch (product.name) {
-      case StripeProductNames.inAppSurvey:
+      case StripeProductNames.inAppForm:
         if (
           !(
             stripeSubscriptionObject.cancel_at_period_end &&
-            team.billing.features.inAppSurvey.status === "cancelled"
+            team.billing.features.inAppForm.status === "cancelled"
           )
         ) {
-          updatedFeatures.inAppSurvey.status = "active";
+          updatedFeatures.inAppForm.status = "active";
         }
-        if (item.price.lookup_key === StripePriceLookupKeys.inAppSurveyUnlimited) {
-          updatedFeatures.inAppSurvey.unlimited = true;
+        if (item.price.lookup_key === StripePriceLookupKeys.inAppFormUnlimited) {
+          updatedFeatures.inAppForm.unlimited = true;
         } else {
           const countForTeam = await getMonthlyTeamResponseCount(team.id);
 
           await reportUsage(
             stripeSubscriptionObject.items.data,
-            ProductFeatureKeys.inAppSurvey,
+            ProductFeatureKeys.inAppForm,
             countForTeam
           );
         }
         break;
 
-      case StripeProductNames.linkSurvey:
+      case StripeProductNames.linkForm:
         if (
           !(
             stripeSubscriptionObject.cancel_at_period_end &&
-            team.billing.features.linkSurvey.status === "cancelled"
+            team.billing.features.linkForm.status === "cancelled"
           )
         ) {
-          updatedFeatures.linkSurvey.status = "active";
+          updatedFeatures.linkForm.status = "active";
         }
-        if (item.price.lookup_key === StripePriceLookupKeys.linkSurveyUnlimited) {
-          updatedFeatures.linkSurvey.unlimited = true;
+        if (item.price.lookup_key === StripePriceLookupKeys.linkFormUnlimited) {
+          updatedFeatures.linkForm.unlimited = true;
         }
         break;
       case StripeProductNames.userTargeting:

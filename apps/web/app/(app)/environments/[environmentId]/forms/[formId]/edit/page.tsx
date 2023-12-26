@@ -13,7 +13,7 @@ import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { ErrorComponent } from "@fastform/ui/ErrorComponent";
 import { getServerSession } from "next-auth";
 import { colours } from "@fastform/lib/constants";
-import formEditor from "./components/formEditor";
+import FormEditor from "./components/FormEditor";
 
 export const generateMetadata = async ({ params }) => {
   const form = await getform(params.formId);
@@ -60,7 +60,7 @@ export default async function formsEditPage({ params }) {
 
   return (
     <>
-      <formEditor
+      <FormEditor
         form={form}
         product={product}
         environment={environment}

@@ -1,5 +1,5 @@
 import { TResponseData } from "@fastform/types/responses";
-import { TformQuestion, TformStatus } from "@fastform/types/forms";
+import { TformQuestion, TFormStatus } from "@fastform/types/forms";
 import { TUserNotificationSettings } from "@fastform/types/users";
 
 export interface Insights {
@@ -49,7 +49,7 @@ type formData = {
   id: string;
   name: string;
   questions: TformQuestion[];
-  status: TformStatus;
+  status: TFormStatus;
   responses: ResponseData[];
   displays: DisplayData[];
 };

@@ -173,7 +173,7 @@ import fastform from "@fastform/js";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-export default function FormbricksProvider() {
+export default function FastformProvider() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -198,12 +198,12 @@ return null;
 <CodeGroup title="app/layout.tsx">
 ```tsx {{title: 'Typescript'}}
 // other imports
-import FormbricksProvider from "./fastform";
+import FastformProvider from "./fastform";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <FormbricksProvider />
+      <FastformProvider />
       <body>{children}</body>
     </html>
   );

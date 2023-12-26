@@ -4,7 +4,7 @@ import { getProductByEnvironmentId } from "@fastform/lib/product/service";
 import { getServerSession } from "next-auth";
 import TemplateContainerWithPreview from "./TemplateContainer";
 
-export default async function SurveyTemplatesPage({ params }) {
+export default async function FormTemplatesPage({ params }) {
   const session = await getServerSession(authOptions);
   const environmentId = params.environmentId;
 

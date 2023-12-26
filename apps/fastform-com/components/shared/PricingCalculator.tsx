@@ -1,7 +1,7 @@
 import { Slider } from "@/components/shared/Slider";
 import { useState } from "react";
 
-const LinkSurveySlider = ({ label, usersCount, price, onSliderChange }) => (
+const LinkFormSlider = ({ label, usersCount, price, onSliderChange }) => (
   <div className="mt-12">
     <div className="mb-2 flex items-center gap-x-2 md:gap-x-4">
       <div className="md:text-md w-3/6 text-left text-sm font-medium text-slate-700 dark:text-slate-200">
@@ -141,7 +141,7 @@ export const PricingCalculator = () => {
   };
 
   const usersCountForInProductSlider = transformToLog(inProductSlider);
-  const productSurveysPrice = calculatePrice(usersCountForInProductSlider);
+  const productFormsPrice = calculatePrice(usersCountForInProductSlider);
 
   return (
     <div className="px-4 md:px-16">
@@ -155,8 +155,8 @@ export const PricingCalculator = () => {
 
           <hr className="my-4" />
 
-          <LinkSurveySlider
-            label="Link Surveys"
+          <LinkFormSlider
+            label="Link Forms"
             usersCount={transformToLog(linkSlider)}
             price={0}
             onSliderChange={(value) => setLinkSlider(value[0])}
@@ -165,7 +165,7 @@ export const PricingCalculator = () => {
           <hr className="my-4" />
 
           <InAppSlider
-            label="Website and In-App Surveys"
+            label="Website and In-App Forms"
             usersCount={transformToLog(linkSlider)}
             price={0}
             onSliderChange={(value) => setLinkSlider(value[0])}
@@ -176,11 +176,11 @@ export const PricingCalculator = () => {
           <UserSegmentationSlider
             label="User Segmentation"
             usersCount={usersCountForInProductSlider}
-            price={productSurveysPrice}
+            price={productFormsPrice}
             onSliderChange={(value) => setInProductSlider(value[0])}
           />
 
-          <MonthlyEstimate price={productSurveysPrice} />
+          <MonthlyEstimate price={productFormsPrice} />
         </div>
       </div>
     </div>

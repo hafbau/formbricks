@@ -6,7 +6,7 @@ import Previewform from "../../../components/Previewform";
 import QuestionsAudienceTabs from "./QuestionsSettingsTabs";
 import QuestionsView from "./QuestionsView";
 import SettingsView from "./SettingsView";
-import formMenuBar from "./formMenuBar";
+import FormMenuBar from "./FormMenuBar";
 import { TEnvironment } from "@fastform/types/environment";
 import { Tform } from "@fastform/types/forms";
 import { TProduct } from "@fastform/types/product";
@@ -15,7 +15,7 @@ import { TActionClass } from "@fastform/types/actionClasses";
 import { TMembershipRole } from "@fastform/types/memberships";
 import Loading from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/loading";
 
-interface formEditorProps {
+interface FormEditorProps {
   form: Tform;
   product: TProduct;
   environment: TEnvironment;
@@ -26,7 +26,7 @@ interface formEditorProps {
   colours: string[];
 }
 
-export default function formEditor({
+export default function FormEditor({
   form,
   product,
   environment,
@@ -35,7 +35,7 @@ export default function formEditor({
   responseCount,
   membershipRole,
   colours,
-}: formEditorProps): JSX.Element {
+}: FormEditorProps): JSX.Element {
   const [activeView, setActiveView] = useState<"questions" | "settings">("questions");
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null);
   const [localform, setLocalform] = useState<Tform | null>();
@@ -68,7 +68,7 @@ export default function formEditor({
   return (
     <>
       <div className="flex h-full flex-col">
-        <formMenuBar
+        <FormMenuBar
           setLocalform={setLocalform}
           localform={localform}
           form={form}

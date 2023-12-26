@@ -1,5 +1,5 @@
 import { authOptions } from "@fastform/lib/authOptions";
-import { IS_FORMBRICKS_CLOUD } from "@fastform/lib/constants";
+import { IS_FASTFORM_CLOUD } from "@fastform/lib/constants";
 import { getTeamByEnvironmentId } from "@fastform/lib/team/service";
 import { upgradePlanAction } from "../actions";
 import { notFound, redirect } from "next/navigation";
@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 import { StripePriceLookupKeys } from "@fastform/ee/billing/lib/constants";
 
 export default async function UnlimitedPage({ params }) {
-  if (!IS_FORMBRICKS_CLOUD) {
+  if (!IS_FASTFORM_CLOUD) {
     notFound();
   }
 
@@ -24,8 +24,8 @@ export default async function UnlimitedPage({ params }) {
   }
 
   const { status, newPlan, url } = await upgradePlanAction(team.id, params.environmentId, [
-    StripePriceLookupKeys.inAppSurveyUnlimited,
-    StripePriceLookupKeys.linkSurveyUnlimited,
+    StripePriceLookupKeys.inAppFormUnlimited,
+    StripePriceLookupKeys.linkFormUnlimited,
     StripePriceLookupKeys.userTargetingUnlimited,
   ]);
   if (status != 200) {

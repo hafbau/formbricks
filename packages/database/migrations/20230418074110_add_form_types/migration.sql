@@ -6,4 +6,4 @@
 */
 -- AlterTable
 ALTER TABLE "Form" DROP COLUMN "type",
-ADD COLUMN     "type" "SurveyType" NOT NULL DEFAULT 'web';
+ADD COLUMN     "type" "FormType" NOT NULL DEFAULT 'web';

@@ -19,11 +19,11 @@ export const validateformSingleUseId = (formSingleUseId: string): string | undef
     let decryptedCuid: string | null = null;
 
     if (formSingleUseId.length === 64) {
-      if (!env.FORMBRICKS_ENCRYPTION_KEY) {
-        throw new Error("FORMBRICKS_ENCRYPTION_KEY is not defined");
+      if (!env.FASTFORM_ENCRYPTION_KEY) {
+        throw new Error("FASTFORM_ENCRYPTION_KEY is not defined");
       }
 
-      decryptedCuid = decryptAES128(env.FORMBRICKS_ENCRYPTION_KEY!, formSingleUseId);
+      decryptedCuid = decryptAES128(env.FASTFORM_ENCRYPTION_KEY!, formSingleUseId);
     } else {
       decryptedCuid = symmetricDecrypt(formSingleUseId, env.ENCRYPTION_KEY);
     }

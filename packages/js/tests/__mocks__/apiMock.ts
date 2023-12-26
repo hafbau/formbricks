@@ -79,7 +79,7 @@ export const mockInitResponse = () => {
         product: {
           noCodeEvents: [],
           brandColor: "#20b398",
-          linkformBranding: true,
+          linkFormBranding: true,
           inAppBranding: true,
           placement: "bottomRight",
           darkOverlay: false,

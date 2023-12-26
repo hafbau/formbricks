@@ -144,7 +144,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const updateformStatus = async (formId: string) => {
+    const updateFormStatus = async (formId: string) => {
       // Get the form instance by formId
       const form = await prisma.form.findUnique({
         where: {
@@ -174,7 +174,7 @@ export async function POST(request: Request) {
         }
       }
     };
-    await updateformStatus(formId);
+    await updateFormStatus(formId);
   }
 
   return NextResponse.json({ data: {} });

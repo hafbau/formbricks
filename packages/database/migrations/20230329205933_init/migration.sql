@@ -2,16 +2,16 @@
 CREATE TYPE "AttributeType" AS ENUM ('code', 'noCode', 'automatic');
 
 -- CreateEnum
-CREATE TYPE "formStatus" AS ENUM ('draft', 'inProgress', 'paused', 'completed', 'archived');
+CREATE TYPE "FormStatus" AS ENUM ('draft', 'inProgress', 'paused', 'completed', 'archived');
 
 -- CreateEnum
 CREATE TYPE "DisplayStatus" AS ENUM ('seen', 'responded');
 
 -- CreateEnum
-CREATE TYPE "formType" AS ENUM ('email', 'link', 'mobile', 'web');
+CREATE TYPE "FormType" AS ENUM ('email', 'link', 'mobile', 'web');
 
 -- CreateEnum
-CREATE TYPE "displayOptions" AS ENUM ('displayOnce', 'displayMultiple', 'respondMultiple');
+CREATE TYPE "DisplayOptions" AS ENUM ('displayOnce', 'displayMultiple', 'respondMultiple');
 
 -- CreateEnum
 CREATE TYPE "EventType" AS ENUM ('code', 'noCode', 'automatic');
@@ -92,7 +92,7 @@ CREATE TABLE "Display" (
 );
 
 -- CreateTable
-CREATE TABLE "formTrigger" (
+CREATE TABLE "FormTrigger" (
     "id" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
@@ -110,9 +110,9 @@ CREATE TABLE "Form" (
     "name" TEXT NOT NULL,
     "type" TEXT NOT NULL DEFAULT 'web',
     "environmentId" TEXT NOT NULL,
-    "status" "formStatus" NOT NULL DEFAULT 'draft',
+    "status" "FormStatus" NOT NULL DEFAULT 'draft',
     "questions" JSONB NOT NULL DEFAULT '[]',
-    "displayOption" "displayOptions" NOT NULL DEFAULT 'displayOnce',
+    "displayOption" "DisplayOptions" NOT NULL DEFAULT 'displayOnce',
     "recontactDays" INTEGER,
 
     CONSTRAINT "form_pkey" PRIMARY KEY ("id")
@@ -271,7 +271,7 @@ CREATE UNIQUE INDEX "Attribute_attributeClassId_personId_key" ON "Attribute"("at
 CREATE UNIQUE INDEX "AttributeClass_name_environmentId_key" ON "AttributeClass"("name", "environmentId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "formTrigger_formId_eventClassId_key" ON "formTrigger"("formId", "eventClassId");
+CREATE UNIQUE INDEX "formTrigger_formId_eventClassId_key" ON "FormTrigger"("formId", "eventClassId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "EventClass_name_environmentId_key" ON "EventClass"("name", "environmentId");
@@ -316,10 +316,10 @@ ALTER TABLE "Display" ADD CONSTRAINT "Display_formId_fkey" FOREIGN KEY ("formId"
 ALTER TABLE "Display" ADD CONSTRAINT "Display_personId_fkey" FOREIGN KEY ("personId") REFERENCES "Person"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "formTrigger" ADD CONSTRAINT "formTrigger_formId_fkey" FOREIGN KEY ("formId") REFERENCES "Form"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "FormTrigger" ADD CONSTRAINT "formTrigger_formId_fkey" FOREIGN KEY ("formId") REFERENCES "Form"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "formTrigger" ADD CONSTRAINT "formTrigger_eventClassId_fkey" FOREIGN KEY ("eventClassId") REFERENCES "EventClass"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "FormTrigger" ADD CONSTRAINT "formTrigger_eventClassId_fkey" FOREIGN KEY ("eventClassId") REFERENCES "EventClass"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Form" ADD CONSTRAINT "form_environmentId_fkey" FOREIGN KEY ("environmentId") REFERENCES "Environment"("id") ON DELETE CASCADE ON UPDATE CASCADE;
