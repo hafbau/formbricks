@@ -1,12 +1,12 @@
 import FileInput from "@fastform/ui/FileInput";
 import { TForm } from "@fastform/types/forms";
 
-interface ImageformBgBgProps {
+interface ImageFormBgBgProps {
   localform?: TForm;
   handleBgChange: (url: string, bgType: string) => void;
 }
 
-export default function ImageformBg({ localform, handleBgChange }: ImageformBgBgProps) {
+export default function ImageFormBg({ localform, handleBgChange }: ImageFormBgBgProps) {
   const isUrl = (str: string) => {
     try {
       new URL(str);

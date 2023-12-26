@@ -1,6 +1,6 @@
 "use client";
 
-import LinkSingleUseFormModal from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/LinkSingleUseFormModal";
+import LinkSingleUseFormModal from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/LinkSingleUsedformModal";
 import { cn } from "@fastform/lib/cn";
 import { TProduct } from "@fastform/types/product";
 import { TProfile } from "@fastform/types/profile";
@@ -13,7 +13,7 @@ import EmailTab from "./shareEmbedTabs/EmailTab";
 import LinkTab from "./shareEmbedTabs/LinkTab";
 import WebpageTab from "./shareEmbedTabs/WebpageTab";
 
-interface ShareEmbedformProps {
+interface ShareEmbedFormProps {
   form: TForm;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,22 +21,22 @@ interface ShareEmbedformProps {
   product: TProduct;
   profile: TProfile;
 }
-export default function ShareEmbedform({
+export default function ShareEmbedForm({
   form,
   open,
   setOpen,
   webAppUrl,
   product,
   profile,
-}: ShareEmbedformProps) {
+}: ShareEmbedFormProps) {
   const formUrl = useMemo(() => webAppUrl + "/s/" + form.id, [form, webAppUrl]);
-  const isSingleUseLinkform = form.singleUse?.enabled;
+  const isSingleUseLinkForm = form.singleUse?.enabled;
   const { email } = profile;
   const { brandColor } = product;
   const formBrandColor = form.productOverwrites?.brandColor || brandColor;
 
   const tabs = [
-    { id: "link", label: `${isSingleUseLinkform ? "Single Use Links" : "Share the Link"}`, icon: LinkIcon },
+    { id: "link", label: `${isSingleUseLinkForm ? "Single Use Links" : "Share the Link"}`, icon: LinkIcon },
     { id: "email", label: "Embed in an Email", icon: EnvelopeIcon },
     { id: "webpage", label: "Embed in a Web Page", icon: CodeBracketIcon },
   ];
@@ -77,7 +77,7 @@ export default function ShareEmbedform({
           </div>
           <div className="flex w-full grow flex-col gap-6 bg-gray-50 px-4 py-6 lg:p-6">
             <div className="flex h-full overflow-y-scroll lg:h-[590px] lg:overflow-y-visible">
-              {isSingleUseLinkform ? (
+              {isSingleUseLinkForm ? (
                 <LinkSingleUseFormModal form={form} formBaseUrl={webAppUrl} />
               ) : activeId === "link" ? (
                 <LinkTab formUrl={formUrl} form={form} brandColor={formBrandColor} />

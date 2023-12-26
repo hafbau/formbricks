@@ -2,7 +2,7 @@ export const revalidate = REVALIDATION_INTERVAL;
 
 import { validateformSingleUseId } from "@/app/lib/singleUseforms";
 import LegalFooter from "@/app/s/[formId]/components/LegalFooter";
-import Linkform from "@/app/s/[formId]/components/Linkdform";
+import LinkForm from "@/app/s/[formId]/components/Linkdform";
 import { MediaBackground } from "@/app/s/[formId]/components/MediaBackground";
 import PinScreen from "@/app/s/[formId]/components/PinScreen";
 import FormInactive from "@/app/s/[formId]/components/dformInactive";
@@ -20,7 +20,7 @@ import { getEmailVerificationStatus } from "./lib/helpers";
 import { ZId } from "@fastform/types/environment";
 import { getResponseCountByformId } from "@fastform/lib/response/service";
 
-interface LinkformPageProps {
+interface LinkFormPageProps {
   params: {
     formId: string;
   };
@@ -31,7 +31,7 @@ interface LinkformPageProps {
   };
 }
 
-export async function generateMetadata({ params }: LinkformPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: LinkFormPageProps): Promise<Metadata> {
   const validId = ZId.safeParse(params.formId);
   if (!validId.success) {
     notFound();
@@ -83,7 +83,7 @@ export async function generateMetadata({ params }: LinkformPageProps): Promise<M
   };
 }
 
-export default async function LinkformPage({ params, searchParams }: LinkformPageProps) {
+export default async function LinkFormPage({ params, searchParams }: LinkFormPageProps) {
   const validId = ZId.safeParse(params.formId);
   if (!validId.success) {
     notFound();
@@ -189,7 +189,7 @@ export default async function LinkformPage({ params, searchParams }: LinkformPag
   return form ? (
     <div>
       <MediaBackground form={form}>
-        <Linkform
+        <LinkForm
           form={form}
           product={product}
           userId={userId}

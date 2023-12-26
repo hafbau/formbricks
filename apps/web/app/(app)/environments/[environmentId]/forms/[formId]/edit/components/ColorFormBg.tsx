@@ -2,13 +2,13 @@ import { TForm } from "@fastform/types/forms";
 import { ColorPicker } from "@fastform/ui/ColorPicker";
 import { useState } from "react";
 
-interface ColorformBgBgProps {
+interface ColorFormBgBgProps {
   localform?: TForm;
   handleBgChange: (bg: string, bgType: string) => void;
   colours: string[];
 }
 
-export default function ColorformBg({ localform, handleBgChange, colours }: ColorformBgBgProps) {
+export default function ColorFormBg({ localform, handleBgChange, colours }: ColorFormBgBgProps) {
   const [color, setColor] = useState(localform?.styling?.background?.bg || "#ffff");
 
   const handleBg = (x: string) => {

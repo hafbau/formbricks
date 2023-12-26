@@ -6,10 +6,10 @@ import { ShareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import clsx from "clsx";
 import { TProduct } from "@fastform/types/product";
-import ShareEmbedform from "./ShareEmbeddform";
+import ShareEmbedForm from "./ShareEmbeddform";
 import { TProfile } from "@fastform/types/profile";
 
-interface LinkformShareButtonProps {
+interface LinkFormShareButtonProps {
   form: TForm;
   className?: string;
   webAppUrl: string;
@@ -17,13 +17,13 @@ interface LinkformShareButtonProps {
   profile: TProfile;
 }
 
-export default function LinkformShareButton({
+export default function LinkFormShareButton({
   form,
   className,
   webAppUrl,
   product,
   profile,
-}: LinkformShareButtonProps) {
+}: LinkFormShareButtonProps) {
   const [showLinkModal, setShowLinkModal] = useState(false);
 
   return (
@@ -40,7 +40,7 @@ export default function LinkformShareButton({
         <ShareIcon className="h-5 w-5" />
       </Button>
       {showLinkModal && (
-        <ShareEmbedform
+        <ShareEmbedForm
           form={form}
           open={showLinkModal}
           setOpen={setShowLinkModal}

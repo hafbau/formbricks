@@ -1,8 +1,8 @@
 import { TForm } from "@fastform/types/forms";
 import { useState } from "react";
-import AnimatedformBg from "./AnimatedformBg";
-import ColorformBg from "./ColorformBg";
-import ImageformBg from "./ImageformBg";
+import AnimatedFormBg from "./AnimateddformBg";
+import ColorFormBg from "./ColordformBg";
+import ImageFormBg from "./ImagedformBg";
 
 interface FormBgSelectorTabProps {
   localform: TForm;
@@ -32,11 +32,11 @@ export default function FormBgSelectorTab({
   const renderContent = () => {
     switch (tab) {
       case "image":
-        return <ImageformBg localform={localform} handleBgChange={handleBgChange} />;
+        return <ImageFormBg localform={localform} handleBgChange={handleBgChange} />;
       case "animation":
-        return <AnimatedformBg localform={localform} handleBgChange={handleBgChange} />;
+        return <AnimatedFormBg localform={localform} handleBgChange={handleBgChange} />;
       case "color":
-        return <ColorformBg localform={localform} handleBgChange={handleBgChange} colours={colours} />;
+        return <ColorFormBg localform={localform} handleBgChange={handleBgChange} colours={colours} />;
       default:
         return null;
     }

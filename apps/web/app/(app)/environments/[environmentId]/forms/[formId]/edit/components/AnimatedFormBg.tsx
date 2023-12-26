@@ -1,12 +1,12 @@
 import { TForm } from "@fastform/types/forms";
 import { useState } from "react";
 
-interface AnimatedformBgProps {
+interface AnimatedFormBgProps {
   localform?: TForm;
   handleBgChange: (bg: string, bgType: string) => void;
 }
 
-export default function AnimatedformBg({ localform, handleBgChange }: AnimatedformBgProps) {
+export default function AnimatedFormBg({ localform, handleBgChange }: AnimatedFormBgProps) {
   const [color, setColor] = useState(localform?.styling?.background?.bg || "#ffff");
   const [hoveredVideo, setHoveredVideo] = useState<number | null>(null);
 

@@ -19,7 +19,7 @@ import { FormStatusIndicator } from "@fastform/ui/FormStatusIndicator";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import SuccessMessage from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/SuccessMessage";
-import LinkformShareButton from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/LinkModalButton";
+import LinkFormShareButton from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/LinkModalButton";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProduct } from "@fastform/types/product";
 import { updateformAction } from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/actions";
@@ -60,7 +60,7 @@ const SummaryHeader = ({
       </div>
       <div className="hidden justify-end gap-x-1.5 sm:flex">
         {form.type === "link" && (
-          <LinkformShareButton form={form} webAppUrl={webAppUrl} product={product} profile={profile} />
+          <LinkFormShareButton form={form} webAppUrl={webAppUrl} product={product} profile={profile} />
         )}
         {!isViewer &&
         (environment?.widgetSetupCompleted || form.type === "link") &&
@@ -87,7 +87,7 @@ const SummaryHeader = ({
           <DropdownMenuContent align="end" className="p-2">
             {form.type === "link" && (
               <>
-                <LinkformShareButton
+                <LinkFormShareButton
                   className="flex w-full justify-center p-1"
                   form={form}
                   webAppUrl={webAppUrl}

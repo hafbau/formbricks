@@ -1,6 +1,6 @@
 "use server";
 
-interface LinkformEmailData {
+interface LinkFormEmailData {
   formId: string;
   email: string;
   formData?: {
@@ -15,19 +15,19 @@ interface TformPinValidationResponse {
 }
 
 import { TformPinValidationResponseError } from "@/app/s/[formId]/types";
-import { sendLinkformToVerifiedEmail } from "@/app/lib/email";
-import { verifyTokenForLinkform } from "@fastform/lib/jwt";
+import { sendLinkFormToVerifiedEmail } from "@/app/lib/email";
+import { verifyTokenForLinkForm } from "@fastform/lib/jwt";
 import { getform } from "@fastform/lib/form/service";
 import { TForm } from "@fastform/types/forms";
 
-export async function sendLinkformEmailAction(data: LinkformEmailData) {
+export async function sendLinkFormEmailAction(data: LinkFormEmailData) {
   if (!data.formData) {
     throw new Error("No form data provided");
   }
-  return await sendLinkformToVerifiedEmail(data);
+  return await sendLinkFormToVerifiedEmail(data);
 }
 export async function verifyTokenAction(token: string, formId: string): Promise<boolean> {
-  return await verifyTokenForLinkform(token, formId);
+  return await verifyTokenForLinkForm(token, formId);
 }
 
 export async function validateformPinAction(

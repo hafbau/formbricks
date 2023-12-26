@@ -1,6 +1,6 @@
 "use client";
 
-import { sendLinkformEmailAction } from "@/app/s/[formId]/actions";
+import { sendLinkFormEmailAction } from "@/app/s/[formId]/actions";
 import { TForm } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
@@ -35,7 +35,7 @@ export default function VerifyEmail({
       formData: form.verifyEmail,
     };
     try {
-      await sendLinkformEmailAction(data);
+      await sendLinkFormEmailAction(data);
       setEmailSent(true);
     } catch (error) {
       toast.error(error.message);

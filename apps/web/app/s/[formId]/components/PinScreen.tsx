@@ -1,7 +1,7 @@
 "use client";
 
 import { validateformPinAction } from "@/app/s/[formId]/actions";
-import Linkform from "@/app/s/[formId]/components/Linkdform";
+import LinkForm from "@/app/s/[formId]/components/Linkdform";
 import { TformPinValidationResponseError } from "@/app/s/[formId]/types";
 import { cn } from "@fastform/lib/cn";
 import { TProduct } from "@fastform/types/product";
@@ -11,7 +11,7 @@ import { OTPInput } from "@fastform/ui/OTPInput";
 import type { NextPage } from "next";
 import { useCallback, useEffect, useState } from "react";
 
-interface LinkformPinScreenProps {
+interface LinkFormPinScreenProps {
   formId: string;
   product: TProduct;
   userId?: string;
@@ -22,7 +22,7 @@ interface LinkformPinScreenProps {
   webAppUrl: string;
 }
 
-const LinkformPinScreen: NextPage<LinkformPinScreenProps> = (props) => {
+const LinkFormPinScreen: NextPage<LinkFormPinScreenProps> = (props) => {
   const {
     formId,
     product,
@@ -100,7 +100,7 @@ const LinkformPinScreen: NextPage<LinkformPinScreenProps> = (props) => {
   }
 
   return (
-    <Linkform
+    <LinkForm
       form={form}
       product={product}
       userId={userId}
@@ -113,4 +113,4 @@ const LinkformPinScreen: NextPage<LinkformPinScreenProps> = (props) => {
   );
 };
 
-export default LinkformPinScreen;
+export default LinkFormPinScreen;

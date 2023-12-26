@@ -1,4 +1,4 @@
-import { verifyTokenForLinkform } from "@fastform/lib/jwt";
+import { verifyTokenForLinkForm } from "@fastform/lib/jwt";
 
 export const getEmailVerificationStatus = async (
   formId: string,
@@ -8,7 +8,7 @@ export const getEmailVerificationStatus = async (
     return "not-verified";
   } else {
     try {
-      const validateToken = await verifyTokenForLinkform(token, formId);
+      const validateToken = await verifyTokenForLinkForm(token, formId);
       if (validateToken) {
         return "verified";
       } else {

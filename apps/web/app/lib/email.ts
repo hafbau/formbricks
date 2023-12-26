@@ -8,7 +8,7 @@ import {
   SMTP_USER,
   WEBAPP_URL,
 } from "@fastform/lib/constants";
-import { createInviteToken, createToken, createTokenForLinkform } from "@fastform/lib/jwt";
+import { createInviteToken, createToken, createTokenForLinkForm } from "@fastform/lib/jwt";
 import { TformQuestion } from "@fastform/types/forms";
 import { TResponse } from "@fastform/types/responses";
 import { withEmailTemplate } from "./email-template";
@@ -63,11 +63,11 @@ export const sendVerificationEmail = async (user) => {
   });
 };
 
-export const sendLinkformToVerifiedEmail = async (data) => {
+export const sendLinkFormToVerifiedEmail = async (data) => {
   const formId = data.formId;
   const email = data.email;
   const formData = data.formData;
-  const token = createTokenForLinkform(formId, email);
+  const token = createTokenForLinkForm(formId, email);
   const formLink = `${WEBAPP_URL}/s/${formId}?verify=${encodeURIComponent(token)}`;
   await sendEmail({
     to: data.email,
