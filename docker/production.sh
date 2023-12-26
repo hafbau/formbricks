@@ -138,7 +138,7 @@ EOT
   fi
 
   echo "📥 Downloading docker-compose.yml from Fastform GitHub repository..."
-  curl -o docker-compose.yml https://raw.githubusercontent.com/fastform/fastform/main/docker/docker-compose.yml
+  curl -o docker-compose.yml https://raw.githubusercontent.com/hafbau/formbricks/main/docker/docker-compose.yml
 
   echo "🚙 Updating docker-compose.yml with your custom inputs..."
   sed -i "/WEBAPP_URL:/s|WEBAPP_URL:.*|WEBAPP_URL: \"https://$domain_name\"|" docker-compose.yml
@@ -167,7 +167,7 @@ EOT
     if (inserting_labels && ($0 ~ /ports:/)) {
         print "    labels:"
         print "      - \"traefik.enable=true\"  # Enable Traefik for this service"
-        print "      - \"traefik.http.routers.fastform.rule=Host(\`" domain_name "\`)\"  # Use your actual domain or IP"
+        print "      - \"traefik.http.routers.fastform.rule=Host(`" domain_name "`)\"  # Use your actual domain or IP"
         print "      - \"traefik.http.routers.fastform.entrypoints=websecure\"  # Use the websecure entrypoint (port 443 with TLS)"
         print "      - \"traefik.http.services.fastform.loadbalancer.server.port=3000\"  # Forward traffic to Fastform on port 3000"
         inserting_labels=0
