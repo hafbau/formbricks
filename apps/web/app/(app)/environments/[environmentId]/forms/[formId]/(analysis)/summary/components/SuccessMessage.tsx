@@ -5,7 +5,7 @@ import { Confetti } from "@fastform/ui/Confetti";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import ShareEmbedform from "./ShareEmbedform";
+import ShareEmbedform from "./ShareEmbeddform";
 import { TProduct } from "@fastform/types/product";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProfile } from "@fastform/types/profile";

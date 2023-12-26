@@ -6,7 +6,7 @@ import { ShareIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import clsx from "clsx";
 import { TProduct } from "@fastform/types/product";
-import ShareEmbedform from "./ShareEmbedform";
+import ShareEmbedform from "./ShareEmbeddform";
 import { TProfile } from "@fastform/types/profile";
 
 interface LinkformShareButtonProps {

@@ -1,7 +1,7 @@
 "use client";
 
 import { validateformPinAction } from "@/app/s/[formId]/actions";
-import Linkform from "@/app/s/[formId]/components/Linkform";
+import Linkform from "@/app/s/[formId]/components/Linkdform";
 import { TformPinValidationResponseError } from "@/app/s/[formId]/types";
 import { cn } from "@fastform/lib/cn";
 import { TProduct } from "@fastform/types/product";
