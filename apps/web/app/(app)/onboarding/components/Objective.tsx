@@ -61,7 +61,7 @@ const Objective: React.FC<ObjectiveProps> = ({ next, skip, fastformResponseId, p
           console.error(e);
           toast.error("An error occured saving your settings");
         }
-        if (fastformEnabled && env.NEXT_PUBLIC_fastform_ONBOARDING_FORM_ID && fastformResponseId) {
+        if (fastformEnabled && env.NEXT_PUBLIC_FASTFORM_ONBOARDING_FORM_ID && fastformResponseId) {
           const res = await updateResponse(
             fastformResponseId,
             {

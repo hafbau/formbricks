@@ -1,11 +1,11 @@
-import { TformSingleUse } from "@fastform/types/forms";
+import { TFormSingleUse } from "@fastform/types/forms";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
 import footerLogo from "../lib/footerlogo.svg";
 
 type FormLinkUsedProps = {
-  singleUseMessage: TformSingleUse | null;
+  singleUseMessage: TFormSingleUse | null;
 };
 
 const FormLinkUsed = ({ singleUseMessage }: FormLinkUsedProps) => {

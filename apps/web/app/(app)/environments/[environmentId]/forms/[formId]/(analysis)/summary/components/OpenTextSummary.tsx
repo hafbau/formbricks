@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { getPersonIdentifier } from "@fastform/lib/person/util";
 import Headline from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/Headline";
 import { timeSince } from "@fastform/lib/time";
-import type { TformQuestionSummary } from "@fastform/types/forms";
-import { TformOpenTextQuestion } from "@fastform/types/forms";
+import type { TFormQuestionSummary } from "@fastform/types/forms";
+import { TFormOpenTextQuestion } from "@fastform/types/forms";
 import { PersonAvatar } from "@fastform/ui/Avatars";
 import { InboxStackIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { questionTypes } from "@/app/lib/questions";
 
 interface OpenTextSummaryProps {
-  questionSummary: TformQuestionSummary<TformOpenTextQuestion>;
+  questionSummary: TFormQuestionSummary<TFormOpenTextQuestion>;
   environmentId: string;
   responsesPerPage: number;
 }

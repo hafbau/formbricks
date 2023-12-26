@@ -1,4 +1,4 @@
-import { TForm, TformRatingQuestion } from "@fastform/types/forms";
+import { TForm, TFormRatingQuestion } from "@fastform/types/forms";
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/QuestionFormInput";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
@@ -10,7 +10,7 @@ import Dropdown from "./RatingTypeDropdown";
 
 interface RatingQuestionFormProps {
   localform: TForm;
-  question: TformRatingQuestion;
+  question: TFormRatingQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;
   lastQuestion: boolean;

@@ -1,5 +1,5 @@
 import { cn } from "@fastform/lib/cn";
-import { TForm, TformQuestionType } from "@fastform/types/forms";
+import { TForm, TFormQuestionType } from "@fastform/types/forms";
 
 import { isLight } from "@/app/lib/utils";
 import { WEBAPP_URL } from "@fastform/lib/constants";
@@ -51,7 +51,7 @@ const EmailTemplate = ({ form, formUrl, brandColor }: EmailTemplateProps) => {
 
   const firstQuestion = form.questions[0];
   switch (firstQuestion.type) {
-    case TformQuestionType.OpenText:
+    case TFormQuestionType.OpenText:
       return (
         <EmailTemplateWrapper formUrl={url} brandColor={brandColor}>
           <Text className="m-0 mr-8 block p-0 text-base font-semibold leading-6 text-slate-800">
@@ -64,7 +64,7 @@ const EmailTemplate = ({ form, formUrl, brandColor }: EmailTemplateProps) => {
           <EmailFooter />
         </EmailTemplateWrapper>
       );
-    case TformQuestionType.Consent:
+    case TFormQuestionType.Consent:
       return (
         <EmailTemplateWrapper formUrl={url} brandColor={brandColor}>
           <Text className="m-0 block text-base font-semibold leading-6 text-slate-800">
@@ -97,7 +97,7 @@ const EmailTemplate = ({ form, formUrl, brandColor }: EmailTemplateProps) => {
           <EmailFooter />
         </EmailTemplateWrapper>
       );
-    case TformQuestionType.NPS:
+    case TFormQuestionType.NPS:
       return (
         <EmailTemplateWrapper formUrl={url} brandColor={brandColor}>
           <Section>
@@ -133,7 +133,7 @@ const EmailTemplate = ({ form, formUrl, brandColor }: EmailTemplateProps) => {
           </Section>
         </EmailTemplateWrapper>
       );
-    case TformQuestionType.CTA:
+    case TFormQuestionType.CTA:
       return (
         <EmailTemplateWrapper formUrl={url} brandColor={brandColor}>
           <Text className="m-0  block text-base font-semibold leading-6 text-slate-800">
@@ -163,7 +163,7 @@ const EmailTemplate = ({ form, formUrl, brandColor }: EmailTemplateProps) => {
           <EmailFooter />
         </EmailTemplateWrapper>
       );
-    case TformQuestionType.Rating:
+    case TFormQuestionType.Rating:
       return (
         <EmailTemplateWrapper formUrl={url} brandColor={brandColor}>
           <Section>
@@ -209,7 +209,7 @@ const EmailTemplate = ({ form, formUrl, brandColor }: EmailTemplateProps) => {
           </Section>
         </EmailTemplateWrapper>
       );
-    case TformQuestionType.MultipleChoiceMulti:
+    case TFormQuestionType.MultipleChoiceMulti:
       return (
         <EmailTemplateWrapper formUrl={url} brandColor={brandColor}>
           <Text className="m-0 mr-8 block p-0 text-base font-semibold leading-6 text-slate-800">
@@ -230,7 +230,7 @@ const EmailTemplate = ({ form, formUrl, brandColor }: EmailTemplateProps) => {
           <EmailFooter />
         </EmailTemplateWrapper>
       );
-    case TformQuestionType.MultipleChoiceSingle:
+    case TFormQuestionType.MultipleChoiceSingle:
       return (
         <EmailTemplateWrapper formUrl={url} brandColor={brandColor}>
           <Text className="m-0 mr-8 block p-0 text-base font-semibold leading-6 text-slate-800">
@@ -254,7 +254,7 @@ const EmailTemplate = ({ form, formUrl, brandColor }: EmailTemplateProps) => {
           <EmailFooter />
         </EmailTemplateWrapper>
       );
-    case TformQuestionType.PictureSelection:
+    case TFormQuestionType.PictureSelection:
       return (
         <EmailTemplateWrapper formUrl={url} brandColor={brandColor}>
           <Text className="m-0 mr-8 block p-0 text-base font-semibold leading-6 text-slate-800">

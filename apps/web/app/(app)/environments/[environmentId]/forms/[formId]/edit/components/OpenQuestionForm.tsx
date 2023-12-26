@@ -1,7 +1,7 @@
 "use client";
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/QuestionFormInput";
-import { TForm, TformOpenTextQuestion, TformOpenTextQuestionInputType } from "@fastform/types/forms";
+import { TForm, TFormOpenTextQuestion, TFormOpenTextQuestionInputType } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
@@ -19,7 +19,7 @@ const questionTypes = [
 
 interface OpenQuestionFormProps {
   localform: TForm;
-  question: TformOpenTextQuestion;
+  question: TFormOpenTextQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;
   lastQuestion: boolean;
@@ -36,7 +36,7 @@ export default function OpenQuestionForm({
   const [showSubheader, setShowSubheader] = useState(!!question.subheader);
   const defaultPlaceholder = getPlaceholderByInputType(question.inputType ?? "text");
 
-  const handleInputChange = (inputType: TformOpenTextQuestionInputType) => {
+  const handleInputChange = (inputType: TFormOpenTextQuestionInputType) => {
     const updatedAttributes = {
       inputType: inputType,
       placeholder: getPlaceholderByInputType(inputType),
@@ -113,7 +113,7 @@ export default function OpenQuestionForm({
   );
 }
 
-function getPlaceholderByInputType(inputType: TformOpenTextQuestionInputType) {
+function getPlaceholderByInputType(inputType: TFormOpenTextQuestionInputType) {
   switch (inputType) {
     case "email":
       return "example@email.com";

@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import QuestionConditional from "./QuestionConditional";
-import { TformQuestion, TForm } from "@fastform/types/forms";
+import { TFormQuestion, TForm } from "@fastform/types/forms";
 import ThankYouCard from "./ThankYouCard";
 
 interface PreviewFormProps {
   localform?: TForm;
   setActiveQuestionId: (id: string | null) => void;
   activeQuestionId?: string | null;
-  questions: TformQuestion[];
+  questions: TFormQuestion[];
   brandColor: string;
 }
 

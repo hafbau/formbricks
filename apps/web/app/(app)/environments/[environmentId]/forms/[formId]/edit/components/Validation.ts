@@ -1,27 +1,27 @@
 // extend this object in order to add more validation rules
 
 import {
-  TformConsentQuestion,
-  TformMultipleChoiceMultiQuestion,
-  TformMultipleChoiceSingleQuestion,
-  TformPictureSelectionQuestion,
-  TformQuestion,
+  TFormConsentQuestion,
+  TFormMultipleChoiceMultiQuestion,
+  TFormMultipleChoiceSingleQuestion,
+  TFormPictureSelectionQuestion,
+  TFormQuestion,
 } from "@fastform/types/forms";
 
 const validationRules = {
-  multipleChoiceMulti: (question: TformMultipleChoiceMultiQuestion) => {
+  multipleChoiceMulti: (question: TFormMultipleChoiceMultiQuestion) => {
     return !question.choices.some((element) => element.label.trim() === "");
   },
-  multipleChoiceSingle: (question: TformMultipleChoiceSingleQuestion) => {
+  multipleChoiceSingle: (question: TFormMultipleChoiceSingleQuestion) => {
     return !question.choices.some((element) => element.label.trim() === "");
   },
-  consent: (question: TformConsentQuestion) => {
+  consent: (question: TFormConsentQuestion) => {
     return question.label.trim() !== "";
   },
-  pictureSelection: (question: TformPictureSelectionQuestion) => {
+  pictureSelection: (question: TFormPictureSelectionQuestion) => {
     return question.choices.length >= 2;
   },
-  defaultValidation: (question: TformQuestion) => {
+  defaultValidation: (question: TFormQuestion) => {
     return question.headline.trim() !== "";
   },
 };

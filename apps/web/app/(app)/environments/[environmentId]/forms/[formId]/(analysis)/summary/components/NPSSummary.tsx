@@ -1,13 +1,13 @@
 import Headline from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/Headline";
-import type { TformQuestionSummary } from "@fastform/types/forms";
-import { TformNPSQuestion } from "@fastform/types/forms";
+import type { TFormQuestionSummary } from "@fastform/types/forms";
+import { TFormNPSQuestion } from "@fastform/types/forms";
 import { ProgressBar, HalfCircle } from "@fastform/ui/ProgressBar";
 import { InboxStackIcon } from "@heroicons/react/24/solid";
 import { useMemo } from "react";
 import { questionTypes } from "@/app/lib/questions";
 
 interface NPSSummaryProps {
-  questionSummary: TformQuestionSummary<TformNPSQuestion>;
+  questionSummary: TFormQuestionSummary<TFormNPSQuestion>;
 }
 
 interface Result {

@@ -1,5 +1,5 @@
-import { TformQuestionType } from "@fastform/types/forms";
-import type { TformQuestionSummary } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
+import type { TFormQuestionSummary } from "@fastform/types/forms";
 import { ProgressBar } from "@fastform/ui/ProgressBar";
 import { PersonAvatar } from "@fastform/ui/Avatars";
 import { InboxStackIcon } from "@heroicons/react/24/solid";
@@ -8,15 +8,15 @@ import Link from "next/link";
 import { getPersonIdentifier } from "@fastform/lib/person/util";
 import { useState } from "react";
 import {
-  TformMultipleChoiceMultiQuestion,
-  TformMultipleChoiceSingleQuestion,
+  TFormMultipleChoiceMultiQuestion,
+  TFormMultipleChoiceSingleQuestion,
 } from "@fastform/types/forms";
 import { questionTypes } from "@/app/lib/questions";
 import Headline from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/Headline";
 
 interface MultipleChoiceSummaryProps {
-  questionSummary: TformQuestionSummary<
-    TformMultipleChoiceMultiQuestion | TformMultipleChoiceSingleQuestion
+  questionSummary: TFormQuestionSummary<
+    TFormMultipleChoiceMultiQuestion | TFormMultipleChoiceSingleQuestion
   >;
   environmentId: string;
   formType: string;
@@ -44,7 +44,7 @@ export default function MultipleChoiceSummary({
   formType,
   responsesPerPage,
 }: MultipleChoiceSummaryProps) {
-  const isSingleChoice = questionSummary.question.type === TformQuestionType.MultipleChoiceSingle;
+  const isSingleChoice = questionSummary.question.type === TFormQuestionType.MultipleChoiceSingle;
   const [otherDisplayCount, setOtherDisplayCount] = useState(responsesPerPage);
   const questionTypeInfo = questionTypes.find((type) => type.id === questionSummary.question.type);
 

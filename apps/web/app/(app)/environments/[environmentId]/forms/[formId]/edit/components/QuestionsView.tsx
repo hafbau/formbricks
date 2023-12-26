@@ -2,7 +2,7 @@
 
 import HiddenFieldsCard from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/HiddenFieldsCard";
 import { TProduct } from "@fastform/types/product";
-import { TformQuestion, TForm } from "@fastform/types/forms";
+import { TFormQuestion, TForm } from "@fastform/types/forms";
 import { createId } from "@paralleldrive/cuid2";
 import { useMemo, useState } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
@@ -55,7 +55,7 @@ export default function QuestionsView({
   };
 
   // function to validate individual questions
-  const validateform = (question: TformQuestion) => {
+  const validateform = (question: TFormQuestion) => {
     // prevent this function to execute further if user hasnt still tried to save the form
     if (invalidQuestions === null) {
       return;

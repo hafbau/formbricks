@@ -15,11 +15,11 @@ import {
   getTeamByEnvironmentId,
 } from "@fastform/lib/team/service";
 import { TEnvironment } from "@fastform/types/environment";
-import { TJsLegacyState, TformWithTriggers } from "@fastform/types/js";
+import { TJsLegacyState, TFormWithTriggers } from "@fastform/types/js";
 import { TPerson } from "@fastform/types/people";
 import { TForm } from "@fastform/types/forms";
 
-export const transformLegacyforms = (forms: TForm[]): TformWithTriggers[] => {
+export const transformLegacyforms = (forms: TForm[]): TFormWithTriggers[] => {
   const updatedforms = forms.map((form) => {
     const updatedform: any = { ...form };
     updatedform.triggers = updatedform.triggers.map((trigger) => ({ name: trigger }));

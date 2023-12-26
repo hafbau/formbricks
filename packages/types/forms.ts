@@ -8,7 +8,7 @@ export const ZformThankYouCard = z.object({
   subheader: z.optional(z.string()),
 });
 
-export enum TformQuestionType {
+export enum TFormQuestionType {
   FileUpload = "fileUpload",
   OpenText = "openText",
   MultipleChoiceSingle = "multipleChoiceSingle",
@@ -43,11 +43,11 @@ export const ZformProductOverwrites = z.object({
   darkOverlay: z.boolean().nullish(),
 });
 
-export type TformProductOverwrites = z.infer<typeof ZformProductOverwrites>;
+export type TFormProductOverwrites = z.infer<typeof ZformProductOverwrites>;
 
 export const ZformBackgroundBgType = z.enum(["animation", "color", "image"]);
 
-export type TformBackgroundBgType = z.infer<typeof ZformBackgroundBgType>;
+export type TFormBackgroundBgType = z.infer<typeof ZformBackgroundBgType>;
 
 export const ZformStylingBackground = z.object({
   bg: z.string().nullish(),
@@ -55,13 +55,13 @@ export const ZformStylingBackground = z.object({
   brightness: z.number().nullish(),
 });
 
-export type TformStylingBackground = z.infer<typeof ZformStylingBackground>;
+export type TFormStylingBackground = z.infer<typeof ZformStylingBackground>;
 
 export const ZformStyling = z.object({
   background: ZformStylingBackground.nullish(),
 });
 
-export type TformStyling = z.infer<typeof ZformStyling>;
+export type TFormStyling = z.infer<typeof ZformStyling>;
 
 export const ZformClosedMessage = z
   .object({
@@ -81,7 +81,7 @@ export const ZformSingleUse = z
   })
   .nullable();
 
-export type TformSingleUse = z.infer<typeof ZformSingleUse>;
+export type TFormSingleUse = z.infer<typeof ZformSingleUse>;
 
 export const ZformVerifyEmail = z
   .object({
@@ -90,15 +90,15 @@ export const ZformVerifyEmail = z
   })
   .optional();
 
-export type TformVerifyEmail = z.infer<typeof ZformVerifyEmail>;
+export type TFormVerifyEmail = z.infer<typeof ZformVerifyEmail>;
 
-export type TformWelcomeCard = z.infer<typeof ZformWelcomeCard>;
+export type TFormWelcomeCard = z.infer<typeof ZformWelcomeCard>;
 
-export type TformThankYouCard = z.infer<typeof ZformThankYouCard>;
+export type TFormThankYouCard = z.infer<typeof ZformThankYouCard>;
 
-export type TformHiddenFields = z.infer<typeof ZformHiddenFields>;
+export type TFormHiddenFields = z.infer<typeof ZformHiddenFields>;
 
-export type TformClosedMessage = z.infer<typeof ZformClosedMessage>;
+export type TFormClosedMessage = z.infer<typeof ZformClosedMessage>;
 
 export const ZformChoice = z.object({
   id: z.string(),
@@ -110,7 +110,7 @@ export const ZformPictureChoice = z.object({
   imageUrl: z.string(),
 });
 
-export type TformChoice = z.infer<typeof ZformChoice>;
+export type TFormChoice = z.infer<typeof ZformChoice>;
 
 export const ZformLogicCondition = z.enum([
   "accepted",
@@ -129,7 +129,7 @@ export const ZformLogicCondition = z.enum([
   "notUploaded",
 ]);
 
-export type TformLogicCondition = z.infer<typeof ZformLogicCondition>;
+export type TFormLogicCondition = z.infer<typeof ZformLogicCondition>;
 
 export const ZformLogicBase = z.object({
   condition: ZformLogicCondition.optional(),
@@ -217,7 +217,7 @@ export const ZformLogic = z.union([
   ZformFileUploadLogic,
 ]);
 
-export type TformLogic = z.infer<typeof ZformLogic>;
+export type TFormLogic = z.infer<typeof ZformLogic>;
 
 const ZformQuestionBase = z.object({
   id: z.string(),
@@ -235,30 +235,30 @@ const ZformQuestionBase = z.object({
 });
 
 export const ZformFileUploadQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.FileUpload),
+  type: z.literal(TFormQuestionType.FileUpload),
   allowMultipleFiles: z.boolean(),
   maxSizeInMB: z.number().optional(),
   allowedFileExtensions: z.array(ZAllowedFileExtension).optional(),
   logic: z.array(ZformFileUploadLogic).optional(),
 });
 
-export type TformFileUploadQuestion = z.infer<typeof ZformFileUploadQuestion>;
+export type TFormFileUploadQuestion = z.infer<typeof ZformFileUploadQuestion>;
 
 export const ZformOpenTextQuestionInputType = z.enum(["text", "email", "url", "number", "phone"]);
-export type TformOpenTextQuestionInputType = z.infer<typeof ZformOpenTextQuestionInputType>;
+export type TFormOpenTextQuestionInputType = z.infer<typeof ZformOpenTextQuestionInputType>;
 
 export const ZformOpenTextQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.OpenText),
+  type: z.literal(TFormQuestionType.OpenText),
   placeholder: z.string().optional(),
   longAnswer: z.boolean().optional(),
   logic: z.array(ZformOpenTextLogic).optional(),
   inputType: ZformOpenTextQuestionInputType.optional().default("text"),
 });
 
-export type TformOpenTextQuestion = z.infer<typeof ZformOpenTextQuestion>;
+export type TFormOpenTextQuestion = z.infer<typeof ZformOpenTextQuestion>;
 
 export const ZformConsentQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.Consent),
+  type: z.literal(TFormQuestionType.Consent),
   html: z.string().optional(),
   label: z.string(),
   dismissButtonLabel: z.string().optional(),
@@ -266,37 +266,37 @@ export const ZformConsentQuestion = ZformQuestionBase.extend({
   logic: z.array(ZformConsentLogic).optional(),
 });
 
-export type TformConsentQuestion = z.infer<typeof ZformConsentQuestion>;
+export type TFormConsentQuestion = z.infer<typeof ZformConsentQuestion>;
 
 export const ZformMultipleChoiceSingleQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.MultipleChoiceSingle),
+  type: z.literal(TFormQuestionType.MultipleChoiceSingle),
   choices: z.array(ZformChoice),
   logic: z.array(ZformMultipleChoiceSingleLogic).optional(),
   shuffleOption: z.enum(["none", "all", "exceptLast"]).optional(),
 });
 
-export type TformMultipleChoiceSingleQuestion = z.infer<typeof ZformMultipleChoiceSingleQuestion>;
+export type TFormMultipleChoiceSingleQuestion = z.infer<typeof ZformMultipleChoiceSingleQuestion>;
 
 export const ZformMultipleChoiceMultiQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.MultipleChoiceMulti),
+  type: z.literal(TFormQuestionType.MultipleChoiceMulti),
   choices: z.array(ZformChoice),
   logic: z.array(ZformMultipleChoiceMultiLogic).optional(),
   shuffleOption: z.enum(["none", "all", "exceptLast"]).optional(),
 });
 
-export type TformMultipleChoiceMultiQuestion = z.infer<typeof ZformMultipleChoiceMultiQuestion>;
+export type TFormMultipleChoiceMultiQuestion = z.infer<typeof ZformMultipleChoiceMultiQuestion>;
 
 export const ZformNPSQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.NPS),
+  type: z.literal(TFormQuestionType.NPS),
   lowerLabel: z.string(),
   upperLabel: z.string(),
   logic: z.array(ZformNPSLogic).optional(),
 });
 
-export type TformNPSQuestion = z.infer<typeof ZformNPSQuestion>;
+export type TFormNPSQuestion = z.infer<typeof ZformNPSQuestion>;
 
 export const ZformCTAQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.CTA),
+  type: z.literal(TFormQuestionType.CTA),
   html: z.string().optional(),
   buttonUrl: z.string().optional(),
   buttonExternal: z.boolean(),
@@ -304,10 +304,10 @@ export const ZformCTAQuestion = ZformQuestionBase.extend({
   logic: z.array(ZformCTALogic).optional(),
 });
 
-export type TformCTAQuestion = z.infer<typeof ZformCTAQuestion>;
+export type TFormCTAQuestion = z.infer<typeof ZformCTAQuestion>;
 
 // export const ZformWelcomeQuestion = ZformQuestionBase.extend({
-//   type: z.literal(TformQuestionType.Welcome),
+//   type: z.literal(TFormQuestionType.Welcome),
 //   html: z.string().optional(),
 //   fileUrl: z.string().optional(),
 //   buttonUrl: z.string().optional(),
@@ -315,10 +315,10 @@ export type TformCTAQuestion = z.infer<typeof ZformCTAQuestion>;
 //   logic: z.array(ZformCTALogic).optional(),
 // });
 
-// export type TformWelcomeQuestion = z.infer<typeof ZformWelcomeQuestion>;
+// export type TFormWelcomeQuestion = z.infer<typeof ZformWelcomeQuestion>;
 
 export const ZformRatingQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.Rating),
+  type: z.literal(TFormQuestionType.Rating),
   scale: z.enum(["number", "smiley", "star"]),
   range: z.union([z.literal(5), z.literal(3), z.literal(4), z.literal(7), z.literal(10)]),
   lowerLabel: z.string(),
@@ -326,16 +326,16 @@ export const ZformRatingQuestion = ZformQuestionBase.extend({
   logic: z.array(ZformRatingLogic).optional(),
 });
 
-export type TformRatingQuestion = z.infer<typeof ZformRatingQuestion>;
+export type TFormRatingQuestion = z.infer<typeof ZformRatingQuestion>;
 
 export const ZformPictureSelectionQuestion = ZformQuestionBase.extend({
-  type: z.literal(TformQuestionType.PictureSelection),
+  type: z.literal(TFormQuestionType.PictureSelection),
   allowMulti: z.boolean().optional().default(false),
   choices: z.array(ZformPictureChoice),
   logic: z.array(ZformPictureSelectionLogic).optional(),
 });
 
-export type TformPictureSelectionQuestion = z.infer<typeof ZformPictureSelectionQuestion>;
+export type TFormPictureSelectionQuestion = z.infer<typeof ZformPictureSelectionQuestion>;
 
 export const ZformQuestion = z.union([
   ZformOpenTextQuestion,
@@ -349,11 +349,11 @@ export const ZformQuestion = z.union([
   ZformFileUploadQuestion,
 ]);
 
-export type TformQuestion = z.infer<typeof ZformQuestion>;
+export type TFormQuestion = z.infer<typeof ZformQuestion>;
 
 export const ZformQuestions = z.array(ZformQuestion);
 
-export type TformQuestions = z.infer<typeof ZformQuestions>;
+export type TFormQuestions = z.infer<typeof ZformQuestions>;
 
 export const ZformAttributeFilter = z.object({
   attributeClassId: z.string().cuid2(),
@@ -361,15 +361,15 @@ export const ZformAttributeFilter = z.object({
   value: z.string(),
 });
 
-export type TformAttributeFilter = z.infer<typeof ZformAttributeFilter>;
+export type TFormAttributeFilter = z.infer<typeof ZformAttributeFilter>;
 
 const ZformDisplayOption = z.enum(["displayOnce", "displayMultiple", "respondMultiple"]);
 
-export type TformDisplayOption = z.infer<typeof ZformDisplayOption>;
+export type TFormDisplayOption = z.infer<typeof ZformDisplayOption>;
 
 const ZformType = z.enum(["web", "email", "link", "mobile"]);
 
-export type TformType = z.infer<typeof ZformType>;
+export type TFormType = z.infer<typeof ZformType>;
 
 const ZFormStatus = z.enum(["draft", "inProgress", "paused", "completed"]);
 
@@ -426,14 +426,14 @@ export const ZformInput = z.object({
 });
 
 export type TForm = z.infer<typeof Zform>;
-export type TformDates = {
+export type TFormDates = {
   createdAt: TForm["createdAt"];
   updatedAt: TForm["updatedAt"];
   closeOnDate: TForm["closeOnDate"];
 };
-export type TformInput = z.infer<typeof ZformInput>;
+export type TFormInput = z.infer<typeof ZformInput>;
 
-export const ZformTformQuestionType = z.union([
+export const ZformTFormQuestionType = z.union([
   z.literal("fileUpload"),
   z.literal("openText"),
   z.literal("multipleChoiceSingle"),
@@ -445,9 +445,9 @@ export const ZformTformQuestionType = z.union([
   z.literal("pictureSelection"),
 ]);
 
-export type TformTformQuestionType = z.infer<typeof ZformTformQuestionType>;
+export type TFormTFormQuestionType = z.infer<typeof ZformTFormQuestionType>;
 
-export interface TformQuestionSummary<T> {
+export interface TFormQuestionSummary<T> {
   question: T;
   responses: {
     id: string;

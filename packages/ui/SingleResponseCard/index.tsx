@@ -1,7 +1,7 @@
 "use client";
 
 import { timeSince } from "@fastform/lib/time";
-import { TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProfile } from "@fastform/types/profile";
 import { TResponse } from "@fastform/types/responses";
@@ -313,7 +313,7 @@ export default function SingleResponseCard({
                     />
                   )}
                   {typeof response.data[question.id] !== "object" ? (
-                    question.type === TformQuestionType.Rating ? (
+                    question.type === TFormQuestionType.Rating ? (
                       <div>
                         <RatingResponse
                           scale={question.scale}
@@ -326,12 +326,12 @@ export default function SingleResponseCard({
                         {response.data[question.id]}
                       </p>
                     )
-                  ) : question.type === TformQuestionType.PictureSelection ? (
+                  ) : question.type === TFormQuestionType.PictureSelection ? (
                     <PictureSelectionResponse
                       choices={question.choices}
                       selected={response.data[question.id]}
                     />
-                  ) : question.type === TformQuestionType.FileUpload ? (
+                  ) : question.type === TFormQuestionType.FileUpload ? (
                     <FileUploadResponse selected={response.data[question.id]} />
                   ) : (
                     <p className="ph-no-capture my-1 font-semibold text-slate-700">

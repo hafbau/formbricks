@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { cn } from "@fastform/lib/cn";
-import { TformMultipleChoiceMultiQuestion } from "@fastform/types/forms";
+import { TFormMultipleChoiceMultiQuestion } from "@fastform/types/forms";
 import Headline from "./Headline";
 import Subheader from "./Subheader";
 
 interface MultipleChoiceMultiProps {
-  question: TformMultipleChoiceMultiQuestion;
+  question: TFormMultipleChoiceMultiQuestion;
   onSubmit: (data: { [x: string]: any }) => void;
   lastQuestion: boolean;
   brandColor: string;

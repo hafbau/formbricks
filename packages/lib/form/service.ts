@@ -6,7 +6,7 @@ import { ZOptionalNumber } from "@fastform/types/common";
 import { ZId } from "@fastform/types/environment";
 import { DatabaseError, ResourceNotFoundError } from "@fastform/types/errors";
 import { TPerson } from "@fastform/types/people";
-import { TForm, TformAttributeFilter, TformInput, Zform } from "@fastform/types/forms";
+import { TForm, TFormAttributeFilter, TFormInput, Zform } from "@fastform/types/forms";
 import { Prisma } from "@prisma/client";
 import { unstable_cache } from "next/cache";
 import { getActionClasses } from "../actionClass/service";
@@ -88,7 +88,7 @@ const revalidateformByActionClassId = (actionClasses: TActionClass[], actionClas
   }
 };
 
-const revalidateformByAttributeClassId = (attributeFilters: TformAttributeFilter[]): void => {
+const revalidateformByAttributeClassId = (attributeFilters: TFormAttributeFilter[]): void => {
   for (const attributeFilter of attributeFilters) {
     formCache.revalidate({
       attributeClassId: attributeFilter.attributeClassId,
@@ -353,8 +353,8 @@ export const updateform = async (updatedform: TForm): Promise<TForm> => {
   }
 
   if (attributeFilters) {
-    const newFilters: TformAttributeFilter[] = [];
-    const removedFilters: TformAttributeFilter[] = [];
+    const newFilters: TFormAttributeFilter[] = [];
+    const removedFilters: TFormAttributeFilter[] = [];
 
     // find added attribute filters
     for (const attributeFilter of attributeFilters) {
@@ -495,7 +495,7 @@ export async function deleteform(formId: string) {
   return deletedform;
 }
 
-export const createform = async (environmentId: string, formBody: TformInput): Promise<TForm> => {
+export const createform = async (environmentId: string, formBody: TFormInput): Promise<TForm> => {
   validateInputs([environmentId, ZId]);
 
   if (formBody.attributeFilters) {
@@ -510,7 +510,7 @@ export const createform = async (environmentId: string, formBody: TformInput): P
   // TODO: Create with triggers & attributeFilters
   delete formBody.triggers;
   delete formBody.attributeFilters;
-  const data: Omit<TformInput, "triggers" | "attributeFilters"> = {
+  const data: Omit<TFormInput, "triggers" | "attributeFilters"> = {
     ...formBody,
   };
 

@@ -8,7 +8,7 @@ const ZformWithTriggers = Zform.extend({
   triggers: z.array(ZActionClass).or(z.array(z.string())),
 });
 
-export type TformWithTriggers = z.infer<typeof ZformWithTriggers>;
+export type TFormWithTriggers = z.infer<typeof ZformWithTriggers>;
 
 export const ZJSStateDisplay = z.object({
   createdAt: z.date(),

@@ -23,7 +23,7 @@ interface PricingTableProps {
   peopleCount: number;
   responseCount: number;
   userTargetingFreeMtu: number;
-  inAppformFreeResponses: number;
+  inAppFormFreeResponses: number;
 }
 
 export default function PricingTableComponent({
@@ -32,7 +32,7 @@ export default function PricingTableComponent({
   peopleCount,
   responseCount,
   userTargetingFreeMtu,
-  inAppformFreeResponses: appformFreeResponses,
+  inAppFormFreeResponses: appformFreeResponses,
 }: PricingTableProps) {
   const router = useRouter();
   const [loadingCustomerPortal, setLoadingCustomerPortal] = useState(false);
@@ -174,7 +174,7 @@ export default function PricingTableComponent({
               className="justify-center py-2 shadow-sm"
               loading={loadingCustomerPortal}
               onClick={openCustomerPortal}>
-              {team.billing.features.inAppform.unlimited ? "Manage Subscription" : "Manage Card details"}
+              {team.billing.features.inAppForm.unlimited ? "Manage Subscription" : "Manage Card details"}
             </Button>
           </div>
         ) : (
@@ -219,7 +219,7 @@ export default function PricingTableComponent({
                   loading={upgradingPlan}
                   onClick={() =>
                     upgradePlan([
-                      StripePriceLookupKeys.inAppformUnlimited,
+                      StripePriceLookupKeys.inAppFormUnlimited,
                       StripePriceLookupKeys.linkFormUnlimited,
                       StripePriceLookupKeys.userTargetingUnlimited,
                     ])
@@ -263,7 +263,7 @@ export default function PricingTableComponent({
         <PricingCard
           title={"Core & App forms"}
           subtitle={"Get up to 250 free responses every month"}
-          featureName={ProductFeatureKeys[ProductFeatureKeys.inAppform]}
+          featureName={ProductFeatureKeys[ProductFeatureKeys.inAppForm]}
           monthlyPrice={0}
           actionText={"Starting at"}
           team={team}
@@ -272,7 +272,7 @@ export default function PricingTableComponent({
           sliderLimit={350}
           freeTierLimit={appformFreeResponses}
           paidFeatures={coreAndWebAppformFeatures.filter((feature) => {
-            if (team.billing.features.inAppform.unlimited) {
+            if (team.billing.features.inAppForm.unlimited) {
               return feature.unlimited !== false;
             } else {
               return feature.unlimited !== true;
@@ -280,8 +280,8 @@ export default function PricingTableComponent({
           })}
           perMetricCharge={0.15}
           loading={upgradingPlan}
-          onUpgrade={() => upgradePlan([StripePriceLookupKeys.inAppform])}
-          onUbsubscribe={(e) => handleUnsubscribe(e, ProductFeatureKeys[ProductFeatureKeys.inAppform])}
+          onUpgrade={() => upgradePlan([StripePriceLookupKeys.inAppForm])}
+          onUbsubscribe={(e) => handleUnsubscribe(e, ProductFeatureKeys[ProductFeatureKeys.inAppForm])}
         />
 
         <PricingCard

@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@fastform/lib/cn";
 import { TEnvironment } from "@fastform/types/environment";
-import { TForm, TformType } from "@fastform/types/forms";
+import { TForm, TFormType } from "@fastform/types/forms";
 import { Badge } from "@fastform/ui/Badge";
 import { Label } from "@fastform/ui/Label";
 import { RadioGroup, RadioGroupItem } from "@fastform/ui/RadioGroup";
@@ -34,7 +34,7 @@ export default function HowToSendCard({ localform, setLocalform, environment }: 
     }
   }, [environment]);
 
-  const setformType = (type: TformType) => {
+  const setformType = (type: TFormType) => {
     setLocalform((prevform) => ({
       ...prevform,
       type,

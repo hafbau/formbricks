@@ -1,6 +1,6 @@
 "use client";
 
-import { TformQuestion } from "@fastform/types/forms";
+import { TFormQuestion } from "@fastform/types/forms";
 import FileInput from "@fastform/ui/FileInput";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
@@ -8,7 +8,7 @@ import { ImagePlusIcon } from "lucide-react";
 import { RefObject, useState } from "react";
 
 interface QuestionFormInputProps {
-  question: TformQuestion;
+  question: TFormQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;
   isInValid: boolean;

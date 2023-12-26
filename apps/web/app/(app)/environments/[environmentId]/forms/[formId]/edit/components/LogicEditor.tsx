@@ -1,9 +1,9 @@
 import {
   TForm,
-  TformLogic,
-  TformQuestion,
-  TformQuestionType,
-  TformLogicCondition,
+  TFormLogic,
+  TFormQuestion,
+  TFormQuestionType,
+  TFormLogicCondition,
 } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import {
@@ -24,12 +24,12 @@ import { BsArrowDown, BsArrowReturnRight } from "react-icons/bs";
 interface LogicEditorProps {
   localform: TForm;
   questionIdx: number;
-  question: TformQuestion;
+  question: TFormQuestion;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;
 }
 
 type LogicConditions = {
-  [K in TformLogicCondition]: {
+  [K in TFormLogicCondition]: {
     label: string;
     values: string[] | null;
     unique?: boolean;
@@ -48,7 +48,7 @@ export default function LogicEditor({
       return question.choices.map((choice) => choice.label);
     } else if ("range" in question) {
       return Array.from({ length: question.range ? question.range : 0 }, (_, i) => (i + 1).toString());
-    } else if (question.type === TformQuestionType.NPS) {
+    } else if (question.type === TFormQuestionType.NPS) {
       return Array.from({ length: 11 }, (_, i) => (i + 0).toString());
     }
     return [];
@@ -165,7 +165,7 @@ export default function LogicEditor({
       }
     }
 
-    const newLogic: TformLogic[] = !question.logic ? [] : question.logic;
+    const newLogic: TFormLogic[] = !question.logic ? [] : question.logic;
     newLogic.push({
       condition: undefined,
       value: undefined,

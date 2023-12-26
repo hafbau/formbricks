@@ -2,15 +2,15 @@ import { TActionClassNoCodeConfig } from "@fastform/types/actionClasses";
 import { TIntegrationConfig } from "@fastform/types/integration";
 import { TResponseData, TResponseMeta, TResponsePersonAttributes } from "@fastform/types/responses";
 import {
-  TformWelcomeCard,
-  TformClosedMessage,
-  TformHiddenFields,
-  TformProductOverwrites,
-  TformStyling,
-  TformQuestions,
-  TformSingleUse,
-  TformThankYouCard,
-  TformVerifyEmail,
+  TFormWelcomeCard,
+  TFormClosedMessage,
+  TFormHiddenFields,
+  TFormProductOverwrites,
+  TFormStyling,
+  TFormQuestions,
+  TFormSingleUse,
+  TFormThankYouCard,
+  TFormVerifyEmail,
 } from "@fastform/types/forms";
 import { TTeamBilling } from "@fastform/types/teams";
 import { TUserNotificationSettings } from "@fastform/types/users";
@@ -23,15 +23,15 @@ declare global {
     export type ResponseData = TResponseData;
     export type ResponseMeta = TResponseMeta;
     export type ResponsePersonAttributes = TResponsePersonAttributes;
-    export type welcomeCard = TformWelcomeCard;
-    export type formQuestions = TformQuestions;
-    export type formThankYouCard = TformThankYouCard;
-    export type formHiddenFields = TformHiddenFields;
-    export type formProductOverwrites = TformProductOverwrites;
-    export type formStyling = TformStyling;
-    export type formClosedMessage = TformClosedMessage;
-    export type formSingleUse = TformSingleUse;
-    export type formVerifyEmail = TformVerifyEmail;
+    export type welcomeCard = TFormWelcomeCard;
+    export type formQuestions = TFormQuestions;
+    export type formThankYouCard = TFormThankYouCard;
+    export type formHiddenFields = TFormHiddenFields;
+    export type formProductOverwrites = TFormProductOverwrites;
+    export type formStyling = TFormStyling;
+    export type formClosedMessage = TFormClosedMessage;
+    export type formSingleUse = TFormSingleUse;
+    export type formVerifyEmail = TFormVerifyEmail;
     export type TeamBilling = TTeamBilling;
     export type UserNotificationSettings = TUserNotificationSettings;
   }

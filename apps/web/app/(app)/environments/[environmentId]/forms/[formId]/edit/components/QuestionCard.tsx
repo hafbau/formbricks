@@ -1,9 +1,9 @@
 "use client";
 
 import AdvancedSettings from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/AdvancedSettings";
-import { getTformQuestionTypeName } from "@/app/lib/questions";
+import { getTFormQuestionTypeName } from "@/app/lib/questions";
 import { cn } from "@fastform/lib/cn";
-import { TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
 import { TForm } from "@fastform/types/forms";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
@@ -128,29 +128,29 @@ export default function QuestionCard({
               <div>
                 <div className="inline-flex">
                   <div className="-ml-0.5 mr-3 h-6 w-6 text-slate-400">
-                    {question.type === TformQuestionType.FileUpload ? (
+                    {question.type === TFormQuestionType.FileUpload ? (
                       <ArrowUpTrayIcon />
-                    ) : question.type === TformQuestionType.OpenText ? (
+                    ) : question.type === TFormQuestionType.OpenText ? (
                       <ChatBubbleBottomCenterTextIcon />
-                    ) : question.type === TformQuestionType.MultipleChoiceSingle ? (
+                    ) : question.type === TFormQuestionType.MultipleChoiceSingle ? (
                       <QueueListIcon />
-                    ) : question.type === TformQuestionType.MultipleChoiceMulti ? (
+                    ) : question.type === TFormQuestionType.MultipleChoiceMulti ? (
                       <ListBulletIcon />
-                    ) : question.type === TformQuestionType.NPS ? (
+                    ) : question.type === TFormQuestionType.NPS ? (
                       <PresentationChartBarIcon />
-                    ) : question.type === TformQuestionType.CTA ? (
+                    ) : question.type === TFormQuestionType.CTA ? (
                       <CursorArrowRippleIcon />
-                    ) : question.type === TformQuestionType.Rating ? (
+                    ) : question.type === TFormQuestionType.Rating ? (
                       <StarIcon />
-                    ) : question.type === TformQuestionType.Consent ? (
+                    ) : question.type === TFormQuestionType.Consent ? (
                       <CheckIcon />
-                    ) : question.type === TformQuestionType.PictureSelection ? (
+                    ) : question.type === TFormQuestionType.PictureSelection ? (
                       <PhotoIcon />
                     ) : null}
                   </div>
                   <div>
                     <p className="text-sm font-semibold">
-                      {question.headline || getTformQuestionTypeName(question.type)}
+                      {question.headline || getTFormQuestionTypeName(question.type)}
                     </p>
                     {!open && question?.required && (
                       <p className="mt-1 truncate text-xs text-slate-500">
@@ -172,7 +172,7 @@ export default function QuestionCard({
               </div>
             </Collapsible.CollapsibleTrigger>
             <Collapsible.CollapsibleContent className="px-4 pb-4">
-              {question.type === TformQuestionType.OpenText ? (
+              {question.type === TFormQuestionType.OpenText ? (
                 <OpenQuestionForm
                   localform={localform}
                   question={question}
@@ -181,7 +181,7 @@ export default function QuestionCard({
                   lastQuestion={lastQuestion}
                   isInValid={isInValid}
                 />
-              ) : question.type === TformQuestionType.MultipleChoiceSingle ? (
+              ) : question.type === TFormQuestionType.MultipleChoiceSingle ? (
                 <MultipleChoiceSingleForm
                   localform={localform}
                   question={question}
@@ -190,7 +190,7 @@ export default function QuestionCard({
                   lastQuestion={lastQuestion}
                   isInValid={isInValid}
                 />
-              ) : question.type === TformQuestionType.MultipleChoiceMulti ? (
+              ) : question.type === TFormQuestionType.MultipleChoiceMulti ? (
                 <MultipleChoiceMultiForm
                   localform={localform}
                   question={question}
@@ -199,7 +199,7 @@ export default function QuestionCard({
                   lastQuestion={lastQuestion}
                   isInValid={isInValid}
                 />
-              ) : question.type === TformQuestionType.NPS ? (
+              ) : question.type === TFormQuestionType.NPS ? (
                 <NPSQuestionForm
                   localform={localform}
                   question={question}
@@ -208,7 +208,7 @@ export default function QuestionCard({
                   lastQuestion={lastQuestion}
                   isInValid={isInValid}
                 />
-              ) : question.type === TformQuestionType.CTA ? (
+              ) : question.type === TFormQuestionType.CTA ? (
                 <CTAQuestionForm
                   localform={localform}
                   question={question}
@@ -217,7 +217,7 @@ export default function QuestionCard({
                   lastQuestion={lastQuestion}
                   isInValid={isInValid}
                 />
-              ) : question.type === TformQuestionType.Rating ? (
+              ) : question.type === TFormQuestionType.Rating ? (
                 <RatingQuestionForm
                   localform={localform}
                   question={question}
@@ -226,7 +226,7 @@ export default function QuestionCard({
                   lastQuestion={lastQuestion}
                   isInValid={isInValid}
                 />
-              ) : question.type === TformQuestionType.Consent ? (
+              ) : question.type === TFormQuestionType.Consent ? (
                 <ConsentQuestionForm
                   localform={localform}
                   question={question}
@@ -234,7 +234,7 @@ export default function QuestionCard({
                   updateQuestion={updateQuestion}
                   isInValid={isInValid}
                 />
-              ) : question.type === TformQuestionType.PictureSelection ? (
+              ) : question.type === TFormQuestionType.PictureSelection ? (
                 <PictureSelectionForm
                   localform={localform}
                   question={question}
@@ -243,7 +243,7 @@ export default function QuestionCard({
                   lastQuestion={lastQuestion}
                   isInValid={isInValid}
                 />
-              ) : question.type === TformQuestionType.FileUpload ? (
+              ) : question.type === TFormQuestionType.FileUpload ? (
                 <FileUploadQuestionForm
                   localform={localform}
                   product={product}
@@ -266,9 +266,9 @@ export default function QuestionCard({
                   </Collapsible.CollapsibleTrigger>
 
                   <Collapsible.CollapsibleContent className="space-y-4">
-                    {question.type !== TformQuestionType.NPS &&
-                    question.type !== TformQuestionType.Rating &&
-                    question.type !== TformQuestionType.CTA ? (
+                    {question.type !== TFormQuestionType.NPS &&
+                    question.type !== TFormQuestionType.Rating &&
+                    question.type !== TFormQuestionType.CTA ? (
                       <div className="mt-4 flex space-x-2">
                         <div className="w-full">
                           <Label htmlFor="buttonLabel">Button Label</Label>
@@ -297,8 +297,8 @@ export default function QuestionCard({
                         )}
                       </div>
                     ) : null}
-                    {(question.type === TformQuestionType.Rating ||
-                      question.type === TformQuestionType.NPS) &&
+                    {(question.type === TFormQuestionType.Rating ||
+                      question.type === TFormQuestionType.NPS) &&
                       questionIdx !== 0 && (
                         <div className="mt-4">
                           <BackButtonInput

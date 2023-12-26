@@ -9,11 +9,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { createId } from "@paralleldrive/cuid2";
 import { useEffect, useRef, useState } from "react";
-import { TformMultipleChoiceMultiQuestion, TForm } from "@fastform/types/forms";
+import { TFormMultipleChoiceMultiQuestion, TForm } from "@fastform/types/forms";
 
 interface OpenQuestionFormProps {
   localform: TForm;
-  question: TformMultipleChoiceMultiQuestion;
+  question: TFormMultipleChoiceMultiQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;
   lastQuestion: boolean;

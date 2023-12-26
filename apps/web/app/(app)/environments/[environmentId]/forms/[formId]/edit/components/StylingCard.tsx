@@ -1,7 +1,7 @@
 "use client";
 
 import { TPlacement } from "@fastform/types/common";
-import { TForm, TformBackgroundBgType } from "@fastform/types/forms";
+import { TForm, TFormBackgroundBgType } from "@fastform/types/forms";
 import { ColorPicker } from "@fastform/ui/ColorPicker";
 import { Label } from "@fastform/ui/Label";
 import { Switch } from "@fastform/ui/Switch";
@@ -102,7 +102,7 @@ export default function StylingCard({ localform, setLocalform, colours }: Stylin
     });
   };
 
-  const handleBgChange = (color: string, type: TformBackgroundBgType) => {
+  const handleBgChange = (color: string, type: TFormBackgroundBgType) => {
     setInputValue(100);
     setLocalform({
       ...localform,

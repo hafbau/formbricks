@@ -2,7 +2,7 @@
 
 import QuestionFormInput from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/QuestionFormInput";
 import { md } from "@fastform/lib/markdownIt";
-import { TForm, TformConsentQuestion } from "@fastform/types/forms";
+import { TForm, TFormConsentQuestion } from "@fastform/types/forms";
 import { Editor } from "@fastform/ui/Editor";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
@@ -10,7 +10,7 @@ import { useState } from "react";
 
 interface ConsentQuestionFormProps {
   localform: TForm;
-  question: TformConsentQuestion;
+  question: TFormConsentQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;
   isInValid: boolean;

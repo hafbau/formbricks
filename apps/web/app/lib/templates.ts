@@ -1,7 +1,7 @@
-import { TformQuestion } from "@fastform/types/forms";
+import { TFormQuestion } from "@fastform/types/forms";
 import { TTemplate } from "@fastform/types/templates";
 
-export const replaceQuestionPresetPlaceholders = (question: TformQuestion, product) => {
+export const replaceQuestionPresetPlaceholders = (question: TFormQuestion, product) => {
   if (!question) return;
   if (!product) return question;
   const newQuestion = JSON.parse(JSON.stringify(question));

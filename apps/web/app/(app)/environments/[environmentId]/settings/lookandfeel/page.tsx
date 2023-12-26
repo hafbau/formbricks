@@ -38,7 +38,7 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
   const canRemoveLinkBranding =
     team.billing.features.linkForm.status !== "inactive" || !IS_FASTFORM_CLOUD;
   const canRemoveInAppBranding =
-    team.billing.features.inAppform.status !== "inactive" || isEnterpriseEdition;
+    team.billing.features.inAppForm.status !== "inactive" || isEnterpriseEdition;
 
   const currentUserMembership = await getMembershipByUserIdTeamId(session?.user.id, team.id);
   const { isDeveloper, isViewer } = getAccessFlags(currentUserMembership?.role);
@@ -83,7 +83,7 @@ export default async function ProfileSettingsPage({ params }: { params: { enviro
           environmentId={params.environmentId}
         />
         <EditFastformBranding
-          type="inAppform"
+          type="inAppForm"
           product={product}
           canRemoveBranding={canRemoveInAppBranding}
           environmentId={params.environmentId}

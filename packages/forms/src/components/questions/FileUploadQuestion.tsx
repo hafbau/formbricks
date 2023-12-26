@@ -1,5 +1,5 @@
 import { TResponseData, TResponseTtc } from "@fastform/types/responses";
-import type { TformFileUploadQuestion } from "@fastform/types/forms";
+import type { TFormFileUploadQuestion } from "@fastform/types/forms";
 import { BackButton } from "../buttons/BackButton";
 import SubmitButton from "../buttons/SubmitButton";
 import FileInput from "../general/FileInput";
@@ -10,7 +10,7 @@ import { useState } from "preact/hooks";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 
 interface FileUploadQuestionProps {
-  question: TformFileUploadQuestion;
+  question: TFormFileUploadQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;

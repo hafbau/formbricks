@@ -1,15 +1,15 @@
-import type { TformQuestionSummary } from "@fastform/types/forms";
+import type { TFormQuestionSummary } from "@fastform/types/forms";
 import { ProgressBar } from "@fastform/ui/ProgressBar";
 import { InboxStackIcon } from "@heroicons/react/24/solid";
 import { useMemo } from "react";
-import { TformQuestionType } from "@fastform/types/forms";
-import { TformRatingQuestion } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
+import { TFormRatingQuestion } from "@fastform/types/forms";
 import { RatingResponse } from "@fastform/ui/RatingResponse";
 import { questionTypes } from "@/app/lib/questions";
 import Headline from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/Headline";
 
 interface RatingSummaryProps {
-  questionSummary: TformQuestionSummary<TformRatingQuestion>;
+  questionSummary: TFormQuestionSummary<TFormRatingQuestion>;
 }
 
 interface ChoiceResult {
@@ -22,7 +22,7 @@ export default function RatingSummary({ questionSummary }: RatingSummaryProps) {
   const questionTypeInfo = questionTypes.find((type) => type.id === questionSummary.question.type);
 
   const results: ChoiceResult[] = useMemo(() => {
-    if (questionSummary.question.type !== TformQuestionType.Rating) return [];
+    if (questionSummary.question.type !== TFormQuestionType.Rating) return [];
     // build a dictionary of choices
     const resultsDict: { [key: string]: ChoiceResult } = {};
     for (let i = 1; i <= questionSummary.question.range; i++) {

@@ -1,8 +1,8 @@
-import { TformQuestion } from "@fastform/types/forms";
+import { TFormQuestion } from "@fastform/types/forms";
 import { TResponse } from "@fastform/types/responses";
 
 export const getQuestionResponseMapping = (
-  form: { questions: TformQuestion[] },
+  form: { questions: TFormQuestion[] },
   response: TResponse
 ): { question: string; answer: string }[] => {
   const questionResponseMapping: { question: string; answer: string }[] = [];

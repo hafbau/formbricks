@@ -5,11 +5,11 @@ import QuestionImage from "@/components/general/QuestionImage";
 import Subheader from "@/components/general/Subheader";
 import { cn } from "@/lib/utils";
 import { TResponseData, TResponseTtc } from "@fastform/types/responses";
-import type { TformPictureSelectionQuestion } from "@fastform/types/forms";
+import type { TFormPictureSelectionQuestion } from "@fastform/types/forms";
 import { useEffect, useState } from "preact/hooks";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 interface PictureSelectionProps {
-  question: TformPictureSelectionQuestion;
+  question: TFormPictureSelectionQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;

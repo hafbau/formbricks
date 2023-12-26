@@ -1,11 +1,11 @@
-import { TformRatingQuestion } from "@fastform/types/forms";
+import { TFormRatingQuestion } from "@fastform/types/forms";
 import { useState } from "react";
 import { cn } from "@fastform/lib/cn";
 import Headline from "./Headline";
 import Subheader from "./Subheader";
 
 interface RatingQuestionProps {
-  question: TformRatingQuestion;
+  question: TFormRatingQuestion;
   onSubmit: (data: { [x: string]: any }) => void;
   lastQuestion: boolean;
   brandColor: string;

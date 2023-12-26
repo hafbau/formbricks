@@ -1,8 +1,8 @@
 import "server-only";
 
-import { TformDates } from "@fastform/types/forms";
+import { TFormDates } from "@fastform/types/forms";
 
-export const formatformDateFields = (form: TformDates): TformDates => {
+export const formatformDateFields = (form: TFormDates): TFormDates => {
   if (typeof form.createdAt === "string") {
     form.createdAt = new Date(form.createdAt);
   }

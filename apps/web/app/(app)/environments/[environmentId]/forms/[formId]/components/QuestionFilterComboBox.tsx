@@ -10,7 +10,7 @@ import {
 import { Command, CommandGroup, CommandItem, CommandEmpty } from "@fastform/ui/Command";
 import useClickOutside from "@fastform/lib/useClickOutside";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
-import { TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
 import clsx from "clsx";
 
 type QuestionFilterComboBoxProps = {
@@ -20,7 +20,7 @@ type QuestionFilterComboBoxProps = {
   filterComboBoxValue: string | string[] | undefined;
   onChangeFilterValue: (o: string) => void;
   onChangeFilterComboBoxValue: (o: string | string[]) => void;
-  type: TformQuestionType | "Attributes" | "Tags" | undefined;
+  type: TFormQuestionType | "Attributes" | "Tags" | undefined;
   handleRemoveMultiSelect: (value: string[]) => void;
   disabled?: boolean;
 };
@@ -43,7 +43,7 @@ const QuestionFilterComboBox = ({
 
   // multiple when question type is multi selection
   const isMultiple =
-    type === TformQuestionType.MultipleChoiceMulti || type === TformQuestionType.MultipleChoiceSingle;
+    type === TFormQuestionType.MultipleChoiceMulti || type === TFormQuestionType.MultipleChoiceSingle;
 
   // when question type is multi selection so we remove the option from the options which has been already selected
   const options = isMultiple
@@ -52,7 +52,7 @@ const QuestionFilterComboBox = ({
 
   // disable the combo box for selection of value when question type is nps or rating and selected value is submitted or skipped
   const isDisabledComboBox =
-    (type === TformQuestionType.NPS || type === TformQuestionType.Rating) &&
+    (type === TFormQuestionType.NPS || type === TFormQuestionType.Rating) &&
     (filterValue === "Submitted" || filterValue === "Skipped");
 
   return (

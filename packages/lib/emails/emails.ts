@@ -1,4 +1,4 @@
-import { TformQuestion } from "@fastform/types/forms";
+import { TFormQuestion } from "@fastform/types/forms";
 import { TResponse } from "@fastform/types/responses";
 import { WEBAPP_URL } from "../constants";
 import { createInviteToken, createToken } from "../jwt";
@@ -128,7 +128,7 @@ export const sendInviteAcceptedEmail = async (inviterName: string, inviteeName: 
 export const sendResponseFinishedEmail = async (
   email: string,
   environmentId: string,
-  form: { id: string; name: string; questions: TformQuestion[] },
+  form: { id: string; name: string; questions: TFormQuestion[] },
   response: TResponse
 ) => {
   const personEmail = response.person?.attributes["email"];

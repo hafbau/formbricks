@@ -5,7 +5,7 @@ import { Command, CommandGroup, CommandItem, CommandInput, CommandEmpty } from "
 import { NetPromoterScoreIcon } from "@fastform/ui/icons";
 import useClickOutside from "@fastform/lib/useClickOutside";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
 import {
   StarIcon,
   HashtagIcon,
@@ -26,7 +26,7 @@ export enum OptionsType {
 
 export type QuestionOption = {
   label: string;
-  questionType?: TformQuestionType;
+  questionType?: TFormQuestionType;
   type: OptionsType;
   id: string;
 };
@@ -45,19 +45,19 @@ const SelectedCommandItem = ({ label, questionType, type }: Partial<QuestionOpti
   const getIconType = () => {
     if (type === OptionsType.QUESTIONS) {
       switch (questionType) {
-        case TformQuestionType.Rating:
+        case TFormQuestionType.Rating:
           return <StarIcon width={18} className="text-white" />;
-        case TformQuestionType.CTA:
+        case TFormQuestionType.CTA:
           return <CursorArrowRippleIcon width={18} className="text-white" />;
-        case TformQuestionType.OpenText:
+        case TFormQuestionType.OpenText:
           return <QuestionMarkCircleIcon width={18} className="text-white" />;
-        case TformQuestionType.MultipleChoiceMulti:
+        case TFormQuestionType.MultipleChoiceMulti:
           return <ListBulletIcon width={18} className="text-white" />;
-        case TformQuestionType.MultipleChoiceSingle:
+        case TFormQuestionType.MultipleChoiceSingle:
           return <QueueListIcon width={18} className="text-white" />;
-        case TformQuestionType.NPS:
+        case TFormQuestionType.NPS:
           return <NetPromoterScoreIcon width={18} height={18} className="text-white" />;
-        case TformQuestionType.Consent:
+        case TFormQuestionType.Consent:
           return <CheckIcon width={18} height={18} className="text-white" />;
       }
     }

@@ -1,4 +1,4 @@
-import { TformQuestion, TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestion, TFormQuestionType } from "@fastform/types/forms";
 import OpenTextQuestion from "./OpenTextQuestion";
 import MultipleChoiceSingleQuestion from "./MultipleChoiceSingleQuestion";
 import MultipleChoiceMultiQuestion from "./MultipleChoiceMultiQuestion";
@@ -7,7 +7,7 @@ import CTAQuestion from "./CTAQuestion";
 import RatingQuestion from "./RatingQuestion";
 
 interface QuestionConditionalProps {
-  question: TformQuestion;
+  question: TFormQuestion;
   onSubmit: (data: { [x: string]: any }) => void;
   lastQuestion: boolean;
   brandColor: string;
@@ -19,42 +19,42 @@ export default function QuestionConditional({
   lastQuestion,
   brandColor,
 }: QuestionConditionalProps) {
-  return question.type === TformQuestionType.OpenText ? (
+  return question.type === TFormQuestionType.OpenText ? (
     <OpenTextQuestion
       question={question}
       onSubmit={onSubmit}
       lastQuestion={lastQuestion}
       brandColor={brandColor}
     />
-  ) : question.type === TformQuestionType.MultipleChoiceSingle ? (
+  ) : question.type === TFormQuestionType.MultipleChoiceSingle ? (
     <MultipleChoiceSingleQuestion
       question={question}
       onSubmit={onSubmit}
       lastQuestion={lastQuestion}
       brandColor={brandColor}
     />
-  ) : question.type === TformQuestionType.MultipleChoiceMulti ? (
+  ) : question.type === TFormQuestionType.MultipleChoiceMulti ? (
     <MultipleChoiceMultiQuestion
       question={question}
       onSubmit={onSubmit}
       lastQuestion={lastQuestion}
       brandColor={brandColor}
     />
-  ) : question.type === TformQuestionType.NPS ? (
+  ) : question.type === TFormQuestionType.NPS ? (
     <NPSQuestion
       question={question}
       onSubmit={onSubmit}
       lastQuestion={lastQuestion}
       brandColor={brandColor}
     />
-  ) : question.type === TformQuestionType.CTA ? (
+  ) : question.type === TFormQuestionType.CTA ? (
     <CTAQuestion
       question={question}
       onSubmit={onSubmit}
       lastQuestion={lastQuestion}
       brandColor={brandColor}
     />
-  ) : question.type === TformQuestionType.Rating ? (
+  ) : question.type === TFormQuestionType.Rating ? (
     <RatingQuestion
       question={question}
       onSubmit={onSubmit}

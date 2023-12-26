@@ -1,6 +1,6 @@
 "use client";
 
-import LinkSingleUseFormModal from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/LinkSingleUsedformModal";
+import LinkSingleUseFormModal from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/LinkSingleUseFormModal";
 import { cn } from "@fastform/lib/cn";
 import { TProduct } from "@fastform/types/product";
 import { TProfile } from "@fastform/types/profile";

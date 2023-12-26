@@ -1,9 +1,9 @@
 import LogicEditor from "@/app/(app)/environments/[environmentId]/forms/[formId]/edit/components/LogicEditor";
-import { TForm, TformQuestion } from "@fastform/types/forms";
+import { TForm, TFormQuestion } from "@fastform/types/forms";
 import UpdateQuestionId from "./UpdateQuestionId";
 
 interface AdvancedSettingsProps {
-  question: TformQuestion;
+  question: TFormQuestion;
   questionIdx: number;
   localform: TForm;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;

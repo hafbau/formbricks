@@ -424,7 +424,7 @@ model Team {
   products    Product[]
   /// @zod.custom(imports.ZTeamBilling)
   /// [TeamBilling]
-  billing     Json         @default("{\"stripeCustomerId\": null, \"features\": {\"inAppform\": {\"status\": \"inactive\", \"unlimited\": false}, \"linkForm\": {\"status\": \"inactive\", \"unlimited\": false}, \"userTargeting\": {\"status\": \"inactive\", \"unlimited\": false}}}")
+  billing     Json         @default("{\"stripeCustomerId\": null, \"features\": {\"inAppForm\": {\"status\": \"inactive\", \"unlimited\": false}, \"linkForm\": {\"status\": \"inactive\", \"unlimited\": false}, \"userTargeting\": {\"status\": \"inactive\", \"unlimited\": false}}}")
   invites     Invite[]
 }
 

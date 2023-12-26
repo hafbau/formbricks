@@ -1,4 +1,4 @@
-import { TformClosedMessage } from "@fastform/types/forms";
+import { TFormClosedMessage } from "@fastform/types/forms";
 import { Button } from "@fastform/ui/Button";
 import { CheckCircleIcon, PauseCircleIcon, QuestionMarkCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
@@ -10,7 +10,7 @@ const FormInactive = ({
   formClosedMessage,
 }: {
   status: "paused" | "completed" | "link invalid";
-  formClosedMessage?: TformClosedMessage | null;
+  formClosedMessage?: TFormClosedMessage | null;
 }) => {
   const icons = {
     paused: <PauseCircleIcon className="h-20 w-20" />,

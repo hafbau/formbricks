@@ -1,11 +1,11 @@
 import { cn } from "@fastform/lib/cn";
-import { TformMultipleChoiceSingleQuestion } from "@fastform/types/forms";
+import { TFormMultipleChoiceSingleQuestion } from "@fastform/types/forms";
 import { useState } from "react";
 import Headline from "./Headline";
 import Subheader from "./Subheader";
 
 interface MultipleChoiceSingleProps {
-  question: TformMultipleChoiceSingleQuestion;
+  question: TFormMultipleChoiceSingleQuestion;
   onSubmit: (data: { [x: string]: any }) => void;
   lastQuestion: boolean;
   brandColor: string;

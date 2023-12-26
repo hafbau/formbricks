@@ -2,7 +2,7 @@
 
 import { useResponseFilter } from "@/app/(app)/environments/[environmentId]/components/ResponseFilterContext";
 import QuestionFilterComboBox from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/QuestionFilterComboBox";
-import { TformTformQuestionType } from "@fastform/types/forms";
+import { TFormTFormQuestionType } from "@fastform/types/forms";
 import { Popover, PopoverContent, PopoverTrigger } from "@fastform/ui/Popover";
 import { Button } from "@fastform/ui/Button";
 import { Checkbox } from "@fastform/ui/Checkbox";
@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import QuestionsComboBox, { OptionsType, QuestionOption } from "./QuestionsComboBox";
 
 export type QuestionFilterOptions = {
-  type: TformTformQuestionType | "Attributes" | "Tags";
+  type: TFormTFormQuestionType | "Attributes" | "Tags";
   filterOptions: string[];
   filterComboBoxOptions: string[];
   id: string;

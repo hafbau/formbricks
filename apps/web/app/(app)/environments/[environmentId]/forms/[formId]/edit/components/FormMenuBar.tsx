@@ -2,7 +2,7 @@
 
 import AlertDialog from "@fastform/ui/AlertDialog";
 import { DeleteDialog } from "@fastform/ui/DeleteDialog";
-import { TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TProduct } from "@fastform/types/product";
 import { TForm } from "@fastform/types/forms";
@@ -17,7 +17,7 @@ import { validateQuestion } from "./Validation";
 import { deleteformAction, updateformAction } from "../actions";
 import FormStatusDropdown from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/FormStatusDropdown";
 
-interface formMenuBarProps {
+interface FormMenuBarProps {
   localform: TForm;
   form: TForm;
   setLocalform: (form: TForm) => void;
@@ -39,7 +39,7 @@ export default function FormMenuBar({
   setInvalidQuestions,
   product,
   responseCount,
-}: formMenuBarProps) {
+}: FormMenuBarProps) {
   const router = useRouter();
   const [audiencePrompt, setAudiencePrompt] = useState(true);
   const [isDeleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -143,8 +143,8 @@ export default function FormMenuBar({
       existingQuestionIds.add(question.id);
 
       if (
-        question.type === TformQuestionType.MultipleChoiceSingle ||
-        question.type === TformQuestionType.MultipleChoiceMulti
+        question.type === TFormQuestionType.MultipleChoiceSingle ||
+        question.type === TFormQuestionType.MultipleChoiceMulti
       ) {
         const haveSameChoices =
           question.choices.some((element) => element.label.trim() === "") ||

@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@fastform/lib/cn";
-import { TForm, TformHiddenFields, TformQuestions } from "@fastform/types/forms";
+import { TForm, TFormHiddenFields, TFormQuestions } from "@fastform/types/forms";
 import { Input } from "@fastform/ui/Input";
 import { Label } from "@fastform/ui/Label";
 import { Switch } from "@fastform/ui/Switch";
@@ -34,7 +34,7 @@ const HiddenFieldsCard: FC<HiddenFieldsCardProps> = ({
     }
   };
 
-  const updateform = (data: TformHiddenFields) => {
+  const updateform = (data: TFormHiddenFields) => {
     setLocalform({
       ...localform,
       hiddenFields: {
@@ -152,7 +152,7 @@ export default HiddenFieldsCard;
 const validateHiddenField = (
   field: string,
   existingFields: string[],
-  existingQuestions: TformQuestions
+  existingQuestions: TFormQuestions
 ): string => {
   if (field.trim() === "") {
     return "Please enter a question";

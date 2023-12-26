@@ -5,12 +5,12 @@ import Headline from "@/components/general/Headline";
 import Subheader from "@/components/general/Subheader";
 import { cn } from "@/lib/utils";
 import { TResponseData } from "@fastform/types/responses";
-import type { TformNPSQuestion } from "@fastform/types/forms";
+import type { TFormNPSQuestion } from "@fastform/types/forms";
 import { useState } from "preact/hooks";
 import { TResponseTtc } from "@fastform/types/responses";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 interface NPSQuestionProps {
-  question: TformNPSQuestion;
+  question: TFormNPSQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;

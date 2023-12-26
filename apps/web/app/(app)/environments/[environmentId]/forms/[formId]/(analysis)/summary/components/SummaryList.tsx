@@ -2,24 +2,24 @@ import EmptyInAppforms from "@/app/(app)/environments/[environmentId]/forms/[for
 import ConsentSummary from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/ConsentSummary";
 import HiddenFieldsSummary from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/HiddenFieldsSummary";
 import EmptySpaceFiller from "@fastform/ui/EmptySpaceFiller";
-import { TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
 import type {
-  TformFileUploadQuestion,
-  TformPictureSelectionQuestion,
-  TformQuestionSummary,
+  TFormFileUploadQuestion,
+  TFormPictureSelectionQuestion,
+  TFormQuestionSummary,
 } from "@fastform/types/forms";
 import { TEnvironment } from "@fastform/types/environment";
 import { TResponse } from "@fastform/types/responses";
 import {
   TForm,
-  TformCTAQuestion,
-  TformConsentQuestion,
-  TformMultipleChoiceMultiQuestion,
-  TformMultipleChoiceSingleQuestion,
-  TformNPSQuestion,
-  TformOpenTextQuestion,
-  TformQuestion,
-  TformRatingQuestion,
+  TFormCTAQuestion,
+  TFormConsentQuestion,
+  TFormMultipleChoiceMultiQuestion,
+  TFormMultipleChoiceSingleQuestion,
+  TFormNPSQuestion,
+  TFormOpenTextQuestion,
+  TFormQuestion,
+  TFormRatingQuestion,
 } from "@fastform/types/forms";
 import CTASummary from "./CTASummary";
 import MultipleChoiceSummary from "./MultipleChoiceSummary";
@@ -37,7 +37,7 @@ interface SummaryListProps {
 }
 
 export default function SummaryList({ environment, form, responses, responsesPerPage }: SummaryListProps) {
-  const getSummaryData = (): TformQuestionSummary<TformQuestion>[] =>
+  const getSummaryData = (): TFormQuestionSummary<TFormQuestion>[] =>
     form.questions.map((question) => {
       const questionResponses = responses
         .filter((response) => question.id in response.data)
@@ -67,26 +67,26 @@ export default function SummaryList({ environment, form, responses, responsesPer
         ) : (
           <>
             {getSummaryData().map((questionSummary) => {
-              if (questionSummary.question.type === TformQuestionType.OpenText) {
+              if (questionSummary.question.type === TFormQuestionType.OpenText) {
                 return (
                   <OpenTextSummary
                     key={questionSummary.question.id}
-                    questionSummary={questionSummary as TformQuestionSummary<TformOpenTextQuestion>}
+                    questionSummary={questionSummary as TFormQuestionSummary<TFormOpenTextQuestion>}
                     environmentId={environment.id}
                     responsesPerPage={responsesPerPage}
                   />
                 );
               }
               if (
-                questionSummary.question.type === TformQuestionType.MultipleChoiceSingle ||
-                questionSummary.question.type === TformQuestionType.MultipleChoiceMulti
+                questionSummary.question.type === TFormQuestionType.MultipleChoiceSingle ||
+                questionSummary.question.type === TFormQuestionType.MultipleChoiceMulti
               ) {
                 return (
                   <MultipleChoiceSummary
                     key={questionSummary.question.id}
                     questionSummary={
-                      questionSummary as TformQuestionSummary<
-                        TformMultipleChoiceMultiQuestion | TformMultipleChoiceSingleQuestion
+                      questionSummary as TFormQuestionSummary<
+                        TFormMultipleChoiceMultiQuestion | TFormMultipleChoiceSingleQuestion
                       >
                     }
                     environmentId={environment.id}
@@ -95,53 +95,53 @@ export default function SummaryList({ environment, form, responses, responsesPer
                   />
                 );
               }
-              if (questionSummary.question.type === TformQuestionType.NPS) {
+              if (questionSummary.question.type === TFormQuestionType.NPS) {
                 return (
                   <NPSSummary
                     key={questionSummary.question.id}
-                    questionSummary={questionSummary as TformQuestionSummary<TformNPSQuestion>}
+                    questionSummary={questionSummary as TFormQuestionSummary<TFormNPSQuestion>}
                   />
                 );
               }
-              if (questionSummary.question.type === TformQuestionType.CTA) {
+              if (questionSummary.question.type === TFormQuestionType.CTA) {
                 return (
                   <CTASummary
                     key={questionSummary.question.id}
-                    questionSummary={questionSummary as TformQuestionSummary<TformCTAQuestion>}
+                    questionSummary={questionSummary as TFormQuestionSummary<TFormCTAQuestion>}
                   />
                 );
               }
-              if (questionSummary.question.type === TformQuestionType.Rating) {
+              if (questionSummary.question.type === TFormQuestionType.Rating) {
                 return (
                   <RatingSummary
                     key={questionSummary.question.id}
-                    questionSummary={questionSummary as TformQuestionSummary<TformRatingQuestion>}
+                    questionSummary={questionSummary as TFormQuestionSummary<TFormRatingQuestion>}
                   />
                 );
               }
-              if (questionSummary.question.type === TformQuestionType.Consent) {
+              if (questionSummary.question.type === TFormQuestionType.Consent) {
                 return (
                   <ConsentSummary
                     key={questionSummary.question.id}
-                    questionSummary={questionSummary as TformQuestionSummary<TformConsentQuestion>}
+                    questionSummary={questionSummary as TFormQuestionSummary<TFormConsentQuestion>}
                   />
                 );
               }
-              if (questionSummary.question.type === TformQuestionType.FileUpload) {
+              if (questionSummary.question.type === TFormQuestionType.FileUpload) {
                 return (
                   <FileUploadSummary
                     key={questionSummary.question.id}
-                    questionSummary={questionSummary as TformQuestionSummary<TformFileUploadQuestion>}
+                    questionSummary={questionSummary as TFormQuestionSummary<TFormFileUploadQuestion>}
                     environmentId={environment.id}
                   />
                 );
               }
-              if (questionSummary.question.type === TformQuestionType.PictureSelection) {
+              if (questionSummary.question.type === TFormQuestionType.PictureSelection) {
                 return (
                   <PictureChoiceSummary
                     key={questionSummary.question.id}
                     questionSummary={
-                      questionSummary as TformQuestionSummary<TformPictureSelectionQuestion>
+                      questionSummary as TFormQuestionSummary<TFormPictureSelectionQuestion>
                     }
                   />
                 );

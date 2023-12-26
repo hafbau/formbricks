@@ -1,4 +1,4 @@
-import { TformQuestionType as QuestionId } from "@fastform/types/forms";
+import { TFormQuestionType as QuestionId } from "@fastform/types/forms";
 import {
   ArrowUpTrayIcon,
   ChatBubbleBottomCenterTextIcon,
@@ -13,7 +13,7 @@ import {
 import { createId } from "@paralleldrive/cuid2";
 import { replaceQuestionPresetPlaceholders } from "./templates";
 
-export type TformQuestionType = {
+export type TFormQuestionType = {
   id: string;
   label: string;
   description: string;
@@ -21,7 +21,7 @@ export type TformQuestionType = {
   preset: any;
 };
 
-export const questionTypes: TformQuestionType[] = [
+export const questionTypes: TFormQuestionType[] = [
   {
     id: QuestionId.OpenText,
     label: "Free text",
@@ -154,7 +154,7 @@ export const getQuestionDefaults = (id: string, product: any) => {
   return replaceQuestionPresetPlaceholders(questionType?.preset, product);
 };
 
-export const getTformQuestionTypeName = (id: string) => {
+export const getTFormQuestionTypeName = (id: string) => {
   const questionType = questionTypes.find((questionType) => questionType.id === id);
   return questionType?.label;
 };

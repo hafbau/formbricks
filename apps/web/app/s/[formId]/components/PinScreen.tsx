@@ -2,7 +2,7 @@
 
 import { validateformPinAction } from "@/app/s/[formId]/actions";
 import LinkForm from "@/app/s/[formId]/components/LinkForm";
-import { TformPinValidationResponseError } from "@/app/s/[formId]/types";
+import { TFormPinValidationResponseError } from "@/app/s/[formId]/types";
 import { cn } from "@fastform/lib/cn";
 import { TProduct } from "@fastform/types/product";
 import { TResponse } from "@fastform/types/responses";
@@ -37,7 +37,7 @@ const LinkFormPinScreen: NextPage<LinkFormPinScreenProps> = (props) => {
   const [localPinEntry, setLocalPinEntry] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const [error, setError] = useState<TformPinValidationResponseError>();
+  const [error, setError] = useState<TFormPinValidationResponseError>();
   const [form, setform] = useState<TForm>();
 
   const _validateformPinAsync = useCallback(async (formId: string, pin: string) => {

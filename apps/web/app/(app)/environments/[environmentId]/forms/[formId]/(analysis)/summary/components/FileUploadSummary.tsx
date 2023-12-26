@@ -2,15 +2,15 @@ import Headline from "@/app/(app)/environments/[environmentId]/forms/[formId]/(a
 import { questionTypes } from "@/app/lib/questions";
 import { getPersonIdentifier } from "@fastform/lib/person/util";
 import { timeSince } from "@fastform/lib/time";
-import type { TformQuestionSummary } from "@fastform/types/forms";
-import { TformFileUploadQuestion } from "@fastform/types/forms";
+import type { TFormQuestionSummary } from "@fastform/types/forms";
+import { TFormFileUploadQuestion } from "@fastform/types/forms";
 import { PersonAvatar } from "@fastform/ui/Avatars";
 import { InboxStackIcon } from "@heroicons/react/24/solid";
 import { DownloadIcon, FileIcon } from "lucide-react";
 import Link from "next/link";
 
 interface FileUploadSummaryProps {
-  questionSummary: TformQuestionSummary<TformFileUploadQuestion>;
+  questionSummary: TFormQuestionSummary<TFormFileUploadQuestion>;
   environmentId: string;
 }
 

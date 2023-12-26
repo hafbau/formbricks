@@ -4,7 +4,7 @@ import { sendResponseFinishedEmail } from "@/app/lib/email";
 import { prisma } from "@fastform/database";
 import { INTERNAL_SECRET } from "@fastform/lib/constants";
 import { convertDatesInObject } from "@fastform/lib/time";
-import { TformQuestion } from "@fastform/types/forms";
+import { TFormQuestion } from "@fastform/types/forms";
 import { TUserNotificationSettings } from "@fastform/types/users";
 import { ZPipelineInput } from "@fastform/types/pipelines";
 import { headers } from "next/headers";
@@ -134,7 +134,7 @@ export async function POST(request: Request) {
       const form = {
         id: formData.id,
         name: formData.name,
-        questions: JSON.parse(JSON.stringify(formData.questions)) as TformQuestion[],
+        questions: JSON.parse(JSON.stringify(formData.questions)) as TFormQuestion[],
       };
       // send email to all users
       await Promise.all(

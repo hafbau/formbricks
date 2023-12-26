@@ -3,7 +3,7 @@
 import { useGetBillingInfo } from "@fastform/lib/team/hooks/useGetBillingInfo";
 import { TAllowedFileExtension, ZAllowedFileExtension } from "@fastform/types/common";
 import { TProduct } from "@fastform/types/product";
-import { TForm, TformFileUploadQuestion } from "@fastform/types/forms";
+import { TForm, TFormFileUploadQuestion } from "@fastform/types/forms";
 import { AdvancedOptionToggle } from "@fastform/ui/AdvancedOptionToggle";
 import { Button } from "@fastform/ui/Button";
 import { Input } from "@fastform/ui/Input";
@@ -15,7 +15,7 @@ import { toast } from "react-hot-toast";
 interface FileUploadFormProps {
   localform: TForm;
   product?: TProduct;
-  question: TformFileUploadQuestion;
+  question: TFormFileUploadQuestion;
   questionIdx: number;
   updateQuestion: (questionIdx: number, updatedAttributes: any) => void;
   lastQuestion: boolean;

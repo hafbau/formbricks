@@ -1,13 +1,13 @@
 import Headline from "@/app/(app)/environments/[environmentId]/forms/[formId]/(analysis)/summary/components/Headline";
 import { questionTypes } from "@/app/lib/questions";
-import type { TformPictureSelectionQuestion, TformQuestionSummary } from "@fastform/types/forms";
+import type { TFormPictureSelectionQuestion, TFormQuestionSummary } from "@fastform/types/forms";
 import { ProgressBar } from "@fastform/ui/ProgressBar";
 import { InboxStackIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { useMemo } from "react";
 
 interface PictureChoiceSummaryProps {
-  questionSummary: TformQuestionSummary<TformPictureSelectionQuestion>;
+  questionSummary: TFormQuestionSummary<TFormPictureSelectionQuestion>;
 }
 
 interface ChoiceResult {

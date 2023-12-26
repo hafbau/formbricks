@@ -1,9 +1,9 @@
-import { TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
 import { TResponseData } from "@fastform/types/responses";
-import { TForm, TformQuestion } from "@fastform/types/forms";
+import { TForm, TFormQuestion } from "@fastform/types/forms";
 
 export function getPrefillResponseData(
-  currentQuestion: TformQuestion,
+  currentQuestion: TFormQuestion,
   form: TForm,
   firstQuestionPrefill: string
 ): TResponseData | undefined {
@@ -19,7 +19,7 @@ export function getPrefillResponseData(
       const answerObj = { [firstQuestionId]: answer };
 
       if (
-        question.type === TformQuestionType.CTA &&
+        question.type === TFormQuestionType.CTA &&
         question.buttonExternal &&
         question.buttonUrl &&
         answer === "clicked"
@@ -35,14 +35,14 @@ export function getPrefillResponseData(
   // eslint-disable-next-line react-hooks/exhaustive-deps
 }
 
-export const checkValidity = (question: TformQuestion, answer: any): boolean => {
+export const checkValidity = (question: TFormQuestion, answer: any): boolean => {
   if (question.required && (!answer || answer === "")) return false;
   try {
     switch (question.type) {
-      case TformQuestionType.OpenText: {
+      case TFormQuestionType.OpenText: {
         return true;
       }
-      case TformQuestionType.MultipleChoiceSingle: {
+      case TFormQuestionType.MultipleChoiceSingle: {
         const hasOther = question.choices[question.choices.length - 1].id === "other";
         if (!hasOther) {
           if (!question.choices.find((choice) => choice.label === answer)) return false;
@@ -50,7 +50,7 @@ export const checkValidity = (question: TformQuestion, answer: any): boolean => 
         }
         return true;
       }
-      case TformQuestionType.MultipleChoiceMulti: {
+      case TFormQuestionType.MultipleChoiceMulti: {
         answer = answer.split(",");
         const hasOther = question.choices[question.choices.length - 1].id === "other";
         if (!hasOther) {
@@ -60,7 +60,7 @@ export const checkValidity = (question: TformQuestion, answer: any): boolean => 
         }
         return true;
       }
-      case TformQuestionType.NPS: {
+      case TFormQuestionType.NPS: {
         answer = answer.replace(/&/g, ";");
         const answerNumber = Number(JSON.parse(answer));
 
@@ -68,23 +68,23 @@ export const checkValidity = (question: TformQuestion, answer: any): boolean => 
         if (answerNumber < 0 || answerNumber > 10) return false;
         return true;
       }
-      case TformQuestionType.CTA: {
+      case TFormQuestionType.CTA: {
         if (question.required && answer === "dismissed") return false;
         if (answer !== "clicked" && answer !== "dismissed") return false;
         return true;
       }
-      case TformQuestionType.Consent: {
+      case TFormQuestionType.Consent: {
         if (question.required && answer === "dismissed") return false;
         if (answer !== "accepted" && answer !== "dismissed") return false;
         return true;
       }
-      case TformQuestionType.Rating: {
+      case TFormQuestionType.Rating: {
         answer = answer.replace(/&/g, ";");
         const answerNumber = Number(JSON.parse(answer));
         if (answerNumber < 1 || answerNumber > question.range) return false;
         return true;
       }
-      case TformQuestionType.PictureSelection: {
+      case TFormQuestionType.PictureSelection: {
         answer = answer.split(",");
         if (!answer.every((ans: string) => question.choices.find((choice) => choice.id === ans)))
           return false;
@@ -98,26 +98,26 @@ export const checkValidity = (question: TformQuestion, answer: any): boolean => 
   }
 };
 
-export const transformAnswer = (question: TformQuestion, answer: string): string | number | string[] => {
+export const transformAnswer = (question: TFormQuestion, answer: string): string | number | string[] => {
   switch (question.type) {
-    case TformQuestionType.OpenText:
-    case TformQuestionType.MultipleChoiceSingle:
-    case TformQuestionType.Consent:
-    case TformQuestionType.CTA: {
+    case TFormQuestionType.OpenText:
+    case TFormQuestionType.MultipleChoiceSingle:
+    case TFormQuestionType.Consent:
+    case TFormQuestionType.CTA: {
       return answer;
     }
 
-    case TformQuestionType.Rating:
-    case TformQuestionType.NPS: {
+    case TFormQuestionType.Rating:
+    case TFormQuestionType.NPS: {
       answer = answer.replace(/&/g, ";");
       return Number(JSON.parse(answer));
     }
 
-    case TformQuestionType.PictureSelection: {
+    case TFormQuestionType.PictureSelection: {
       return answer.split(",");
     }
 
-    case TformQuestionType.MultipleChoiceMulti: {
+    case TFormQuestionType.MultipleChoiceMulti: {
       let ansArr = answer.split(",");
       const hasOthers = question.choices[question.choices.length - 1].id === "other";
       if (!hasOthers) return ansArr;

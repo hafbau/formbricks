@@ -5,7 +5,7 @@ import { cn } from "@fastform/lib/cn";
 import type { TEnvironment } from "@fastform/types/environment";
 import type { TProduct } from "@fastform/types/product";
 import { TProfile } from "@fastform/types/profile";
-import { TformInput } from "@fastform/types/forms";
+import { TFormInput } from "@fastform/types/forms";
 import { TTemplate } from "@fastform/types/templates";
 import { Button } from "@fastform/ui/Button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@fastform/ui/Tooltip";
@@ -72,7 +72,7 @@ export default function TemplateList({
       ...activeTemplate.preset,
       type: formType,
       autoComplete,
-    } as TformInput;
+    } as TFormInput;
     const form = await createformAction(environmentId, augmentedTemplate);
     router.push(`/environments/${environmentId}/forms/${form.id}/edit`);
   };

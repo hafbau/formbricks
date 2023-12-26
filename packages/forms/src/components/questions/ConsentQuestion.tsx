@@ -4,12 +4,12 @@ import Headline from "@/components/general/Headline";
 import HtmlBody from "@/components/general/HtmlBody";
 import QuestionImage from "@/components/general/QuestionImage";
 import { TResponseData, TResponseTtc } from "@fastform/types/responses";
-import type { TformConsentQuestion } from "@fastform/types/forms";
+import type { TFormConsentQuestion } from "@fastform/types/forms";
 import { useState } from "preact/hooks";
 import { getUpdatedTtc, useTtc } from "@/lib/ttc";
 
 interface ConsentQuestionProps {
-  question: TformConsentQuestion;
+  question: TFormConsentQuestion;
   value: string | number | string[];
   onChange: (responseData: TResponseData) => void;
   onSubmit: (data: TResponseData, ttc: TResponseTtc) => void;

@@ -7,7 +7,7 @@ import {
   QuestionOptions,
 } from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/QuestionsComboBox";
 import { QuestionFilterOptions } from "@/app/(app)/environments/[environmentId]/forms/[formId]/components/ResponseFilter";
-import { TformQuestionType } from "@fastform/types/forms";
+import { TFormQuestionType } from "@fastform/types/forms";
 import { TResponse } from "@fastform/types/responses";
 import { TForm } from "@fastform/types/forms";
 import { TTag } from "@fastform/types/tags";
@@ -117,8 +117,8 @@ export const generateQuestionAndFilterOptions = (
   form.questions.forEach((q) => {
     if (Object.keys(conditionOptions).includes(q.type)) {
       if (
-        q.type === TformQuestionType.MultipleChoiceMulti ||
-        q.type === TformQuestionType.MultipleChoiceSingle
+        q.type === TFormQuestionType.MultipleChoiceMulti ||
+        q.type === TFormQuestionType.MultipleChoiceSingle
       ) {
         questionFilterOptions.push({
           type: q.type,
@@ -199,10 +199,10 @@ export const getFilterResponses = (
   selectedFilter.filter.forEach((filter) => {
     if (filter.questionType?.type === "Questions") {
       switch (filter.questionType?.questionType) {
-        case TformQuestionType.Consent:
+        case TFormQuestionType.Consent:
           toBeFilterResponses = toBeFilterResponses.filter((response) => {
             const questionID = response.questions.find(
-              (q) => q?.type === TformQuestionType.Consent && q?.id === filter?.questionType?.id
+              (q) => q?.type === TFormQuestionType.Consent && q?.id === filter?.questionType?.id
             )?.id;
             if (filter?.filterType?.filterComboBoxValue) {
               if (questionID) {
@@ -220,10 +220,10 @@ export const getFilterResponses = (
             return true;
           });
           break;
-        case TformQuestionType.OpenText:
+        case TFormQuestionType.OpenText:
           toBeFilterResponses = toBeFilterResponses.filter((response) => {
             const questionID = response.questions.find(
-              (q) => q?.type === TformQuestionType.OpenText && q?.id === filter?.questionType?.id
+              (q) => q?.type === TFormQuestionType.OpenText && q?.id === filter?.questionType?.id
             )?.id;
             if (filter?.filterType?.filterComboBoxValue) {
               if (questionID) {
@@ -241,10 +241,10 @@ export const getFilterResponses = (
             return true;
           });
           break;
-        case TformQuestionType.CTA:
+        case TFormQuestionType.CTA:
           toBeFilterResponses = toBeFilterResponses.filter((response) => {
             const questionID = response.questions.find(
-              (q) => q?.type === TformQuestionType.CTA && q?.id === filter?.questionType?.id
+              (q) => q?.type === TFormQuestionType.CTA && q?.id === filter?.questionType?.id
             )?.id;
             if (filter?.filterType?.filterComboBoxValue) {
               if (questionID) {
@@ -262,10 +262,10 @@ export const getFilterResponses = (
             return true;
           });
           break;
-        case TformQuestionType.MultipleChoiceMulti:
+        case TFormQuestionType.MultipleChoiceMulti:
           toBeFilterResponses = toBeFilterResponses.filter((response) => {
             const question = response.questions.find(
-              (q) => q?.type === TformQuestionType.MultipleChoiceMulti && q?.id === filter?.questionType?.id
+              (q) => q?.type === TFormQuestionType.MultipleChoiceMulti && q?.id === filter?.questionType?.id
             );
             if (filter?.filterType?.filterComboBoxValue) {
               if (question) {
@@ -291,11 +291,11 @@ export const getFilterResponses = (
             return true;
           });
           break;
-        case TformQuestionType.MultipleChoiceSingle:
+        case TFormQuestionType.MultipleChoiceSingle:
           toBeFilterResponses = toBeFilterResponses.filter((response) => {
             const questionID = response.questions.find(
               (q) =>
-                q?.type === TformQuestionType.MultipleChoiceSingle && q?.id === filter?.questionType?.id
+                q?.type === TFormQuestionType.MultipleChoiceSingle && q?.id === filter?.questionType?.id
             )?.id;
             if (filter?.filterType?.filterComboBoxValue) {
               if (questionID) {
@@ -316,10 +316,10 @@ export const getFilterResponses = (
             return true;
           });
           break;
-        case TformQuestionType.NPS:
+        case TFormQuestionType.NPS:
           toBeFilterResponses = toBeFilterResponses.filter((response) => {
             const questionID = response.questions.find(
-              (q) => q?.type === TformQuestionType.NPS && q?.id === filter?.questionType?.id
+              (q) => q?.type === TFormQuestionType.NPS && q?.id === filter?.questionType?.id
             )?.id;
             const responseValue = questionID ? response.data[questionID] : undefined;
             const filterValue =
@@ -349,10 +349,10 @@ export const getFilterResponses = (
             return true;
           });
           break;
-        case TformQuestionType.Rating:
+        case TFormQuestionType.Rating:
           toBeFilterResponses = toBeFilterResponses.filter((response) => {
             const questionID = response.questions.find(
-              (q) => q?.type === TformQuestionType.Rating && q?.id === filter?.questionType?.id
+              (q) => q?.type === TFormQuestionType.Rating && q?.id === filter?.questionType?.id
             )?.id;
             const responseValue = questionID ? response.data[questionID] : undefined;
             const filterValue =
