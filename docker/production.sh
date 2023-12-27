@@ -110,23 +110,28 @@ EOT
   if [[ $email_service == "yes" ]]; then
     echo "Please provide the following email service details: "
 
-    echo -n "Enter your SMTP configured Email ID: "
-    read mail_from
+    # echo -n "Enter your SMTP configured Email ID: "
+    # read mail_from
 
-    echo -n "Enter your SMTP Host URL: "
-    read smtp_host
+    # echo -n "Enter your SMTP Host URL: "
+    # read smtp_host
 
-    echo -n "Enter your SMTP Host Port: "
-    read smtp_port
+    # echo -n "Enter your SMTP Host Port: "
+    # read smtp_port
 
-    echo -n "Enter your SMTP username: "
-    read smtp_user
+    # echo -n "Enter your SMTP username: "
+    # read smtp_user
+    mail_from="weloveyou@getfastform.com"
+    smtp_host="smtp-relay.brevo.com"
+    smtp_port="587"
+    smtp_user="hafiz@leadevs.com"
+    smtp_secure_enabled=1
 
     echo -n "Enter your SMTP password: "
     read smtp_password
 
-    echo -n "Enable Secure SMTP (use SSL)? Enter 1 for yes and 0 for no: "
-    read smtp_secure_enabled
+    # echo -n "Enable Secure SMTP (use SSL)? Enter 1 for yes and 0 for no: "
+    # read smtp_secure_enabled
 
   else
     mail_from=""
@@ -137,12 +142,20 @@ EOT
     smtp_secure_enabled=0
   fi
 
+  echo -n "Enter your database url: "
+  read db_url
+
+  echo -n "Enter your database password: "
+  read db_password
+
   echo "📥 Downloading docker-compose.yml from Fastform GitHub repository..."
   curl -o docker-compose.yml https://raw.githubusercontent.com/hafbau/formbricks/main/docker/docker-compose.yml
 
   echo "🚙 Updating docker-compose.yml with your custom inputs..."
   sed -i "/WEBAPP_URL:/s|WEBAPP_URL:.*|WEBAPP_URL: \"https://$domain_name\"|" docker-compose.yml
   sed -i "/NEXTAUTH_URL:/s|NEXTAUTH_URL:.*|NEXTAUTH_URL: \"https://$domain_name\"|" docker-compose.yml
+  sed -i "/DATABASE_URL:/s|DATABASE_URL:.*|DATABASE_URL: \"$db_url\"|" docker-compose.yml
+  sed -i "/POSTGRES_PASSWORD:/s|POSTGRES_PASSWORD:.*|POSTGRES_PASSWORD: \"$db_password\"|" docker-compose.yml
 
   nextauth_secret=$(openssl rand -hex 32) && sed -i "/NEXTAUTH_SECRET:$/s/NEXTAUTH_SECRET:.*/NEXTAUTH_SECRET: $nextauth_secret/" docker-compose.yml
   echo "🚗 NEXTAUTH_SECRET updated successfully!"

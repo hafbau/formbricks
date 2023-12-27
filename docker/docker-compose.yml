@@ -75,7 +75,7 @@ services:
 
   fastform:
     restart: always
-    image: fastform/fastform:latest
+    image: leadevs/fastform:latest
     # depends_on:
     #   - postgres
     ports:
@@ -85,6 +85,6 @@ services:
     <<: *environment
 
 volumes:
-  postgres:
-    driver: local
+  # postgres:
+  #   driver: local
   uploads:
