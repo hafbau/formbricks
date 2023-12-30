@@ -7,7 +7,7 @@
     "dev": "next dev -p 3000",
     "go": "next dev -p 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p $PORT",
     "lint": "next lint"
   },
   "dependencies": {

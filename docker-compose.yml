@@ -71,13 +71,13 @@ x-next-public-sentry-dsn: &next_public_sentry_dsn # Cron Secret
 x-cron-secret: &cron_secret YOUR_CRON_SECRET
 
 services:
-  postgres:
-    restart: always
-    image: postgres:15-alpine
-    volumes:
-      - postgres:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_PASSWORD=postgres
+  # postgres:
+  #   restart: always
+  #   image: postgres:15-alpine
+  #   volumes:
+  #     - postgres:/var/lib/postgresql/data
+  #   environment:
+  #     - POSTGRES_PASSWORD=postgres
 
   fastform:
     restart: always
@@ -89,8 +89,8 @@ services:
         NEXTAUTH_SECRET: *nextauth_secret
         ENCRYPTION_KEY: *encryption_key
 
-    depends_on:
-      - postgres
+    # depends_on:
+    #   - postgres
     ports:
       - 3000:3000
 
