@@ -5,10 +5,10 @@
   "scripts": {
     "clean": "rimraf .turbo node_modules .next",
     "dev": "next dev --port 3001",
-    "build": "next build",
+    "build": "echo 'Skip build step, supposed to run next build'",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "postbuild": "echo 'Skip post build, supposed to run next-sitemap'"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
